@@ -1,0 +1,372 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Image component styles */
+
+/* Base image styles */
+.kat-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: $kat-radius-md;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  
+  /* Image variants */
+  &.kat-image--rounded {
+    border-radius: $kat-radius-full;
+  }
+  
+  &.kat-image--square {
+    border-radius: $kat-radius-none;
+  }
+  
+  &.kat-image--soft {
+    border-radius: $kat-radius-lg;
+  }
+  
+  /* Size variants */
+  &.kat-image--xs {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  &.kat-image--sm {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  &.kat-image--md {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  &.kat-image--lg {
+    width: 6rem;
+    height: 6rem;
+  }
+  
+  &.kat-image--xl {
+    width: 8rem;
+    height: 8rem;
+  }
+  
+  &.kat-image--2xl {
+    width: 12rem;
+    height: 12rem;
+  }
+  
+  /* Interactive states */
+  &.kat-image--interactive {
+    cursor: pointer;
+    
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+  
+  &.kat-image--zoomable {
+    cursor: zoom-in;
+    
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+/* Avatar image */
+.kat-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $kat-radius-full;
+  background-color: $kat-primary-100;
+  color: $kat-primary-700;
+  font-weight: $kat-font-weight-medium;
+  font-size: $kat-font-size-sm;
+  text-transform: uppercase;
+  overflow: hidden;
+  position: relative;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Avatar sizes */
+  &.kat-avatar--xs {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: $kat-font-size-xs;
+  }
+  
+  &.kat-avatar--sm {
+    width: 2rem;
+    height: 2rem;
+    font-size: $kat-font-size-xs;
+  }
+  
+  &.kat-avatar--lg {
+    width: 3rem;
+    height: 3rem;
+    font-size: $kat-font-size-base;
+  }
+  
+  &.kat-avatar--xl {
+    width: 4rem;
+    height: 4rem;
+    font-size: $kat-font-size-lg;
+  }
+  
+  &.kat-avatar--2xl {
+    width: 6rem;
+    height: 6rem;
+    font-size: $kat-font-size-xl;
+  }
+  
+  /* Avatar with status indicator */
+  &.kat-avatar--with-status {
+    position: relative;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 0.75rem;
+      height: 0.75rem;
+      border: 2px solid $kat-white;
+      border-radius: $kat-radius-full;
+      background-color: $kat-success-500;
+    }
+    
+    &.kat-avatar--status-away::after {
+      background-color: $kat-warning-500;
+    }
+    
+    &.kat-avatar--status-busy::after {
+      background-color: $kat-error-500;
+    }
+    
+    &.kat-avatar--status-offline::after {
+      background-color: $kat-primary-400;
+    }
+  }
+}
+
+/* Image placeholder */
+.kat-image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $kat-primary-100;
+  color: $kat-primary-500;
+  border: 2px dashed $kat-primary-300;
+  border-radius: $kat-radius-md;
+  min-height: 8rem;
+  font-size: $kat-font-size-sm;
+  text-align: center;
+  padding: $kat-space-4;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  
+  &:hover {
+    border-color: $kat-primary-400;
+    background-color: $kat-primary-150;
+  }
+  
+  svg {
+    width: 2rem;
+    height: 2rem;
+    margin-bottom: $kat-space-2;
+  }
+  
+  /* Size variants */
+  &.kat-image-placeholder--sm {
+    min-height: 4rem;
+    
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+  
+  &.kat-image-placeholder--lg {
+    min-height: 12rem;
+    
+    svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+}
+
+/* Figure with caption */
+.kat-figure {
+  margin: 0;
+  display: inline-block;
+  
+  .kat-figure__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: $kat-radius-md;
+  }
+  
+  .kat-figure__caption {
+    margin-top: $kat-space-2;
+    font-size: $kat-font-size-sm;
+    color: $kat-primary-600;
+    text-align: center;
+    line-height: $kat-line-height-relaxed;
+  }
+}
+
+/* Image gallery */
+.kat-image-gallery {
+  display: grid;
+  gap: $kat-space-4;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  
+  &.kat-image-gallery--2cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  &.kat-image-gallery--3cols {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  &.kat-image-gallery--4cols {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .kat-image-gallery__item {
+    position: relative;
+    overflow: hidden;
+    border-radius: $kat-radius-md;
+    cursor: pointer;
+    transition: transform $kat-duration-200 $kat-ease-apple;
+    
+    &:hover {
+      transform: scale(1.02);
+      
+      .kat-image-gallery__overlay {
+        opacity: 1;
+      }
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .kat-image-gallery__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity $kat-duration-200 $kat-ease-apple;
+    color: $kat-white;
+    font-size: $kat-font-size-sm;
+  }
+}
+
+/* Image crop utilities */
+.kat-image-crop {
+  position: relative;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Aspect ratios */
+  &.kat-image-crop--1-1 {
+    aspect-ratio: 1 / 1;
+  }
+  
+  &.kat-image-crop--4-3 {
+    aspect-ratio: 4 / 3;
+  }
+  
+  &.kat-image-crop--16-9 {
+    aspect-ratio: 16 / 9;
+  }
+  
+  &.kat-image-crop--3-4 {
+    aspect-ratio: 3 / 4;
+  }
+  
+  &.kat-image-crop--9-16 {
+    aspect-ratio: 9 / 16;
+  }
+}
+
+/* Responsive images */
+@include kat-screen-sm {
+  .kat-image-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $kat-space-2;
+    
+    &.kat-image-gallery--3cols,
+    &.kat-image-gallery--4cols {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .kat-avatar {
+    &.kat-avatar--xl {
+      width: 3rem;
+      height: 3rem;
+      font-size: $kat-font-size-base;
+    }
+    
+    &.kat-avatar--2xl {
+      width: 4rem;
+      height: 4rem;
+      font-size: $kat-font-size-lg;
+    }
+  }
+}
+
+/* Loading state */
+.kat-image--loading {
+  background: linear-gradient(90deg, $kat-primary-100 25%, $kat-primary-150 50%, $kat-primary-100 75%);
+  background-size: 200% 100%;
+  animation: kat-image-loading 1.5s infinite;
+}
+
+@keyframes kat-image-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Error state */
+.kat-image--error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $kat-error-50;
+  color: $kat-error-600;
+  border: 2px dashed $kat-error-300;
+  min-height: 8rem;
+  
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}

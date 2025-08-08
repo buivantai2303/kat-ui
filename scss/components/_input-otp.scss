@@ -1,0 +1,355 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Input OTP component styles */
+
+/* OTP input container */
+.kat-input-otp {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-2;
+  font-family: $kat-font-family-mono;
+  
+  &.kat-input-otp--disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+/* Individual OTP input field */
+.kat-input-otp__field {
+  width: 2.5rem;
+  height: 2.5rem;
+  text-align: center;
+  font-size: $kat-font-size-lg;
+  font-weight: $kat-font-weight-medium;
+  font-family: inherit;
+  border: $kat-border-2 solid $kat-primary-300;
+  border-radius: $kat-radius-md;
+  background-color: $kat-white;
+  color: $kat-primary-900;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  outline: none;
+  
+  @include kat-focus-ring;
+  
+  &:focus {
+    border-color: $kat-primary-900;
+    box-shadow: 0 0 0 4px $kat-primary-200;
+    background-color: $kat-primary-25;
+    transform: scale(1.02);
+    z-index: 1;
+  }
+  
+  &:disabled {
+    background-color: $kat-primary-50;
+    color: $kat-primary-400;
+    cursor: not-allowed;
+  }
+  
+  /* States */
+  &.kat-input-otp__field--filled {
+    border-color: $kat-primary-600;
+    background-color: $kat-primary-50;
+  }
+  
+  &.kat-input-otp__field--error {
+    border-color: $kat-error-500;
+    background-color: $kat-error-50;
+    
+    &:focus {
+      border-color: $kat-error-600;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+  }
+  
+  &.kat-input-otp__field--success {
+    border-color: $kat-success-500;
+    background-color: $kat-success-50;
+  }
+  
+  /* Animation for value changes */
+  &.kat-input-otp__field--animate {
+    animation: kat-otp-pulse 0.3s ease-in-out;
+  }
+}
+
+/* OTP group separator */
+.kat-input-otp__separator {
+  width: 0.75rem;
+  height: 2px;
+  background-color: $kat-primary-300;
+  border-radius: $kat-radius-full;
+  margin: 0 $kat-space-1;
+  
+  &.kat-input-otp__separator--dash {
+    width: 0.5rem;
+    height: 2px;
+    background-color: $kat-primary-400;
+  }
+  
+  &.kat-input-otp__separator--dot {
+    width: 4px;
+    height: 4px;
+    border-radius: $kat-radius-full;
+    background-color: $kat-primary-400;
+  }
+}
+
+/* OTP size variants */
+.kat-input-otp--sm {
+  gap: $kat-space-1-5;
+  
+  .kat-input-otp__field {
+    width: 2rem;
+    height: 2rem;
+    font-size: $kat-font-size-base;
+  }
+  
+  .kat-input-otp__separator {
+    width: 0.5rem;
+    margin: 0 $kat-space-0-5;
+  }
+}
+
+.kat-input-otp--lg {
+  gap: $kat-space-3;
+  
+  .kat-input-otp__field {
+    width: 3rem;
+    height: 3rem;
+    font-size: $kat-font-size-xl;
+  }
+  
+  .kat-input-otp__separator {
+    width: 1rem;
+    margin: 0 $kat-space-2;
+  }
+}
+
+/* OTP style variants */
+.kat-input-otp--outline {
+  .kat-input-otp__field {
+    background-color: transparent;
+    border-width: $kat-border-1;
+    
+    &:focus {
+      background-color: $kat-primary-50;
+    }
+    
+    &.kat-input-otp__field--filled {
+      background-color: transparent;
+      border-color: $kat-primary-600;
+    }
+  }
+}
+
+.kat-input-otp--filled {
+  .kat-input-otp__field {
+    border: none;
+    background-color: $kat-primary-100;
+    
+    &:focus {
+      background-color: $kat-primary-200;
+      box-shadow: 0 0 0 2px $kat-primary-600;
+    }
+    
+    &.kat-input-otp__field--filled {
+      background-color: $kat-primary-200;
+    }
+    
+    &.kat-input-otp__field--error {
+      background-color: $kat-error-100;
+      
+      &:focus {
+        box-shadow: 0 0 0 2px $kat-error-600;
+      }
+    }
+    
+    &.kat-input-otp__field--success {
+      background-color: $kat-success-100;
+    }
+  }
+}
+
+.kat-input-otp--underline {
+  .kat-input-otp__field {
+    border: none;
+    border-bottom: $kat-border-2 solid $kat-primary-300;
+    border-radius: 0;
+    background-color: transparent;
+    
+    &:focus {
+      border-bottom-color: $kat-primary-600;
+      box-shadow: none;
+    }
+    
+    &.kat-input-otp__field--filled {
+      border-bottom-color: $kat-primary-600;
+      background-color: transparent;
+    }
+    
+    &.kat-input-otp__field--error {
+      border-bottom-color: $kat-error-500;
+      background-color: transparent;
+    }
+    
+    &.kat-input-otp__field--success {
+      border-bottom-color: $kat-success-500;
+      background-color: transparent;
+    }
+  }
+}
+
+/* OTP container with label */
+.kat-input-otp-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $kat-space-2;
+}
+
+.kat-input-otp__label {
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-primary-700;
+  text-align: center;
+}
+
+.kat-input-otp__description {
+  font-size: $kat-font-size-xs;
+  color: $kat-primary-500;
+  text-align: center;
+  margin-top: $kat-space-1;
+}
+
+.kat-input-otp__error {
+  font-size: $kat-font-size-xs;
+  color: $kat-error-600;
+  text-align: center;
+  margin-top: $kat-space-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $kat-space-1;
+}
+
+.kat-input-otp__success {
+  font-size: $kat-font-size-xs;
+  color: $kat-success-600;
+  text-align: center;
+  margin-top: $kat-space-1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $kat-space-1;
+}
+
+/* Loading state */
+.kat-input-otp--loading {
+  .kat-input-otp__field {
+    position: relative;
+    
+    &.kat-input-otp__field--loading {
+      color: transparent;
+      
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 1rem;
+        height: 1rem;
+        border: 2px solid $kat-primary-200;
+        border-top-color: $kat-primary-600;
+        border-radius: $kat-radius-full;
+        animation: kat-spin 1s linear infinite;
+      }
+    }
+  }
+}
+
+/* Countdown timer */
+.kat-input-otp__timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $kat-space-2;
+  margin-top: $kat-space-3;
+  font-size: $kat-font-size-sm;
+  color: $kat-primary-600;
+}
+
+.kat-input-otp__resend {
+  @include kat-button-base;
+  padding: 0;
+  background: none;
+  border: none;
+  color: $kat-primary-600;
+  text-decoration: underline;
+  font-size: inherit;
+  
+  @include kat-hover {
+    color: $kat-primary-800;
+  }
+  
+  &:disabled {
+    color: $kat-primary-400;
+    cursor: not-allowed;
+    text-decoration: none;
+  }
+}
+
+/* Animations */
+@keyframes kat-otp-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes kat-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Auto-format variants (e.g., for phone numbers, credit cards) */
+.kat-input-otp--phone {
+  .kat-input-otp__field {
+    font-family: $kat-font-family-base;
+  }
+}
+
+.kat-input-otp--credit-card {
+  .kat-input-otp__field {
+    font-family: $kat-font-family-mono;
+    width: 3rem;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .kat-input-otp__field {
+    border-width: $kat-border-2;
+    
+    &:focus {
+      outline: 2px solid $kat-primary-900;
+      outline-offset: 2px;
+    }
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .kat-input-otp__field {
+    transition: none;
+  }
+  
+  .kat-input-otp__field--animate {
+    animation: none;
+  }
+}

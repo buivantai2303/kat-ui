@@ -1,0 +1,322 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Alert and notification component styles */
+
+/* Base alert styles */
+.kat-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: $kat-space-3;
+  padding: $kat-space-4;
+  border: $kat-border-1 solid;
+  border-radius: $kat-radius-md;
+  font-size: $kat-font-size-sm;
+  line-height: $kat-line-height-normal;
+  position: relative;
+  
+  /* Default/neutral alert */
+  background-color: $kat-gray-50;
+  border-color: $kat-gray-200;
+  color: $kat-gray-800;
+  
+  /* Alert variants */
+  &.kat-alert--success {
+    background-color: $kat-success-50;
+    border-color: $kat-success-200;
+    color: $kat-success-800;
+    
+    .kat-alert__icon {
+      color: $kat-success-600;
+    }
+  }
+  
+  &.kat-alert--warning {
+    background-color: $kat-warning-50;
+    border-color: $kat-warning-200;
+    color: $kat-warning-800;
+    
+    .kat-alert__icon {
+      color: $kat-warning-600;
+    }
+  }
+  
+  &.kat-alert--error {
+    background-color: $kat-error-50;
+    border-color: $kat-error-200;
+    color: $kat-error-800;
+    
+    .kat-alert__icon {
+      color: $kat-error-600;
+    }
+  }
+  
+  &.kat-alert--info {
+    background-color: $kat-info-50;
+    border-color: $kat-info-200;
+    color: $kat-info-800;
+    
+    .kat-alert__icon {
+      color: $kat-info-600;
+    }
+  }
+  
+  /* Solid variant */
+  &.kat-alert--solid {
+    border: none;
+    color: $kat-white;
+    
+    &.kat-alert--success {
+      background-color: $kat-success-600;
+    }
+    
+    &.kat-alert--warning {
+      background-color: $kat-warning-600;
+    }
+    
+    &.kat-alert--error {
+      background-color: $kat-error-600;
+    }
+    
+    &.kat-alert--info {
+      background-color: $kat-info-600;
+    }
+    
+    .kat-alert__icon {
+      color: $kat-white;
+    }
+  }
+  
+  /* Dismissible alerts */
+  &.kat-alert--dismissible {
+    padding-right: $kat-space-12;
+  }
+}
+
+.kat-alert__icon {
+  flex-shrink: 0;
+  margin-top: 0.125rem; /* Align with first line of text */
+}
+
+.kat-alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.kat-alert__title {
+  font-weight: $kat-font-weight-medium;
+  margin: 0 0 $kat-space-1 0;
+  
+  &:only-child {
+    margin-bottom: 0;
+  }
+}
+
+.kat-alert__description {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.kat-alert__close {
+  position: absolute;
+  top: $kat-space-3;
+  right: $kat-space-3;
+  background: none;
+  border: none;
+  padding: $kat-space-1;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+  border-radius: $kat-radius-sm;
+  transition: opacity $kat-duration-150 $kat-ease-in-out;
+  
+  @include kat-focus-ring;
+  
+  @include kat-hover {
+    opacity: 1;
+  }
+  
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+/* Alert group for stacking alerts */
+.kat-alert-group {
+  position: fixed;
+  top: $kat-space-4;
+  right: $kat-space-4;
+  z-index: $kat-z-tooltip;
+  display: flex;
+  flex-direction: column;
+  gap: $kat-space-3;
+  max-width: 24rem;
+  width: 100%;
+  pointer-events: none;
+  
+  @include kat-screen-sm {
+    width: auto;
+  }
+  
+  .kat-alert {
+    pointer-events: auto;
+    box-shadow: $kat-shadow-lg;
+    animation: kat-alert-in $kat-duration-300 $kat-ease-out;
+    
+    &.kat-alert--removing {
+      animation: kat-alert-out $kat-duration-200 $kat-ease-in;
+    }
+  }
+}
+
+/* Toast notifications */
+.kat-toast {
+  @extend .kat-alert;
+  min-width: 20rem;
+  max-width: 24rem;
+  box-shadow: $kat-shadow-lg;
+  border: $kat-border-1 solid $kat-gray-200;
+  
+  &.kat-toast--top-left {
+    animation: kat-toast-in-left $kat-duration-300 $kat-ease-out;
+  }
+  
+  &.kat-toast--top-right {
+    animation: kat-toast-in-right $kat-duration-300 $kat-ease-out;
+  }
+  
+  &.kat-toast--bottom-left {
+    animation: kat-toast-in-bottom-left $kat-duration-300 $kat-ease-out;
+  }
+  
+  &.kat-toast--bottom-right {
+    animation: kat-toast-in-bottom-right $kat-duration-300 $kat-ease-out;
+  }
+  
+  &.kat-toast--removing {
+    animation: kat-toast-out $kat-duration-200 $kat-ease-in;
+  }
+}
+
+/* Banner alerts */
+.kat-banner {
+  @extend .kat-alert;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  padding: $kat-space-3 $kat-container-padding;
+  justify-content: center;
+  text-align: center;
+  
+  @include kat-screen-sm {
+    text-align: left;
+    justify-content: flex-start;
+  }
+  
+  .kat-alert__content {
+    @include kat-screen-sm {
+      display: flex;
+      align-items: center;
+      gap: $kat-space-4;
+    }
+  }
+  
+  .kat-alert__title {
+    @include kat-screen-sm {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Inline alerts (for forms) */
+.kat-inline-alert {
+  @extend .kat-alert;
+  padding: $kat-space-2 $kat-space-3;
+  font-size: $kat-font-size-xs;
+  border-radius: $kat-radius-sm;
+  
+  .kat-alert__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .kat-alert__title {
+    margin-bottom: 0;
+  }
+}
+
+/* Alert animations */
+@keyframes kat-alert-in {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes kat-alert-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-1rem) scale(0.95);
+  }
+}
+
+@keyframes kat-toast-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes kat-toast-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes kat-toast-in-bottom-left {
+  from {
+    opacity: 0;
+    transform: translateX(-100%) translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes kat-toast-in-bottom-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%) translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes kat-toast-out {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px) scale(0.95);
+  }
+}

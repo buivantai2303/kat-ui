@@ -1,0 +1,327 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Spacing utility classes */
+
+/* Margin utilities */
+.kat-m--0 { margin: $kat-space-0; }
+.kat-m--px { margin: $kat-space-px; }
+.kat-m--0-5 { margin: $kat-space-0-5; }
+.kat-m--1 { margin: $kat-space-1; }
+.kat-m--1-5 { margin: $kat-space-1-5; }
+.kat-m--2 { margin: $kat-space-2; }
+.kat-m--2-5 { margin: $kat-space-2-5; }
+.kat-m--3 { margin: $kat-space-3; }
+.kat-m--3-5 { margin: $kat-space-3-5; }
+.kat-m--4 { margin: $kat-space-4; }
+.kat-m--5 { margin: $kat-space-5; }
+.kat-m--6 { margin: $kat-space-6; }
+.kat-m--7 { margin: $kat-space-7; }
+.kat-m--8 { margin: $kat-space-8; }
+.kat-m--9 { margin: $kat-space-9; }
+.kat-m--10 { margin: $kat-space-10; }
+.kat-m--11 { margin: $kat-space-11; }
+.kat-m--12 { margin: $kat-space-12; }
+.kat-m--14 { margin: $kat-space-14; }
+.kat-m--16 { margin: $kat-space-16; }
+.kat-m--20 { margin: $kat-space-20; }
+.kat-m--24 { margin: $kat-space-24; }
+.kat-m--28 { margin: $kat-space-28; }
+.kat-m--32 { margin: $kat-space-32; }
+
+/* Margin X-axis */
+.kat-mx--0 { margin-left: $kat-space-0; margin-right: $kat-space-0; }
+.kat-mx--px { margin-left: $kat-space-px; margin-right: $kat-space-px; }
+.kat-mx--0-5 { margin-left: $kat-space-0-5; margin-right: $kat-space-0-5; }
+.kat-mx--1 { margin-left: $kat-space-1; margin-right: $kat-space-1; }
+.kat-mx--1-5 { margin-left: $kat-space-1-5; margin-right: $kat-space-1-5; }
+.kat-mx--2 { margin-left: $kat-space-2; margin-right: $kat-space-2; }
+.kat-mx--2-5 { margin-left: $kat-space-2-5; margin-right: $kat-space-2-5; }
+.kat-mx--3 { margin-left: $kat-space-3; margin-right: $kat-space-3; }
+.kat-mx--3-5 { margin-left: $kat-space-3-5; margin-right: $kat-space-3-5; }
+.kat-mx--4 { margin-left: $kat-space-4; margin-right: $kat-space-4; }
+.kat-mx--5 { margin-left: $kat-space-5; margin-right: $kat-space-5; }
+.kat-mx--6 { margin-left: $kat-space-6; margin-right: $kat-space-6; }
+.kat-mx--8 { margin-left: $kat-space-8; margin-right: $kat-space-8; }
+.kat-mx--10 { margin-left: $kat-space-10; margin-right: $kat-space-10; }
+.kat-mx--12 { margin-left: $kat-space-12; margin-right: $kat-space-12; }
+.kat-mx--16 { margin-left: $kat-space-16; margin-right: $kat-space-16; }
+.kat-mx--20 { margin-left: $kat-space-20; margin-right: $kat-space-20; }
+.kat-mx--24 { margin-left: $kat-space-24; margin-right: $kat-space-24; }
+.kat-mx--32 { margin-left: $kat-space-32; margin-right: $kat-space-32; }
+.kat-mx--auto { margin-left: auto; margin-right: auto; }
+
+/* Margin Y-axis */
+.kat-my--0 { margin-top: $kat-space-0; margin-bottom: $kat-space-0; }
+.kat-my--px { margin-top: $kat-space-px; margin-bottom: $kat-space-px; }
+.kat-my--0-5 { margin-top: $kat-space-0-5; margin-bottom: $kat-space-0-5; }
+.kat-my--1 { margin-top: $kat-space-1; margin-bottom: $kat-space-1; }
+.kat-my--1-5 { margin-top: $kat-space-1-5; margin-bottom: $kat-space-1-5; }
+.kat-my--2 { margin-top: $kat-space-2; margin-bottom: $kat-space-2; }
+.kat-my--2-5 { margin-top: $kat-space-2-5; margin-bottom: $kat-space-2-5; }
+.kat-my--3 { margin-top: $kat-space-3; margin-bottom: $kat-space-3; }
+.kat-my--3-5 { margin-top: $kat-space-3-5; margin-bottom: $kat-space-3-5; }
+.kat-my--4 { margin-top: $kat-space-4; margin-bottom: $kat-space-4; }
+.kat-my--5 { margin-top: $kat-space-5; margin-bottom: $kat-space-5; }
+.kat-my--6 { margin-top: $kat-space-6; margin-bottom: $kat-space-6; }
+.kat-my--8 { margin-top: $kat-space-8; margin-bottom: $kat-space-8; }
+.kat-my--10 { margin-top: $kat-space-10; margin-bottom: $kat-space-10; }
+.kat-my--12 { margin-top: $kat-space-12; margin-bottom: $kat-space-12; }
+.kat-my--16 { margin-top: $kat-space-16; margin-bottom: $kat-space-16; }
+.kat-my--20 { margin-top: $kat-space-20; margin-bottom: $kat-space-20; }
+.kat-my--24 { margin-top: $kat-space-24; margin-bottom: $kat-space-24; }
+.kat-my--32 { margin-top: $kat-space-32; margin-bottom: $kat-space-32; }
+
+/* Margin top */
+.kat-mt--0 { margin-top: $kat-space-0; }
+.kat-mt--px { margin-top: $kat-space-px; }
+.kat-mt--0-5 { margin-top: $kat-space-0-5; }
+.kat-mt--1 { margin-top: $kat-space-1; }
+.kat-mt--1-5 { margin-top: $kat-space-1-5; }
+.kat-mt--2 { margin-top: $kat-space-2; }
+.kat-mt--2-5 { margin-top: $kat-space-2-5; }
+.kat-mt--3 { margin-top: $kat-space-3; }
+.kat-mt--3-5 { margin-top: $kat-space-3-5; }
+.kat-mt--4 { margin-top: $kat-space-4; }
+.kat-mt--5 { margin-top: $kat-space-5; }
+.kat-mt--6 { margin-top: $kat-space-6; }
+.kat-mt--7 { margin-top: $kat-space-7; }
+.kat-mt--8 { margin-top: $kat-space-8; }
+.kat-mt--9 { margin-top: $kat-space-9; }
+.kat-mt--10 { margin-top: $kat-space-10; }
+.kat-mt--11 { margin-top: $kat-space-11; }
+.kat-mt--12 { margin-top: $kat-space-12; }
+.kat-mt--14 { margin-top: $kat-space-14; }
+.kat-mt--16 { margin-top: $kat-space-16; }
+.kat-mt--20 { margin-top: $kat-space-20; }
+.kat-mt--24 { margin-top: $kat-space-24; }
+.kat-mt--28 { margin-top: $kat-space-28; }
+.kat-mt--32 { margin-top: $kat-space-32; }
+.kat-mt--auto { margin-top: auto; }
+
+/* Margin right */
+.kat-mr--0 { margin-right: $kat-space-0; }
+.kat-mr--px { margin-right: $kat-space-px; }
+.kat-mr--0-5 { margin-right: $kat-space-0-5; }
+.kat-mr--1 { margin-right: $kat-space-1; }
+.kat-mr--1-5 { margin-right: $kat-space-1-5; }
+.kat-mr--2 { margin-right: $kat-space-2; }
+.kat-mr--2-5 { margin-right: $kat-space-2-5; }
+.kat-mr--3 { margin-right: $kat-space-3; }
+.kat-mr--3-5 { margin-right: $kat-space-3-5; }
+.kat-mr--4 { margin-right: $kat-space-4; }
+.kat-mr--5 { margin-right: $kat-space-5; }
+.kat-mr--6 { margin-right: $kat-space-6; }
+.kat-mr--7 { margin-right: $kat-space-7; }
+.kat-mr--8 { margin-right: $kat-space-8; }
+.kat-mr--9 { margin-right: $kat-space-9; }
+.kat-mr--10 { margin-right: $kat-space-10; }
+.kat-mr--11 { margin-right: $kat-space-11; }
+.kat-mr--12 { margin-right: $kat-space-12; }
+.kat-mr--14 { margin-right: $kat-space-14; }
+.kat-mr--16 { margin-right: $kat-space-16; }
+.kat-mr--20 { margin-right: $kat-space-20; }
+.kat-mr--24 { margin-right: $kat-space-24; }
+.kat-mr--28 { margin-right: $kat-space-28; }
+.kat-mr--32 { margin-right: $kat-space-32; }
+.kat-mr--auto { margin-right: auto; }
+
+/* Margin bottom */
+.kat-mb--0 { margin-bottom: $kat-space-0; }
+.kat-mb--px { margin-bottom: $kat-space-px; }
+.kat-mb--0-5 { margin-bottom: $kat-space-0-5; }
+.kat-mb--1 { margin-bottom: $kat-space-1; }
+.kat-mb--1-5 { margin-bottom: $kat-space-1-5; }
+.kat-mb--2 { margin-bottom: $kat-space-2; }
+.kat-mb--2-5 { margin-bottom: $kat-space-2-5; }
+.kat-mb--3 { margin-bottom: $kat-space-3; }
+.kat-mb--3-5 { margin-bottom: $kat-space-3-5; }
+.kat-mb--4 { margin-bottom: $kat-space-4; }
+.kat-mb--5 { margin-bottom: $kat-space-5; }
+.kat-mb--6 { margin-bottom: $kat-space-6; }
+.kat-mb--7 { margin-bottom: $kat-space-7; }
+.kat-mb--8 { margin-bottom: $kat-space-8; }
+.kat-mb--9 { margin-bottom: $kat-space-9; }
+.kat-mb--10 { margin-bottom: $kat-space-10; }
+.kat-mb--11 { margin-bottom: $kat-space-11; }
+.kat-mb--12 { margin-bottom: $kat-space-12; }
+.kat-mb--14 { margin-bottom: $kat-space-14; }
+.kat-mb--16 { margin-bottom: $kat-space-16; }
+.kat-mb--20 { margin-bottom: $kat-space-20; }
+.kat-mb--24 { margin-bottom: $kat-space-24; }
+.kat-mb--28 { margin-bottom: $kat-space-28; }
+.kat-mb--32 { margin-bottom: $kat-space-32; }
+.kat-mb--auto { margin-bottom: auto; }
+
+/* Margin left */
+.kat-ml--0 { margin-left: $kat-space-0; }
+.kat-ml--px { margin-left: $kat-space-px; }
+.kat-ml--0-5 { margin-left: $kat-space-0-5; }
+.kat-ml--1 { margin-left: $kat-space-1; }
+.kat-ml--1-5 { margin-left: $kat-space-1-5; }
+.kat-ml--2 { margin-left: $kat-space-2; }
+.kat-ml--2-5 { margin-left: $kat-space-2-5; }
+.kat-ml--3 { margin-left: $kat-space-3; }
+.kat-ml--3-5 { margin-left: $kat-space-3-5; }
+.kat-ml--4 { margin-left: $kat-space-4; }
+.kat-ml--5 { margin-left: $kat-space-5; }
+.kat-ml--6 { margin-left: $kat-space-6; }
+.kat-ml--7 { margin-left: $kat-space-7; }
+.kat-ml--8 { margin-left: $kat-space-8; }
+.kat-ml--9 { margin-left: $kat-space-9; }
+.kat-ml--10 { margin-left: $kat-space-10; }
+.kat-ml--11 { margin-left: $kat-space-11; }
+.kat-ml--12 { margin-left: $kat-space-12; }
+.kat-ml--14 { margin-left: $kat-space-14; }
+.kat-ml--16 { margin-left: $kat-space-16; }
+.kat-ml--20 { margin-left: $kat-space-20; }
+.kat-ml--24 { margin-left: $kat-space-24; }
+.kat-ml--28 { margin-left: $kat-space-28; }
+.kat-ml--32 { margin-left: $kat-space-32; }
+.kat-ml--auto { margin-left: auto; }
+
+/* Padding utilities */
+.kat-p--0 { padding: $kat-space-0; }
+.kat-p--px { padding: $kat-space-px; }
+.kat-p--0-5 { padding: $kat-space-0-5; }
+.kat-p--1 { padding: $kat-space-1; }
+.kat-p--1-5 { padding: $kat-space-1-5; }
+.kat-p--2 { padding: $kat-space-2; }
+.kat-p--2-5 { padding: $kat-space-2-5; }
+.kat-p--3 { padding: $kat-space-3; }
+.kat-p--3-5 { padding: $kat-space-3-5; }
+.kat-p--4 { padding: $kat-space-4; }
+.kat-p--5 { padding: $kat-space-5; }
+.kat-p--6 { padding: $kat-space-6; }
+.kat-p--7 { padding: $kat-space-7; }
+.kat-p--8 { padding: $kat-space-8; }
+.kat-p--9 { padding: $kat-space-9; }
+.kat-p--10 { padding: $kat-space-10; }
+.kat-p--11 { padding: $kat-space-11; }
+.kat-p--12 { padding: $kat-space-12; }
+.kat-p--14 { padding: $kat-space-14; }
+.kat-p--16 { padding: $kat-space-16; }
+.kat-p--20 { padding: $kat-space-20; }
+.kat-p--24 { padding: $kat-space-24; }
+.kat-p--28 { padding: $kat-space-28; }
+.kat-p--32 { padding: $kat-space-32; }
+
+/* Padding X-axis */
+.kat-px--0 { padding-left: $kat-space-0; padding-right: $kat-space-0; }
+.kat-px--px { padding-left: $kat-space-px; padding-right: $kat-space-px; }
+.kat-px--0-5 { padding-left: $kat-space-0-5; padding-right: $kat-space-0-5; }
+.kat-px--1 { padding-left: $kat-space-1; padding-right: $kat-space-1; }
+.kat-px--1-5 { padding-left: $kat-space-1-5; padding-right: $kat-space-1-5; }
+.kat-px--2 { padding-left: $kat-space-2; padding-right: $kat-space-2; }
+.kat-px--2-5 { padding-left: $kat-space-2-5; padding-right: $kat-space-2-5; }
+.kat-px--3 { padding-left: $kat-space-3; padding-right: $kat-space-3; }
+.kat-px--3-5 { padding-left: $kat-space-3-5; padding-right: $kat-space-3-5; }
+.kat-px--4 { padding-left: $kat-space-4; padding-right: $kat-space-4; }
+.kat-px--5 { padding-left: $kat-space-5; padding-right: $kat-space-5; }
+.kat-px--6 { padding-left: $kat-space-6; padding-right: $kat-space-6; }
+.kat-px--8 { padding-left: $kat-space-8; padding-right: $kat-space-8; }
+.kat-px--10 { padding-left: $kat-space-10; padding-right: $kat-space-10; }
+.kat-px--12 { padding-left: $kat-space-12; padding-right: $kat-space-12; }
+.kat-px--16 { padding-left: $kat-space-16; padding-right: $kat-space-16; }
+.kat-px--20 { padding-left: $kat-space-20; padding-right: $kat-space-20; }
+.kat-px--24 { padding-left: $kat-space-24; padding-right: $kat-space-24; }
+.kat-px--32 { padding-left: $kat-space-32; padding-right: $kat-space-32; }
+
+/* Padding Y-axis */
+.kat-py--0 { padding-top: $kat-space-0; padding-bottom: $kat-space-0; }
+.kat-py--px { padding-top: $kat-space-px; padding-bottom: $kat-space-px; }
+.kat-py--0-5 { padding-top: $kat-space-0-5; padding-bottom: $kat-space-0-5; }
+.kat-py--1 { padding-top: $kat-space-1; padding-bottom: $kat-space-1; }
+.kat-py--1-5 { padding-top: $kat-space-1-5; padding-bottom: $kat-space-1-5; }
+.kat-py--2 { padding-top: $kat-space-2; padding-bottom: $kat-space-2; }
+.kat-py--2-5 { padding-top: $kat-space-2-5; padding-bottom: $kat-space-2-5; }
+.kat-py--3 { padding-top: $kat-space-3; padding-bottom: $kat-space-3; }
+.kat-py--3-5 { padding-top: $kat-space-3-5; padding-bottom: $kat-space-3-5; }
+.kat-py--4 { padding-top: $kat-space-4; padding-bottom: $kat-space-4; }
+.kat-py--5 { padding-top: $kat-space-5; padding-bottom: $kat-space-5; }
+.kat-py--6 { padding-top: $kat-space-6; padding-bottom: $kat-space-6; }
+.kat-py--8 { padding-top: $kat-space-8; padding-bottom: $kat-space-8; }
+.kat-py--10 { padding-top: $kat-space-10; padding-bottom: $kat-space-10; }
+.kat-py--12 { padding-top: $kat-space-12; padding-bottom: $kat-space-12; }
+.kat-py--16 { padding-top: $kat-space-16; padding-bottom: $kat-space-16; }
+.kat-py--20 { padding-top: $kat-space-20; padding-bottom: $kat-space-20; }
+.kat-py--24 { padding-top: $kat-space-24; padding-bottom: $kat-space-24; }
+.kat-py--32 { padding-top: $kat-space-32; padding-bottom: $kat-space-32; }
+
+/* Individual padding directions */
+.kat-pt--0 { padding-top: $kat-space-0; }
+.kat-pt--1 { padding-top: $kat-space-1; }
+.kat-pt--2 { padding-top: $kat-space-2; }
+.kat-pt--3 { padding-top: $kat-space-3; }
+.kat-pt--4 { padding-top: $kat-space-4; }
+.kat-pt--5 { padding-top: $kat-space-5; }
+.kat-pt--6 { padding-top: $kat-space-6; }
+.kat-pt--8 { padding-top: $kat-space-8; }
+.kat-pt--10 { padding-top: $kat-space-10; }
+.kat-pt--12 { padding-top: $kat-space-12; }
+.kat-pt--16 { padding-top: $kat-space-16; }
+.kat-pt--20 { padding-top: $kat-space-20; }
+.kat-pt--24 { padding-top: $kat-space-24; }
+.kat-pt--32 { padding-top: $kat-space-32; }
+
+.kat-pr--0 { padding-right: $kat-space-0; }
+.kat-pr--1 { padding-right: $kat-space-1; }
+.kat-pr--2 { padding-right: $kat-space-2; }
+.kat-pr--3 { padding-right: $kat-space-3; }
+.kat-pr--4 { padding-right: $kat-space-4; }
+.kat-pr--5 { padding-right: $kat-space-5; }
+.kat-pr--6 { padding-right: $kat-space-6; }
+.kat-pr--8 { padding-right: $kat-space-8; }
+.kat-pr--10 { padding-right: $kat-space-10; }
+.kat-pr--12 { padding-right: $kat-space-12; }
+.kat-pr--16 { padding-right: $kat-space-16; }
+.kat-pr--20 { padding-right: $kat-space-20; }
+.kat-pr--24 { padding-right: $kat-space-24; }
+.kat-pr--32 { padding-right: $kat-space-32; }
+
+.kat-pb--0 { padding-bottom: $kat-space-0; }
+.kat-pb--1 { padding-bottom: $kat-space-1; }
+.kat-pb--2 { padding-bottom: $kat-space-2; }
+.kat-pb--3 { padding-bottom: $kat-space-3; }
+.kat-pb--4 { padding-bottom: $kat-space-4; }
+.kat-pb--5 { padding-bottom: $kat-space-5; }
+.kat-pb--6 { padding-bottom: $kat-space-6; }
+.kat-pb--8 { padding-bottom: $kat-space-8; }
+.kat-pb--10 { padding-bottom: $kat-space-10; }
+.kat-pb--12 { padding-bottom: $kat-space-12; }
+.kat-pb--16 { padding-bottom: $kat-space-16; }
+.kat-pb--20 { padding-bottom: $kat-space-20; }
+.kat-pb--24 { padding-bottom: $kat-space-24; }
+.kat-pb--32 { padding-bottom: $kat-space-32; }
+
+.kat-pl--0 { padding-left: $kat-space-0; }
+.kat-pl--1 { padding-left: $kat-space-1; }
+.kat-pl--2 { padding-left: $kat-space-2; }
+.kat-pl--3 { padding-left: $kat-space-3; }
+.kat-pl--4 { padding-left: $kat-space-4; }
+.kat-pl--5 { padding-left: $kat-space-5; }
+.kat-pl--6 { padding-left: $kat-space-6; }
+.kat-pl--8 { padding-left: $kat-space-8; }
+.kat-pl--10 { padding-left: $kat-space-10; }
+.kat-pl--12 { padding-left: $kat-space-12; }
+.kat-pl--16 { padding-left: $kat-space-16; }
+.kat-pl--20 { padding-left: $kat-space-20; }
+.kat-pl--24 { padding-left: $kat-space-24; }
+.kat-pl--32 { padding-left: $kat-space-32; }
+
+/* Space between utilities (for flexbox and grid gaps) */
+.kat-space-x--0 > * + * { margin-left: $kat-space-0; }
+.kat-space-x--1 > * + * { margin-left: $kat-space-1; }
+.kat-space-x--2 > * + * { margin-left: $kat-space-2; }
+.kat-space-x--3 > * + * { margin-left: $kat-space-3; }
+.kat-space-x--4 > * + * { margin-left: $kat-space-4; }
+.kat-space-x--5 > * + * { margin-left: $kat-space-5; }
+.kat-space-x--6 > * + * { margin-left: $kat-space-6; }
+.kat-space-x--8 > * + * { margin-left: $kat-space-8; }
+
+.kat-space-y--0 > * + * { margin-top: $kat-space-0; }
+.kat-space-y--1 > * + * { margin-top: $kat-space-1; }
+.kat-space-y--2 > * + * { margin-top: $kat-space-2; }
+.kat-space-y--3 > * + * { margin-top: $kat-space-3; }
+.kat-space-y--4 > * + * { margin-top: $kat-space-4; }
+.kat-space-y--5 > * + * { margin-top: $kat-space-5; }
+.kat-space-y--6 > * + * { margin-top: $kat-space-6; }
+.kat-space-y--8 > * + * { margin-top: $kat-space-8; }

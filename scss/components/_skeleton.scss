@@ -1,0 +1,186 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Skeleton loading component styles */
+
+/* Base skeleton styles */
+.kat-skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: $kat-primary-100;
+  border-radius: $kat-radius-md;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent
+    );
+    animation: kat-skeleton-shimmer 1.5s infinite;
+  }
+  
+  /* Skeleton variants */
+  &.kat-skeleton--text {
+    height: 1rem;
+    width: 100%;
+  }
+  
+  &.kat-skeleton--heading {
+    height: 1.5rem;
+    width: 75%;
+  }
+  
+  &.kat-skeleton--avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: $kat-radius-full;
+    
+    &.kat-skeleton--avatar-sm {
+      width: 2rem;
+      height: 2rem;
+    }
+    
+    &.kat-skeleton--avatar-lg {
+      width: 3rem;
+      height: 3rem;
+    }
+    
+    &.kat-skeleton--avatar-xl {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+  
+  &.kat-skeleton--button {
+    height: 2.5rem;
+    width: 6rem;
+  }
+  
+  &.kat-skeleton--card {
+    height: 12rem;
+    width: 100%;
+  }
+  
+  &.kat-skeleton--line {
+    height: 0.75rem;
+    width: 100%;
+    
+    &:nth-child(2) {
+      width: 85%;
+    }
+    
+    &:nth-child(3) {
+      width: 60%;
+    }
+  }
+  
+  &.kat-skeleton--circle {
+    border-radius: $kat-radius-full;
+  }
+  
+  &.kat-skeleton--rounded {
+    border-radius: $kat-radius-lg;
+  }
+  
+  &.kat-skeleton--none {
+    border-radius: $kat-radius-none;
+  }
+}
+
+/* Skeleton groups */
+.kat-skeleton-group {
+  display: flex;
+  flex-direction: column;
+  gap: $kat-space-3;
+  
+  &.kat-skeleton-group--horizontal {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* Pulse animation variant */
+.kat-skeleton--pulse {
+  &::after {
+    animation: kat-skeleton-pulse 2s ease-in-out infinite;
+  }
+}
+
+/* Animation keyframes */
+@keyframes kat-skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes kat-skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Complex skeleton layouts */
+.kat-skeleton-card {
+  padding: $kat-space-4;
+  border: $kat-border-1 solid $kat-primary-200;
+  border-radius: $kat-radius-lg;
+  
+  .kat-skeleton-card__header {
+    display: flex;
+    align-items: center;
+    gap: $kat-space-3;
+    margin-bottom: $kat-space-4;
+  }
+  
+  .kat-skeleton-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: $kat-space-2;
+  }
+  
+  .kat-skeleton-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: $kat-space-4;
+  }
+}
+
+.kat-skeleton-list {
+  display: flex;
+  flex-direction: column;
+  gap: $kat-space-4;
+}
+
+.kat-skeleton-list-item {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-3;
+}
+
+/* Dark mode skeleton */
+@media (prefers-color-scheme: dark) {
+  .kat-skeleton {
+    background-color: $kat-primary-800;
+    
+    &::after {
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+      );
+    }
+  }
+}

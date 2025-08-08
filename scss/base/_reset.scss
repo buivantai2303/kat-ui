@@ -1,0 +1,132 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, CSS reset and normalize styles */
+
+/* Modern CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  font-family: $kat-font-family-base;
+  font-size: $kat-font-size-base;
+  font-weight: $kat-font-weight-normal;
+  line-height: $kat-line-height-normal;
+  color: $kat-gray-900;
+  background-color: $kat-gray-50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default button styles */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Remove default input styles */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default link styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Remove default table styles */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Remove default form styles */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/* Remove default summary styles */
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+/* Remove default media styles */
+img,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+/* Remove default svg styles */
+svg {
+  display: block;
+  vertical-align: middle;
+}
+
+/* Focus styles */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid $kat-primary-500;
+  outline-offset: 2px;
+}
+
+/* Hidden attribute */
+[hidden] {
+  display: none !important;
+}
+
+/* Disabled elements */
+[disabled] {
+  cursor: not-allowed;
+}
+
+/* Screen reader only class */
+.kat-sr-only {
+  @include kat-sr-only;
+}

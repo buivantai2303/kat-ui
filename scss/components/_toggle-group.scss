@@ -1,0 +1,369 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Toggle Group component styles */
+
+/* Toggle group container */
+.kat-toggle-group {
+  display: inline-flex;
+  background-color: $kat-primary-100;
+  border-radius: $kat-radius-lg;
+  padding: $kat-space-1;
+  gap: $kat-space-1;
+  
+  &.kat-toggle-group--vertical {
+    flex-direction: column;
+  }
+  
+  &.kat-toggle-group--full {
+    width: 100%;
+    
+    .kat-toggle-group__item {
+      flex: 1;
+    }
+  }
+}
+
+/* Individual toggle item */
+.kat-toggle-group__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $kat-space-2 $kat-space-4;
+  background-color: transparent;
+  color: $kat-primary-700;
+  border: none;
+  border-radius: $kat-radius-md;
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  cursor: pointer;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  white-space: nowrap;
+  
+  @include kat-focus-ring;
+  
+  @include kat-hover {
+    background-color: $kat-white;
+    color: $kat-primary-900;
+    transform: translateY(-1px);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  /* Selected state */
+  &.kat-toggle-group__item--selected {
+    background-color: $kat-white;
+    color: $kat-primary-900;
+    box-shadow: $kat-shadow-sm;
+    
+    @include kat-hover {
+      background-color: $kat-white;
+      transform: none;
+    }
+  }
+  
+  /* Disabled state */
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    @include kat-hover {
+      background-color: transparent;
+      color: $kat-primary-700;
+      transform: none;
+    }
+  }
+  
+  /* With icons */
+  &.kat-toggle-group__item--with-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: $kat-space-2;
+    
+    svg {
+      width: 1rem;
+      height: 1rem;
+      flex-shrink: 0;
+    }
+  }
+  
+  /* Icon only */
+  &.kat-toggle-group__item--icon-only {
+    padding: $kat-space-2;
+    width: 2.25rem;
+    height: 2.25rem;
+    
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+/* Toggle group sizes */
+.kat-toggle-group--sm {
+  padding: $kat-space-0-5;
+  gap: $kat-space-0-5;
+  
+  .kat-toggle-group__item {
+    padding: $kat-space-1-5 $kat-space-3;
+    font-size: $kat-font-size-xs;
+    border-radius: $kat-radius-sm;
+    
+    &.kat-toggle-group__item--icon-only {
+      padding: $kat-space-1-5;
+      width: 2rem;
+      height: 2rem;
+      
+      svg {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+    }
+  }
+}
+
+.kat-toggle-group--lg {
+  padding: $kat-space-1-5;
+  gap: $kat-space-1-5;
+  
+  .kat-toggle-group__item {
+    padding: $kat-space-3 $kat-space-6;
+    font-size: $kat-font-size-base;
+    border-radius: $kat-radius-lg;
+    
+    &.kat-toggle-group__item--icon-only {
+      padding: $kat-space-3;
+      width: 2.75rem;
+      height: 2.75rem;
+      
+      svg {
+        width: 1.125rem;
+        height: 1.125rem;
+      }
+    }
+  }
+}
+
+/* Toggle group variants */
+.kat-toggle-group--outline {
+  background-color: transparent;
+  border: $kat-border-1 solid $kat-primary-300;
+  
+  .kat-toggle-group__item {
+    &.kat-toggle-group__item--selected {
+      background-color: $kat-primary-900;
+      color: $kat-white;
+    }
+    
+    @include kat-hover {
+      background-color: $kat-primary-50;
+    }
+    
+    &.kat-toggle-group__item--selected {
+      @include kat-hover {
+        background-color: $kat-primary-800;
+        color: $kat-white;
+      }
+    }
+  }
+}
+
+.kat-toggle-group--ghost {
+  background-color: transparent;
+  
+  .kat-toggle-group__item {
+    &.kat-toggle-group__item--selected {
+      background-color: $kat-primary-100;
+      color: $kat-primary-900;
+      box-shadow: none;
+    }
+    
+    @include kat-hover {
+      background-color: $kat-primary-50;
+    }
+  }
+}
+
+.kat-toggle-group--pill {
+  border-radius: $kat-radius-pill;
+  
+  .kat-toggle-group__item {
+    border-radius: $kat-radius-pill;
+  }
+}
+
+/* Multi-select toggle group */
+.kat-toggle-group--multi {
+  .kat-toggle-group__item {
+    &.kat-toggle-group__item--selected {
+      background-color: $kat-primary-600;
+      color: $kat-white;
+    }
+    
+    /* Partially selected (in multi-select scenarios) */
+    &.kat-toggle-group__item--partial {
+      background-color: $kat-primary-200;
+      color: $kat-primary-800;
+      
+      @include kat-hover {
+        background-color: $kat-primary-300;
+      }
+    }
+  }
+}
+
+/* Segmented control style */
+.kat-toggle-group--segmented {
+  border-radius: $kat-radius-lg;
+  background-color: $kat-primary-100;
+  padding: $kat-space-1;
+  position: relative;
+  
+  /* Moving background indicator */
+  &::before {
+    content: "";
+    position: absolute;
+    top: $kat-space-1;
+    left: $kat-space-1;
+    height: calc(100% - #{$kat-space-2});
+    background-color: $kat-white;
+    border-radius: $kat-radius-md;
+    box-shadow: $kat-shadow-sm;
+    transition: all $kat-duration-250 $kat-ease-apple;
+    z-index: 1;
+  }
+  
+  .kat-toggle-group__item {
+    position: relative;
+    z-index: 2;
+    background-color: transparent;
+    
+    &.kat-toggle-group__item--selected {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+}
+
+/* Color variants */
+.kat-toggle-group--success {
+  .kat-toggle-group__item {
+    &.kat-toggle-group__item--selected {
+      background-color: $kat-success-600;
+      color: $kat-white;
+      
+      @include kat-hover {
+        background-color: $kat-success-700;
+      }
+    }
+  }
+}
+
+.kat-toggle-group--warning {
+  .kat-toggle-group__item {
+    &.kat-toggle-group__item--selected {
+      background-color: $kat-warning-600;
+      color: $kat-white;
+      
+      @include kat-hover {
+        background-color: $kat-warning-700;
+      }
+    }
+  }
+}
+
+.kat-toggle-group--error {
+  .kat-toggle-group__item {
+    &.kat-toggle-group__item--selected {
+      background-color: $kat-error-600;
+      color: $kat-white;
+      
+      @include kat-hover {
+        background-color: $kat-error-700;
+      }
+    }
+  }
+}
+
+/* Loading state */
+.kat-toggle-group--loading {
+  pointer-events: none;
+  
+  .kat-toggle-group__item {
+    position: relative;
+    color: transparent;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid $kat-primary-300;
+      border-top-color: $kat-primary-600;
+      border-radius: $kat-radius-full;
+      animation: kat-spin 1s linear infinite;
+    }
+  }
+}
+
+/* Responsive adjustments */
+@include kat-screen-sm {
+  .kat-toggle-group--responsive {
+    flex-direction: column;
+    
+    .kat-toggle-group__item {
+      justify-content: flex-start;
+      text-align: left;
+    }
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .kat-toggle-group__item {
+    &.kat-toggle-group__item--selected {
+      outline: 2px solid $kat-primary-900;
+      outline-offset: -2px;
+    }
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .kat-toggle-group__item,
+  .kat-toggle-group--segmented::before {
+    transition: none;
+  }
+}
+
+/* Animation for the segmented control indicator */
+@keyframes kat-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* JavaScript positioning helpers for segmented control */
+.kat-toggle-group--segmented {
+  &[data-selected="0"]::before {
+    width: var(--item-width, 33.333%);
+    transform: translateX(0);
+  }
+  
+  &[data-selected="1"]::before {
+    width: var(--item-width, 33.333%);
+    transform: translateX(100%);
+  }
+  
+  &[data-selected="2"]::before {
+    width: var(--item-width, 33.333%);
+    transform: translateX(200%);
+  }
+  
+  /* Add more as needed */
+}

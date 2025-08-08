@@ -1,0 +1,468 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Grid system and layout utilities */
+
+/* Container */
+.kat-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $kat-container-padding;
+  max-width: $kat-container-max-width;
+}
+
+/* Flexbox utilities */
+.kat-flex {
+  display: flex;
+}
+
+.kat-inline-flex {
+  display: inline-flex;
+}
+
+/* Flex direction */
+.kat-flex--row {
+  flex-direction: row;
+}
+
+.kat-flex--row-reverse {
+  flex-direction: row-reverse;
+}
+
+.kat-flex--col {
+  flex-direction: column;
+}
+
+.kat-flex--col-reverse {
+  flex-direction: column-reverse;
+}
+
+/* Flex wrap */
+.kat-flex--wrap {
+  flex-wrap: wrap;
+}
+
+.kat-flex--wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+.kat-flex--nowrap {
+  flex-wrap: nowrap;
+}
+
+/* Justify content */
+.kat-justify--start {
+  justify-content: flex-start;
+}
+
+.kat-justify--end {
+  justify-content: flex-end;
+}
+
+.kat-justify--center {
+  justify-content: center;
+}
+
+.kat-justify--between {
+  justify-content: space-between;
+}
+
+.kat-justify--around {
+  justify-content: space-around;
+}
+
+.kat-justify--evenly {
+  justify-content: space-evenly;
+}
+
+/* Align items */
+.kat-items--start {
+  align-items: flex-start;
+}
+
+.kat-items--end {
+  align-items: flex-end;
+}
+
+.kat-items--center {
+  align-items: center;
+}
+
+.kat-items--baseline {
+  align-items: baseline;
+}
+
+.kat-items--stretch {
+  align-items: stretch;
+}
+
+/* Align content */
+.kat-content--start {
+  align-content: flex-start;
+}
+
+.kat-content--end {
+  align-content: flex-end;
+}
+
+.kat-content--center {
+  align-content: center;
+}
+
+.kat-content--between {
+  align-content: space-between;
+}
+
+.kat-content--around {
+  align-content: space-around;
+}
+
+.kat-content--evenly {
+  align-content: space-evenly;
+}
+
+/* Align self */
+.kat-self--auto {
+  align-self: auto;
+}
+
+.kat-self--start {
+  align-self: flex-start;
+}
+
+.kat-self--end {
+  align-self: flex-end;
+}
+
+.kat-self--center {
+  align-self: center;
+}
+
+.kat-self--stretch {
+  align-self: stretch;
+}
+
+.kat-self--baseline {
+  align-self: baseline;
+}
+
+/* Flex grow and shrink */
+.kat-flex--1 {
+  flex: 1 1 0%;
+}
+
+.kat-flex--auto {
+  flex: 1 1 auto;
+}
+
+.kat-flex--initial {
+  flex: 0 1 auto;
+}
+
+.kat-flex--none {
+  flex: none;
+}
+
+.kat-grow {
+  flex-grow: 1;
+}
+
+.kat-grow--0 {
+  flex-grow: 0;
+}
+
+.kat-shrink {
+  flex-shrink: 1;
+}
+
+.kat-shrink--0 {
+  flex-shrink: 0;
+}
+
+/* Gap utilities */
+.kat-gap--0 {
+  gap: $kat-space-0;
+}
+
+.kat-gap--px {
+  gap: $kat-space-px;
+}
+
+.kat-gap--0-5 {
+  gap: $kat-space-0-5;
+}
+
+.kat-gap--1 {
+  gap: $kat-space-1;
+}
+
+.kat-gap--1-5 {
+  gap: $kat-space-1-5;
+}
+
+.kat-gap--2 {
+  gap: $kat-space-2;
+}
+
+.kat-gap--3 {
+  gap: $kat-space-3;
+}
+
+.kat-gap--4 {
+  gap: $kat-space-4;
+}
+
+.kat-gap--5 {
+  gap: $kat-space-5;
+}
+
+.kat-gap--6 {
+  gap: $kat-space-6;
+}
+
+.kat-gap--8 {
+  gap: $kat-space-8;
+}
+
+.kat-gap--10 {
+  gap: $kat-space-10;
+}
+
+.kat-gap--12 {
+  gap: $kat-space-12;
+}
+
+.kat-gap--16 {
+  gap: $kat-space-16;
+}
+
+.kat-gap--20 {
+  gap: $kat-space-20;
+}
+
+.kat-gap--24 {
+  gap: $kat-space-24;
+}
+
+/* Row gap */
+.kat-gap-y--0 {
+  row-gap: $kat-space-0;
+}
+
+.kat-gap-y--1 {
+  row-gap: $kat-space-1;
+}
+
+.kat-gap-y--2 {
+  row-gap: $kat-space-2;
+}
+
+.kat-gap-y--3 {
+  row-gap: $kat-space-3;
+}
+
+.kat-gap-y--4 {
+  row-gap: $kat-space-4;
+}
+
+.kat-gap-y--6 {
+  row-gap: $kat-space-6;
+}
+
+.kat-gap-y--8 {
+  row-gap: $kat-space-8;
+}
+
+/* Column gap */
+.kat-gap-x--0 {
+  column-gap: $kat-space-0;
+}
+
+.kat-gap-x--1 {
+  column-gap: $kat-space-1;
+}
+
+.kat-gap-x--2 {
+  column-gap: $kat-space-2;
+}
+
+.kat-gap-x--3 {
+  column-gap: $kat-space-3;
+}
+
+.kat-gap-x--4 {
+  column-gap: $kat-space-4;
+}
+
+.kat-gap-x--6 {
+  column-gap: $kat-space-6;
+}
+
+.kat-gap-x--8 {
+  column-gap: $kat-space-8;
+}
+
+/* Grid system */
+.kat-grid {
+  display: grid;
+}
+
+.kat-grid--cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.kat-grid--cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.kat-grid--cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.kat-grid--cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.kat-grid--cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.kat-grid--cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.kat-grid--cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+/* Responsive grid */
+@include kat-screen-sm {
+  .kat-grid--sm-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .kat-grid--sm-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .kat-grid--sm-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .kat-grid--sm-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@include kat-screen-md {
+  .kat-grid--md-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .kat-grid--md-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .kat-grid--md-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .kat-grid--md-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .kat-grid--md-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@include kat-screen-lg {
+  .kat-grid--lg-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .kat-grid--lg-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .kat-grid--lg-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .kat-grid--lg-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .kat-grid--lg-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  
+  .kat-grid--lg-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+/* Column span */
+.kat-col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
+.kat-col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.kat-col-span-3 {
+  grid-column: span 3 / span 3;
+}
+
+.kat-col-span-4 {
+  grid-column: span 4 / span 4;
+}
+
+.kat-col-span-5 {
+  grid-column: span 5 / span 5;
+}
+
+.kat-col-span-6 {
+  grid-column: span 6 / span 6;
+}
+
+.kat-col-span-full {
+  grid-column: 1 / -1;
+}
+
+/* Row span */
+.kat-row-span-1 {
+  grid-row: span 1 / span 1;
+}
+
+.kat-row-span-2 {
+  grid-row: span 2 / span 2;
+}
+
+.kat-row-span-3 {
+  grid-row: span 3 / span 3;
+}
+
+.kat-row-span-4 {
+  grid-row: span 4 / span 4;
+}
+
+.kat-row-span-5 {
+  grid-row: span 5 / span 5;
+}
+
+.kat-row-span-6 {
+  grid-row: span 6 / span 6;
+}
+
+.kat-row-span-full {
+  grid-row: 1 / -1;
+}
+
+/* Auto fit and fill */
+.kat-grid--auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+}
+
+.kat-grid--auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(0, 1fr));
+}

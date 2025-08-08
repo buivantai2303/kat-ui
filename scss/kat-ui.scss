@@ -1,0 +1,54 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Main SCSS file that imports all components */
+
+/*
+ * Kat UI - Japanese-Inspired Component Framework
+ * 
+ * A modern, accessible, and responsive component library
+ * built with SCSS and vanilla JavaScript.
+ * 
+ * Features:
+ * - Japanese-inspired design with clean aesthetics
+ * - Comprehensive component set
+ * - Full accessibility support
+ * - Mobile-first responsive design
+ * - BEM methodology with kat- prefix
+ * - Modular and extensible architecture
+ */
+
+/* Core styles (must be imported first) */
+@import 'variables';
+@import 'mixins';
+
+/* Base styles */
+@import 'base/reset';
+@import 'base/typography';
+
+/* Layout system */
+@import 'layout/grid';
+
+/* Components */
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/cards';
+@import 'components/modals';
+@import 'components/navigation';
+@import 'components/alerts';
+@import 'components/badges';
+@import 'components/tables';
+@import 'components/interactive';
+@import 'components/skeleton';
+@import 'components/calendar';
+@import 'components/carousel';
+@import 'components/popover';
+@import 'components/input-otp';
+@import 'components/toggle-group';
+@import 'components/data-table';
+@import 'components/separator';
+@import 'components/pagination';
+@import 'components/toast';
+@import 'components/images';
+
+/* Utilities (imported last) */
+@import 'utilities/spacing';
+@import 'utilities/misc';

@@ -1,0 +1,313 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Calendar component styles */
+
+/* Calendar container */
+.kat-calendar {
+  background-color: $kat-white;
+  border: $kat-border-1 solid $kat-primary-200;
+  border-radius: $kat-radius-lg;
+  padding: $kat-space-4;
+  font-size: $kat-font-size-sm;
+  max-width: 20rem;
+  
+  &.kat-calendar--inline {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+  
+  &.kat-calendar--dropdown {
+    position: absolute;
+    z-index: $kat-z-dropdown;
+    box-shadow: $kat-shadow-lg;
+  }
+}
+
+/* Calendar header */
+.kat-calendar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $kat-space-4;
+}
+
+.kat-calendar__nav {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-2;
+}
+
+.kat-calendar__nav-btn {
+  @include kat-button-base;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background-color: transparent;
+  color: $kat-primary-600;
+  border: none;
+  border-radius: $kat-radius-md;
+  
+  @include kat-hover {
+    background-color: $kat-primary-100;
+    color: $kat-primary-900;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.kat-calendar__title {
+  font-size: $kat-font-size-base;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-primary-900;
+  margin: 0;
+}
+
+/* Calendar grid */
+.kat-calendar__grid {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.kat-calendar__weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: $kat-space-1;
+  margin-bottom: $kat-space-2;
+}
+
+.kat-calendar__weekday {
+  text-align: center;
+  font-size: $kat-font-size-xs;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-primary-600;
+  padding: $kat-space-2;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.kat-calendar__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: $kat-space-1;
+}
+
+.kat-calendar__day {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: none;
+  border: none;
+  border-radius: $kat-radius-md;
+  font-size: $kat-font-size-sm;
+  color: $kat-primary-900;
+  cursor: pointer;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  
+  @include kat-focus-ring;
+  
+  @include kat-hover {
+    background-color: $kat-primary-100;
+    transform: scale(1.05);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  /* Day states */
+  &.kat-calendar__day--today {
+    background-color: $kat-primary-900;
+    color: $kat-white;
+    
+    @include kat-hover {
+      background-color: $kat-primary-800;
+    }
+  }
+  
+  &.kat-calendar__day--selected {
+    background-color: $kat-primary-600;
+    color: $kat-white;
+    
+    @include kat-hover {
+      background-color: $kat-primary-700;
+    }
+  }
+  
+  &.kat-calendar__day--other-month {
+    color: $kat-primary-400;
+    
+    @include kat-hover {
+      background-color: $kat-primary-50;
+      color: $kat-primary-600;
+    }
+  }
+  
+  &.kat-calendar__day--disabled {
+    color: $kat-primary-300;
+    cursor: not-allowed;
+    
+    @include kat-hover {
+      background-color: transparent;
+      transform: none;
+    }
+  }
+  
+  &.kat-calendar__day--weekend {
+    color: $kat-error-600;
+  }
+  
+  &.kat-calendar__day--has-event {
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      background-color: $kat-primary-600;
+      border-radius: $kat-radius-full;
+    }
+    
+    &.kat-calendar__day--selected::after {
+      background-color: $kat-white;
+    }
+  }
+}
+
+/* Calendar footer */
+.kat-calendar__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: $kat-space-4;
+  padding-top: $kat-space-4;
+  border-top: $kat-border-1 solid $kat-primary-200;
+}
+
+.kat-calendar__today-btn {
+  @include kat-button-base;
+  @include kat-button-sm;
+  background-color: transparent;
+  color: $kat-primary-600;
+  border: none;
+  
+  @include kat-hover {
+    background-color: $kat-primary-100;
+    color: $kat-primary-900;
+  }
+}
+
+/* Month/Year picker */
+.kat-calendar__picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $kat-space-2;
+  margin: $kat-space-4 0;
+}
+
+.kat-calendar__picker-item {
+  @include kat-button-base;
+  padding: $kat-space-2 $kat-space-3;
+  background-color: transparent;
+  color: $kat-primary-700;
+  border: $kat-border-1 solid transparent;
+  border-radius: $kat-radius-md;
+  font-size: $kat-font-size-sm;
+  
+  @include kat-hover {
+    background-color: $kat-primary-100;
+    color: $kat-primary-900;
+  }
+  
+  &.kat-calendar__picker-item--selected {
+    background-color: $kat-primary-600;
+    color: $kat-white;
+    border-color: $kat-primary-600;
+  }
+}
+
+/* Range selection */
+.kat-calendar__day--range-start {
+  background-color: $kat-primary-600;
+  color: $kat-white;
+  border-radius: $kat-radius-md 0 0 $kat-radius-md;
+}
+
+.kat-calendar__day--range-end {
+  background-color: $kat-primary-600;
+  color: $kat-white;
+  border-radius: 0 $kat-radius-md $kat-radius-md 0;
+}
+
+.kat-calendar__day--range-middle {
+  background-color: $kat-primary-100;
+  color: $kat-primary-900;
+  border-radius: 0;
+}
+
+.kat-calendar__day--range-single {
+  background-color: $kat-primary-600;
+  color: $kat-white;
+  border-radius: $kat-radius-md;
+}
+
+/* Multi-month view */
+.kat-calendar--multi {
+  display: flex;
+  gap: $kat-space-6;
+  
+  .kat-calendar {
+    border: none;
+    padding: 0;
+    
+    &:not(:last-child) {
+      border-right: $kat-border-1 solid $kat-primary-200;
+      padding-right: $kat-space-6;
+    }
+  }
+}
+
+/* Compact calendar */
+.kat-calendar--compact {
+  padding: $kat-space-3;
+  
+  .kat-calendar__day {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: $kat-font-size-xs;
+  }
+  
+  .kat-calendar__header {
+    margin-bottom: $kat-space-3;
+  }
+}
+
+/* Calendar with time picker */
+.kat-calendar__time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $kat-space-2;
+  margin-top: $kat-space-4;
+  padding-top: $kat-space-4;
+  border-top: $kat-border-1 solid $kat-primary-200;
+}
+
+.kat-calendar__time-input {
+  @include kat-input-base;
+  width: 4rem;
+  text-align: center;
+  padding: $kat-space-1 $kat-space-2;
+}
+
+.kat-calendar__time-separator {
+  font-weight: $kat-font-weight-medium;
+  color: $kat-primary-600;
+}

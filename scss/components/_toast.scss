@@ -1,0 +1,355 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Toast notification component styles */
+
+/* Toast container */
+.kat-toast-container {
+  position: fixed;
+  top: $kat-space-4;
+  right: $kat-space-4;
+  z-index: $kat-z-toast;
+  display: flex;
+  flex-direction: column;
+  gap: $kat-space-2;
+  pointer-events: none;
+  max-width: 24rem;
+  width: 100%;
+  
+  @include kat-screen-sm {
+    max-width: 20rem;
+    right: $kat-space-2;
+    top: $kat-space-2;
+  }
+  
+  /* Container positions */
+  &.kat-toast-container--top-left {
+    top: $kat-space-4;
+    left: $kat-space-4;
+    right: auto;
+  }
+  
+  &.kat-toast-container--top-center {
+    top: $kat-space-4;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+  
+  &.kat-toast-container--bottom-right {
+    top: auto;
+    bottom: $kat-space-4;
+    right: $kat-space-4;
+  }
+  
+  &.kat-toast-container--bottom-left {
+    top: auto;
+    bottom: $kat-space-4;
+    left: $kat-space-4;
+    right: auto;
+  }
+  
+  &.kat-toast-container--bottom-center {
+    top: auto;
+    bottom: $kat-space-4;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+
+/* Toast notification */
+.kat-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: $kat-space-3;
+  padding: $kat-space-4;
+  background-color: $kat-white;
+  border: $kat-border-1 solid $kat-primary-200;
+  border-radius: $kat-radius-lg;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all $kat-duration-300 $kat-ease-apple;
+  
+  /* Show animation */
+  &.kat-toast--show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Hide animation */
+  &.kat-toast--hide {
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* Toast variants */
+  &.kat-toast--success {
+    border-left: 4px solid $kat-success-500;
+    background-color: $kat-success-25;
+    
+    .kat-toast__icon {
+      color: $kat-success-600;
+    }
+  }
+  
+  &.kat-toast--error {
+    border-left: 4px solid $kat-error-500;
+    background-color: $kat-error-25;
+    
+    .kat-toast__icon {
+      color: $kat-error-600;
+    }
+  }
+  
+  &.kat-toast--warning {
+    border-left: 4px solid $kat-warning-500;
+    background-color: $kat-warning-25;
+    
+    .kat-toast__icon {
+      color: $kat-warning-600;
+    }
+  }
+  
+  &.kat-toast--info {
+    border-left: 4px solid $kat-info-500;
+    background-color: $kat-info-25;
+    
+    .kat-toast__icon {
+      color: $kat-info-600;
+    }
+  }
+  
+  /* Loading toast */
+  &.kat-toast--loading {
+    .kat-toast__icon {
+      animation: kat-toast-spin 1s linear infinite;
+    }
+  }
+}
+
+/* Toast icon */
+.kat-toast__icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.125rem;
+  color: $kat-primary-600;
+}
+
+/* Toast content */
+.kat-toast__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.kat-toast__title {
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-semibold;
+  color: $kat-primary-900;
+  margin: 0 0 $kat-space-1 0;
+  line-height: $kat-line-height-tight;
+}
+
+.kat-toast__description {
+  font-size: $kat-font-size-sm;
+  color: $kat-primary-700;
+  margin: 0;
+  line-height: $kat-line-height-normal;
+}
+
+/* Toast actions */
+.kat-toast__actions {
+  display: flex;
+  gap: $kat-space-2;
+  margin-top: $kat-space-3;
+  
+  .kat-btn {
+    @include kat-button-xs;
+  }
+}
+
+/* Toast close button */
+.kat-toast__close {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: $kat-space-1;
+  margin: (-$kat-space-1) (-$kat-space-1) 0 0;
+  color: $kat-primary-500;
+  cursor: pointer;
+  border-radius: $kat-radius-sm;
+  transition: all $kat-duration-150 $kat-ease-apple;
+  
+  @include kat-focus-ring;
+  
+  &:hover {
+    background-color: $kat-primary-100;
+    color: $kat-primary-700;
+  }
+  
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+/* Toast progress bar */
+.kat-toast__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: $kat-primary-600;
+  border-radius: 0 0 $kat-radius-lg $kat-radius-lg;
+  transition: width linear;
+  
+  .kat-toast--success & {
+    background-color: $kat-success-500;
+  }
+  
+  .kat-toast--error & {
+    background-color: $kat-error-500;
+  }
+  
+  .kat-toast--warning & {
+    background-color: $kat-warning-500;
+  }
+  
+  .kat-toast--info & {
+    background-color: $kat-info-500;
+  }
+}
+
+/* Compact toast */
+.kat-toast--compact {
+  padding: $kat-space-3;
+  
+  .kat-toast__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .kat-toast__title {
+    font-size: $kat-font-size-xs;
+  }
+  
+  .kat-toast__description {
+    font-size: $kat-font-size-xs;
+  }
+}
+
+/* Toast with image */
+.kat-toast--with-image {
+  .kat-toast__image {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: $kat-radius-md;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+}
+
+/* Slide animations */
+@keyframes kat-toast-slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes kat-toast-slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes kat-toast-slide-in-top {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes kat-toast-slide-in-bottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes kat-toast-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation classes */
+.kat-toast--slide-right {
+  animation: kat-toast-slide-in-right $kat-duration-300 $kat-ease-apple;
+}
+
+.kat-toast--slide-left {
+  animation: kat-toast-slide-in-left $kat-duration-300 $kat-ease-apple;
+}
+
+.kat-toast--slide-top {
+  animation: kat-toast-slide-in-top $kat-duration-300 $kat-ease-apple;
+}
+
+.kat-toast--slide-bottom {
+  animation: kat-toast-slide-in-bottom $kat-duration-300 $kat-ease-apple;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .kat-toast {
+    border-width: 2px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .kat-toast {
+    transition: opacity $kat-duration-150 ease;
+    animation: none;
+    
+    &.kat-toast--show {
+      transform: none;
+    }
+    
+    &.kat-toast--hide {
+      transform: none;
+    }
+  }
+  
+  .kat-toast__progress {
+    transition: none;
+  }
+  
+  .kat-toast--loading .kat-toast__icon {
+    animation: none;
+  }
+}

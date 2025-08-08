@@ -1,0 +1,349 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Carousel component styles */
+
+/* Carousel container */
+.kat-carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: $kat-radius-lg;
+  background-color: $kat-white;
+  
+  &.kat-carousel--with-controls {
+    padding: 0 $kat-space-12;
+  }
+}
+
+/* Carousel viewport */
+.kat-carousel__viewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Carousel container for slides */
+.kat-carousel__container {
+  display: flex;
+  transition: transform $kat-duration-350 $kat-ease-apple;
+  will-change: transform;
+}
+
+/* Individual carousel slide */
+.kat-carousel__slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Multi-slide variants */
+  &.kat-carousel__slide--half {
+    min-width: 50%;
+  }
+  
+  &.kat-carousel__slide--third {
+    min-width: 33.333%;
+  }
+  
+  &.kat-carousel__slide--quarter {
+    min-width: 25%;
+  }
+  
+  /* Responsive slides */
+  @include kat-screen-md {
+    &.kat-carousel__slide--md-half {
+      min-width: 50%;
+    }
+    
+    &.kat-carousel__slide--md-third {
+      min-width: 33.333%;
+    }
+  }
+  
+  @include kat-screen-lg {
+    &.kat-carousel__slide--lg-third {
+      min-width: 33.333%;
+    }
+    
+    &.kat-carousel__slide--lg-quarter {
+      min-width: 25%;
+    }
+  }
+}
+
+/* Carousel navigation */
+.kat-carousel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: $kat-z-10;
+  
+  &.kat-carousel__nav--prev {
+    left: $kat-space-4;
+  }
+  
+  &.kat-carousel__nav--next {
+    right: $kat-space-4;
+  }
+}
+
+.kat-carousel__nav-btn {
+  @include kat-button-base;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: $kat-primary-900;
+  border: $kat-border-1 solid $kat-primary-200;
+  border-radius: $kat-radius-full;
+  backdrop-filter: blur(4px);
+  box-shadow: $kat-shadow-sm;
+  
+  @include kat-hover {
+    background-color: $kat-white;
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: $kat-shadow-md;
+  }
+  
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    @include kat-hover {
+      transform: translateY(-50%);
+      box-shadow: $kat-shadow-sm;
+    }
+  }
+  
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+/* Carousel dots/indicators */
+.kat-carousel__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $kat-space-2;
+  margin-top: $kat-space-4;
+  
+  &.kat-carousel__dots--overlay {
+    position: absolute;
+    bottom: $kat-space-4;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: $kat-z-10;
+  }
+}
+
+.kat-carousel__dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: $kat-radius-full;
+  background-color: $kat-primary-300;
+  border: none;
+  cursor: pointer;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  
+  @include kat-focus-ring;
+  
+  @include kat-hover {
+    background-color: $kat-primary-500;
+    transform: scale(1.2);
+  }
+  
+  &.kat-carousel__dot--active {
+    background-color: $kat-primary-600;
+    width: 1.5rem;
+    border-radius: $kat-radius-pill;
+  }
+  
+  /* Overlay variant */
+  .kat-carousel__dots--overlay & {
+    background-color: rgba(255, 255, 255, 0.6);
+    
+    @include kat-hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+    
+    &.kat-carousel__dot--active {
+      background-color: $kat-white;
+    }
+  }
+}
+
+/* Carousel content overlay */
+.kat-carousel__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.3),
+    transparent
+  );
+  color: $kat-white;
+  padding: $kat-space-6 $kat-space-6 $kat-space-8;
+  z-index: $kat-z-10;
+}
+
+.kat-carousel__title {
+  font-size: $kat-font-size-xl;
+  font-weight: $kat-font-weight-bold;
+  margin: 0 0 $kat-space-2 0;
+  line-height: $kat-line-height-tight;
+}
+
+.kat-carousel__description {
+  font-size: $kat-font-size-sm;
+  margin: 0;
+  opacity: 0.9;
+  line-height: $kat-line-height-normal;
+}
+
+/* Carousel variants */
+.kat-carousel--fade {
+  .kat-carousel__container {
+    position: relative;
+  }
+  
+  .kat-carousel__slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity $kat-duration-500 $kat-ease-in-out;
+    
+    &.kat-carousel__slide--active {
+      opacity: 1;
+    }
+  }
+}
+
+.kat-carousel--vertical {
+  .kat-carousel__container {
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .kat-carousel__slide {
+    min-width: auto;
+    min-height: 100%;
+  }
+  
+  .kat-carousel__nav {
+    left: 50%;
+    transform: translateX(-50%);
+    
+    &.kat-carousel__nav--prev {
+      top: $kat-space-4;
+    }
+    
+    &.kat-carousel__nav--next {
+      top: auto;
+      bottom: $kat-space-4;
+    }
+  }
+}
+
+/* Carousel with thumbnails */
+.kat-carousel__thumbnails {
+  display: flex;
+  gap: $kat-space-2;
+  margin-top: $kat-space-4;
+  overflow-x: auto;
+  padding: $kat-space-2 0;
+  
+  @include kat-scrollbar;
+}
+
+.kat-carousel__thumbnail {
+  flex-shrink: 0;
+  width: 4rem;
+  height: 3rem;
+  border-radius: $kat-radius-md;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  
+  @include kat-focus-ring;
+  
+  @include kat-hover {
+    transform: scale(1.05);
+    border-color: $kat-primary-300;
+  }
+  
+  &.kat-carousel__thumbnail--active {
+    border-color: $kat-primary-600;
+    transform: scale(1.05);
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Auto-play progress indicator */
+.kat-carousel__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: $kat-primary-600;
+  transition: width $kat-duration-100 linear;
+  z-index: $kat-z-10;
+}
+
+/* Loading state */
+.kat-carousel--loading {
+  .kat-carousel__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $kat-primary-100;
+    color: $kat-primary-500;
+  }
+}
+
+/* Responsive adjustments */
+@include kat-screen-sm {
+  .kat-carousel__nav-btn {
+    width: 3rem;
+    height: 3rem;
+    
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+}
+
+/* Touch/swipe indicators */
+.kat-carousel--touch {
+  touch-action: pan-y;
+  user-select: none;
+  
+  .kat-carousel__container {
+    cursor: grab;
+    
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}

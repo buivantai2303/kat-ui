@@ -1,0 +1,365 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Card component styles */
+
+/* Base card styles */
+.kat-card {
+  @include kat-card-base;
+  overflow: hidden;
+  
+  /* Card variants */
+  &.kat-card--compact {
+    .kat-card__header {
+      padding: $kat-space-4;
+    }
+    
+    .kat-card__content {
+      padding: $kat-space-4;
+      padding-top: 0;
+    }
+    
+    .kat-card__footer {
+      padding: $kat-space-4;
+      padding-top: 0;
+    }
+  }
+  
+  &.kat-card--elevated {
+    box-shadow: $kat-shadow-lg;
+    
+    @include kat-hover {
+      box-shadow: $kat-shadow-xl;
+      transform: translateY(-2px);
+    }
+  }
+  
+  &.kat-card--interactive {
+    cursor: pointer;
+    transition: all $kat-duration-200 $kat-ease-in-out;
+    
+    @include kat-hover {
+      box-shadow: $kat-shadow-md;
+      transform: translateY(-1px);
+    }
+    
+    &:active {
+      transform: translateY(0);
+      box-shadow: $kat-shadow-sm;
+    }
+  }
+}
+
+/* Card header */
+.kat-card__header {
+  padding: $kat-space-6;
+  border-bottom: $kat-border-1 solid $kat-gray-200;
+  position: relative;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  /* Collapsible card header */
+  &.kat-card__header--collapsible {
+    cursor: pointer;
+    padding-right: $kat-space-12;
+    transition: background-color $kat-duration-200 $kat-ease-apple;
+    
+    @include kat-hover {
+      background-color: $kat-primary-50;
+    }
+    
+    &::after {
+      content: "";
+      position: absolute;
+      right: $kat-space-6;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1rem;
+      height: 1rem;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3e%3c/path%3e%3c/svg%3e");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      color: $kat-primary-600;
+      transition: transform $kat-duration-200 $kat-ease-apple;
+    }
+    
+    &.kat-card__header--collapsed::after {
+      transform: translateY(-50%) rotate(-90deg);
+    }
+  }
+}
+
+.kat-card__title {
+  font-size: $kat-font-size-lg;
+  font-weight: $kat-font-weight-bold;
+  color: $kat-gray-900;
+  margin: 0;
+  line-height: $kat-line-height-tight;
+}
+
+.kat-card__subtitle {
+  font-size: $kat-font-size-sm;
+  color: $kat-gray-600;
+  margin: $kat-space-1 0 0 0;
+  line-height: $kat-line-height-normal;
+}
+
+/* Card content */
+.kat-card__content {
+  padding: $kat-space-6;
+  transition: max-height $kat-duration-500 $kat-ease-apple, opacity $kat-duration-250 $kat-ease-apple, padding $kat-duration-300 $kat-ease-apple;
+  overflow: hidden;
+  
+  > *:first-child {
+    margin-top: 0;
+  }
+  
+  > *:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Collapsible content */
+  &.kat-card__content--collapsible {
+    max-height: 1000px;
+    opacity: 1;
+    
+    &.kat-card__content--collapsed {
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+  }
+  
+  p {
+    margin-bottom: $kat-space-4;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* Card image */
+.kat-card__image {
+  width: 100%;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  &.kat-card__image--aspect-video {
+    @include kat-aspect-ratio(16/9);
+  }
+  
+  &.kat-card__image--aspect-square {
+    @include kat-aspect-ratio(1);
+  }
+  
+  &.kat-card__image--aspect-portrait {
+    @include kat-aspect-ratio(3/4);
+  }
+}
+
+/* Card footer */
+.kat-card__footer {
+  padding: $kat-space-6;
+  border-top: $kat-border-1 solid $kat-gray-200;
+  background-color: $kat-gray-50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $kat-space-3;
+  
+  &:first-child {
+    border-top: none;
+    background-color: transparent;
+  }
+  
+  &.kat-card__footer--center {
+    justify-content: center;
+  }
+  
+  &.kat-card__footer--end {
+    justify-content: flex-end;
+  }
+}
+
+/* Card group - for displaying multiple cards */
+.kat-card-group {
+  display: grid;
+  gap: $kat-space-6;
+  grid-template-columns: 1fr;
+  
+  @include kat-screen-sm {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @include kat-screen-lg {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  &.kat-card-group--cols-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  &.kat-card-group--cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  &.kat-card-group--cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  &.kat-card-group--cols-4 {
+    @include kat-screen-lg {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+/* Card with dividers */
+.kat-card__divider {
+  height: 1px;
+  background-color: $kat-gray-200;
+  margin: 0;
+}
+
+/* Card loading state */
+.kat-card--loading {
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    animation: kat-shimmer 1.5s infinite;
+  }
+}
+
+@keyframes kat-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Card overlay */
+.kat-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $kat-white;
+  opacity: 0;
+  transition: opacity $kat-duration-200 $kat-ease-in-out;
+  
+  .kat-card:hover & {
+    opacity: 1;
+  }
+}
+
+/* Product card variant */
+.kat-product-card {
+  @extend .kat-card;
+  
+  .kat-product-card__image {
+    @extend .kat-card__image;
+    @include kat-aspect-ratio(1);
+  }
+  
+  .kat-product-card__badge {
+    position: absolute;
+    top: $kat-space-3;
+    right: $kat-space-3;
+    z-index: 10;
+  }
+  
+  .kat-product-card__content {
+    @extend .kat-card__content;
+  }
+  
+  .kat-product-card__title {
+    @extend .kat-card__title;
+    font-size: $kat-font-size-base;
+  }
+  
+  .kat-product-card__price {
+    font-size: $kat-font-size-lg;
+    font-weight: $kat-font-weight-bold;
+    color: $kat-primary-600;
+    margin-top: $kat-space-2;
+  }
+  
+  .kat-product-card__rating {
+    display: flex;
+    align-items: center;
+    gap: $kat-space-1;
+    margin-top: $kat-space-2;
+    font-size: $kat-font-size-sm;
+    color: $kat-gray-600;
+  }
+}
+
+/* Profile card variant */
+.kat-profile-card {
+  @extend .kat-card;
+  text-align: center;
+  
+  .kat-profile-card__avatar {
+    margin: 0 auto $kat-space-4;
+  }
+  
+  .kat-profile-card__name {
+    @extend .kat-card__title;
+    margin-bottom: $kat-space-1;
+  }
+  
+  .kat-profile-card__title {
+    font-size: $kat-font-size-sm;
+    color: $kat-gray-600;
+    margin-bottom: $kat-space-4;
+  }
+  
+  .kat-profile-card__stats {
+    display: flex;
+    justify-content: space-around;
+    border-top: $kat-border-1 solid $kat-gray-200;
+    padding-top: $kat-space-4;
+    margin-top: $kat-space-4;
+  }
+  
+  .kat-profile-card__stat {
+    text-align: center;
+    
+    .kat-profile-card__stat-number {
+      display: block;
+      font-size: $kat-font-size-xl;
+      font-weight: $kat-font-weight-bold;
+      color: $kat-gray-900;
+    }
+    
+    .kat-profile-card__stat-label {
+      font-size: $kat-font-size-sm;
+      color: $kat-gray-600;
+      margin-top: $kat-space-1;
+    }
+  }
+}
