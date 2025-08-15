@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kat Button</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/kat-ui.css" />
+  </head>
+  <body>
+    <section class="kat-section" id="buttons">
+      <h2 class="kat-section__title">ボタン</h2>
+      <div class="kat-grid kat-grid--cols-1 kat-gap--md">
+        <div>
+          <h3 class="kat-section__subtitle">プライマリボタン</h3>
+          <div class="kat-btn-group">
+            <button type="button" class="kat-btn kat-btn--primary">保存</button>
+            <button type="button" class="kat-btn kat-btn--primary" disabled>無効</button>
+            <button type="button" class="kat-btn kat-btn--primary kat-btn--loading">
+              <span class="kat-spinner kat-spinner--sm"></span>
+              <span>読み込み中</span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="kat-section__subtitle">セカンダリボタン</h3>
+          <div class="kat-btn-group">
+            <button type="button" class="kat-btn kat-btn--secondary">キャンセル</button>
+            <button type="button" class="kat-btn kat-btn--outline">アウトライン</button>
+            <button type="button" class="kat-btn kat-btn--ghost">ゴースト</button>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="kat-section__subtitle">ボタンの形状</h3>
+          <div class="kat-btn-group">
+            <button type="button" class="kat-btn kat-btn--primary kat-btn--pill">ピル形状</button>
+            <button type="button" class="kat-btn kat-btn--outline kat-btn--rounded">角丸</button>
+            <button type="button" class="kat-btn kat-btn--secondary kat-btn--square">四角</button>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="kat-section__subtitle">ツールチップ付きボタン</h3>
+          <div class="kat-btn-group">
+            <button
+              type="button"
+              class="kat-btn kat-btn--outline"
+              data-kat-tooltip="上にツールチップが表示されます"
+              data-kat-tooltip-position="top"
+            >
+              上
+            </button>
+            <button
+              type="button"
+              class="kat-btn kat-btn--outline"
+              data-kat-tooltip="右にツールチップが表示されます"
+              data-kat-tooltip-position="right"
+            >
+              右
+            </button>
+            <button
+              type="button"
+              class="kat-btn kat-btn--outline"
+              data-kat-tooltip="下にツールチップが表示されます"
+              data-kat-tooltip-position="bottom"
+            >
+              下
+            </button>
+            <button
+              type="button"
+              class="kat-btn kat-btn--outline"
+              data-kat-tooltip="左にツールチップが表示されます"
+              data-kat-tooltip-position="left"
+            >
+              左
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/kat-ui.js"></script>
+  </body>
+</html>

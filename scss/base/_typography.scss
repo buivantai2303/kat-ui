@@ -73,24 +73,6 @@ a {
   }
 }
 
-/* Lists */
-ul, ol {
-  margin: 0;
-  padding-left: $kat-space-6;
-}
-
-ul {
-  list-style-type: disc;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-li {
-  margin-bottom: $kat-space-1;
-}
-
 /* Text emphasis */
 strong, b {
   font-weight: $kat-font-weight-bold;

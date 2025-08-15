@@ -1,0 +1,169 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Category Image component styles */
+
+/* カテゴリ画像コンテナ */
+.kat-category-image {
+  width: 100%;
+}
+
+/* セクション */
+.kat-category-image__section {
+  margin-bottom: $kat-space-6;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* セクションヘッダー */
+.kat-category-image__section-title {
+  font-size: $kat-font-size-lg;
+  font-weight: $kat-font-weight-bold;
+  color: $kat-primary-900;
+  margin: 0 0 $kat-space-4 0;
+}
+
+/* カテゴリリスト */
+.kat-category-image__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* カテゴリアイテム */
+.kat-category-image__item {
+  border-bottom: $kat-border-1 solid $kat-primary-200;
+  cursor: pointer;
+}
+
+.kat-category-image__item:first-child {
+  border-top: $kat-border-1 solid $kat-primary-200;
+}
+
+.kat-category-image__item-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding: $kat-space-2 $kat-space-3 $kat-space-2 0;
+}
+
+/* カテゴリアイコン/ロゴ */
+.kat-category-image__icon {
+  width: 4rem;
+  height: 2.5rem;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: $kat-border-1 solid $kat-primary-200;
+  }
+  
+  /* アイコンスタイル */
+  .kat-icon-text {
+    font-size: $kat-font-size-2xl;
+    font-weight: $kat-font-weight-bold;
+    color: $kat-primary-900;
+  }
+  
+  /* 特定のアイコンスタイル */
+  &--work .kat-icon-text {
+    font-family: $kat-font-family-mono;
+    letter-spacing: -0.05em;
+  }
+  
+  &--sports .kat-icon-text {
+    font-size: $kat-font-size-xl;
+  }
+  
+  &--outdoor .kat-icon-text {
+    font-size: $kat-font-size-lg;
+  }
+  
+  &--days .kat-icon-text {
+    font-size: $kat-font-size-base;
+  }
+}
+
+/* カテゴリテキスト */
+.kat-category-image__text {
+  flex: 1;
+  font-size: $kat-font-size-base;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-primary-700;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* カテゴリアロー */
+.kat-category-image__arrow {
+  margin-left: $kat-space-3;
+  padding-bottom: 0.2rem;
+  color: $kat-primary-400;
+  flex-shrink: 0;
+  
+  &::before {
+    content: "";
+    background-image: $kat-icon-arrow;
+    background-size: $kat-arrow-width $kat-arrow-height;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: $kat-arrow-width;
+    height: $kat-arrow-height;
+    display: inline-block;
+  }
+}
+
+/* レスポンシブデザイン */
+@media (min-width: 1024px) {
+  
+  .kat-category-image__icon {
+    margin-right: $kat-space-2;
+  }
+}
+
+@media (max-width: 1023px) {
+  
+  .kat-category-image__icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: $kat-space-2;
+  }
+  
+  .kat-category-image__text {
+    font-size: $kat-font-size-sm;
+  }
+}
+
+/* アクセシビリティのためのフォーカス管理 */
+.kat-category-image__item:focus-visible {
+  outline: none;
+  box-shadow: $kat-focus-ring;
+}
+
+/* ハイコントラストモードサポート */
+@media (prefers-contrast: high) {
+  .kat-category-image__item {
+    border-color: $kat-primary-400;
+  }
+  
+  .kat-category-image__item:hover {
+    border-color: $kat-primary-600;
+  }
+}
+
+/* リダクションモーションサポート */
+@media (prefers-reduced-motion: reduce) {
+  .kat-category-image__item {
+    transition: none;
+    
+    &:hover {
+      transform: none;
+    }
+  }
+}

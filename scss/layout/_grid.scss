@@ -1,6 +1,10 @@
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Grid system and layout utilities */
 
+.kat-section {
+  padding: $kat-section-padding;
+}
+
 /* Container */
 .kat-container {
   width: 100%;

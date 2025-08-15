@@ -1,7 +1,7 @@
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, CSS reset and normalize styles */
+/** @author: Bui Van Tai、2024-12-15、CSS リセットとスタイルの正規化 */
 
-/* Modern CSS Reset */
+/* モダン CSS リセット */
 *,
 *::before,
 *::after {
@@ -23,12 +23,12 @@ body {
   font-weight: $kat-font-weight-normal;
   line-height: $kat-line-height-normal;
   color: $kat-gray-900;
-  background-color: $kat-gray-50;
+  background-color: $kat-white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Remove default button styles */
+/* デフォルトのボタンスタイルを削除 */
 button {
   background: none;
   border: none;
@@ -38,7 +38,7 @@ button {
   font-family: inherit;
 }
 
-/* Remove default input styles */
+/* デフォルトのインプットスタイルを削除 */
 input,
 textarea,
 select {
@@ -48,25 +48,25 @@ select {
   margin: 0;
 }
 
-/* Remove default list styles */
+/* デフォルトのリストスタイルを削除 */
 ul,
 ol {
   list-style: none;
 }
 
-/* Remove default link styles */
+/* デフォルトのリンクスタイルを削除 */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Remove default table styles */
+/* デフォルトのテーブルスタイルを削除 */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* Remove default form styles */
+/* デフォルトのフォームスタイルを削除 */
 fieldset {
   border: 0;
   margin: 0;
@@ -77,13 +77,13 @@ legend {
   padding: 0;
 }
 
-/* Remove default summary styles */
+/* デフォルトのサマリースタイルを削除 */
 summary {
   display: list-item;
   cursor: pointer;
 }
 
-/* Remove default media styles */
+/* デフォルトのメディアスタイルを削除 */
 img,
 video,
 canvas,
@@ -100,13 +100,13 @@ video {
   height: auto;
 }
 
-/* Remove default svg styles */
+/* デフォルトのSVGスタイルを削除 */
 svg {
   display: block;
   vertical-align: middle;
 }
 
-/* Focus styles */
+/* フォーカススタイル */
 :focus {
   outline: none;
 }
@@ -116,17 +116,17 @@ svg {
   outline-offset: 2px;
 }
 
-/* Hidden attribute */
+/* 非表示属性 */
 [hidden] {
   display: none !important;
 }
 
-/* Disabled elements */
+/* 無効な要素 */
 [disabled] {
   cursor: not-allowed;
 }
 
-/* Screen reader only class */
+/* スクリーンリーダー専用クラス */
 .kat-sr-only {
   @include kat-sr-only;
 }

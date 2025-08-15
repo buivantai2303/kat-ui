@@ -1,0 +1,40 @@
+.kat-breadcrumbs-section {
+    width: 100%;
+    background-color: $kat-info-50;
+
+    .kat-breadcrumbs-section__inner {
+        max-width: 1300px;
+        margin: 0 auto;
+
+        .kat-breadcrumbs__list {
+            display: flex;
+            align-items: center;
+            gap: $kat-space-2;
+            list-style: none;
+            padding: $kat-space-2 0;
+            font-size: $kat-font-size-sm;
+
+            .kat-breadcrumbs__item:not(:last-child) {
+                &::after {
+                    margin-left: $kat-space-2;
+                    content: "";
+                    background-image: $kat-icon-arrow;
+                    background-size: $kat-arrow-width $kat-arrow-height;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: $kat-arrow-width;
+                    height: $kat-arrow-height;
+                    display: inline-block;
+                }
+            }
+
+            .kat-breadcrumbs__item-link {
+                color: $kat-info-400;
+
+                &:hover {
+                    color: $kat-info-600;
+                }
+            }
+        }
+    }
+}

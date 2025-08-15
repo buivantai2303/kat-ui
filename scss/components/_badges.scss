@@ -1,7 +1,11 @@
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Badge and tag component styles */
+/** @author: Bui Van Tai, 2025-08-12, Badge and tag component styles */
 
 /* Base badge styles */
+.kat-badge-group {
+  margin-bottom: $kat-space-1-5;
+}
+
 .kat-badge {
   display: inline-flex;
   align-items: center;

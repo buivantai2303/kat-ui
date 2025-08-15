@@ -1,38 +1,42 @@
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Main SCSS file that imports all components */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
 
 /*
- * Kat UI - Japanese-Inspired Component Framework
- * 
- * A modern, accessible, and responsive component library
- * built with SCSS and vanilla JavaScript.
- * 
- * Features:
- * - Japanese-inspired design with clean aesthetics
- * - Comprehensive component set
- * - Full accessibility support
- * - Mobile-first responsive design
- * - BEM methodology with kat- prefix
- * - Modular and extensible architecture
- */
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
 
-/* Core styles (must be imported first) */
+/* モジュールのインポート */
 @import 'variables';
 @import 'mixins';
 
-/* Base styles */
+/* 基本スタイル */
 @import 'base/reset';
 @import 'base/typography';
 
-/* Layout system */
+/* レイアウトシステム */
 @import 'layout/grid';
+@import 'layout/layout';
 
-/* Components */
+/* コンポーネント */
 @import 'components/buttons';
 @import 'components/forms';
 @import 'components/cards';
 @import 'components/modals';
 @import 'components/navigation';
+@import 'components/header';
+@import 'components/category-nav';
+@import 'components/category-image';
 @import 'components/alerts';
 @import 'components/badges';
 @import 'components/tables';
@@ -41,6 +45,7 @@
 @import 'components/calendar';
 @import 'components/carousel';
 @import 'components/popover';
+@import 'components/filters';
 @import 'components/input-otp';
 @import 'components/toggle-group';
 @import 'components/data-table';
@@ -48,7 +53,9 @@
 @import 'components/pagination';
 @import 'components/toast';
 @import 'components/images';
+@import 'components/page-title';
+@import 'components/breadcrumbs';
 
-/* Utilities (imported last) */
+/* ユーティリティ（最後にインポート） */
 @import 'utilities/spacing';
 @import 'utilities/misc';

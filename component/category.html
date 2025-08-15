@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kat UI - Three Column Layout</title>
+    <link rel="stylesheet" href="../css/kat-ui.css">
+    <script src="../js/kat-ui.js"></script>
+  </head>
+<body class="kat-body">
+    <!-- Ecommerce Header -->
+    <header class="kat-ecommerce-header">
+        <!-- Top Header Bar -->
+        <div class="kat-ecommerce-header__top">
+            <div class="kat-ecommerce-header__top-inner">
+                <div class="kat-ecommerce-header__announcement">
+                    🎉 新商品入荷！最大50%OFFセール開催中
+                </div>
+                <div class="kat-ecommerce-header__top-links">
+                    <a href="#">ヘルプ</a>
+                    <a href="#">お問い合わせ</a>
+                    <a href="#">配送について</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="kat-ecommerce-header__main">
+            <div class="kat-ecommerce-header__main-inner">
+                <div class="kat-ecommerce-header__logo">
+                    <a href="#">
+                        <div class="kat-ecommerce-header__logo-icon">K</div>
+                        <span class="kat-ecommerce-header__logo-text">Kat Store</span>
+                    </a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="kat-ecommerce-header__search">
+                    <input type="text" class="kat-ecommerce-header__search-input" placeholder="商品名、ブランド、カテゴリで検索...">
+                    <button class="kat-ecommerce-header__search-button" aria-label="検索">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Header Actions -->
+                <div class="kat-ecommerce-header__actions">
+                    <!-- Notification -->
+                    <div class="kat-ecommerce-header__action" data-action="notification" aria-label="通知">
+                        <svg class="kat-ecommerce-header__action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+                        </svg>
+                        <span class="kat-ecommerce-header__action-text">通知</span>
+                        <span class="kat-ecommerce-header__action-badge">3</span>
+                    </div>
+
+                    <!-- Cart -->
+                    <div class="kat-ecommerce-header__action" data-action="cart" aria-label="カート">
+                        <svg class="kat-ecommerce-header__action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="kat-ecommerce-header__action-text">カート</span>
+                        <span class="kat-ecommerce-header__action-badge">0</span>
+                    </div>
+
+                    <!-- Love Products -->
+                    <div class="kat-ecommerce-header__action" data-action="wishlist" aria-label="お気に入り">
+                        <svg class="kat-ecommerce-header__action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        <span class="kat-ecommerce-header__action-text">お気に入り</span>
+                        <span class="kat-ecommerce-header__action-badge">0</span>
+                    </div>
+
+                    <!-- Account -->
+                    <div class="kat-ecommerce-header__action" data-action="account" aria-label="アカウント">
+                        <svg class="kat-ecommerce-header__action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span class="kat-ecommerce-header__action-text">アカウント</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar (Separate from Header) -->
+    <nav class="kat-ecommerce-header__nav">
+        <div class="kat-ecommerce-header__nav-inner">
+            <ul class="kat-ecommerce-header__nav-list">
+                <li class="kat-ecommerce-header__nav-item">
+                    <a href="#" class="kat-ecommerce-header__nav-link" aria-expanded="false">
+                        メンズ
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="kat-ecommerce-header__nav-dropdown">
+                        <div class="kat-ecommerce-header__nav-dropdown-header">
+                            <h3>メンズ</h3>
+                        </div>
+                        <div class="kat-ecommerce-header__nav-dropdown-content">
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    新着商品
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    すべて
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    ウエア
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    グッズ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="kat-ecommerce-header__nav-item">
+                    <a href="#" class="kat-ecommerce-header__nav-link" aria-expanded="false">
+                        レディース
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="kat-ecommerce-header__nav-dropdown">
+                        <div class="kat-ecommerce-header__nav-dropdown-header">
+                            <h3>レディース</h3>
+                        </div>
+                        <div class="kat-ecommerce-header__nav-dropdown-content">
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    新着商品
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    すべて
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    ウエア
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    グッズ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="kat-ecommerce-header__nav-item">
+                    <a href="#" class="kat-ecommerce-header__nav-link" aria-expanded="false">
+                        キッズ
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="kat-ecommerce-header__nav-dropdown">
+                        <div class="kat-ecommerce-header__nav-dropdown-header">
+                            <h3>キッズ</h3>
+                        </div>
+                        <div class="kat-ecommerce-header__nav-dropdown-content">
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    新着商品
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    すべて
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    ウエア
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    グッズ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="kat-ecommerce-header__nav-item">
+                    <a href="#" class="kat-ecommerce-header__nav-link" aria-expanded="false">
+                        作業服
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </a>
+                    <div class="kat-ecommerce-header__nav-dropdown">
+                        <div class="kat-ecommerce-header__nav-dropdown-header">
+                            <h3>作業服</h3>
+                        </div>
+                        <div class="kat-ecommerce-header__nav-dropdown-content">
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    新着商品
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    すべて
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    ウエア
+                                </a>
+                            </div>
+                            <div class="kat-ecommerce-header__nav-dropdown-item">
+                                <a href="#">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                                    </svg>
+                                    グッズ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="kat-ecommerce-header__nav-item">
+                    <a href="#" class="kat-ecommerce-header__nav-link">
+                        セール
+                    </a>
+                </li>
+
+                <li class="kat-ecommerce-header__nav-item">
+                    <a href="#" class="kat-ecommerce-header__nav-link">
+                        新着
+                    </a>
+                </li>
+
+                <li class="kat-ecommerce-header__nav-item">
+                    <a href="#" class="kat-ecommerce-header__nav-link">
+                        ブランド
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- パンくずリスト -->
+    <div class="kat-breadcrumbs-section">
+        <div class="kat-breadcrumbs-section__inner">
+            <ul class="kat-breadcrumbs__list">
+                <li class="kat-breadcrumbs__item"><a href="#" class="kat-breadcrumbs__item-link">ホーム</a></li>
+                <li class="kat-breadcrumbs__item"><a href="#" class="kat-breadcrumbs__item-link">コンポーネント</a></li>
+                <li class="kat-breadcrumbs__item"><a href="#" class="kat-breadcrumbs__item-link">ドキュメント</a></li>
+                <li class="kat-breadcrumbs__item"><a href="#" class="kat-breadcrumbs__item-link">お問い合わせ</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ページタイトル -->
+    <div class="kat-page-title">
+        <div class="kat-page-title__inner">
+            <h1 class="kat-page-title__text">アウター</h1>
+        </div>
+    </div>
+
+    <!-- メインコンテンツエリア -->
+    <main class="kat-layout-3col kat-layout-3col--no-sticky">
+        <!-- 左サイドバー - 200px -->
+        <aside class="kat-sidebar-left">
+            <div class="kat-sidebar-left__content">
+                <h2 class="kat-sidebar-left__title">商品カテゴリー</h2>
+                
+                <!-- カテゴリナビゲーションコンポーネント -->
+                <nav class="kat-category-nav">
+                    <ul class="kat-category-nav__list">
+                        <!-- 作業服 Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">作業服</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- メンズ Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">メンズ</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- レディース Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">レディース</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- キッズ Category (Active/Expanded) -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">レディース</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <nav class="kat-category-nav">
+                    <ul class="kat-category-nav__list">
+                        <!-- 作業服 Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">作業服</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- メンズ Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">メンズ</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- レディース Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">レディース</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- キッズ Category (Active/Expanded) -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">レディース</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <nav class="kat-category-nav">
+                    <ul class="kat-category-nav__list">
+                        <!-- 作業服 Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">作業服</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- メンズ Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">メンズ</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- レディース Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">レディース</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- キッズ Category (Active/Expanded) -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">レディース</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <nav class="kat-category-nav">
+                    <ul class="kat-category-nav__list">
+                        <!-- 作業服 Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">作業服</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- メンズ Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">メンズ</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- レディース Category -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">レディース</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- キッズ Category (Active/Expanded) -->
+                        <li class="kat-category-nav__item">
+                            <button class="kat-category-nav__toggle" aria-expanded="false">
+                                <span class="kat-category-nav__label">レディース</span>
+                                <span class="kat-category-nav__icon kat-category-nav__icon--plus">+</span>
+                            </button>
+                            <ul class="kat-category-nav__submenu">
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">新着商品</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">すべて</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">ウエア</a>
+                                </li>
+                                <li class="kat-category-nav__subitem">
+                                    <a href="#" class="kat-category-nav__link">グッズ</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="kat-mt--6"></div>
+            
+                <nav class="kat-category-image">
+                    <!-- メーカーブランドセクション -->
+                    <div class="kat-category-image__section">
+                        <h3 class="kat-category-image__section-title">メーカーブランド</h3>
+                        <ul class="kat-category-image__list">
+                            
+                            <li class="kat-category-image__item">
+                                <a href="#" class="kat-category-image__item-content">
+                                    <div class="kat-category-image__icon">
+                                        <img src="https://workman.jp/img/brand/scene-work.jpg" alt="">
+                                     </div>
+                                     <p class="kat-category-image__text">アイトス</p>
+                                     <div class="kat-category-image__arrow"></div>
+                                </a>
+                            </li>
+
+                            <li class="kat-category-image__item">
+                                <a href="#" class="kat-category-image__item-content">
+                                    <div class="kat-category-image__icon">
+                                        <img src="https://workman.jp/img/brand/kansaiuniform.jpg" alt="">
+                                     </div>
+                                     <p class="kat-category-image__text">アイトス</p>
+                                     <div class="kat-category-image__arrow"></div>
+                                </a>
+                            </li>
+
+                            <li class="kat-category-image__item">
+                                <a href="#" class="kat-category-image__item-content">
+                                    <div class="kat-category-image__icon">
+                                        <img src="https://workman.jp/img/brand/scene-work.jpg" alt="">
+                                     </div>
+                                     <p class="kat-category-image__text">アイトス</p>
+                                     <div class="kat-category-image__arrow"></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- ボディコンテンツエリア - 900pxスクロール可能 -->
+        <section class="kat-body-content">
+            <div class="kat-body-content__inner">
+
+                <!-- 商品フィルター -->
+                <div class="kat-product-filter">
+                    <div class="kat-product-filter__inner">
+                        <div class="kat-filter-row">
+                            <!-- オンラインストア在庫 -->
+                            <button class="kat-filter-btn" data-filter="filter-1">
+                                <span>オンラインストア在庫</span>
+                                <span class="kat-filter-btn__chevron"></span>
+                            </button>
+                            
+                            <!-- Tシャツ・カットソー -->
+                            <button class="kat-filter-btn" data-filter="filter-2">
+                                <span>Tシャツ・カットソー</span>
+                                <span class="kat-filter-btn__chevron"></span>
+                            </button>
+                            
+                            <!-- 販売タイプ -->
+                            <button class="kat-filter-btn" data-filter="filter-3">
+                                <span>販売タイプ</span>
+                                <span class="kat-filter-btn__chevron"></span>
+                            </button>
+                            
+                            <!-- サイズ -->
+                            <button class="kat-filter-btn" data-filter="filter-4">
+                                <span>サイズ</span>
+                                <span class="kat-filter-btn__chevron"></span>
+                            </button>
+                        </div>
+                        
+                        <!-- フィルターポップオーバー -->
+                        <div class="kat-filter-popover kat-filter-popover--top" id="filter-1-popover">
+                            <div class="kat-filter-header">
+                                <h3 class="kat-filter-title">オンラインストア在庫</h3>
+                                <button class="kat-filter-close" aria-label="閉じる">
+                                    <svg viewBox="0 0 16 16" fill="currentColor">
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            
+                            <div class="kat-filter-options">
+                                <div class="kat-filter-option">
+                                    <label class="kat-checkbox">
+                                        <input type="checkbox" class="kat-checkbox__input" value="in-stock">
+                                        <span class="kat-checkbox__label">在庫あり</span>
+                                    </label>
+                                    <span class="kat-filter-option__count">456</span>
+                                </div>
+                                <div class="kat-filter-option">
+                                    <label class="kat-checkbox">
+                                        <input type="checkbox" class="kat-checkbox__input" value="out-of-stock">
+                                        <span class="kat-checkbox__label">在庫切れ</span>
+                                    </label>
+                                    <span class="kat-filter-option__count">23</span>
+                                </div>
+                                <div class="kat-filter-option">
+                                    <label class="kat-checkbox">
+                                        <input type="checkbox" class="kat-checkbox__input" value="pre-order">
+                                        <span class="kat-checkbox__label">予約受付中</span>
+                                    </label>
+                                    <span class="kat-filter-option__count">12</span>
+                                </div>
+                            </div>
+                            
+                            <div class="kat-filter-actions">
+                                <button class="kat-btn kat-btn--clear" id="kat-filter-clear">クリア</button>
+                                <button class="kat-btn kat-btn--primary" id="kat-filter-apply">適用</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 商品グリッド -->
+                <div class="kat-product-grid">
+                    <!-- 商品カード1: ダンボールカーディガン -->
+                    <div class="kat-product-card">
+                        <a href="#" class="kat-product-card__image">
+                            <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ダンボールカーディガン">
+                            <span class="kat-sticky-new">NEW</span>
+                        </a>
+                        <!-- 商品カードコンテンツ -->
+                        <div class="kat-product-card__content">
+                            <a href="#" class="kat-product-card__title">ダンボールカーディガ</a>
+                            <!-- 商品評価 -->
+                            <div class="kat-product-card__rating">
+                                <span class="kat-stars">★★★★★</span>
+                                <span class="kat-rating-text">4.7 (94件)</span>
+                            </div>
+                            <!-- 商品タグ -->
+                            <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                                <span class="kat-badge kat-badge--info">情報</span>
+                            </div>
+                            <!-- 商品価格 -->
+                            <div class="kat-product-card__price">¥1,500 &nbsp;<span class="kat-product-card__price-tax">¥2,000</span></div>
+                        </div>
+                    </div>
+                    <!-- 商品カード1: ダンボールカーディガン -->
+                    <div class="kat-product-card">
+                        <a href="#" class="kat-product-card__image">
+                            <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ダンボールカーディガン">
+                            <span class="kat-sticky-new">NEW</span>
+                        </a>
+                        <!-- 商品カードコンテンツ -->
+                        <div class="kat-product-card__content">
+                            <a href="#" class="kat-product-card__title">ダンボールカーディガ</a>
+                            <!-- 商品評価 -->
+                            <div class="kat-product-card__rating">
+                                <span class="kat-stars">★★★★★</span>
+                                <span class="kat-rating-text">4.7 (94件)</span>
+                            </div>
+                            <!-- 商品タグ -->
+                            <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                                <span class="kat-badge kat-badge--info">情報</span>
+                            </div>
+                            <!-- 商品価格 -->
+                            <div class="kat-product-card__price">¥1,500 &nbsp;<span class="kat-product-card__price-tax">¥2,000</span></div>
+                        </div>
+                    </div>
+                    <!-- 商品カード1: ダンボールカーディガン -->
+                    <div class="kat-product-card">
+                        <a href="#" class="kat-product-card__image">
+                            <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ダンボールカーディガン">
+                            <span class="kat-sticky-new">NEW</span>
+                        </a>
+                        <!-- 商品カードコンテンツ -->
+                        <div class="kat-product-card__content">
+                            <a href="#" class="kat-product-card__title">ダンボールカーディガ</a>
+                            <!-- 商品評価 -->
+                            <div class="kat-product-card__rating">
+                                <span class="kat-stars">★★★★★</span>
+                                <span class="kat-rating-text">4.7 (94件)</span>
+                            </div>
+                            <!-- 商品タグ -->
+                            <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                                <span class="kat-badge kat-badge--info">情報</span>
+                            </div>
+                            <!-- 商品価格 -->
+                            <div class="kat-product-card__price">¥1,500 &nbsp;<span class="kat-product-card__price-tax">¥2,000</span></div>
+                        </div>
+                    </div>
+                    <!-- 商品カード1: ダンボールカーディガン -->
+                    <div class="kat-product-card">
+                        <a href="#" class="kat-product-card__image">
+                            <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ダンボールカーディガン">
+                            <span class="kat-sticky-new">NEW</span>
+                        </a>
+                        <!-- 商品カードコンテンツ -->
+                        <div class="kat-product-card__content">
+                            <a href="#" class="kat-product-card__title">ダンボールカーディガ</a>
+                            <!-- 商品評価 -->
+                            <div class="kat-product-card__rating">
+                                <span class="kat-stars">★★★★★</span>
+                                <span class="kat-rating-text">4.7 (94件)</span>
+                            </div>
+                            <!-- 商品タグ -->
+                            <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                                <span class="kat-badge kat-badge--info">情報</span>
+                            </div>
+                            <!-- 商品価格 -->
+                            <div class="kat-product-card__price">1,500円</div>
+                        </div>
+                    </div>
+                    <!-- 商品カード1: ダンボールカーディガン -->
+                    <div class="kat-product-card">
+                        <a href="#" class="kat-product-card__image">
+                            <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ダンボールカーディガン">
+                            <span class="kat-sticky-new">NEW</span>
+                        </a>
+                        <!-- 商品カードコンテンツ -->
+                        <div class="kat-product-card__content">
+                            <a href="#" class="kat-product-card__title">ダンボールカーディガ</a>
+                            <!-- 商品評価 -->
+                            <div class="kat-product-card__rating">
+                                <span class="kat-stars">★★★★★</span>
+                                <span class="kat-rating-text">4.7 (94件)</span>
+                            </div>
+                            <!-- 商品タグ -->
+                            <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                                <span class="kat-badge kat-badge--info">情報</span>
+                            </div>
+                            <!-- 商品価格 -->
+                            <div class="kat-product-card__price">1,500円</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 右サイドバー - 200px -->
+        <aside class="kat-sidebar-right">
+            <div class="kat-sidebar-right__content">
+                <h2 class="kat-sidebar-right__title">アクティビティ</h2>
+                <div class="kat-sidebar-right__widget">
+                    <h4>最近の更新</h4>
+                    <ul class="kat-activity-list">
+                        <li>ユーザー登録完了</li>
+                        <li>システム更新完了</li>
+                        <li>新機能リリース</li>
+                        <li>バグ修正完了</li>
+                    </ul>
+                </div>
+                
+                <div class="kat-sidebar-right__widget">
+                    <h4>統計</h4>
+                    <p>アクティブユーザー: 1,234</p>
+                    <p>今日の訪問者: 567</p>
+                </div>
+
+                <div class="kat-post-image">
+                    <a href="#">
+                        <img src="https://workman.jp/img/bnr/store_receipt_side_bn.jpg" alt="バナー">
+                    </a>
+                </div>
+            </div>
+        </aside>
+    </main>
+  </body>
+</html>

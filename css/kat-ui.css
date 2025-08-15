@@ -1,20 +1,21 @@
+@charset "UTF-8";
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Main SCSS file that imports all components */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
 /*
- * Kat UI - Japanese-Inspired Component Framework
- * 
- * A modern, accessible, and responsive component library
- * built with SCSS and vanilla JavaScript.
- * 
- * Features:
- * - Japanese-inspired design with clean aesthetics
- * - Comprehensive component set
- * - Full accessibility support
- * - Mobile-first responsive design
- * - BEM methodology with kat- prefix
- * - Modular and extensible architecture
- */
-/* Core styles (must be imported first) */
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールのインポート */
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Variables and design tokens for Kat UI */
 /** @project: Kat UI Framework */
@@ -45,10 +46,10 @@
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
-/* Base styles */
+/* 基本スタイル */
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, CSS reset and normalize styles */
-/* Modern CSS Reset */
+/** @author: Bui Van Tai、2024-12-15、CSS リセットとスタイルの正規化 */
+/* モダン CSS リセット */
 *,
 *::before,
 *::after {
@@ -70,12 +71,12 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #18181b;
-  background-color: #fafafa;
+  background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Remove default button styles */
+/* デフォルトのボタンスタイルを削除 */
 button {
   background: none;
   border: none;
@@ -85,7 +86,7 @@ button {
   font-family: inherit;
 }
 
-/* Remove default input styles */
+/* デフォルトのインプットスタイルを削除 */
 input,
 textarea,
 select {
@@ -95,25 +96,25 @@ select {
   margin: 0;
 }
 
-/* Remove default list styles */
+/* デフォルトのリストスタイルを削除 */
 ul,
 ol {
   list-style: none;
 }
 
-/* Remove default link styles */
+/* デフォルトのリンクスタイルを削除 */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Remove default table styles */
+/* デフォルトのテーブルスタイルを削除 */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* Remove default form styles */
+/* デフォルトのフォームスタイルを削除 */
 fieldset {
   border: 0;
   margin: 0;
@@ -124,13 +125,13 @@ legend {
   padding: 0;
 }
 
-/* Remove default summary styles */
+/* デフォルトのサマリースタイルを削除 */
 summary {
   display: list-item;
   cursor: pointer;
 }
 
-/* Remove default media styles */
+/* デフォルトのメディアスタイルを削除 */
 img,
 video,
 canvas,
@@ -147,13 +148,13 @@ video {
   height: auto;
 }
 
-/* Remove default svg styles */
+/* デフォルトのSVGスタイルを削除 */
 svg {
   display: block;
   vertical-align: middle;
 }
 
-/* Focus styles */
+/* フォーカススタイル */
 :focus {
   outline: none;
 }
@@ -163,17 +164,17 @@ svg {
   outline-offset: 2px;
 }
 
-/* Hidden attribute */
+/* 非表示属性 */
 [hidden] {
   display: none !important;
 }
 
-/* Disabled elements */
+/* 無効な要素 */
 [disabled] {
   cursor: not-allowed;
 }
 
-/* Screen reader only class */
+/* スクリーンリーダー専用クラス */
 .kat-sr-only {
   position: absolute;
   width: 1px;
@@ -260,24 +261,6 @@ a:focus-visible {
   outline: 2px solid #737373;
   outline-offset: 2px;
   border-radius: 0.0625rem;
-}
-
-/* Lists */
-ul, ol {
-  margin: 0;
-  padding-left: 1.5rem;
-}
-
-ul {
-  list-style-type: disc;
-}
-
-ol {
-  list-style-type: decimal;
-}
-
-li {
-  margin-bottom: 0.25rem;
 }
 
 /* Text emphasis */
@@ -521,9 +504,13 @@ sup {
   line-height: 2;
 }
 
-/* Layout system */
+/* レイアウトシステム */
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Grid system and layout utilities */
+.kat-section {
+  padding: 1rem;
+}
+
 /* Container */
 .kat-container {
   width: 100%;
@@ -975,25 +962,318 @@ sup {
   grid-template-columns: repeat(auto-fill, minmax(0, 1fr));
 }
 
-/* Components */
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, 3カラムレイアウトシステム */
+/* ボディの基本スタイル */
+.kat-body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #fafafa;
+  color: #171717;
+  background-color: #ffffff;
+  line-height: 1.5;
+}
+
+/* ヘッダー - 80px固定 */
+.kat-header {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  height: 80px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+.kat-header .kat-header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0 1.5rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.kat-header .kat-header__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0;
+}
+.kat-header .kat-header__nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+.kat-header .kat-header__nav-link {
+  color: #525252;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.125rem;
+  transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
+}
+.kat-header .kat-header__nav-link:hover {
+  color: #171717;
+  background-color: #f5f5f5;
+}
+.kat-header .kat-header__nav-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #737373;
+}
+
+/* 3カラムレイアウトコンテナ */
+.kat-layout-3col {
+  display: flex;
+  min-height: calc(100vh - 80px);
+  max-width: 1300px;
+  margin: 0 auto;
+  /* モバイルファースト: 縦に並べる */
+  flex-direction: column;
+  /* デスクトップ: 3カラム */
+  /* 非スティッキーモード - 全体スクロール */
+}
+@media (min-width: 1024px) {
+  .kat-layout-3col {
+    flex-direction: row;
+  }
+}
+@media (min-width: 1024px) {
+  .kat-layout-3col.kat-layout-3col--no-sticky .kat-sidebar-left,
+  .kat-layout-3col.kat-layout-3col--no-sticky .kat-sidebar-right {
+    position: static;
+    height: auto;
+    overflow-y: visible;
+  }
+  .kat-layout-3col.kat-layout-3col--no-sticky .kat-body-content {
+    overflow-y: visible;
+  }
+}
+
+/* 左サイドバー - 200px固定幅 */
+.kat-sidebar-left {
+  width: 100%;
+  padding-top: 1rem;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  position: static;
+  height: auto;
+  overflow-y: visible;
+  /* デスクトップ: 固定幅とスティッキー */
+}
+@media (min-width: 1024px) {
+  .kat-sidebar-left {
+    width: 250px;
+    border-bottom: none;
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    overflow-y: scroll;
+    /* スクロールバーを非表示にする */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    /* 非スティッキーモード */
+  }
+  .kat-sidebar-left::-webkit-scrollbar {
+    display: none;
+  }
+  .kat-sidebar-left.kat-sidebar-left--no-sticky {
+    position: static;
+    height: auto;
+    overflow-y: visible;
+  }
+}
+.kat-sidebar-left .kat-sidebar-left__content {
+  padding-right: 1rem;
+}
+.kat-sidebar-left .kat-sidebar-left__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #171717;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.kat-sidebar-left .kat-sidebar-left__nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.kat-sidebar-left .kat-sidebar-left__nav-link {
+  display: block;
+  color: #525252;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.125rem;
+  transition: all 200ms cubic-bezier(0, 0, 0.58, 1);
+}
+.kat-sidebar-left .kat-sidebar-left__nav-link:hover {
+  color: #171717;
+  background-color: #f5f5f5;
+}
+.kat-sidebar-left .kat-sidebar-left__nav-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #737373;
+}
+.kat-sidebar-left .kat-sidebar-left__widget {
+  padding-top: 1rem;
+  border-top: 1px solid #e5e5e5;
+}
+.kat-sidebar-left .kat-sidebar-left__widget h4 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #262626;
+  margin: 0 0 0.75rem 0;
+}
+
+/* 右サイドバー - 200px固定幅 */
+.kat-sidebar-right {
+  width: 100%;
+  padding-top: 1rem;
+  background-color: #ffffff;
+  border-top: 1px solid #e5e5e5;
+  position: static;
+  height: auto;
+  overflow-y: visible;
+  /* デスクトップ: 固定幅とスティッキー */
+}
+@media (min-width: 1024px) {
+  .kat-sidebar-right {
+    width: 250px;
+    border-top: none;
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    overflow-y: scroll;
+    /* スクロールバーを非表示にする */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    /* 非スティッキーモード */
+  }
+  .kat-sidebar-right::-webkit-scrollbar {
+    display: none;
+  }
+  .kat-sidebar-right.kat-sidebar-right--no-sticky {
+    position: static;
+    height: auto;
+    overflow-y: visible;
+  }
+}
+.kat-sidebar-right .kat-sidebar-right__content {
+  padding-left: 1rem;
+}
+.kat-sidebar-right .kat-sidebar-right__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0 0 1rem 0;
+}
+.kat-sidebar-right .kat-sidebar-right__widget {
+  padding-top: 1rem;
+  border-top: 1px solid #e5e5e5;
+}
+.kat-sidebar-right .kat-sidebar-right__widget h4 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #262626;
+  margin: 0 0 0.75rem 0;
+}
+.kat-sidebar-right .kat-activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.kat-sidebar-right .kat-activity-list li {
+  padding: 0.5rem 0;
+  color: #525252;
+  font-size: 0.8125rem;
+  border-bottom: 1px solid #f5f5f5;
+}
+.kat-sidebar-right .kat-activity-list li:last-child {
+  border-bottom: none;
+}
+.kat-sidebar-right .kat-post-image {
+  margin-top: 1rem;
+  overflow: hidden;
+}
+.kat-sidebar-right .kat-post-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* ボディコンテンツエリア - 900pxスクロール可能 */
+.kat-body-content {
+  flex: 1;
+  width: 100%;
+  background-color: #ffffff;
+  overflow-y: visible;
+  height: auto;
+  /* デスクトップ: 固定幅とスクロール可能 */
+}
+@media (min-width: 1024px) {
+  .kat-body-content {
+    width: 900px;
+    overflow-y: visible;
+    height: auto;
+  }
+}
+.kat-body-content .kat-body-content__inner {
+  padding: 1rem;
+}
+.kat-body-content .kat-body-content__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0 0 1rem 0;
+}
+.kat-body-content .kat-body-content__text {
+  font-size: 0.875rem;
+  color: #525252;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.625;
+}
+
+/* レスポンシブデザイン */
+@media (min-width: 1024px) {
+  .kat-layout-3col {
+    margin: 0 auto;
+  }
+  .kat-header .kat-header__content {
+    max-width: 100%;
+  }
+}
+@media (min-width: 640px) {
+  .kat-header {
+    min-height: 80px;
+  }
+  .kat-header .kat-header__content {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+  .kat-header .kat-header__nav-list {
+    gap: 0.75rem;
+  }
+  .kat-layout-3col {
+    min-height: auto;
+  }
+}
+/* コンポーネント */
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Button component styles */
 /* Base button styles */
-.kat-btn {
+.kat-btn, #kat-filter-apply {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  height: 2.5rem;
-  padding: 0 1rem;
+  height: 2rem;
+  padding: 0 0.75rem;
   font-size: 0.8125rem;
   gap: 0.5rem;
   /* Button variants */
@@ -1004,159 +1284,144 @@ sup {
   /* Loading state */
   /* Disabled state */
 }
-.kat-btn:focus-visible {
+.kat-btn:focus-visible, #kat-filter-apply:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
 }
-.kat-btn:disabled {
+.kat-btn:disabled, #kat-filter-apply:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-.kat-btn svg {
+.kat-btn svg, #kat-filter-apply svg {
   flex-shrink: 0;
 }
-.kat-btn.kat-btn--primary {
+.kat-btn.kat-btn--primary, #kat-filter-apply {
   background-color: #171717;
   color: #ffffff;
-  border-color: #171717;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--primary:hover {
+  .kat-btn.kat-btn--primary:hover, #kat-filter-apply:hover {
     background-color: #262626;
-    border-color: #262626;
-    transform: translateY(-1px);
   }
 }
-.kat-btn.kat-btn--primary:active {
+.kat-btn.kat-btn--primary:active, #kat-filter-apply:active {
   background-color: #171717;
-  border-color: #171717;
   transform: translateY(0);
 }
-.kat-btn.kat-btn--primary:focus-visible {
+.kat-btn.kat-btn--primary:focus-visible, #kat-filter-apply:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
 }
-.kat-btn.kat-btn--primary.kat-btn--danger {
+.kat-btn.kat-btn--primary.kat-btn--danger, .kat-btn--danger#kat-filter-apply {
   background-color: #dc2626;
-  border-color: #dc2626;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--primary.kat-btn--danger:hover {
+  .kat-btn.kat-btn--primary.kat-btn--danger:hover, .kat-btn--danger#kat-filter-apply:hover {
     background-color: #b91c1c;
-    border-color: #b91c1c;
   }
 }
-.kat-btn.kat-btn--primary.kat-btn--danger:active {
+.kat-btn.kat-btn--primary.kat-btn--danger:active, .kat-btn--danger#kat-filter-apply:active {
   background-color: #991b1b;
-  border-color: #991b1b;
 }
-.kat-btn.kat-btn--secondary {
+.kat-btn.kat-btn--secondary, .kat-btn--secondary#kat-filter-apply {
   background-color: #f5f5f5;
   color: #171717;
-  border-color: #e5e5e5;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--secondary:hover {
+  .kat-btn.kat-btn--secondary:hover, .kat-btn--secondary#kat-filter-apply:hover {
     background-color: #e5e5e5;
-    border-color: #d4d4d4;
     transform: translateY(-1px);
   }
 }
-.kat-btn.kat-btn--secondary:active {
+.kat-btn.kat-btn--secondary:active, .kat-btn--secondary#kat-filter-apply:active {
   background-color: #f5f5f5;
-  border-color: #e5e5e5;
   transform: translateY(0);
 }
-.kat-btn.kat-btn--outline {
+.kat-btn.kat-btn--outline, .kat-btn--outline#kat-filter-apply {
   background-color: transparent;
   color: #171717;
-  border-color: #d4d4d4;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--outline:hover {
+  .kat-btn.kat-btn--outline:hover, .kat-btn--outline#kat-filter-apply:hover {
     background-color: #171717;
     color: #ffffff;
-    border-color: #171717;
     transform: translateY(-1px);
   }
 }
-.kat-btn.kat-btn--outline:active {
+.kat-btn.kat-btn--outline:active, .kat-btn--outline#kat-filter-apply:active {
   background-color: #262626;
-  border-color: #262626;
   transform: translateY(0);
 }
-.kat-btn.kat-btn--outline.kat-btn--danger {
+.kat-btn.kat-btn--outline.kat-btn--danger, .kat-btn--outline.kat-btn--danger#kat-filter-apply {
   color: #dc2626;
-  border-color: #dc2626;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--outline.kat-btn--danger:hover {
+  .kat-btn.kat-btn--outline.kat-btn--danger:hover, .kat-btn--outline.kat-btn--danger#kat-filter-apply:hover {
     background-color: #fef2f2;
     color: #b91c1c;
   }
 }
-.kat-btn.kat-btn--outline.kat-btn--danger:active {
+.kat-btn.kat-btn--outline.kat-btn--danger:active, .kat-btn--outline.kat-btn--danger#kat-filter-apply:active {
   background-color: #fee2e2;
 }
-.kat-btn.kat-btn--ghost {
+.kat-btn.kat-btn--ghost, .kat-btn--ghost#kat-filter-apply {
   background-color: transparent;
   color: #404040;
-  border-color: transparent;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--ghost:hover {
+  .kat-btn.kat-btn--ghost:hover, .kat-btn--ghost#kat-filter-apply:hover {
     background-color: #f5f5f5;
     color: #171717;
     transform: translateY(-1px);
   }
 }
-.kat-btn.kat-btn--ghost:active {
+.kat-btn.kat-btn--ghost:active, .kat-btn--ghost#kat-filter-apply:active {
   background-color: #e5e5e5;
   transform: translateY(0);
 }
-.kat-btn.kat-btn--sm {
+.kat-btn.kat-btn--sm, #kat-filter-apply {
   height: 2rem;
   padding: 0 0.75rem;
   font-size: 0.8125rem;
   gap: 0.375rem;
 }
-.kat-btn.kat-btn--lg {
+.kat-btn.kat-btn--lg, .kat-btn--lg#kat-filter-apply {
   height: 3rem;
   padding: 0 1.5rem;
   font-size: 0.875rem;
   gap: 0.5rem;
 }
-.kat-btn.kat-btn--icon {
+.kat-btn.kat-btn--icon, .kat-btn--icon#kat-filter-apply {
   width: 2.5rem;
   height: 2.5rem;
   padding: 0;
 }
-.kat-btn.kat-btn--icon.kat-btn--sm {
+.kat-btn.kat-btn--icon.kat-btn--sm, .kat-btn--icon#kat-filter-apply {
   width: 2rem;
   height: 2rem;
 }
-.kat-btn.kat-btn--icon.kat-btn--lg {
+.kat-btn.kat-btn--icon.kat-btn--lg, .kat-btn--icon.kat-btn--lg#kat-filter-apply {
   width: 3rem;
   height: 3rem;
 }
-.kat-btn.kat-btn--full {
+.kat-btn.kat-btn--full, .kat-btn--full#kat-filter-apply {
   width: 100%;
 }
-.kat-btn.kat-btn--pill {
+.kat-btn.kat-btn--pill, .kat-btn--pill#kat-filter-apply {
   border-radius: 100px;
 }
-.kat-btn.kat-btn--square {
+.kat-btn.kat-btn--square, .kat-btn--square#kat-filter-apply {
   border-radius: 0;
 }
-.kat-btn.kat-btn--rounded {
+.kat-btn.kat-btn--rounded, .kat-btn--rounded#kat-filter-apply {
   border-radius: 0.25rem;
 }
-.kat-btn.kat-btn--loading {
+.kat-btn.kat-btn--loading, .kat-btn--loading#kat-filter-apply {
   position: relative;
   pointer-events: none;
 }
-.kat-btn.kat-btn--loading .kat-spinner {
+.kat-btn.kat-btn--loading .kat-spinner, .kat-btn--loading#kat-filter-apply .kat-spinner {
   margin-right: 0.5rem;
 }
-.kat-btn:disabled {
+.kat-btn:disabled, #kat-filter-apply:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
@@ -1172,21 +1437,21 @@ sup {
 .kat-btn-group.kat-btn-group--attached {
   gap: 0;
 }
-.kat-btn-group.kat-btn-group--attached .kat-btn {
+.kat-btn-group.kat-btn-group--attached .kat-btn, .kat-btn-group.kat-btn-group--attached #kat-filter-apply {
   border-radius: 0;
 }
-.kat-btn-group.kat-btn-group--attached .kat-btn:first-child {
+.kat-btn-group.kat-btn-group--attached .kat-btn:first-child, .kat-btn-group.kat-btn-group--attached #kat-filter-apply:first-child {
   border-top-left-radius: 0.1875rem;
   border-bottom-left-radius: 0.1875rem;
 }
-.kat-btn-group.kat-btn-group--attached .kat-btn:last-child {
+.kat-btn-group.kat-btn-group--attached .kat-btn:last-child, .kat-btn-group.kat-btn-group--attached #kat-filter-apply:last-child {
   border-top-right-radius: 0.1875rem;
   border-bottom-right-radius: 0.1875rem;
 }
-.kat-btn-group.kat-btn-group--attached .kat-btn:not(:first-child) {
+.kat-btn-group.kat-btn-group--attached .kat-btn:not(:first-child), .kat-btn-group.kat-btn-group--attached #kat-filter-apply:not(:first-child) {
   margin-left: -1px;
 }
-.kat-btn-group.kat-btn-group--attached .kat-btn:hover, .kat-btn-group.kat-btn-group--attached .kat-btn:focus {
+.kat-btn-group.kat-btn-group--attached .kat-btn:hover, .kat-btn-group.kat-btn-group--attached #kat-filter-apply:hover, .kat-btn-group.kat-btn-group--attached .kat-btn:focus, .kat-btn-group.kat-btn-group--attached #kat-filter-apply:focus {
   position: relative;
   z-index: 1;
 }
@@ -1194,13 +1459,13 @@ sup {
   flex-direction: column;
   align-items: stretch;
 }
-.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:first-child {
+.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:first-child, .kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached #kat-filter-apply:first-child {
   border-radius: 0.1875rem 0.1875rem 0 0;
 }
-.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:last-child {
+.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:last-child, .kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached #kat-filter-apply:last-child {
   border-radius: 0 0 0.1875rem 0.1875rem;
 }
-.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:not(:first-child) {
+.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:not(:first-child), .kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached #kat-filter-apply:not(:first-child) {
   margin-left: 0;
   margin-top: -1px;
 }
@@ -1214,9 +1479,6 @@ sup {
   border-top: 2px solid currentColor;
   border-radius: 50%;
   animation: kat-spin 1000ms linear infinite;
-  vertical-align: middle;
-  position: relative;
-  top: -1px;
 }
 .kat-spinner.kat-spinner--sm {
   width: 0.875rem;
@@ -1312,16 +1574,6 @@ sup {
   background-color: #f9f9f9;
   transform: scale(1.005);
   outline: none;
-}
-/* Disable zoom on mobile devices */
-@media screen and (max-width: 768px) {
-  .kat-input, .kat-textarea, .kat-select {
-    font-size: 16px !important;
-    transform: none !important;
-  }
-  .kat-input:focus, .kat-textarea:focus, .kat-select:focus {
-    transform: none !important;
-  }
 }
 .kat-input:disabled {
   background-color: #f4f4f5;
@@ -1516,7 +1768,7 @@ sup {
 .kat-checkbox__input:checked {
   background-color: #171717;
   border-color: #171717;
-  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
   background-size: 80% 80%;
   background-position: center;
   background-repeat: no-repeat;
@@ -1797,369 +2049,104 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Card component styles */
-/* Base card styles */
-.kat-card, .kat-profile-card, .kat-product-card {
-  background-color: #ffffff;
-  border: 1px solid #e4e4e7;
-  border-radius: 0.25rem;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  /* Card variants */
-}
-.kat-card.kat-card--compact .kat-card__header, .kat-card--compact.kat-profile-card .kat-card__header, .kat-card--compact.kat-product-card .kat-card__header {
-  padding: 1rem;
-}
-.kat-card.kat-card--compact .kat-card__content, .kat-card--compact.kat-profile-card .kat-card__content, .kat-card.kat-card--compact .kat-product-card .kat-product-card__content, .kat-card--compact.kat-profile-card .kat-product-card .kat-product-card__content, .kat-product-card .kat-card.kat-card--compact .kat-product-card__content, .kat-product-card .kat-card--compact.kat-profile-card .kat-product-card__content, .kat-card--compact.kat-product-card .kat-card__content, .kat-card--compact.kat-product-card .kat-product-card__content {
-  padding: 1rem;
-  padding-top: 0;
-}
-.kat-card.kat-card--compact .kat-card__footer, .kat-card--compact.kat-profile-card .kat-card__footer, .kat-card--compact.kat-product-card .kat-card__footer {
-  padding: 1rem;
-  padding-top: 0;
-}
-.kat-card.kat-card--elevated, .kat-card--elevated.kat-profile-card, .kat-card--elevated.kat-product-card {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-@media (hover: hover) {
-  .kat-card.kat-card--elevated:hover, .kat-card--elevated.kat-profile-card:hover, .kat-card--elevated.kat-product-card:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    transform: translateY(-2px);
-  }
-}
-.kat-card.kat-card--interactive, .kat-card--interactive.kat-profile-card, .kat-card--interactive.kat-product-card {
-  cursor: pointer;
-  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
-}
-@media (hover: hover) {
-  .kat-card.kat-card--interactive:hover, .kat-card--interactive.kat-profile-card:hover, .kat-card--interactive.kat-product-card:hover {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transform: translateY(-1px);
-  }
-}
-.kat-card.kat-card--interactive:active, .kat-card--interactive.kat-profile-card:active, .kat-card--interactive.kat-product-card:active {
-  transform: translateY(0);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-/* Card header */
-.kat-card__header {
-  padding: 1.5rem;
-  border-bottom: 1px solid #e4e4e7;
-  position: relative;
-  /* Collapsible card header */
-}
-.kat-card__header:last-child {
-  border-bottom: none;
-}
-.kat-card__header.kat-card__header--collapsible {
-  cursor: pointer;
-  padding-right: 3rem;
-  transition: background-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-@media (hover: hover) {
-  .kat-card__header.kat-card__header--collapsible:hover {
-    background-color: #fafafa;
-  }
-}
-.kat-card__header.kat-card__header--collapsible::after {
-  content: "";
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1rem;
-  height: 1rem;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3e%3c/path%3e%3c/svg%3e");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  color: #525252;
-  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.kat-card__header.kat-card__header--collapsible.kat-card__header--collapsed::after {
-  transform: translateY(-50%) rotate(-90deg);
-}
-
-.kat-card__title, .kat-profile-card .kat-profile-card__name, .kat-product-card .kat-product-card__title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #18181b;
-  margin: 0;
-  line-height: 1.25;
-}
-
-.kat-card__subtitle {
-  font-size: 0.8125rem;
-  color: #52525b;
-  margin: 0.25rem 0 0 0;
-  line-height: 1.5;
-}
-
-/* Card content */
-.kat-card__content, .kat-product-card .kat-product-card__content {
-  padding: 1.5rem;
-  transition: max-height 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), padding 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  overflow: hidden;
-  /* Collapsible content */
-}
-.kat-card__content > *:first-child, .kat-product-card .kat-product-card__content > *:first-child {
-  margin-top: 0;
-}
-.kat-card__content > *:last-child, .kat-product-card .kat-product-card__content > *:last-child {
-  margin-bottom: 0;
-}
-.kat-card__content.kat-card__content--collapsible, .kat-product-card .kat-card__content--collapsible.kat-product-card__content {
-  max-height: 1000px;
-  opacity: 1;
-}
-.kat-card__content.kat-card__content--collapsible.kat-card__content--collapsed, .kat-product-card .kat-card__content--collapsible.kat-card__content--collapsed.kat-product-card__content {
-  max-height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  opacity: 0;
-  overflow: hidden;
-}
-.kat-card__content p, .kat-product-card .kat-product-card__content p {
-  margin-bottom: 1rem;
-}
-.kat-card__content p:last-child, .kat-product-card .kat-product-card__content p:last-child {
-  margin-bottom: 0;
-}
-
-/* Card image */
-.kat-card__image, .kat-product-card .kat-product-card__image {
-  width: 100%;
-  overflow: hidden;
-}
-.kat-card__image img, .kat-product-card .kat-product-card__image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-.kat-card__image.kat-card__image--aspect-video, .kat-product-card .kat-card__image--aspect-video.kat-product-card__image {
-  aspect-ratio: 1.7777777778;
-}
-@supports not (aspect-ratio: 1) {
-  .kat-card__image.kat-card__image--aspect-video::before, .kat-product-card .kat-card__image--aspect-video.kat-product-card__image::before {
-    content: "";
-    float: left;
-    padding-top: calc(100% / 1.7777777778);
-  }
-  .kat-card__image.kat-card__image--aspect-video::after, .kat-product-card .kat-card__image--aspect-video.kat-product-card__image::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-.kat-card__image.kat-card__image--aspect-square, .kat-product-card .kat-card__image--aspect-square.kat-product-card__image {
-  aspect-ratio: 1;
-}
-@supports not (aspect-ratio: 1) {
-  .kat-card__image.kat-card__image--aspect-square::before, .kat-product-card .kat-card__image--aspect-square.kat-product-card__image::before {
-    content: "";
-    float: left;
-    padding-top: calc(100% / 1);
-  }
-  .kat-card__image.kat-card__image--aspect-square::after, .kat-product-card .kat-card__image--aspect-square.kat-product-card__image::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-.kat-card__image.kat-card__image--aspect-portrait, .kat-product-card .kat-card__image--aspect-portrait.kat-product-card__image {
-  aspect-ratio: 0.75;
-}
-@supports not (aspect-ratio: 1) {
-  .kat-card__image.kat-card__image--aspect-portrait::before, .kat-product-card .kat-card__image--aspect-portrait.kat-product-card__image::before {
-    content: "";
-    float: left;
-    padding-top: calc(100% / 0.75);
-  }
-  .kat-card__image.kat-card__image--aspect-portrait::after, .kat-product-card .kat-card__image--aspect-portrait.kat-product-card__image::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
-/* Card footer */
-.kat-card__footer {
-  padding: 1.5rem;
-  border-top: 1px solid #e4e4e7;
-  background-color: #fafafa;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-.kat-card__footer:first-child {
-  border-top: none;
-  background-color: transparent;
-}
-.kat-card__footer.kat-card__footer--center {
-  justify-content: center;
-}
-.kat-card__footer.kat-card__footer--end {
-  justify-content: flex-end;
-}
-
-/* Card group - for displaying multiple cards */
-.kat-card-group {
+/** @author: Bui Van Tai, 2025-08-12, 商品カード */
+/* 商品グリッド */
+.kat-product-grid {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: 1fr;
+  /* タブレット: 2列 */
+  /* デスクトップ: 4列 */
 }
-@media (min-width: 640px) {
-  .kat-card-group {
+@media (min-width: 768px) {
+  .kat-product-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (min-width: 1024px) {
-  .kat-card-group {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.kat-card-group.kat-card-group--cols-1 {
-  grid-template-columns: 1fr;
-}
-.kat-card-group.kat-card-group--cols-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-.kat-card-group.kat-card-group--cols-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-@media (min-width: 1024px) {
-  .kat-card-group.kat-card-group--cols-4 {
+  .kat-product-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* Card with dividers */
-.kat-card__divider {
-  height: 1px;
-  background-color: #e4e4e7;
-  margin: 0;
+/* 商品カードのスタイル */
+.kat-product-card {
+  display: block;
+  color: #171717;
+  cursor: pointer;
 }
-
-/* Card loading state */
-.kat-card--loading {
-  position: relative;
-  overflow: hidden;
-}
-.kat-card--loading::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-  animation: kat-shimmer 1.5s infinite;
-}
-
-@keyframes kat-shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-/* Card overlay */
-.kat-card__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  opacity: 0;
-  transition: opacity 200ms cubic-bezier(0.42, 0, 0.58, 1);
-}
-.kat-card:hover .kat-card__overlay, .kat-profile-card:hover .kat-card__overlay, .kat-product-card:hover .kat-card__overlay {
-  opacity: 1;
-}
-
-/* Product card variant */
 .kat-product-card .kat-product-card__image {
-  aspect-ratio: 1;
+  display: block;
+  position: relative;
+  width: 100%;
+  /* NEW ラベル */
 }
-@supports not (aspect-ratio: 1) {
-  .kat-product-card .kat-product-card__image::before {
-    content: "";
-    float: left;
-    padding-top: calc(100% / 1);
-  }
-  .kat-product-card .kat-product-card__image::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+.kat-product-card .kat-product-card__image img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.25rem;
 }
-.kat-product-card .kat-product-card__badge {
+.kat-product-card .kat-product-card__image img:hover {
+  opacity: 0.8;
+}
+.kat-product-card .kat-product-card__image .kat-sticky-new {
   position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
+  top: 0.5rem;
+  left: 0.5rem;
+  border: 1px solid #f87171;
+  background-color: #dc2626;
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  padding: 0.125rem 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.kat-product-card .kat-product-card__content {
+  padding: 0.5rem 0;
+  text-decoration: none;
 }
 .kat-product-card .kat-product-card__title {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
+  line-height: 1.25;
+  color: #1e40af;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-.kat-product-card .kat-product-card__price {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #525252;
-  margin-top: 0.5rem;
+.kat-product-card .kat-product-card__title:hover {
+  text-decoration: underline;
 }
 .kat-product-card .kat-product-card__rating {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-  margin-top: 0.5rem;
+  gap: 0.5rem;
+  margin: 0.125rem 0 0.5rem 0;
+}
+.kat-product-card .kat-product-card__rating .kat-stars {
+  color: #fbbf24;
   font-size: 0.8125rem;
-  color: #52525b;
 }
-
-/* Profile card variant */
-.kat-profile-card {
-  text-align: center;
-}
-.kat-profile-card .kat-profile-card__avatar {
-  margin: 0 auto 1rem;
-}
-.kat-profile-card .kat-profile-card__name {
-  margin-bottom: 0.25rem;
-}
-.kat-profile-card .kat-profile-card__title {
+.kat-product-card .kat-product-card__rating .kat-rating-text {
   font-size: 0.8125rem;
-  color: #52525b;
-  margin-bottom: 1rem;
+  color: #525252;
 }
-.kat-profile-card .kat-profile-card__stats {
-  display: flex;
-  justify-content: space-around;
-  border-top: 1px solid #e4e4e7;
-  padding-top: 1rem;
-  margin-top: 1rem;
-}
-.kat-profile-card .kat-profile-card__stat {
-  text-align: center;
-}
-.kat-profile-card .kat-profile-card__stat .kat-profile-card__stat-number {
-  display: block;
-  font-size: 1.125rem;
+.kat-product-card .kat-product-card__price {
+  color: #171717;
+  font-size: 0.875rem;
   font-weight: 700;
-  color: #18181b;
+  margin: 0;
 }
-.kat-profile-card .kat-profile-card__stat .kat-profile-card__stat-label {
+.kat-product-card .kat-product-card__price .kat-product-card__price-tax {
   font-size: 0.8125rem;
-  color: #52525b;
-  margin-top: 0.25rem;
+  color: #a3a3a3;
+  text-decoration: line-through;
 }
 
 /** @project: Kat UI Framework */
@@ -2258,12 +2245,9 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -2348,7 +2332,7 @@ sup {
   }
 }
 @media (min-width: 640px) {
-  .kat-modal__footer .kat-btn {
+  .kat-modal__footer .kat-btn, .kat-modal__footer #kat-filter-apply {
     min-width: 6rem;
   }
 }
@@ -2700,12 +2684,9 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -2908,12 +2889,9 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -2964,12 +2942,9 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -3184,48 +3159,739 @@ sup {
   color: #737373;
 }
 
-/* Navigation tooltip/info popup */
-.kat-nav-hover__info {
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Header component styles */
+/* Ecommerce Header Container */
+.kat-ecommerce-header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Top Header Bar */
+.kat-ecommerce-header__top {
+  background-color: #171717;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  font-size: 0.6875rem;
+}
+.kat-ecommerce-header__top .kat-ecommerce-header__top-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.kat-ecommerce-header__top .kat-ecommerce-header__announcement {
+  text-align: center;
+  flex: 1;
+}
+.kat-ecommerce-header__top .kat-ecommerce-header__top-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.kat-ecommerce-header__top .kat-ecommerce-header__top-links a {
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: color 150ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+.kat-ecommerce-header__top .kat-ecommerce-header__top-links a:hover {
+  color: #ffffff;
+}
+
+/* Main Header */
+.kat-ecommerce-header__main {
+  padding: 1rem 0;
+}
+.kat-ecommerce-header__main .kat-ecommerce-header__main-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Logo */
+.kat-ecommerce-header__logo {
+  flex-shrink: 0;
+}
+.kat-ecommerce-header__logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #171717;
+}
+.kat-ecommerce-header__logo a .kat-ecommerce-header__logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.kat-ecommerce-header__logo a .kat-ecommerce-header__logo-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  background-color: #171717;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Search Bar */
+.kat-ecommerce-header__search {
+  flex: 1;
+  max-width: 32rem;
+  position: relative;
+}
+.kat-ecommerce-header__search .kat-ecommerce-header__search-input {
+  width: 100%;
+  padding: 0.5rem 3rem 0.625rem 1rem;
+  border: 2px solid #e5e5e5;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  background-color: #ffffff;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-ecommerce-header__search .kat-ecommerce-header__search-input:focus {
+  outline: none;
+  border-color: #525252;
+  box-shadow: 0 0 0 3px rgba(23, 23, 23, 0.1);
+}
+.kat-ecommerce-header__search .kat-ecommerce-header__search-input::placeholder {
+  color: #a3a3a3;
+}
+.kat-ecommerce-header__search .kat-ecommerce-header__search-button {
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #171717;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-ecommerce-header__search .kat-ecommerce-header__search-button:hover {
+  background-color: #262626;
+  transform: translateY(-50%) scale(1.05);
+}
+.kat-ecommerce-header__search .kat-ecommerce-header__search-button svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Header Actions */
+.kat-ecommerce-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+/* Header Action Item */
+.kat-ecommerce-header__action {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  color: #404040;
+  text-decoration: none;
+  border-radius: 0.1875rem;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+.kat-ecommerce-header__action:hover {
+  background-color: #fafafa;
+  color: #171717;
+}
+.kat-ecommerce-header__action .kat-ecommerce-header__action-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+}
+.kat-ecommerce-header__action .kat-ecommerce-header__action-text {
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+@media (min-width: 640px) {
+  .kat-ecommerce-header__action .kat-ecommerce-header__action-text {
+    display: none;
+  }
+}
+.kat-ecommerce-header__action .kat-ecommerce-header__action-badge {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  background-color: #ef4444;
+  color: #ffffff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ffffff;
+}
+
+/* Navigation Bar */
+.kat-ecommerce-header__nav {
+  background-color: #fafafa;
+  border-top: 1px solid #e5e5e5;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* スクロールアップ時に隠す */
+}
+.kat-ecommerce-header__nav.kat-ecommerce-header__nav--hidden {
+  transform: translateY(-100%);
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item {
+  position: relative;
+  /* Navigation Dropdown */
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: #404040;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-bottom: 2px solid transparent;
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-link:hover {
+  color: #171717;
+  background-color: #ffffff;
+  border-bottom-color: #171717;
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-link svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-link[aria-expanded=true] svg {
+  transform: rotate(180deg);
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-dropdown {
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1100;
-  min-width: 200px;
-  max-width: 300px;
-  background-color: #18181b;
-  color: #ffffff;
-  border-radius: 0.375rem;
-  padding: 0.75rem 1rem;
-  font-size: 0.75rem;
-  line-height: 1.4;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  left: 0;
+  z-index: 1000;
+  min-width: 16rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.25rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-50%) translateY(-5px);
-  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  pointer-events: none;
+  transform: translateY(-0.5rem);
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-.kat-nav-hover__info::before {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  background-color: #18181b;
-  transform: translateX(-50%) rotate(45deg);
-}
-
-.kat-nav-hover__link:hover + .kat-nav-hover__info,
-.kat-nav-hover__link:focus + .kat-nav-hover__info {
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-dropdown.kat-ecommerce-header__nav-dropdown--open {
   opacity: 1;
   visibility: visible;
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-dropdown .kat-ecommerce-header__nav-dropdown-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fafafa;
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-dropdown .kat-ecommerce-header__nav-dropdown-header h3 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0;
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-dropdown .kat-ecommerce-header__nav-dropdown-content {
+  padding: 0.5rem 0;
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-dropdown .kat-ecommerce-header__nav-dropdown-item a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  color: #404040;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  transition: all 150ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-dropdown .kat-ecommerce-header__nav-dropdown-item a:hover {
+  background-color: #fafafa;
+  color: #171717;
+  padding-left: 1.25rem;
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-dropdown .kat-ecommerce-header__nav-dropdown-item a svg {
+  width: 1rem;
+  height: 1rem;
+  color: #737373;
 }
 
+/* Responsive Design */
+@media (min-width: 640px) {
+  .kat-ecommerce-header__main-inner {
+    gap: 1rem;
+  }
+  .kat-ecommerce-header__search {
+    max-width: 20rem;
+  }
+  .kat-ecommerce-header__actions {
+    gap: 0.5rem;
+  }
+  .kat-ecommerce-header__action {
+    padding: 0.375rem 0.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .kat-ecommerce-header__search {
+    max-width: 38rem;
+  }
+}
+/* Mobile Menu Toggle */
+.kat-ecommerce-header__mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #404040;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+@media (min-width: 640px) {
+  .kat-ecommerce-header__mobile-toggle {
+    display: block;
+  }
+}
+.kat-ecommerce-header__mobile-toggle svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Mobile Navigation */
+.kat-ecommerce-header__mobile-nav {
+  display: none;
+}
+@media (min-width: 640px) {
+  .kat-ecommerce-header__mobile-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    z-index: 1050;
+    transform: translateX(-100%);
+    transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .kat-ecommerce-header__mobile-nav.kat-ecommerce-header__mobile-nav--open {
+    transform: translateX(0);
+  }
+  .kat-ecommerce-header__mobile-nav .kat-ecommerce-header__mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .kat-ecommerce-header__mobile-nav .kat-ecommerce-header__mobile-nav-header .kat-ecommerce-header__mobile-nav-close {
+    background: none;
+    border: none;
+    color: #404040;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  .kat-ecommerce-header__mobile-nav .kat-ecommerce-header__mobile-nav-header .kat-ecommerce-header__mobile-nav-close svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .kat-ecommerce-header__mobile-nav .kat-ecommerce-header__mobile-nav-content {
+    padding: 1rem;
+    overflow-y: auto;
+    height: calc(100% - 4rem);
+  }
+}
+
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, カテゴリナビゲーションコンポーネントスタイル */
+/* カテゴリナビゲーションコンテナ */
+.kat-category-nav {
+  width: 100%;
+}
+
+.kat-category-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* カテゴリアイテム */
+.kat-category-nav__item {
+  border-bottom: 1px solid #e5e5e5;
+  /* アクティブ状態 */
+}
+.kat-category-nav__item.kat-category-nav__item--active {
+  background-color: #fafafa;
+}
+.kat-category-nav__item.kat-category-nav__item--active .kat-category-nav__toggle {
+  background-color: #f5f5f5;
+  color: #171717;
+}
+
+/* カテゴリトグルボタン */
+.kat-category-nav__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.625rem 1rem;
+  background: none;
+  border: none;
+  color: #404040;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 500ms cubic-bezier(0, 0, 0.58, 1);
+}
+.kat-category-nav__toggle:hover {
+  background-color: #fafafa;
+  color: #171717;
+}
+.kat-category-nav__toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #737373;
+}
+
+/* カテゴリラベル */
+.kat-category-nav__label {
+  flex: 1;
+  margin-right: 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* カテゴリアイコン */
+.kat-category-nav__icon {
+  padding-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #525252;
+  transition: all 500ms cubic-bezier(0, 0, 0.58, 1);
+}
+.kat-category-nav__icon--plus {
+  color: #737373;
+}
+.kat-category-nav__icon--minus {
+  color: #737373;
+}
+
+/* サブメニュー */
+.kat-category-nav__submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 500ms cubic-bezier(0, 0, 0.58, 1);
+  /* 開いた状態 */
+}
+.kat-category-nav__submenu.kat-category-nav__submenu--open {
+  max-height: 20rem;
+}
+
+/* サブメニューアイテム */
+.kat-category-nav__subitem {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+/* サブメニューリンク */
+.kat-category-nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1.5rem;
+  color: #525252;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  transition: all 500ms cubic-bezier(0, 0, 0.58, 1);
+  /* 直接リンクの矢印を追加 */
+}
+.kat-category-nav__link:hover {
+  background-color: #f5f5f5;
+  color: #171717;
+  padding-left: 1.75rem;
+}
+.kat-category-nav__link:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #737373;
+}
+.kat-category-nav__link::after {
+  content: "";
+  background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2034.31%2061.16%22%20width%3D%2234.31%22%20height%3D%2261.16%22%3E%3Cpath%20fill%3D%22%23aaa%22%20fill-rule%3D%22evenodd%22%20class%3D%22cls-1%22%20d%3D%22M5%2C61.16a4.94%2C4.94%2C0%2C0%2C1-3.4-1.4%2C5%2C5%2C0%2C0%2C1-.2-7.1l21-22.1-21-22.1a5%2C5%2C0%2C0%2C1%2C7.3-6.9L33%2C27.06A5.08%2C5.08%2C0%2C0%2C1%2C33%2C34L8.56%2C59.56A5.19%2C5.19%2C0%2C0%2C1%2C5%2C61.16Z%22%2F%3E%3C%2Fsvg%3E);
+  background-size: 6px 9px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 6px;
+  height: 9px;
+  display: inline-block;
+  margin-left: auto;
+}
+
+/* レスポンシブデザイン */
+@media (min-width: 1024px) {
+  .kat-category-nav__toggle {
+    padding: 0.625rem 1rem;
+  }
+  .kat-category-nav__link {
+    padding: 0.5rem 1.5rem;
+  }
+  .kat-category-nav__link:hover {
+    padding-left: 1.75rem;
+  }
+}
+@media (max-width: 1023px) {
+  .kat-category-nav__toggle {
+    padding: 0.5rem 0.75rem;
+  }
+  .kat-category-nav__link {
+    padding: 0.5rem 1rem;
+  }
+  .kat-category-nav__link:hover {
+    padding-left: 1.25rem;
+  }
+}
+/* アニメーション */
+.kat-category-nav__submenu {
+  transition: max-height 600ms cubic-bezier(0, 0, 0.58, 1), opacity 350ms cubic-bezier(0, 0, 0.58, 1);
+}
+.kat-category-nav__submenu:not(.kat-category-nav__submenu--open) {
+  opacity: 0;
+}
+.kat-category-nav__submenu.kat-category-nav__submenu--open {
+  opacity: 1;
+}
+
+/* アクセシビリティのためのフォーカス管理 */
+.kat-category-nav__toggle:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+.kat-category-nav__link:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+/* ハイコントラストモードサポート */
+@media (prefers-contrast: high) {
+  .kat-category-nav__item {
+    border-bottom-color: #d4d4d4;
+  }
+  .kat-category-nav__submenu {
+    background-color: #f5f5f5;
+  }
+  .kat-category-nav__subitem {
+    border-bottom-color: #e5e5e5;
+  }
+}
+/* リダクションモーションサポート */
+@media (prefers-reduced-motion: reduce) {
+  .kat-category-nav__submenu {
+    transition: none;
+  }
+  .kat-category-nav__toggle,
+  .kat-category-nav__link {
+    transition: none;
+  }
+}
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Category Image component styles */
+/* カテゴリ画像コンテナ */
+.kat-category-image {
+  width: 100%;
+}
+
+/* セクション */
+.kat-category-image__section {
+  margin-bottom: 1.5rem;
+}
+.kat-category-image__section:last-child {
+  margin-bottom: 0;
+}
+
+/* セクションヘッダー */
+.kat-category-image__section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #171717;
+  margin: 0 0 1rem 0;
+}
+
+/* カテゴリリスト */
+.kat-category-image__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* カテゴリアイテム */
+.kat-category-image__item {
+  border-bottom: 1px solid #e5e5e5;
+  cursor: pointer;
+}
+
+.kat-category-image__item:first-child {
+  border-top: 1px solid #e5e5e5;
+}
+
+.kat-category-image__item-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  padding: 0.5rem 0.75rem 0.5rem 0;
+}
+
+/* カテゴリアイコン/ロゴ */
+.kat-category-image__icon {
+  width: 4rem;
+  height: 2.5rem;
+  /* アイコンスタイル */
+  /* 特定のアイコンスタイル */
+}
+.kat-category-image__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid #e5e5e5;
+}
+.kat-category-image__icon .kat-icon-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #171717;
+}
+.kat-category-image__icon--work .kat-icon-text {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  letter-spacing: -0.05em;
+}
+.kat-category-image__icon--sports .kat-icon-text {
+  font-size: 1.125rem;
+}
+.kat-category-image__icon--outdoor .kat-icon-text {
+  font-size: 1rem;
+}
+.kat-category-image__icon--days .kat-icon-text {
+  font-size: 0.875rem;
+}
+
+/* カテゴリテキスト */
+.kat-category-image__text {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #404040;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* カテゴリアロー */
+.kat-category-image__arrow {
+  margin-left: 0.75rem;
+  padding-bottom: 0.2rem;
+  color: #a3a3a3;
+  flex-shrink: 0;
+}
+.kat-category-image__arrow::before {
+  content: "";
+  background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2034.31%2061.16%22%20width%3D%2234.31%22%20height%3D%2261.16%22%3E%3Cpath%20fill%3D%22%23aaa%22%20fill-rule%3D%22evenodd%22%20class%3D%22cls-1%22%20d%3D%22M5%2C61.16a4.94%2C4.94%2C0%2C0%2C1-3.4-1.4%2C5%2C5%2C0%2C0%2C1-.2-7.1l21-22.1-21-22.1a5%2C5%2C0%2C0%2C1%2C7.3-6.9L33%2C27.06A5.08%2C5.08%2C0%2C0%2C1%2C33%2C34L8.56%2C59.56A5.19%2C5.19%2C0%2C0%2C1%2C5%2C61.16Z%22%2F%3E%3C%2Fsvg%3E);
+  background-size: 6px 9px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 6px;
+  height: 9px;
+  display: inline-block;
+}
+
+/* レスポンシブデザイン */
+@media (min-width: 1024px) {
+  .kat-category-image__icon {
+    margin-right: 0.5rem;
+  }
+}
+@media (max-width: 1023px) {
+  .kat-category-image__icon {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.5rem;
+  }
+  .kat-category-image__text {
+    font-size: 0.8125rem;
+  }
+}
+/* アクセシビリティのためのフォーカス管理 */
+.kat-category-image__item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #737373;
+}
+
+/* ハイコントラストモードサポート */
+@media (prefers-contrast: high) {
+  .kat-category-image__item {
+    border-color: #a3a3a3;
+  }
+  .kat-category-image__item:hover {
+    border-color: #525252;
+  }
+}
+/* リダクションモーションサポート */
+@media (prefers-reduced-motion: reduce) {
+  .kat-category-image__item {
+    transition: none;
+  }
+  .kat-category-image__item:hover {
+    transform: none;
+  }
+}
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Alert and notification component styles */
 /* Base alert styles */
@@ -3516,9 +4182,13 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Badge and tag component styles */
+/** @author: Bui Van Tai, 2025-08-12, Badge and tag component styles */
 /* Base badge styles */
-.kat-badge, .kat-counter, .kat-status {
+.kat-badge-group {
+  margin-bottom: 0.375rem;
+}
+
+.kat-badge, .kat-filter-option .kat-filter-option__count, .kat-counter, .kat-status {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3541,113 +4211,113 @@ sup {
   /* Badge with icon */
   /* Removable badge */
 }
-.kat-badge.kat-badge--primary, .kat-counter, .kat-badge--primary.kat-status {
+.kat-badge.kat-badge--primary, .kat-filter-option .kat-badge--primary.kat-filter-option__count, .kat-counter, .kat-badge--primary.kat-status {
   background-color: #f5f5f5;
   color: #262626;
 }
-.kat-badge.kat-badge--success, .kat-badge--success.kat-counter, .kat-badge--success.kat-status {
+.kat-badge.kat-badge--success, .kat-filter-option .kat-badge--success.kat-filter-option__count, .kat-badge--success.kat-counter, .kat-badge--success.kat-status {
   background-color: #dcfce7;
   color: #166534;
 }
-.kat-badge.kat-badge--warning, .kat-badge--warning.kat-counter, .kat-badge--warning.kat-status {
+.kat-badge.kat-badge--warning, .kat-filter-option .kat-badge--warning.kat-filter-option__count, .kat-badge--warning.kat-counter, .kat-badge--warning.kat-status {
   background-color: #fef3c7;
   color: #92400e;
 }
-.kat-badge.kat-badge--error, .kat-badge--error.kat-counter, .kat-badge--error.kat-status {
+.kat-badge.kat-badge--error, .kat-filter-option .kat-badge--error.kat-filter-option__count, .kat-badge--error.kat-counter, .kat-badge--error.kat-status {
   background-color: #fee2e2;
   color: #991b1b;
 }
-.kat-badge.kat-badge--info, .kat-badge--info.kat-counter, .kat-badge--info.kat-status {
+.kat-badge.kat-badge--info, .kat-filter-option .kat-badge--info.kat-filter-option__count, .kat-badge--info.kat-counter, .kat-badge--info.kat-status {
   background-color: #dbeafe;
   color: #1e40af;
 }
-.kat-badge.kat-badge--outline, .kat-badge--outline.kat-counter, .kat-badge--outline.kat-status {
+.kat-badge.kat-badge--outline, .kat-filter-option .kat-filter-option__count, .kat-badge--outline.kat-counter, .kat-badge--outline.kat-status {
   background-color: transparent;
   border: 1px solid #d4d4d8;
   color: #3f3f46;
 }
-.kat-badge.kat-badge--outline.kat-badge--primary, .kat-badge--outline.kat-counter, .kat-badge--outline.kat-badge--primary.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--primary, .kat-filter-option .kat-badge--primary.kat-filter-option__count, .kat-badge--outline.kat-counter, .kat-filter-option .kat-counter.kat-filter-option__count, .kat-badge--outline.kat-badge--primary.kat-status {
   border-color: #d4d4d4;
   color: #404040;
 }
-.kat-badge.kat-badge--outline.kat-badge--success, .kat-badge--outline.kat-badge--success.kat-counter, .kat-badge--outline.kat-badge--success.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--success, .kat-filter-option .kat-badge--success.kat-filter-option__count, .kat-badge--outline.kat-badge--success.kat-counter, .kat-badge--outline.kat-badge--success.kat-status {
   border-color: #86efac;
   color: #15803d;
 }
-.kat-badge.kat-badge--outline.kat-badge--warning, .kat-badge--outline.kat-badge--warning.kat-counter, .kat-badge--outline.kat-badge--warning.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--warning, .kat-filter-option .kat-badge--warning.kat-filter-option__count, .kat-badge--outline.kat-badge--warning.kat-counter, .kat-badge--outline.kat-badge--warning.kat-status {
   border-color: #fcd34d;
   color: #b45309;
 }
-.kat-badge.kat-badge--outline.kat-badge--error, .kat-badge--outline.kat-badge--error.kat-counter, .kat-badge--outline.kat-badge--error.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--error, .kat-filter-option .kat-badge--error.kat-filter-option__count, .kat-badge--outline.kat-badge--error.kat-counter, .kat-badge--outline.kat-badge--error.kat-status {
   border-color: #fca5a5;
   color: #b91c1c;
 }
-.kat-badge.kat-badge--outline.kat-badge--info, .kat-badge--outline.kat-badge--info.kat-counter, .kat-badge--outline.kat-badge--info.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--info, .kat-filter-option .kat-badge--info.kat-filter-option__count, .kat-badge--outline.kat-badge--info.kat-counter, .kat-badge--outline.kat-badge--info.kat-status {
   border-color: #93c5fd;
   color: #1d4ed8;
 }
-.kat-badge.kat-badge--solid, .kat-counter, .kat-badge--solid.kat-status {
+.kat-badge.kat-badge--solid, .kat-filter-option .kat-badge--solid.kat-filter-option__count, .kat-counter, .kat-badge--solid.kat-status {
   color: #ffffff;
 }
-.kat-badge.kat-badge--solid.kat-badge--primary, .kat-counter, .kat-badge--solid.kat-badge--primary.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--primary, .kat-filter-option .kat-badge--solid.kat-badge--primary.kat-filter-option__count, .kat-counter, .kat-badge--solid.kat-badge--primary.kat-status {
   background-color: #525252;
 }
-.kat-badge.kat-badge--solid.kat-badge--success, .kat-badge--success.kat-counter, .kat-badge--solid.kat-badge--success.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--success, .kat-filter-option .kat-badge--solid.kat-badge--success.kat-filter-option__count, .kat-badge--success.kat-counter, .kat-badge--solid.kat-badge--success.kat-status {
   background-color: #16a34a;
 }
-.kat-badge.kat-badge--solid.kat-badge--warning, .kat-badge--warning.kat-counter, .kat-badge--solid.kat-badge--warning.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--warning, .kat-filter-option .kat-badge--solid.kat-badge--warning.kat-filter-option__count, .kat-badge--warning.kat-counter, .kat-badge--solid.kat-badge--warning.kat-status {
   background-color: #d97706;
 }
-.kat-badge.kat-badge--solid.kat-badge--error, .kat-badge--error.kat-counter, .kat-badge--solid.kat-badge--error.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--error, .kat-filter-option .kat-badge--solid.kat-badge--error.kat-filter-option__count, .kat-badge--error.kat-counter, .kat-badge--solid.kat-badge--error.kat-status {
   background-color: #dc2626;
 }
-.kat-badge.kat-badge--solid.kat-badge--info, .kat-badge--info.kat-counter, .kat-badge--solid.kat-badge--info.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--info, .kat-filter-option .kat-badge--solid.kat-badge--info.kat-filter-option__count, .kat-badge--info.kat-counter, .kat-badge--solid.kat-badge--info.kat-status {
   background-color: #2563eb;
 }
-.kat-badge.kat-badge--sm, .kat-badge--sm.kat-counter, .kat-badge--sm.kat-status {
+.kat-badge.kat-badge--sm, .kat-filter-option .kat-badge--sm.kat-filter-option__count, .kat-badge--sm.kat-counter, .kat-badge--sm.kat-status {
   padding: 0.125rem 0.375rem;
   font-size: 0.6875rem; /* 11px */
 }
-.kat-badge.kat-badge--lg, .kat-badge--lg.kat-counter, .kat-badge--lg.kat-status {
+.kat-badge.kat-badge--lg, .kat-filter-option .kat-badge--lg.kat-filter-option__count, .kat-badge--lg.kat-counter, .kat-badge--lg.kat-status {
   padding: 0.375rem 0.75rem;
   font-size: 0.8125rem;
 }
-.kat-badge.kat-badge--pill, .kat-badge--pill.kat-counter, .kat-badge--pill.kat-status {
+.kat-badge.kat-badge--pill, .kat-filter-option .kat-badge--pill.kat-filter-option__count, .kat-badge--pill.kat-counter, .kat-badge--pill.kat-status {
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
 }
-.kat-badge.kat-badge--square, .kat-badge--square.kat-counter, .kat-badge--square.kat-status {
+.kat-badge.kat-badge--square, .kat-filter-option .kat-badge--square.kat-filter-option__count, .kat-badge--square.kat-counter, .kat-badge--square.kat-status {
   border-radius: 0.0625rem;
 }
-.kat-badge.kat-badge--with-icon, .kat-badge--with-icon.kat-counter, .kat-badge--with-icon.kat-status {
+.kat-badge.kat-badge--with-icon, .kat-filter-option .kat-badge--with-icon.kat-filter-option__count, .kat-badge--with-icon.kat-counter, .kat-badge--with-icon.kat-status {
   gap: 0.25rem;
   padding-left: 0.375rem;
 }
-.kat-badge.kat-badge--with-icon svg, .kat-badge--with-icon.kat-counter svg, .kat-badge--with-icon.kat-status svg {
+.kat-badge.kat-badge--with-icon svg, .kat-filter-option .kat-badge--with-icon.kat-filter-option__count svg, .kat-badge--with-icon.kat-counter svg, .kat-badge--with-icon.kat-status svg {
   width: 0.75rem;
   height: 0.75rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--sm, .kat-badge--with-icon.kat-badge--sm.kat-counter, .kat-badge--with-icon.kat-badge--sm.kat-status {
+.kat-badge.kat-badge--with-icon.kat-badge--sm, .kat-filter-option .kat-badge--with-icon.kat-badge--sm.kat-filter-option__count, .kat-badge--with-icon.kat-badge--sm.kat-counter, .kat-badge--with-icon.kat-badge--sm.kat-status {
   gap: 0.125rem;
   padding-left: 0.25rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--sm svg, .kat-badge--with-icon.kat-badge--sm.kat-counter svg, .kat-badge--with-icon.kat-badge--sm.kat-status svg {
+.kat-badge.kat-badge--with-icon.kat-badge--sm svg, .kat-filter-option .kat-badge--with-icon.kat-badge--sm.kat-filter-option__count svg, .kat-badge--with-icon.kat-badge--sm.kat-counter svg, .kat-badge--with-icon.kat-badge--sm.kat-status svg {
   width: 0.625rem;
   height: 0.625rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--lg, .kat-badge--with-icon.kat-badge--lg.kat-counter, .kat-badge--with-icon.kat-badge--lg.kat-status {
+.kat-badge.kat-badge--with-icon.kat-badge--lg, .kat-filter-option .kat-badge--with-icon.kat-badge--lg.kat-filter-option__count, .kat-badge--with-icon.kat-badge--lg.kat-counter, .kat-badge--with-icon.kat-badge--lg.kat-status {
   gap: 0.375rem;
   padding-left: 0.5rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--lg svg, .kat-badge--with-icon.kat-badge--lg.kat-counter svg, .kat-badge--with-icon.kat-badge--lg.kat-status svg {
+.kat-badge.kat-badge--with-icon.kat-badge--lg svg, .kat-filter-option .kat-badge--with-icon.kat-badge--lg.kat-filter-option__count svg, .kat-badge--with-icon.kat-badge--lg.kat-counter svg, .kat-badge--with-icon.kat-badge--lg.kat-status svg {
   width: 1rem;
   height: 1rem;
 }
-.kat-badge.kat-badge--removable, .kat-badge--removable.kat-counter, .kat-badge--removable.kat-status {
+.kat-badge.kat-badge--removable, .kat-filter-option .kat-badge--removable.kat-filter-option__count, .kat-badge--removable.kat-counter, .kat-badge--removable.kat-status {
   padding-right: 0.25rem;
   gap: 0.25rem;
 }
-.kat-badge.kat-badge--removable .kat-badge__remove, .kat-badge--removable.kat-counter .kat-badge__remove, .kat-badge--removable.kat-status .kat-badge__remove {
+.kat-badge.kat-badge--removable .kat-badge__remove, .kat-filter-option .kat-badge--removable.kat-filter-option__count .kat-badge__remove, .kat-badge--removable.kat-counter .kat-badge__remove, .kat-badge--removable.kat-status .kat-badge__remove {
   background: none;
   border: none;
   color: inherit;
@@ -3663,28 +4333,28 @@ sup {
   transition: opacity 150ms cubic-bezier(0.42, 0, 0.58, 1);
 }
 @media (hover: hover) {
-  .kat-badge.kat-badge--removable .kat-badge__remove:hover, .kat-badge--removable.kat-counter .kat-badge__remove:hover, .kat-badge--removable.kat-status .kat-badge__remove:hover {
+  .kat-badge.kat-badge--removable .kat-badge__remove:hover, .kat-filter-option .kat-badge--removable.kat-filter-option__count .kat-badge__remove:hover, .kat-badge--removable.kat-counter .kat-badge__remove:hover, .kat-badge--removable.kat-status .kat-badge__remove:hover {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.1);
   }
 }
-.kat-badge.kat-badge--removable .kat-badge__remove svg, .kat-badge--removable.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-status .kat-badge__remove svg {
+.kat-badge.kat-badge--removable .kat-badge__remove svg, .kat-filter-option .kat-badge--removable.kat-filter-option__count .kat-badge__remove svg, .kat-badge--removable.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-status .kat-badge__remove svg {
   width: 0.75rem;
   height: 0.75rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove, .kat-badge--removable.kat-badge--sm.kat-status .kat-badge__remove {
+.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove, .kat-filter-option .kat-badge--removable.kat-badge--sm.kat-filter-option__count .kat-badge__remove, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove, .kat-badge--removable.kat-badge--sm.kat-status .kat-badge__remove {
   width: 0.875rem;
   height: 0.875rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove svg, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-badge--sm.kat-status .kat-badge__remove svg {
+.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove svg, .kat-filter-option .kat-badge--removable.kat-badge--sm.kat-filter-option__count .kat-badge__remove svg, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-badge--sm.kat-status .kat-badge__remove svg {
   width: 0.625rem;
   height: 0.625rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove, .kat-badge--removable.kat-badge--lg.kat-status .kat-badge__remove {
+.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove, .kat-filter-option .kat-badge--removable.kat-badge--lg.kat-filter-option__count .kat-badge__remove, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove, .kat-badge--removable.kat-badge--lg.kat-status .kat-badge__remove {
   width: 1.25rem;
   height: 1.25rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove svg, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-badge--lg.kat-status .kat-badge__remove svg {
+.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove svg, .kat-filter-option .kat-badge--removable.kat-badge--lg.kat-filter-option__count .kat-badge__remove svg, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-badge--lg.kat-status .kat-badge__remove svg {
   width: 1rem;
   height: 1rem;
 }
@@ -3725,25 +4395,25 @@ sup {
   position: relative;
   display: inline-block;
 }
-.kat-position-badge .kat-badge, .kat-position-badge .kat-counter, .kat-position-badge .kat-status {
+.kat-position-badge .kat-badge, .kat-position-badge .kat-filter-option .kat-filter-option__count, .kat-filter-option .kat-position-badge .kat-filter-option__count, .kat-position-badge .kat-counter, .kat-position-badge .kat-status {
   position: absolute;
   transform: translate(50%, -50%);
 }
-.kat-position-badge .kat-badge.kat-badge--top-right, .kat-position-badge .kat-badge--top-right.kat-counter, .kat-position-badge .kat-badge--top-right.kat-status {
+.kat-position-badge .kat-badge.kat-badge--top-right, .kat-position-badge .kat-filter-option .kat-badge--top-right.kat-filter-option__count, .kat-filter-option .kat-position-badge .kat-badge--top-right.kat-filter-option__count, .kat-position-badge .kat-badge--top-right.kat-counter, .kat-position-badge .kat-badge--top-right.kat-status {
   top: 0;
   right: 0;
 }
-.kat-position-badge .kat-badge.kat-badge--top-left, .kat-position-badge .kat-badge--top-left.kat-counter, .kat-position-badge .kat-badge--top-left.kat-status {
+.kat-position-badge .kat-badge.kat-badge--top-left, .kat-position-badge .kat-filter-option .kat-badge--top-left.kat-filter-option__count, .kat-filter-option .kat-position-badge .kat-badge--top-left.kat-filter-option__count, .kat-position-badge .kat-badge--top-left.kat-counter, .kat-position-badge .kat-badge--top-left.kat-status {
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
 }
-.kat-position-badge .kat-badge.kat-badge--bottom-right, .kat-position-badge .kat-badge--bottom-right.kat-counter, .kat-position-badge .kat-badge--bottom-right.kat-status {
+.kat-position-badge .kat-badge.kat-badge--bottom-right, .kat-position-badge .kat-filter-option .kat-badge--bottom-right.kat-filter-option__count, .kat-filter-option .kat-position-badge .kat-badge--bottom-right.kat-filter-option__count, .kat-position-badge .kat-badge--bottom-right.kat-counter, .kat-position-badge .kat-badge--bottom-right.kat-status {
   bottom: 0;
   right: 0;
   transform: translate(50%, 50%);
 }
-.kat-position-badge .kat-badge.kat-badge--bottom-left, .kat-position-badge .kat-badge--bottom-left.kat-counter, .kat-position-badge .kat-badge--bottom-left.kat-status {
+.kat-position-badge .kat-badge.kat-badge--bottom-left, .kat-position-badge .kat-filter-option .kat-badge--bottom-left.kat-filter-option__count, .kat-filter-option .kat-position-badge .kat-badge--bottom-left.kat-filter-option__count, .kat-position-badge .kat-badge--bottom-left.kat-counter, .kat-position-badge .kat-badge--bottom-left.kat-status {
   bottom: 0;
   left: 0;
   transform: translate(-50%, 50%);
@@ -3770,32 +4440,32 @@ sup {
   box-shadow: none;
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline:hover {
+  .kat-badge--interactive.kat-badge--outline:hover, .kat-filter-option .kat-badge--interactive.kat-filter-option__count:hover {
     background-color: #fafafa;
   }
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline.kat-badge--primary:hover, .kat-badge--interactive.kat-badge--outline.kat-counter:hover {
+  .kat-badge--interactive.kat-badge--outline.kat-badge--primary:hover, .kat-filter-option .kat-badge--interactive.kat-badge--primary.kat-filter-option__count:hover, .kat-badge--interactive.kat-badge--outline.kat-counter:hover, .kat-filter-option .kat-badge--interactive.kat-counter.kat-filter-option__count:hover {
     background-color: #fafafa;
   }
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline.kat-badge--success:hover {
+  .kat-badge--interactive.kat-badge--outline.kat-badge--success:hover, .kat-filter-option .kat-badge--interactive.kat-badge--success.kat-filter-option__count:hover {
     background-color: #f0fdf4;
   }
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline.kat-badge--warning:hover {
+  .kat-badge--interactive.kat-badge--outline.kat-badge--warning:hover, .kat-filter-option .kat-badge--interactive.kat-badge--warning.kat-filter-option__count:hover {
     background-color: #fffbeb;
   }
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline.kat-badge--error:hover {
+  .kat-badge--interactive.kat-badge--outline.kat-badge--error:hover, .kat-filter-option .kat-badge--interactive.kat-badge--error.kat-filter-option__count:hover {
     background-color: #fef2f2;
   }
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline.kat-badge--info:hover {
+  .kat-badge--interactive.kat-badge--outline.kat-badge--info:hover, .kat-filter-option .kat-badge--interactive.kat-badge--info.kat-filter-option__count:hover {
     background-color: #eff6ff;
   }
 }
@@ -3905,8 +4575,8 @@ sup {
 .kat-table__header {
   padding: 0.75rem 1rem;
   text-align: left;
-  font-weight: 600;
-  color: #18181b;
+  font-weight: 500;
+  color: #3f3f46;
   border-bottom: 1px solid #e4e4e7;
   vertical-align: middle;
   /* Sortable headers */
@@ -3982,6 +4652,7 @@ sup {
 @media (hover: hover) {
   .kat-table__row.kat-table__row--selectable:hover {
     background-color: #fafafa;
+    transform: scale(1.005);
   }
 }
 .kat-table__row.kat-table__row--selectable.kat-table__row--selected {
@@ -4015,10 +4686,6 @@ sup {
   vertical-align: middle;
   color: #18181b;
   border-bottom: inherit;
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   /* Text alignment */
   /* Numeric cells */
   /* Fixed width cells */
@@ -4064,7 +4731,7 @@ sup {
   gap: 0.25rem;
   justify-content: flex-end;
 }
-.kat-table__actions .kat-btn {
+.kat-table__actions .kat-btn, .kat-table__actions #kat-filter-apply {
   padding: 0.25rem 0.5rem;
 }
 
@@ -4853,12 +5520,9 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -5026,12 +5690,9 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -5072,12 +5733,9 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -5301,12 +5959,9 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -5575,9 +6230,9 @@ sup {
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Popover component styles */
 /* Popover container */
-.kat-popover {
+.kat-popover, .kat-filter-popover {
   position: absolute;
-  z-index: 1060;
+  z-index: 1019;
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
   border-radius: 0.25rem;
@@ -5592,67 +6247,67 @@ sup {
   /* Popover arrow */
   /* Arrow positions */
 }
-.kat-popover.kat-popover--open {
+.kat-popover.kat-popover--open, .kat-popover--open.kat-filter-popover {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
-.kat-popover::before, .kat-popover::after {
+.kat-popover::before, .kat-filter-popover::before, .kat-popover::after, .kat-filter-popover::after {
   content: "";
   position: absolute;
   border: solid transparent;
 }
-.kat-popover::before {
+.kat-popover::before, .kat-filter-popover::before {
   border-width: 6px;
   border-color: transparent;
 }
-.kat-popover::after {
+.kat-popover::after, .kat-filter-popover::after {
   border-width: 5px;
   border-color: transparent;
 }
-.kat-popover.kat-popover--top::before {
+.kat-popover.kat-popover--top::before, .kat-popover--top.kat-filter-popover::before {
   bottom: -12px;
   left: 50%;
   margin-left: -6px;
   border-top-color: #e5e5e5;
 }
-.kat-popover.kat-popover--top::after {
+.kat-popover.kat-popover--top::after, .kat-popover--top.kat-filter-popover::after {
   bottom: -10px;
   left: 50%;
   margin-left: -5px;
   border-top-color: #ffffff;
 }
-.kat-popover.kat-popover--bottom::before {
+.kat-popover.kat-popover--bottom::before, .kat-popover--bottom.kat-filter-popover::before {
   top: -12px;
   left: 50%;
   margin-left: -6px;
   border-bottom-color: #e5e5e5;
 }
-.kat-popover.kat-popover--bottom::after {
+.kat-popover.kat-popover--bottom::after, .kat-popover--bottom.kat-filter-popover::after {
   top: -10px;
   left: 50%;
   margin-left: -5px;
   border-bottom-color: #ffffff;
 }
-.kat-popover.kat-popover--left::before {
+.kat-popover.kat-popover--left::before, .kat-popover--left.kat-filter-popover::before {
   right: -12px;
   top: 50%;
   margin-top: -6px;
   border-left-color: #e5e5e5;
 }
-.kat-popover.kat-popover--left::after {
+.kat-popover.kat-popover--left::after, .kat-popover--left.kat-filter-popover::after {
   right: -10px;
   top: 50%;
   margin-top: -5px;
   border-left-color: #ffffff;
 }
-.kat-popover.kat-popover--right::before {
+.kat-popover.kat-popover--right::before, .kat-popover--right.kat-filter-popover::before {
   left: -12px;
   top: 50%;
   margin-top: -6px;
   border-right-color: #e5e5e5;
 }
-.kat-popover.kat-popover--right::after {
+.kat-popover.kat-popover--right::after, .kat-popover--right.kat-filter-popover::after {
   left: -10px;
   top: 50%;
   margin-top: -5px;
@@ -5686,12 +6341,9 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -5896,7 +6548,7 @@ sup {
 
 /* Responsive adjustments */
 @media (min-width: 640px) {
-  .kat-popover {
+  .kat-popover, .kat-filter-popover {
     max-width: 24rem;
   }
   .kat-popover--large {
@@ -5925,6 +6577,312 @@ sup {
   transform: none;
 }
 
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, 商品フィルター */
+/* 商品フィルター */
+.kat-product-filter {
+  width: 100%;
+  background-color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+/* 商品フィルター内部 */
+.kat-product-filter__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* フィルター行 */
+.kat-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* フィルターボタン */
+.kat-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 0.8125rem;
+  gap: 0.375rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: #ffffff;
+  color: #404040;
+  border: 1px solid #e5e5e5;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  /* アクティブ状態 */
+  /* チェバー */
+  /* 開いている状態 */
+}
+.kat-filter-btn:focus-visible {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
+}
+.kat-filter-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.kat-filter-btn svg {
+  flex-shrink: 0;
+}
+.kat-filter-btn:focus-visible {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
+}
+@media (hover: hover) {
+  .kat-filter-btn:hover {
+    background-color: #fafafa;
+    color: #262626;
+  }
+}
+.kat-filter-btn.kat-filter-btn--active {
+  background-color: #f5f5f5;
+  color: #171717;
+}
+@media (hover: hover) {
+  .kat-filter-btn.kat-filter-btn--active:hover {
+    background-color: #f0f0f0;
+  }
+}
+.kat-filter-btn .kat-filter-btn__chevron {
+  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-filter-btn .kat-filter-btn__chevron::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid currentColor;
+  margin: 0 auto;
+}
+.kat-filter-btn.kat-filter-btn--open {
+  background-color: #f5f5f5;
+  color: #171717;
+}
+.kat-filter-btn.kat-filter-btn--open .kat-filter-btn__chevron {
+  transform: rotate(180deg);
+}
+
+/* フィルターポップオーバー */
+.kat-filter-popover {
+  position: fixed;
+  min-width: 16rem;
+  max-width: 20rem;
+  z-index: 1019;
+  transform: translateY(0);
+  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* 上向きの矢印 */
+  /* 下向きの矢印（デフォルト） */
+  /* スクロール時の位置調整 */
+}
+.kat-filter-popover.kat-filter-popover--top::before {
+  bottom: -12px;
+  left: 50%;
+  margin-left: -6px;
+  border-top-color: #e5e5e5;
+}
+.kat-filter-popover.kat-filter-popover--top::after {
+  bottom: -10px;
+  left: 50%;
+  margin-left: -5px;
+  border-top-color: #ffffff;
+}
+.kat-filter-popover:not(.kat-filter-popover--top)::before {
+  top: -12px;
+  left: 50%;
+  margin-left: -6px;
+  border-bottom-color: #e5e5e5;
+}
+.kat-filter-popover:not(.kat-filter-popover--top)::after {
+  top: -10px;
+  left: 50%;
+  margin-left: -5px;
+  border-bottom-color: #ffffff;
+}
+.kat-filter-popover.kat-filter-popover--scrolling {
+  transition: none;
+}
+
+/* フィルターヘッダー */
+.kat-filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* フィルタータイトル */
+.kat-filter-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0;
+}
+
+/* フィルター閉じるボタン */
+.kat-filter-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  background: none;
+  border: none;
+  color: #a3a3a3;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+.kat-filter-close:focus-visible {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
+}
+.kat-filter-close:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.kat-filter-close svg {
+  flex-shrink: 0;
+}
+@media (hover: hover) {
+  .kat-filter-close:hover {
+    background-color: #f5f5f5;
+    color: #525252;
+  }
+}
+.kat-filter-close svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* フィルターオプション */
+.kat-filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* フィルターオプション */
+.kat-filter-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  border-radius: 0.1875rem;
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.42, 0, 0.58, 1);
+  /* チェックボックス */
+  /* ラベル */
+  /* カウントバッジ */
+}
+@media (hover: hover) {
+  .kat-filter-option:hover {
+    background-color: #fafafa;
+  }
+}
+.kat-filter-option .kat-checkbox {
+  margin: 0;
+}
+.kat-filter-option .kat-filter-option__label {
+  font-size: 0.8125rem;
+  color: #404040;
+  cursor: pointer;
+  flex: 1;
+}
+.kat-filter-option .kat-filter-option__count {
+  font-size: 0.6875rem;
+  padding: 0.125rem 0.25rem;
+  margin-left: auto;
+}
+
+/* フィルターアクション */
+.kat-filter-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* フィルタークリアボタン */
+#kat-filter-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 0.8125rem;
+  gap: 0.375rem;
+  background: none;
+  border: none;
+  color: #525252;
+  text-decoration: underline;
+}
+#kat-filter-clear:focus-visible {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
+}
+#kat-filter-clear:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+#kat-filter-clear svg {
+  flex-shrink: 0;
+}
+@media (hover: hover) {
+  #kat-filter-clear:hover {
+    color: #262626;
+    background-color: #fafafa;
+  }
+}
+
+/* フィルター適用ボタン */
+/* レスポンシブデザイン */
+@media (min-width: 640px) {
+  .kat-filter-row {
+    gap: 0.5rem;
+  }
+  .kat-filter-btn {
+    font-size: 0.6875rem;
+  }
+}
+@media (min-width: 768px) {
+  .kat-filter-row {
+    gap: 0.75rem;
+  }
+  .kat-filter-btn {
+    font-size: 0.8125rem;
+  }
+}
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Input OTP component styles */
 /* OTP input container */
@@ -6176,12 +7134,9 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -7403,12 +8358,9 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.1875rem;
   font-weight: 500;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
   border: 1px solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -7599,7 +8551,7 @@ sup {
   gap: 0.5rem;
   margin-top: 0.75rem;
 }
-.kat-toast__actions .kat-btn {
+.kat-toast__actions .kat-btn, .kat-toast__actions #kat-filter-apply {
   height: 1.5rem;
   padding: 0 0.5rem;
   font-size: 0.6875rem;
@@ -8088,7 +9040,55 @@ sup {
   height: 2rem;
 }
 
-/* Utilities (imported last) */
+.kat-page-title {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+.kat-page-title .kat-page-title__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.kat-page-title .kat-page-title__inner h1 {
+  padding: 1rem 0;
+  font-size: 1.25rem;
+}
+
+.kat-breadcrumbs-section {
+  width: 100%;
+  background-color: #eff6ff;
+}
+.kat-breadcrumbs-section .kat-breadcrumbs-section__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.kat-breadcrumbs-section .kat-breadcrumbs-section__inner .kat-breadcrumbs__list {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0.5rem 0;
+  font-size: 0.8125rem;
+}
+.kat-breadcrumbs-section .kat-breadcrumbs-section__inner .kat-breadcrumbs__list .kat-breadcrumbs__item:not(:last-child)::after {
+  margin-left: 0.5rem;
+  content: "";
+  background-image: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2034.31%2061.16%22%20width%3D%2234.31%22%20height%3D%2261.16%22%3E%3Cpath%20fill%3D%22%23aaa%22%20fill-rule%3D%22evenodd%22%20class%3D%22cls-1%22%20d%3D%22M5%2C61.16a4.94%2C4.94%2C0%2C0%2C1-3.4-1.4%2C5%2C5%2C0%2C0%2C1-.2-7.1l21-22.1-21-22.1a5%2C5%2C0%2C0%2C1%2C7.3-6.9L33%2C27.06A5.08%2C5.08%2C0%2C0%2C1%2C33%2C34L8.56%2C59.56A5.19%2C5.19%2C0%2C0%2C1%2C5%2C61.16Z%22%2F%3E%3C%2Fsvg%3E);
+  background-size: 6px 9px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 6px;
+  height: 9px;
+  display: inline-block;
+}
+.kat-breadcrumbs-section .kat-breadcrumbs-section__inner .kat-breadcrumbs__list .kat-breadcrumbs__item-link {
+  color: #60a5fa;
+}
+.kat-breadcrumbs-section .kat-breadcrumbs-section__inner .kat-breadcrumbs__list .kat-breadcrumbs__item-link:hover {
+  color: #2563eb;
+}
+
+/* ユーティリティ（最後にインポート） */
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Spacing utility classes */
 /* Margin utilities */
@@ -10255,539 +11255,4 @@ sup {
   .kat-print--visible {
     display: block !important;
   }
-}
-
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Custom Date Input Component */
-/* Date picker input */
-.kat-date-picker {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-.kat-date-picker__input {
-  width: 100%;
-  border: 1px solid #d4d4d8;
-  border-radius: 0.1875rem;
-  padding: 0.625rem 2.5rem 0.625rem 0.75rem;
-  font-size: 0.8125rem;
-  line-height: 1.5;
-  background-color: #ffffff;
-  color: #18181b;
-  cursor: pointer;
-  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-.kat-date-picker__input:focus {
-  border-color: #525252;
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #e5e5e5;
-  background-color: #f9f9f9;
-  outline: none;
-}
-
-.kat-date-picker__input:hover {
-  border-color: #a1a1aa;
-}
-
-.kat-date-picker__input:disabled {
-  background-color: #f4f4f5;
-  color: #71717a;
-  cursor: not-allowed;
-}
-
-.kat-date-picker__icon {
-  position: absolute;
-  right: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 1rem;
-  height: 1rem;
-  color: #737373;
-  pointer-events: none;
-  transition: color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.kat-date-picker:hover .kat-date-picker__icon,
-.kat-date-picker__input:focus + .kat-date-picker__icon {
-  color: #525252;
-}
-
-/* Date picker dropdown */
-.kat-date-picker__dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  background-color: #ffffff;
-  border: 1px solid #e4e4e7;
-  border-radius: 0.375rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  margin-top: 0.25rem;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.kat-date-picker--open .kat-date-picker__dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.kat-date-picker__header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-bottom: 1px solid #e4e4e7;
-}
-
-.kat-date-picker__nav-btn {
-  background: none;
-  border: none;
-  padding: 0.25rem;
-  border-radius: 0.1875rem;
-  cursor: pointer;
-  color: #737373;
-  transition: all 150ms cubic-bezier(0.42, 0, 0.58, 1);
-}
-
-.kat-date-picker__nav-btn:hover {
-  background-color: #f4f4f5;
-  color: #525252;
-}
-
-.kat-date-picker__month-year {
-  font-weight: 600;
-  color: #18181b;
-  font-size: 0.875rem;
-}
-
-.kat-date-picker__calendar {
-  padding: 1rem;
-}
-
-.kat-date-picker__weekdays {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 0.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.kat-date-picker__weekday {
-  text-align: center;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #737373;
-  padding: 0.5rem 0.25rem;
-}
-
-.kat-date-picker__days {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 0.25rem;
-}
-
-.kat-date-picker__day {
-  background: none;
-  border: none;
-  padding: 0.5rem 0.25rem;
-  text-align: center;
-  font-size: 0.8125rem;
-  border-radius: 0.1875rem;
-  cursor: pointer;
-  color: #18181b;
-  transition: all 150ms cubic-bezier(0.42, 0, 0.58, 1);
-  min-height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.kat-date-picker__day:hover {
-  background-color: #f4f4f5;
-}
-
-.kat-date-picker__day--other-month {
-  color: #a1a1aa;
-}
-
-.kat-date-picker__day--today {
-  background-color: #e4e4e7;
-  font-weight: 600;
-}
-
-.kat-date-picker__day--selected {
-  background-color: #171717;
-  color: #ffffff;
-}
-
-.kat-date-picker__day--selected:hover {
-  background-color: #404040;
-}
-
-.kat-date-picker__day:disabled {
-  color: #d4d4d8;
-  cursor: not-allowed;
-}
-
-.kat-date-picker__day:disabled:hover {
-  background-color: transparent;
-}
-
-/* Date range picker */
-.kat-date-picker__day--in-range {
-  background-color: #f4f4f5;
-}
-
-.kat-date-picker__day--range-start,
-.kat-date-picker__day--range-end {
-  background-color: #171717;
-  color: #ffffff;
-}
-
-/* Size variants */
-.kat-date-picker--sm .kat-date-picker__input {
-  padding: 0.5rem 2rem 0.5rem 0.625rem;
-  font-size: 0.6875rem;
-}
-
-.kat-date-picker--lg .kat-date-picker__input {
-  padding: 0.75rem 3rem 0.75rem 1rem;
-  font-size: 0.875rem;
-}
-
-/* Error and success states */
-.kat-date-picker--error .kat-date-picker__input {
-  border-color: #ef4444;
-}
-
-.kat-date-picker--error .kat-date-picker__input:focus {
-  border-color: #ef4444;
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #ef4444;
-}
-
-.kat-date-picker--success .kat-date-picker__input {
-  border-color: #22c55e;
-}
-
-.kat-date-picker--success .kat-date-picker__input:focus {
-  border-color: #22c55e;
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #22c55e;
-}
-
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Custom File Input and Drop Zone Component */
-/* File input wrapper */
-.kat-file-input {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-}
-
-.kat-file-input__wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem;
-  border: 2px dashed #d4d4d8;
-  border-radius: 0.375rem;
-  background-color: #fafafa;
-  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  cursor: pointer;
-  min-height: 4rem;
-}
-
-.kat-file-input__wrapper:hover {
-  border-color: #a1a1aa;
-  background-color: #f5f5f5;
-}
-
-.kat-file-input__wrapper--dragover {
-  border-color: #525252;
-  background-color: #f0f0f0;
-  transform: scale(1.02);
-}
-
-.kat-file-input__input {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.kat-file-input__icon {
-  width: 2rem;
-  height: 2rem;
-  color: #737373;
-  flex-shrink: 0;
-}
-
-.kat-file-input__content {
-  flex: 1;
-  min-width: 0;
-}
-
-.kat-file-input__title {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #18181b;
-  margin: 0 0 0.25rem 0;
-}
-
-.kat-file-input__description {
-  font-size: 0.75rem;
-  color: #737373;
-  margin: 0;
-}
-
-.kat-file-input__browse {
-  color: #525252;
-  text-decoration: underline;
-  font-weight: 500;
-}
-
-.kat-file-input__browse:hover {
-  color: #18181b;
-}
-
-/* Selected files display */
-.kat-file-input__files {
-  margin-top: 0.75rem;
-}
-
-.kat-file-input__files > * + * {
-  margin-top: 0.5rem;
-}
-
-.kat-file-input__file {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 0.75rem;
-  background-color: #ffffff;
-  border: 1px solid #e4e4e7;
-  border-radius: 0.1875rem;
-  font-size: 0.8125rem;
-}
-
-.kat-file-input__file-icon {
-  width: 1rem;
-  height: 1rem;
-  color: #737373;
-  flex-shrink: 0;
-}
-
-.kat-file-input__file-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.kat-file-input__file-name {
-  font-weight: 500;
-  color: #18181b;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.kat-file-input__file-size {
-  font-size: 0.6875rem;
-  color: #737373;
-  margin-top: 0.125rem;
-}
-
-.kat-file-input__remove {
-  background: none;
-  border: none;
-  padding: 0.25rem;
-  border-radius: 0.1875rem;
-  cursor: pointer;
-  color: #737373;
-  transition: all 150ms cubic-bezier(0.42, 0, 0.58, 1);
-  flex-shrink: 0;
-}
-
-.kat-file-input__remove:hover {
-  background-color: #f4f4f5;
-  color: #ef4444;
-}
-
-.kat-file-input__remove svg {
-  width: 1rem;
-  height: 1rem;
-}
-
-/* Progress indicator */
-.kat-file-input__progress {
-  width: 100%;
-  height: 0.25rem;
-  background-color: #e4e4e7;
-  border-radius: 0.125rem;
-  overflow: hidden;
-  margin-top: 0.5rem;
-}
-
-.kat-file-input__progress-bar {
-  height: 100%;
-  background-color: #22c55e;
-  border-radius: 0.125rem;
-  transition: width 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-/* Size variants */
-.kat-file-input--sm .kat-file-input__wrapper {
-  padding: 0.5rem;
-  min-height: 3rem;
-}
-
-.kat-file-input--sm .kat-file-input__icon {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-.kat-file-input--sm .kat-file-input__title {
-  font-size: 0.75rem;
-}
-
-.kat-file-input--sm .kat-file-input__description {
-  font-size: 0.6875rem;
-}
-
-.kat-file-input--lg .kat-file-input__wrapper {
-  padding: 1.5rem;
-  min-height: 6rem;
-}
-
-.kat-file-input--lg .kat-file-input__icon {
-  width: 3rem;
-  height: 3rem;
-}
-
-.kat-file-input--lg .kat-file-input__title {
-  font-size: 1rem;
-}
-
-.kat-file-input--lg .kat-file-input__description {
-  font-size: 0.875rem;
-}
-
-/* State variants */
-.kat-file-input--error .kat-file-input__wrapper {
-  border-color: #ef4444;
-  background-color: #fef2f2;
-}
-
-.kat-file-input--error .kat-file-input__wrapper:hover {
-  border-color: #dc2626;
-  background-color: #fee2e2;
-}
-
-.kat-file-input--success .kat-file-input__wrapper {
-  border-color: #22c55e;
-  background-color: #f0fdf4;
-}
-
-.kat-file-input--success .kat-file-input__wrapper:hover {
-  border-color: #16a34a;
-  background-color: #dcfce7;
-}
-
-.kat-file-input--disabled .kat-file-input__wrapper {
-  background-color: #f4f4f5;
-  border-color: #e4e4e7;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-.kat-file-input--disabled .kat-file-input__input {
-  cursor: not-allowed;
-}
-
-/* Compact file list */
-.kat-file-input--compact .kat-file-input__wrapper {
-  min-height: 2.5rem;
-  padding: 0.5rem 0.75rem;
-}
-
-.kat-file-input--compact .kat-file-input__icon {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.kat-file-input--compact .kat-file-input__title {
-  font-size: 0.75rem;
-  margin-bottom: 0;
-}
-
-.kat-file-input--compact .kat-file-input__description {
-  display: none;
-}
-
-/* Multiple files styling */
-.kat-file-input--multiple .kat-file-input__files {
-  display: grid;
-  gap: 0.5rem;
-}
-
-.kat-file-input--multiple .kat-file-input__file {
-  margin: 0;
-}
-
-/* Image preview */
-.kat-file-input__preview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
-}
-
-.kat-file-input__preview-item {
-  position: relative;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 0.25rem;
-  overflow: hidden;
-  border: 1px solid #e4e4e7;
-}
-
-.kat-file-input__preview-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.kat-file-input__preview-remove {
-  position: absolute;
-  top: 0.25rem;
-  right: 0.25rem;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #ffffff;
-  border: none;
-  border-radius: 50%;
-  width: 1.25rem;
-  height: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 150ms cubic-bezier(0.42, 0, 0.58, 1);
-}
-
-.kat-file-input__preview-remove:hover {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.kat-file-input__preview-remove svg {
-  width: 0.75rem;
-  height: 0.75rem;
 }

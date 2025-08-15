@@ -1,0 +1,426 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Header component styles */
+
+/* Ecommerce Header Container */
+.kat-ecommerce-header {
+  background-color: $kat-white;
+  border-bottom: $kat-border-1 solid $kat-primary-200;
+  position: sticky;
+  top: 0;
+  z-index: 1001;
+  box-shadow: $kat-shadow-sm;
+}
+
+/* Top Header Bar */
+.kat-ecommerce-header__top {
+  background-color: $kat-primary-900;
+  color: $kat-white;
+  padding: $kat-space-2 0;
+  font-size: $kat-font-size-xs;
+  
+  .kat-ecommerce-header__top-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 $kat-space-4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .kat-ecommerce-header__announcement {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .kat-ecommerce-header__top-links {
+    display: flex;
+    align-items: center;
+    gap: $kat-space-4;
+    
+    a {
+      color: $kat-primary-100;
+      text-decoration: none;
+      transition: color $kat-duration-150 $kat-ease-in-out;
+      
+      &:hover {
+        color: $kat-white;
+      }
+    }
+  }
+}
+
+/* Main Header */
+.kat-ecommerce-header__main {
+  padding: $kat-space-4 0;
+  
+  .kat-ecommerce-header__main-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $kat-space-6;
+  }
+}
+
+/* Logo */
+.kat-ecommerce-header__logo {
+  flex-shrink: 0;
+  
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $kat-primary-900;
+    
+    .kat-ecommerce-header__logo-text {
+      font-size: $kat-font-size-2xl;
+      font-weight: $kat-font-weight-bold;
+      letter-spacing: -0.02em;
+    }
+    
+    .kat-ecommerce-header__logo-icon {
+      width: 2rem;
+      height: 2rem;
+      margin-right: $kat-space-2;
+      background-color: $kat-primary-900;
+      border-radius: $kat-radius-full;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $kat-white;
+      font-weight: $kat-font-weight-bold;
+    }
+  }
+}
+
+/* Search Bar */
+.kat-ecommerce-header__search {
+  flex: 1;
+  max-width: 32rem;
+  position: relative;
+  
+  .kat-ecommerce-header__search-input {
+    width: 100%;
+    padding: $kat-space-2 $kat-space-12 $kat-space-2-5 $kat-space-4;
+    border: $kat-border-2 solid $kat-primary-200;
+    border-radius: $kat-radius-full;
+    font-size: $kat-font-size-sm;
+    background-color: $kat-white;
+    transition: all $kat-duration-200 $kat-ease-apple;
+    
+    &:focus {
+      outline: none;
+      border-color: $kat-primary-600;
+      box-shadow: 0 0 0 3px rgba(23, 23, 23, 0.1);
+    }
+    
+    &::placeholder {
+      color: $kat-primary-400;
+    }
+  }
+  
+  .kat-ecommerce-header__search-button {
+    position: absolute;
+    right: 0.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: $kat-primary-900;
+    color: $kat-white;
+    border: none;
+    border-radius: $kat-radius-full;
+    padding: $kat-space-2;
+    cursor: pointer;
+    transition: all $kat-duration-200 $kat-ease-apple;
+    
+    &:hover {
+      background-color: $kat-primary-800;
+      transform: translateY(-50%) scale(1.05);
+    }
+    
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+}
+
+/* Header Actions */
+.kat-ecommerce-header__actions {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-4;
+  flex-shrink: 0;
+}
+
+/* Header Action Item */
+.kat-ecommerce-header__action {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: $kat-space-2;
+  padding: $kat-space-2 $kat-space-3;
+  color: $kat-primary-700;
+  text-decoration: none;
+  border-radius: $kat-radius-md;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $kat-primary-50;
+    color: $kat-primary-900;
+  }
+  
+  .kat-ecommerce-header__action-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+  }
+  
+  .kat-ecommerce-header__action-text {
+    font-size: $kat-font-size-sm;
+    font-weight: $kat-font-weight-medium;
+    
+    @include kat-screen-sm {
+      display: none;
+    }
+  }
+  
+  .kat-ecommerce-header__action-badge {
+    position: absolute;
+    top: -0.25rem;
+    right: -0.25rem;
+    background-color: $kat-error-500;
+    color: $kat-white;
+    font-size: $kat-font-size-xs;
+    font-weight: $kat-font-weight-bold;
+    min-width: 1.25rem;
+    height: 1.25rem;
+    border-radius: $kat-radius-full;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $kat-white;
+  }
+}
+
+/* Navigation Bar */
+.kat-ecommerce-header__nav {
+  background-color: $kat-primary-50;
+  border-top: $kat-border-1 solid $kat-primary-200;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: transform $kat-duration-300 $kat-ease-apple;
+  
+  /* スクロールアップ時に隠す */
+  &.kat-ecommerce-header__nav--hidden {
+    transform: translateY(-100%);
+  }
+  
+  .kat-ecommerce-header__nav-inner {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 $kat-space-4;
+  }
+  
+  .kat-ecommerce-header__nav-list {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .kat-ecommerce-header__nav-item {
+    position: relative;
+    
+    .kat-ecommerce-header__nav-link {
+      display: flex;
+      align-items: center;
+      gap: $kat-space-2;
+      padding: $kat-space-3 $kat-space-4;
+      color: $kat-primary-700;
+      text-decoration: none;
+      font-size: $kat-font-size-sm;
+      font-weight: $kat-font-weight-medium;
+      transition: all $kat-duration-200 $kat-ease-apple;
+      border-bottom: 2px solid transparent;
+      
+      &:hover {
+        color: $kat-primary-900;
+        background-color: $kat-white;
+        border-bottom-color: $kat-primary-900;
+      }
+      
+      svg {
+        width: 0.875rem;
+        height: 0.875rem;
+        transition: transform $kat-duration-200 $kat-ease-apple;
+      }
+      
+      &[aria-expanded="true"] svg {
+        transform: rotate(180deg);
+      }
+    }
+    
+    /* Navigation Dropdown */
+    .kat-ecommerce-header__nav-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: $kat-z-dropdown;
+      min-width: 16rem;
+      background-color: $kat-white;
+      border: $kat-border-1 solid $kat-primary-200;
+      border-radius: $kat-radius-lg;
+      box-shadow: $kat-shadow-lg;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-0.5rem);
+      transition: all $kat-duration-300 $kat-ease-apple;
+      
+      &.kat-ecommerce-header__nav-dropdown--open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      
+      .kat-ecommerce-header__nav-dropdown-header {
+        padding: $kat-space-3 $kat-space-4;
+        border-bottom: $kat-border-1 solid $kat-primary-200;
+        background-color: $kat-primary-50;
+        
+        h3 {
+          font-size: $kat-font-size-sm;
+          font-weight: $kat-font-weight-semibold;
+          color: $kat-primary-900;
+          margin: 0;
+        }
+      }
+      
+      .kat-ecommerce-header__nav-dropdown-content {
+        padding: $kat-space-2 0;
+      }
+      
+      .kat-ecommerce-header__nav-dropdown-item {
+        a {
+          display: flex;
+          align-items: center;
+          gap: $kat-space-3;
+          padding: $kat-space-2 $kat-space-4;
+          color: $kat-primary-700;
+          text-decoration: none;
+          font-size: $kat-font-size-sm;
+          transition: all $kat-duration-150 $kat-ease-in-out;
+          
+          &:hover {
+            background-color: $kat-primary-50;
+            color: $kat-primary-900;
+            padding-left: $kat-space-5;
+          }
+          
+          svg {
+            width: 1rem;
+            height: 1rem;
+            color: $kat-primary-500;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Responsive Design */
+@include kat-screen-sm {
+  .kat-ecommerce-header__main-inner {
+    gap: $kat-space-4;
+  }
+  
+  .kat-ecommerce-header__search {
+    max-width: 20rem;
+  }
+  
+  .kat-ecommerce-header__actions {
+    gap: $kat-space-2;
+  }
+  
+  .kat-ecommerce-header__action {
+    padding: $kat-space-1-5 $kat-space-2;
+  }
+}
+
+@include kat-screen-md {
+  .kat-ecommerce-header__search {
+    max-width: 38rem;
+  }
+}
+
+/* Mobile Menu Toggle */
+.kat-ecommerce-header__mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: $kat-primary-700;
+  padding: $kat-space-2;
+  cursor: pointer;
+  
+  @include kat-screen-sm {
+    display: block;
+  }
+  
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+/* Mobile Navigation */
+.kat-ecommerce-header__mobile-nav {
+  display: none;
+  
+  @include kat-screen-sm {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $kat-white;
+    z-index: $kat-z-modal;
+    transform: translateX(-100%);
+    transition: transform $kat-duration-300 $kat-ease-apple;
+    
+    &.kat-ecommerce-header__mobile-nav--open {
+      transform: translateX(0);
+    }
+    
+    .kat-ecommerce-header__mobile-nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: $kat-space-4;
+      border-bottom: $kat-border-1 solid $kat-primary-200;
+      
+      .kat-ecommerce-header__mobile-nav-close {
+        background: none;
+        border: none;
+        color: $kat-primary-700;
+        padding: $kat-space-2;
+        cursor: pointer;
+        
+        svg {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+    
+    .kat-ecommerce-header__mobile-nav-content {
+      padding: $kat-space-4;
+      overflow-y: auto;
+      height: calc(100% - 4rem);
+    }
+  }
+}

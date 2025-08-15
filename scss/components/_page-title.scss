@@ -1,0 +1,15 @@
+.kat-page-title {
+    width: 100%;
+    margin-bottom: $kat-space-4;
+    border-bottom: $kat-border-1 solid $kat-primary-200;
+
+    .kat-page-title__inner {
+        max-width: 1300px;
+        margin: 0 auto;
+
+        h1 {
+            padding: $kat-space-4 0;
+            font-size: $kat-font-size-2xl;
+        }
+    }
+}

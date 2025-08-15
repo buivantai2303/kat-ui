@@ -1,13 +1,15 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, JavaScript modules for interactive components */
+/** @project: Kat UI */
+/** @author: Bui Van Tai, 2024-12-15, JavaScriptコンポーネントライブラリ */
 
 /**
- * Kat UI - JavaScript Component Library
- * A collection of vanilla JavaScript modules for interactive UI components.
+ * Kat UI - JavaScriptコンポーネントライブラリ
+ * インタラクティブなUIコンポーネントのためのVanilla JavaScriptモジュールのコレクション。
  */
 window.katUI = {};
 
-// Utility functions
+/**
+ * ユーティリティ関数
+ */
 katUI.utils = {
   getElements: function(selector) {
     return typeof selector === 'string' ? document.querySelectorAll(selector) : [selector];
@@ -43,10 +45,12 @@ katUI.utils = {
   }
 };
 
-// Modal Component
+/**
+ * モーダルコンポーネント
+ */
 katUI.modal = {
   init: function() {
-    // Calculate scrollbar width on initialization
+    /* 初期化時にスクロールバーの幅を計算 */
     this.calculateScrollbarWidth();
     
     katUI.utils.delegate(document, 'click', '[data-kat-toggle="modal"]', function(e) {
@@ -95,7 +99,9 @@ katUI.modal = {
   }
 };
 
-// Dropdown Component
+/**
+ * ドロップダウンコンポーネント
+ */
 katUI.dropdown = {
   init: function() {
     katUI.utils.delegate(document, 'click', '[data-kat-toggle="dropdown"]', function(e) {
@@ -137,7 +143,9 @@ katUI.dropdown = {
   }
 };
 
-// Tabs Component
+/**
+ * タブコンポーネント
+ */
 katUI.tabs = {
   init: function() {
     const tabsContainers = document.querySelectorAll('[data-kat-component="tabs"]');
@@ -219,7 +227,9 @@ katUI.tabs = {
   }
 };
 
-// Accordion Component
+/**
+ * アコーディオンコンポーネント
+ */
 katUI.accordion = {
   init: function() {
     katUI.utils.delegate(document, 'click', '[data-kat-toggle="accordion-item"]', function() {
@@ -247,7 +257,9 @@ katUI.accordion = {
   }
 };
 
-// Sidebar Component
+/**
+ * サイドバーコンポーネント
+ */
 katUI.sidebar = {
   init: function() {
     katUI.utils.delegate(document, 'click', '[data-kat-toggle="sidebar"]', function() {
@@ -281,7 +293,9 @@ katUI.sidebar = {
   }
 };
 
-// Tooltip Component
+/**
+ * ツールチップコンポーネント
+ */
 katUI.tooltip = {
   init: function() {
     const tooltipTriggers = document.querySelectorAll('[data-kat-tooltip]');
@@ -363,7 +377,7 @@ katUI.tooltip = {
   }
 };
 
-// Card Component
+// カードコンポーネント
 katUI.card = {
   init: function() {
     katUI.utils.delegate(document, 'click', '.kat-card__header--collapsible', function() {
@@ -390,7 +404,7 @@ katUI.card = {
   }
 };
 
-// Alert Component
+// アラートコンポーネント
 katUI.alert = {
   init: function() {
     katUI.utils.delegate(document, 'click', '.kat-alert__close', function() {
@@ -401,7 +415,7 @@ katUI.alert = {
   }
 };
 
-// Toggle Group Component
+// トグルグループコンポーネント
 katUI.toggleGroup = {
   init: function() {
     katUI.utils.delegate(document, 'click', '.kat-toggle-group__item', function() {
@@ -436,7 +450,7 @@ katUI.toggleGroup = {
   }
 };
 
-// Range Input Component
+// レンジ入力コンポーネント
 katUI.range = {
   init: function() {
     const ranges = document.querySelectorAll('.kat-range');
@@ -464,7 +478,7 @@ katUI.range = {
   }
 };
 
-// Toast Component
+// トーストコンポーネント
 katUI.toast = {
   container: null,
   toasts: [],
@@ -483,7 +497,7 @@ katUI.toast = {
     const defaults = {
       title: '',
       description: '',
-      type: 'info', // success, error, warning, info
+      type: 'info',
       duration: 5000,
       closable: true,
       actions: [],
@@ -524,12 +538,12 @@ katUI.toast = {
     this.container.appendChild(toast);
     this.toasts.push(toast);
     
-    // Show animation
+    // 表示アニメーション
     setTimeout(() => {
       toast.classList.add('kat-toast--show');
     }, 10);
     
-    // Progress bar animation
+    // プログレスバーのアニメーション
     if (config.duration > 0) {
       const progressBar = toast.querySelector('.kat-toast__progress');
       if (progressBar) {
@@ -542,13 +556,13 @@ katUI.toast = {
       }
     }
     
-    // Close button functionality
+    // 閉じるボタンの機能
     if (config.closable) {
       const closeBtn = toast.querySelector('.kat-toast__close');
       closeBtn.addEventListener('click', () => this.hide(toast));
     }
     
-    // Auto-hide
+    // 自動非表示
     if (config.duration > 0) {
       setTimeout(() => this.hide(toast), config.duration);
     }
@@ -597,7 +611,7 @@ katUI.toast = {
   }
 };
 
-// Input OTP Component
+// 入力OTPコンポーネント
 katUI.inputOTP = {
   init: function() {
     const otpGroups = document.querySelectorAll('.kat-input-otp');
@@ -609,31 +623,31 @@ katUI.inputOTP = {
         input.addEventListener('input', function(e) {
           let value = e.target.value;
           
-          // Only allow numbers and limit to single digit
+          // 数字のみ許可し、1桁に制限
           if (!/^\d*$/.test(value)) {
             value = value.replace(/\D/g, '');
           }
           
-          // Limit to single character
+          // 1文字に制限
           if (value.length > 1) {
             value = value.slice(-1);
           }
           
           e.target.value = value;
           
-          // Move to next input if value entered
+          // 値が入力された場合、次の入力に移動
           if (value && index < inputs.length - 1) {
             inputs[index + 1].focus();
           }
           
-          // Add filled class
+          // 入力された場合、塗りつぶしクラスを追加
           if (value) {
             e.target.classList.add('kat-input-otp__field--filled');
           } else {
             e.target.classList.remove('kat-input-otp__field--filled');
           }
           
-          // Check if all fields are filled
+          /* すべてのフィールドが入力されたかどうかを確認 */
           const allFilled = Array.from(inputs).every(inp => inp.value);
           if (allFilled) {
             const otpValue = Array.from(inputs).map(inp => inp.value).join('');
@@ -644,12 +658,12 @@ katUI.inputOTP = {
         });
         
         input.addEventListener('keydown', function(e) {
-          // Move to previous input on backspace if current is empty
+          /* バックスペースが押された場合、前の入力に移動 */
           if (e.key === 'Backspace' && !e.target.value && index > 0) {
             inputs[index - 1].focus();
           }
           
-          // Move with arrow keys
+          /* 矢印キーで移動 */
           if (e.key === 'ArrowLeft' && index > 0) {
             inputs[index - 1].focus();
           }
@@ -669,7 +683,7 @@ katUI.inputOTP = {
             inputs[index + i].classList.add('kat-input-otp__field--filled');
           }
           
-          // Focus on the next empty field or last field
+          /* 次の空のフィールドまたは最後のフィールドにフォーカス */
           const nextIndex = Math.min(index + numbers.length, inputs.length - 1);
           inputs[nextIndex].focus();
         });
@@ -678,7 +692,402 @@ katUI.inputOTP = {
   }
 };
 
-// Initialize all components
+/**
+ * カテゴリナビゲーションコンポーネント
+ */
+katUI.categoryNav = {
+  init: function() {
+    const categoryToggles = document.querySelectorAll('.kat-category-nav__toggle');
+    
+    categoryToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const item = this.closest('.kat-category-nav__item');
+            const submenu = item.querySelector('.kat-category-nav__submenu');
+            const icon = this.querySelector('.kat-category-nav__icon');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            /* 展開状態を切り替え */
+            this.setAttribute('aria-expanded', !isExpanded);
+            
+            /* サブメニューの表示を切り替え */
+            if (isExpanded) {
+                submenu.classList.remove('kat-category-nav__submenu--open');
+                icon.textContent = '+';
+                icon.className = 'kat-category-nav__icon kat-category-nav__icon--plus';
+                /* 閉じた時にアクティブ状態を削除 */
+                item.classList.remove('kat-category-nav__item--active');
+            } else {
+                submenu.classList.add('kat-category-nav__submenu--open');
+                icon.textContent = '-';
+                icon.className = 'kat-category-nav__icon kat-category-nav__icon--minus';
+                /* 開いた時にアクティブ状態を追加 */
+                item.classList.add('kat-category-nav__item--active');
+            }
+        });
+    });
+  }
+};
+
+/**
+ * フィルターコンポーネント
+ */
+katUI.filter = {
+  activeFilter: null,
+  popovers: new Map(),
+  
+  init: function() {
+    this.bindEvents();
+    this.mapPopovers();
+  },
+
+  bindEvents: function() {
+    /* フィルターボタン */
+    document.addEventListener('click', (e) => {
+      const filterBtn = e.target.closest('.kat-filter-btn');
+      if (filterBtn) {
+        this.toggleFilter(filterBtn);
+        return;
+      }
+
+      /* フィルターポップオーバー */
+      if (!e.target.closest('.kat-filter-popover')) {
+        this.closeAllPopovers();
+      }
+    });
+
+    /* フィルター閉じるボタン */
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('.kat-filter-close')) {
+        this.closeAllPopovers();
+      }
+    });
+
+    /* フィルター閉じるボタン */
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.closeAllPopovers();
+      }
+    });
+
+    /* フィルター適用ボタン */
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('kat-filter-apply')) {
+        const popover = e.target.closest('.kat-filter-popover');
+        if (popover) {
+          /* フィルターポップオーバー */
+          for (const [filterType, pop] of this.popovers) {
+            if (pop === popover) {
+              this.handleFilterApply(filterType);
+              break;
+            }
+          }
+        }
+      }
+      
+      if (e.target.classList.contains('kat-filter-clear')) {
+        const popover = e.target.closest('.kat-filter-popover');
+        if (popover) {
+          for (const [filterType, pop] of this.popovers) {
+            if (pop === popover) {
+              this.handleFilterClear(filterType);
+              break;
+            }
+          }
+        }
+      }
+    });
+  },
+
+  mapPopovers: function() {
+    const popoverMap = {
+      'filter-1': 'filter-1-popover',
+      'filter-2': 'filter-2-popover', 
+      'filter-3': 'filter-3-popover',
+      'filter-4': 'filter-4-popover',
+      'filter-5': 'filter-5-popover',
+      'filter-6': 'filter-6-popover'
+    };
+    
+    /* フィルターポップオーバー */
+    Object.entries(popoverMap).forEach(([filterType, popoverId]) => {
+      const popover = document.getElementById(popoverId);
+      if (popover) {
+        this.popovers.set(filterType, popover);
+      }
+    });
+  },
+
+  toggleFilter: function(filterBtn) {
+    const filterType = filterBtn.dataset.filter;
+    const isCurrentlyOpen = filterBtn.classList.contains('kat-filter-btn--open');
+
+    /* フィルターポップオーバー */
+    this.closeAllPopovers();
+
+    if (!isCurrentlyOpen) {
+      this.openFilter(filterBtn, filterType);
+    }
+  },
+
+  openFilter: function(filterBtn, filterType) {
+    /* フィルターボタン */
+    document.querySelectorAll('.kat-filter-btn').forEach(btn => {
+      btn.classList.remove('kat-filter-btn--open');
+    });
+
+    /* フィルターボタン */
+    filterBtn.classList.add('kat-filter-btn--open');
+
+    /* フィルターポップオーバー */
+    const popover = this.popovers.get(filterType);
+    if (popover) {
+      /* フィルターポップオーバー */
+      this.positionPopover(filterBtn, popover);
+      
+      /* フィルターポップオーバー */
+      popover.style.display = 'block';
+      popover.classList.add('kat-popover--open');
+
+      this.activeFilter = filterType;
+    }
+  },
+
+  positionPopover: function(button, popover) {
+    this.updatePopoverPosition(button, popover);
+  },
+
+  updatePopoverPosition: function(button, popover) {
+    const buttonRect = button.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    /* フィルターポップオーバーの位置を計算 */
+    let top = buttonRect.bottom + 8;
+    let left = buttonRect.left;
+    
+    /* 右端のオーバーフローをチェック */
+    const popoverRight = left + popover.offsetWidth;
+    if (popoverRight > viewportWidth) {
+      left = viewportWidth - popover.offsetWidth - 16;
+    }
+    
+    /* 左端のオーバーフローをチェック */
+    if (left < 16) {
+      left = 16;
+    }
+    
+    /* 下端のオーバーフローをチェック */
+    const popoverBottom = top + popover.offsetHeight;
+    if (popoverBottom > viewportHeight) {
+      /* 上に表示 */
+      top = buttonRect.top - popover.offsetHeight - 8;
+      popover.classList.add('kat-filter-popover--top');
+    } else {
+      popover.classList.remove('kat-filter-popover--top');
+    }
+    
+    /* 位置を適用 */
+    popover.style.position = 'fixed';
+    popover.style.top = `${top}px`;
+    popover.style.left = `${left}px`;
+    
+    /* スクロール中の位置更新を最適化 */
+    if (!this.scrollHandler) {
+      this.scrollHandler = this.debounce(() => {
+        this.updateAllPopoverPositions();
+      }, 16); // 60fps
+      
+      window.addEventListener('scroll', this.scrollHandler, { passive: true });
+      window.addEventListener('resize', this.scrollHandler, { passive: true });
+    }
+  },
+
+  updateAllPopoverPositions: function() {
+    /* 開いているポップオーバーの位置を更新 */
+    this.popovers.forEach((popover, filterType) => {
+      if (popover && popover.style.display === 'block') {
+        const button = document.querySelector(`[data-filter="${filterType}"]`);
+        if (button) {
+          popover.classList.add('kat-filter-popover--scrolling');
+          this.updatePopoverPosition(button, popover);
+          /* スクロール終了後にtransitionを復活 */
+          setTimeout(() => {
+            popover.classList.remove('kat-filter-popover--scrolling');
+          }, 100);
+        }
+      }
+    });
+  },
+
+  debounce: function(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  },
+
+  closeAllPopovers: function() {
+    /* フィルターボタン */
+    document.querySelectorAll('.kat-filter-btn').forEach(btn => {
+      btn.classList.remove('kat-filter-btn--open');
+    });
+
+    /* フィルターポップオーバー */
+    this.popovers.forEach(popover => {
+      if (popover && popover.style) {
+        popover.style.display = 'none';
+        popover.classList.remove('kat-popover--open');
+      }
+    });
+
+    this.activeFilter = null;
+  },
+
+  /* フィルター変更 */
+  handleFilterChange: function(filterType, selectedValues) {
+    console.log(`Filter changed: ${filterType}`, selectedValues);
+    /* フィルター変更 */
+    
+    /* フィルター変更 */
+    document.dispatchEvent(new CustomEvent('kat:filter:change', {
+      detail: { filterType, selectedValues }
+    }));
+  },
+
+  /* フィルター適用 */
+  handleFilterApply: function(filterType) {
+    const popover = this.popovers.get(filterType);
+    if (popover) {
+      const checkboxes = popover.querySelectorAll('.kat-checkbox__input:checked');
+      const selectedValues = Array.from(checkboxes).map(cb => cb.value);
+      this.handleFilterChange(filterType, selectedValues);
+    }
+    this.closeAllPopovers();
+  },
+
+  /* フィルタークリア */
+  handleFilterClear: function(filterType) {
+    const popover = this.popovers.get(filterType);
+    if (popover) {
+      const checkboxes = popover.querySelectorAll('.kat-checkbox__input');
+      checkboxes.forEach(cb => cb.checked = false);
+    }
+  }
+};
+
+// ナビゲーションドロップダウンコンポーネント
+katUI.navigationDropdown = {
+  init: function() {
+    this.initNavigationDropdowns();
+    this.initScrollHide();
+  },
+
+  initNavigationDropdowns: function() {
+    const dropdownTriggers = document.querySelectorAll('.kat-ecommerce-header__nav-link[aria-expanded]');
+    
+    dropdownTriggers.forEach(trigger => {
+      const dropdown = trigger.nextElementSibling;
+      if (!dropdown || !dropdown.classList.contains('kat-ecommerce-header__nav-dropdown')) return;
+
+      // ホバーでドロップダウンを開く
+      trigger.addEventListener('mouseenter', () => {
+        // 他のドロップダウンを閉じる
+        this.closeAllDropdowns();
+        // 現在のドロップダウンを開く
+        this.openDropdown(trigger, dropdown);
+      });
+
+      // ドロップダウンから離れたら閉じる
+      dropdown.addEventListener('mouseleave', () => {
+        this.closeDropdown(trigger, dropdown);
+      });
+
+      // クリックでドロップダウンを開閉
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+        
+        // 他のドロップダウンを閉じる
+        this.closeAllDropdowns();
+        
+        if (!isExpanded) {
+          this.openDropdown(trigger, dropdown);
+        }
+      });
+    });
+
+    // ドキュメントクリックでドロップダウンを閉じる
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.kat-ecommerce-header__nav-item')) {
+        this.closeAllDropdowns();
+      }
+    });
+  },
+
+  openDropdown: function(trigger, dropdown) {
+    trigger.setAttribute('aria-expanded', 'true');
+    dropdown.classList.add('kat-ecommerce-header__nav-dropdown--open');
+  },
+
+  closeDropdown: function(trigger, dropdown) {
+    trigger.setAttribute('aria-expanded', 'false');
+    dropdown.classList.remove('kat-ecommerce-header__nav-dropdown--open');
+  },
+
+  closeAllDropdowns: function() {
+    const openDropdowns = document.querySelectorAll('.kat-ecommerce-header__nav-dropdown--open');
+    openDropdowns.forEach(dropdown => {
+      const trigger = dropdown.previousElementSibling;
+      if (trigger && trigger.classList.contains('kat-ecommerce-header__nav-link')) {
+        this.closeDropdown(trigger, dropdown);
+      }
+    });
+  },
+
+  initScrollHide: function() {
+    let lastScrollTop = 0;
+    const navigation = document.querySelector('.kat-ecommerce-header__nav');
+    if (!navigation) return;
+
+    const handleScroll = () => {
+      const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // スクロール方向を判定
+      if (currentScrollTop > lastScrollTop && currentScrollTop > 100) {
+        // 下にスクロール - ナビゲーションを隠す
+        navigation.classList.add('kat-ecommerce-header__nav--hidden');
+      } else if (currentScrollTop < lastScrollTop) {
+        // 上にスクロール - ナビゲーションを表示
+        navigation.classList.remove('kat-ecommerce-header__nav--hidden');
+      }
+      
+      lastScrollTop = currentScrollTop;
+    };
+
+    // スクロールイベントを最適化
+    const debouncedHandleScroll = this.debounce(handleScroll, 10);
+    window.addEventListener('scroll', debouncedHandleScroll, { passive: true });
+  },
+
+  debounce: function(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+};
+
+// すべてのコンポーネントを初期化
 function initKatUI() {
   katUI.modal.init();
   katUI.dropdown.init();
@@ -692,6 +1101,9 @@ function initKatUI() {
   katUI.range.init();
   katUI.toast.init();
   katUI.inputOTP.init();
+  katUI.categoryNav.init();
+  katUI.filter.init();
+  katUI.navigationDropdown.init();
   
   document.dispatchEvent(new CustomEvent('kat:ready'));
 }

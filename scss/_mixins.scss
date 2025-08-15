@@ -47,12 +47,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: $kat-radius-md;
   font-weight: $kat-font-weight-medium;
-  transition: all $kat-duration-250 $kat-ease-apple;
   cursor: pointer;
   border: $kat-border-1 solid transparent;
-  text-decoration: none;
   white-space: nowrap;
   
   @include kat-focus-ring;
@@ -83,8 +80,8 @@
 }
 
 @mixin kat-button-base-size {
-  height: 2.5rem;
-  padding: 0 $kat-space-4;
+  height: 2rem;
+  padding: 0 $kat-space-3;
   font-size: $kat-font-size-sm;
   gap: $kat-space-2;
 }
