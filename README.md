@@ -2,6 +2,9 @@
 
 **Kat UI** は、日本のデザイン美学にインスパイアされたモダンで軽量なUIコンポーネントフレームワークです。完全なアクセシビリティ対応と美しい日本風のデザインを兼ね備えています。
 
+<img width="1920" height="1080" alt="Smart Parking Application" src="https://github.com/user-attachments/assets/1fb3acc0-4b33-44aa-b989-90e7751df2e0" />
+
+
 ## 特徴
 
 - **完全アクセシビリティ対応**: WCAG 2.1準拠のアクセシビリティ機能  
