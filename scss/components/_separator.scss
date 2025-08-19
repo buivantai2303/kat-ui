@@ -110,7 +110,6 @@
   display: flex;
   align-items: center;
   text-align: center;
-  margin: $kat-space-6 0;
   
   &::before {
     content: "";
@@ -127,7 +126,6 @@
   }
   
   .kat-separator-text__content {
-    padding: 0 $kat-space-4;
     font-size: $kat-font-size-sm;
     color: $kat-primary-600;
     background-color: $kat-white;

@@ -12,14 +12,32 @@
 
 /* セクション領域 - ページ内の論理的区切り */
 .kat-section {
-  padding: $kat-section-padding;
+  padding: 0;
+  margin: $kat-space-6 0;
+}
+
+/* セクション見出し */
+.kat-section__title {
+  font-size: $kat-font-size-2xl;
+  font-weight: $kat-font-weight-bold;
+  color: $kat-gray-900;
+  margin: 0 0 $kat-space-6 0;
+  line-height: $kat-line-height-tight;
+}
+
+.kat-section__subtitle {
+  font-size: $kat-font-size-lg;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-gray-800;
+  margin: 0 0 $kat-space-4 0;
+  line-height: $kat-line-height-tight;
 }
 
 /* コンテナ - 幅と左右パディングの基本レイアウト */
 .kat-container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 $kat-container-padding;
+  padding: 0;
   max-width: $kat-container-max-width;
 }
 

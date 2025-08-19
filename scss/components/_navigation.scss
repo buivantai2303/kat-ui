@@ -373,31 +373,6 @@
   line-height: $kat-line-height-normal;
 }
 
-/* Section */
-.kat-section {
-  margin-bottom: $kat-space-16;
-  
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.kat-section__title {
-  font-size: $kat-font-size-2xl;
-  font-weight: $kat-font-weight-bold;
-  color: $kat-gray-900;
-  margin: 0 0 $kat-space-6 0;
-  line-height: $kat-line-height-tight;
-}
-
-.kat-section__subtitle {
-  font-size: $kat-font-size-lg;
-  font-weight: $kat-font-weight-medium;
-  color: $kat-gray-800;
-  margin: 0 0 $kat-space-4 0;
-  line-height: $kat-line-height-tight;
-}
-
 /* ホバーナビゲーションメニュー */
 .kat-nav-hover {
   display: flex;

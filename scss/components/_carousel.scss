@@ -15,11 +15,35 @@
 .kat-carousel {
   position: relative;
   overflow: hidden;
-  border-radius: $kat-radius-lg;
   background-color: $kat-white;
   
   &.kat-carousel--with-controls {
-    padding: 0 $kat-space-12;
+    padding: 0;
+  }
+
+  /* ヒーローバリアント - 固定高さで画像の高さを安定させる */
+  &.kat-carousel--hero {
+    .kat-carousel__viewport {
+      height: 260px;
+    }
+
+    .kat-carousel__slide {
+      height: 260px;
+    }
+
+    @include kat-screen-md {
+      .kat-carousel__viewport,
+      .kat-carousel__slide {
+        height: 360px;
+      }
+    }
+
+    @include kat-screen-lg {
+      .kat-carousel__viewport,
+      .kat-carousel__slide {
+        height: 480px;
+      }
+    }
   }
 }
 
@@ -90,7 +114,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: $kat-z-10;
+  z-index: $kat-z-20; /* ナビゲーションはオーバーレイより前面に表示 */
   
   &.kat-carousel__nav--prev {
     left: $kat-space-4;
@@ -115,12 +139,12 @@
   
   @include kat-hover {
     background-color: $kat-white;
-    transform: translateY(-50%) scale(1.05);
+    transform: scale(1.05); /* 親で位置決め済み。ホバー時は拡大のみ */
     box-shadow: $kat-shadow-md;
   }
   
   &:active {
-    transform: translateY(-50%) scale(0.95);
+    transform: scale(0.95);
   }
   
   &:disabled {
@@ -128,7 +152,7 @@
     cursor: not-allowed;
     
     @include kat-hover {
-      transform: translateY(-50%);
+      transform: none;
       box-shadow: $kat-shadow-sm;
     }
   }
@@ -208,6 +232,7 @@
   color: $kat-white;
   padding: $kat-space-6 $kat-space-6 $kat-space-8;
   z-index: $kat-z-10;
+  pointer-events: none; /* オーバーレイがナビゲーションのクリックを妨げないようにする */
 }
 
 .kat-carousel__title {

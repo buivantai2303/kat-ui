@@ -151,7 +151,6 @@
     font-weight: $kat-font-weight-semibold;
     color: $kat-primary-900;
     padding-bottom: $kat-space-3;
-    border-bottom: $kat-border-1 solid $kat-primary-200;
   }
   
   .kat-sidebar-left__nav-list {
@@ -235,7 +234,7 @@
     font-size: $kat-font-size-lg;
     font-weight: $kat-font-weight-semibold;
     color: $kat-primary-900;
-    margin: 0 0 $kat-space-4 0;
+    padding-bottom: $kat-space-3;
   }
   
   .kat-sidebar-right__widget {
@@ -294,7 +293,7 @@
   }
   
   .kat-body-content__inner {
-    padding: $kat-space-4;
+    padding: 0 $kat-space-4;
   }
   
   .kat-body-content__title {

@@ -14,7 +14,7 @@
 .kat-product-filter {
   width: 100%;
   background-color: $kat-white;
-  margin-bottom: $kat-space-6;
+  margin-bottom: $kat-space-4;
 }
 
 /* 商品フィルター内部 - フィルター要素の配置とレイアウト */
@@ -96,6 +96,8 @@
 .kat-filter-popover {
   @extend .kat-popover !optional;
   position: fixed;
+  /* 初期状態は非表示にする（初期読み込み時にポップオーバーが開かないようにする） */
+  display: none;
   min-width: 16rem;
   max-width: 20rem;
   z-index: $kat-z-dropdown;
@@ -107,6 +109,11 @@
   border-radius: $kat-radius-lg;
   box-shadow: $kat-shadow-lg;
   padding: $kat-space-4;
+
+  /* 開いている状態の表示制御 */
+  &.kat-popover--open {
+    display: block;
+  }
   
   /* 上向きの矢印 - ポップオーバーが上に表示される場合の矢印 */
   &.kat-filter-popover--top {

@@ -941,6 +941,101 @@ katUI.inputOTP = {
 };
 
 /**
+ * カルーセルコンポーネント（簡易実装）
+ */
+katUI.carousel = {
+  instances: [],
+
+  init: function() {
+    const carousels = document.querySelectorAll('.kat-carousel');
+    carousels.forEach((carousel) => this.setupCarousel(carousel));
+  },
+
+  setupCarousel: function(root) {
+    const viewport = root.querySelector('.kat-carousel__viewport');
+    const container = root.querySelector('.kat-carousel__container');
+    const slides = Array.from(root.querySelectorAll('.kat-carousel__slide'));
+    if (!viewport || !container || slides.length === 0) return;
+
+    const prevBtn = root.querySelector('.kat-carousel__nav--prev .kat-carousel__nav-btn');
+    const nextBtn = root.querySelector('.kat-carousel__nav--next .kat-carousel__nav-btn');
+    const dotsWrap = root.querySelector('.kat-carousel__dots');
+    const hasAutoplay = root.hasAttribute('data-kat-autoplay');
+    const intervalMs = parseInt(root.getAttribute('data-kat-interval') || '5000', 10);
+
+    const state = { index: 0, slides, container, root, dotsWrap, autoTimer: null };
+    this.instances.push(state);
+
+    const goTo = (idx) => {
+      state.index = (idx + slides.length) % slides.length;
+      const offset = -state.index * 100;
+      state.container.style.transform = `translateX(${offset}%)`;
+      this.updateDots(state);
+    };
+
+    const next = () => goTo(state.index + 1);
+    const prev = () => goTo(state.index - 1);
+
+    const startAutoPlay = () => {
+      if (!hasAutoplay) return;
+      if (state.autoTimer) clearInterval(state.autoTimer);
+      state.autoTimer = setInterval(next, Math.max(1500, intervalMs));
+    };
+
+    const pauseAutoPlay = () => {
+      if (state.autoTimer) {
+        clearInterval(state.autoTimer);
+        state.autoTimer = null;
+      }
+    };
+
+    // 初期ドット生成
+    if (dotsWrap && dotsWrap.children.length === 0) {
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'kat-carousel__dot' + (i === 0 ? ' kat-carousel__dot--active' : '');
+        dot.setAttribute('aria-label', `スライド${i + 1}`);
+        dot.addEventListener('click', () => { goTo(i); startAutoPlay(); });
+        dotsWrap.appendChild(dot);
+      });
+    } else if (dotsWrap) {
+      Array.from(dotsWrap.querySelectorAll('.kat-carousel__dot')).forEach((dot, i) => {
+        dot.addEventListener('click', () => { goTo(i); startAutoPlay(); });
+      });
+    }
+
+    // ボタンイベント
+    if (nextBtn) nextBtn.addEventListener('click', () => { next(); startAutoPlay(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { prev(); startAutoPlay(); });
+
+    // リサイズ時の位置補正（スライド幅は%ベースなのでindex維持でOK）
+    window.addEventListener('resize', () => goTo(state.index), { passive: true });
+
+    // ホバーで一時停止/再開
+    root.addEventListener('mouseenter', pauseAutoPlay);
+    root.addEventListener('mouseleave', startAutoPlay);
+
+    // タブの可視状態で一時停止/再開
+    const visibilityHandler = () => {
+      if (document.hidden) pauseAutoPlay(); else startAutoPlay();
+    };
+    document.addEventListener('visibilitychange', visibilityHandler);
+
+    // 初期表示
+    goTo(0);
+    startAutoPlay();
+  },
+
+  updateDots: function(state) {
+    if (!state.dotsWrap) return;
+    const dots = state.dotsWrap.querySelectorAll('.kat-carousel__dot');
+    dots.forEach((d, i) => {
+      d.classList.toggle('kat-carousel__dot--active', i === state.index);
+    });
+  }
+};
+
+/**
  * カテゴリナビゲーションコンポーネント
  */
 katUI.categoryNav = {
@@ -1355,6 +1450,7 @@ function initKatUI() {
   katUI.toast.init();
   katUI.inputOTP.init();
   katUI.categoryNav.init();
+  katUI.carousel.init();
   katUI.filter.init();
   katUI.navigationDropdown.init();
   
