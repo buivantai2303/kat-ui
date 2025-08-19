@@ -1,0 +1,62 @@
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+
+/* モジュールの読み込み（@use/@forward へ移行） */
+@use 'globals' as *;
+
+/* 基本スタイル */
+@use 'base/reset';
+@use 'base/typography';
+
+/* レイアウトシステム */
+@use 'layout/grid';
+@use 'layout/layout';
+
+/* コンポーネント */
+@use 'components/buttons';
+@use 'components/forms';
+@use 'components/cards';
+@use 'components/modals';
+@use 'components/navigation';
+@use 'components/header';
+@use 'components/header-popups';
+@use 'components/category-nav';
+@use 'components/category-image';
+@use 'components/alerts';
+@use 'components/badges';
+@use 'components/tables';
+@use 'components/interactive';
+@use 'components/skeleton';
+@use 'components/calendar';
+@use 'components/carousel';
+@use 'components/popover';
+@use 'components/filters';
+@use 'components/input-otp';
+@use 'components/toggle-group';
+@use 'components/data-table';
+@use 'components/separator';
+@use 'components/pagination';
+@use 'components/toast';
+@use 'components/images';
+@use 'components/page-title';
+@use 'components/breadcrumbs';
+@use 'components/footer';
+
+/* ユーティリティ（最後に） */
+@use 'utilities/spacing';
+@use 'utilities/misc';

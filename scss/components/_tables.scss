@@ -1,0 +1,398 @@
+@use '../globals' as *;
+/**
+ * Kat UI Framework - テーブルコンポーネント
+ * 
+ * 表形式データの表示用スタイル。ストライプ、ボーダー、コンパクト/ラージ、
+ * 並び替え、レスポンシブ、空/読み込み状態、フッター等をサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* テーブルコンテナ */
+.kat-table-container {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: $kat-radius-lg;
+  border: $kat-border-1 solid $kat-gray-200;
+  
+  @include kat-scrollbar;
+}
+
+/* ベーステーブル */
+.kat-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: $kat-font-size-sm;
+  background-color: $kat-white;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  
+  /* ストライプ行 */
+  &.kat-table--striped {
+    .kat-table__row:nth-child(even) {
+      background-color: $kat-gray-50;
+    }
+  }
+  
+  /* 罫線あり */
+  &.kat-table--bordered {
+    .kat-table__cell,
+    .kat-table__header {
+      border: $kat-border-1 solid $kat-gray-200;
+    }
+  }
+  
+  /* コンパクト */
+  &.kat-table--compact {
+    .kat-table__cell,
+    .kat-table__header {
+      padding: $kat-space-2 $kat-space-3;
+    }
+  }
+  
+  /* ラージ */
+  &.kat-table--lg {
+    font-size: $kat-font-size-base;
+    
+    .kat-table__cell,
+    .kat-table__header {
+      padding: $kat-space-4 $kat-space-6;
+    }
+  }
+}
+
+/* テーブルヘッド */
+.kat-table__head {
+  background-color: $kat-gray-50;
+  border-bottom: $kat-border-1 solid $kat-gray-200;
+}
+
+/* テーブルヘッダーセル */
+.kat-table__header {
+  padding: $kat-space-3 $kat-space-4;
+  text-align: left;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-gray-700;
+  border-bottom: $kat-border-1 solid $kat-gray-200;
+  vertical-align: middle;
+  
+  &:first-child {
+    border-left: none;
+  }
+  
+  &:last-child {
+    border-right: none;
+  }
+  
+  /* ソート可能ヘッダー */
+  &.kat-table__header--sortable {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    transition: background-color $kat-duration-150 $kat-ease-in-out;
+    
+    @include kat-hover {
+      background-color: $kat-gray-100;
+    }
+    
+    &:focus {
+      outline: 2px solid $kat-primary-500;
+      outline-offset: -2px;
+    }
+    
+    .kat-table__sort-icon {
+      margin-left: $kat-space-1;
+      opacity: 0.4;
+      transition: opacity $kat-duration-150 $kat-ease-in-out;
+    }
+    
+    &:hover .kat-table__sort-icon {
+      opacity: 0.7;
+    }
+    
+    &.kat-table__header--sorted-asc {
+      color: $kat-primary-700;
+      
+      .kat-table__sort-icon {
+        opacity: 1;
+        transform: rotate(180deg);
+      }
+    }
+    
+    &.kat-table__header--sorted-desc {
+      color: $kat-primary-700;
+      
+      .kat-table__sort-icon {
+        opacity: 1;
+      }
+    }
+  }
+  
+  /* 文字揃え */
+  &.kat-table__header--center {
+    text-align: center;
+  }
+  
+  &.kat-table__header--right {
+    text-align: right;
+  }
+}
+
+/* テーブルボディ */
+.kat-table__body {
+  background-color: $kat-white;
+}
+
+/* テーブル行 */
+.kat-table__row {
+  border-bottom: $kat-border-1 solid $kat-gray-200;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  /* 行選択可能 */
+  &.kat-table__row--selectable {
+    cursor: pointer;
+    
+    @include kat-hover {
+      background-color: $kat-primary-50;
+      transform: scale(1.005);
+    }
+    
+    &.kat-table__row--selected {
+      background-color: $kat-primary-50;
+      
+      @include kat-hover {
+        background-color: $kat-primary-100;
+      }
+    }
+  }
+  
+  /* 行状態 */
+  &.kat-table__row--highlighted {
+    background-color: $kat-warning-50;
+  }
+  
+  &.kat-table__row--success {
+    background-color: $kat-success-50;
+  }
+  
+  &.kat-table__row--error {
+    background-color: $kat-error-50;
+  }
+  
+  &.kat-table__row--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    
+    .kat-table__cell {
+      color: $kat-gray-400;
+    }
+  }
+}
+
+/* テーブルセル */
+.kat-table__cell {
+  padding: $kat-space-3 $kat-space-4;
+  vertical-align: middle;
+  color: $kat-gray-900;
+  border-bottom: inherit;
+  
+  &:first-child {
+    border-left: none;
+  }
+  
+  &:last-child {
+    border-right: none;
+  }
+  
+  /* 文字揃え */
+  &.kat-table__cell--center {
+    text-align: center;
+  }
+  
+  &.kat-table__cell--right {
+    text-align: right;
+  }
+  
+  /* 数値セル */
+  &.kat-table__cell--numeric {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  /* 固定幅セル */
+  &.kat-table__cell--fixed {
+    width: 1%;
+    white-space: nowrap;
+  }
+  
+  /* 展開可能セル */
+  &.kat-table__cell--expandable {
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+    &:hover {
+      overflow: visible;
+      white-space: normal;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+/* テーブルアクション */
+.kat-table__actions {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-1;
+  justify-content: flex-end;
+  
+  .kat-btn {
+    padding: $kat-space-1 $kat-space-2;
+  }
+}
+
+/* 選択（全選択等） */
+.kat-table__select-all {
+  .kat-checkbox__input:indeterminate {
+    background-color: $kat-primary-600;
+    border-color: $kat-primary-600;
+  }
+}
+
+/* 空状態 */
+.kat-table__empty {
+  text-align: center;
+  padding: $kat-space-12 $kat-space-6;
+  color: $kat-gray-500;
+  
+  .kat-table__empty-icon {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto $kat-space-4;
+    color: $kat-gray-300;
+  }
+  
+  .kat-table__empty-title {
+    font-size: $kat-font-size-lg;
+    font-weight: $kat-font-weight-medium;
+    color: $kat-gray-700;
+    margin: 0 0 $kat-space-2 0;
+  }
+  
+  .kat-table__empty-description {
+    font-size: $kat-font-size-sm;
+    color: $kat-gray-500;
+    margin: 0 0 $kat-space-4 0;
+  }
+}
+
+/* 読み込み状態 */
+.kat-table--loading {
+  position: relative;
+  overflow: hidden;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.8),
+      transparent
+    );
+    animation: kat-table-loading 1.5s infinite;
+    z-index: 1;
+  }
+  
+  .kat-table__row {
+    pointer-events: none;
+  }
+}
+
+@keyframes kat-table-loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* テーブルフッター */
+.kat-table__footer {
+  padding: $kat-space-4;
+  border-top: $kat-border-1 solid $kat-gray-200;
+  background-color: $kat-gray-50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $kat-space-4;
+  
+  .kat-table__info {
+    font-size: $kat-font-size-sm;
+    color: $kat-gray-600;
+  }
+}
+
+/* レスポンシブテーブル */
+@include kat-screen-sm {
+  .kat-table--responsive {
+    .kat-table__cell,
+    .kat-table__header {
+      &:not(.kat-table__cell--always-visible):not(.kat-table__header--always-visible) {
+        display: none;
+      }
+    }
+  }
+}
+
+@include kat-screen-md {
+  .kat-table--responsive {
+    .kat-table__cell,
+    .kat-table__header {
+      &.kat-table__cell--md-visible,
+      &.kat-table__header--md-visible {
+        display: table-cell;
+      }
+    }
+  }
+}
+
+@include kat-screen-lg {
+  .kat-table--responsive {
+    .kat-table__cell,
+    .kat-table__header {
+      display: table-cell;
+    }
+  }
+}
+
+/* テーブルキャプション */
+.kat-table__caption {
+  caption-side: top;
+  padding: $kat-space-4;
+  font-size: $kat-font-size-lg;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-gray-900;
+  text-align: left;
+}
+
+/* テーブルサマリー */
+.kat-table__summary {
+  padding: $kat-space-3 $kat-space-4;
+  font-size: $kat-font-size-sm;
+  color: $kat-gray-600;
+  background-color: $kat-gray-25;
+  border-bottom: $kat-border-1 solid $kat-gray-200;
+}

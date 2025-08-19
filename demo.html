@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kat UI Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/kat-ui.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="kat-navbar">
+        <div class="kat-navbar__container">
+            <div class="kat-navbar__brand">
+                <h1 class="kat-navbar__title">Kat UI</h1>
+            </div>
+            <nav class="kat-navbar__nav">
+                <button class="kat-btn kat-btn--ghost kat-navbar__toggle" data-kat-toggle="sidebar" aria-label="メニューを開く">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                <div class="kat-navbar__menu">
+                    <a href="#components" class="kat-navbar__link">コンポーネント</a>
+                    <a href="#examples" class="kat-navbar__link">例</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="kat-sidebar" id="sidebar">
+        <div class="kat-sidebar__header">
+            <h2 class="kat-sidebar__title">ナビゲーション</h2>
+            <button class="kat-btn kat-btn--ghost kat-sidebar__close" data-kat-toggle="sidebar" aria-label="サイドバーを閉じる">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+        <nav class="kat-sidebar__nav">
+            <ul class="kat-sidebar__menu">
+                <li class="kat-sidebar__item">
+                    <a href="#alerts" class="kat-sidebar__link kat-sidebar__link--active">アラート</a>
+                </li>
+                <li class="kat-sidebar__item">
+                    <button class="kat-sidebar__toggle" data-kat-toggle="submenu" data-kat-target="components-menu" aria-expanded="false">
+                        コンポーネント
+                        <svg class="kat-sidebar__arrow" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                    <ul class="kat-sidebar__submenu" id="components-menu">
+                        <li><a href="#buttons" class="kat-sidebar__link">ボタン</a></li>
+                        <li><a href="#forms" class="kat-sidebar__link">フォーム</a></li>
+                        <li><a href="#cards" class="kat-sidebar__link">カード</a></li>
+                        <li><a href="#modals" class="kat-sidebar__link">モーダル</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="kat-main">
+        <div class="kat-container">
+            <!-- Page Header -->
+            <header class="kat-page-header" style="margin-top: 0; padding-top: 0;">
+                <h1 class="kat-page-header__title">Kat UI コンポーネント</h1>
+                <p class="kat-page-header__subtitle">日本風インスパイアのUIフレームワーク - 完全なアクセシビリティ対応</p>
+            </header>
+
+            <!-- Alert Examples -->
+            <section class="kat-section" id="alerts">
+                <h2 class="kat-section__title">アラート</h2>
+                <div class="kat-grid kat-grid--cols-1 kat-gap--md">
+                    <div class="kat-alert kat-alert--success" role="alert">
+                        <svg class="kat-alert__icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <div class="kat-alert__content">
+                            <p class="kat-alert__title">成功</p>
+                            <p class="kat-alert__description">操作が正常に完了しました。</p>
+                        </div>
+                        <button class="kat-alert__close" aria-label="アラートを閉じる">
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="kat-alert kat-alert--warning" role="alert">
+                        <svg class="kat-alert__icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <div class="kat-alert__content">
+                            <p class="kat-alert__title">警告</p>
+                            <p class="kat-alert__description">この操作は元に戻せません。</p>
+                        </div>
+                    </div>
+
+                    <div class="kat-alert kat-alert--error" role="alert">
+                        <svg class="kat-alert__icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <div class="kat-alert__content">
+                            <p class="kat-alert__title">エラー</p>
+                            <p class="kat-alert__description">入力に誤りがあります。</p>
+                        </div>
+                    </div>
+
+                    <div class="kat-alert kat-alert--info" role="alert">
+                        <svg class="kat-alert__icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                        </svg>
+                        <div class="kat-alert__content">
+                            <p class="kat-alert__title">情報</p>
+                            <p class="kat-alert__description">新しい機能が利用可能です。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Button Examples -->
+            <section class="kat-section" id="buttons">
+                <h2 class="kat-section__title">ボタン</h2>
+                <div class="kat-grid kat-grid--cols-1 kat-gap--md">
+                    <div>
+                        <h3 class="kat-section__subtitle">プライマリボタン</h3>
+                        <div class="kat-btn-group">
+                            <button type="button" class="kat-btn kat-btn--primary">保存</button>
+                            <button type="button" class="kat-btn kat-btn--primary" disabled>無効</button>
+                            <button type="button" class="kat-btn kat-btn--primary kat-btn--loading">
+                                <span class="kat-spinner kat-spinner--sm"></span>
+                                読み込み中
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="kat-section__subtitle">セカンダリボタン</h3>
+                        <div class="kat-btn-group">
+                            <button type="button" class="kat-btn kat-btn--secondary">キャンセル</button>
+                            <button type="button" class="kat-btn kat-btn--outline">アウトライン</button>
+                            <button type="button" class="kat-btn kat-btn--ghost">ゴースト</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="kat-section__subtitle">ボタンの形状</h3>
+                        <div class="kat-btn-group">
+                            <button type="button" class="kat-btn kat-btn--primary kat-btn--pill">ピル形状</button>
+                            <button type="button" class="kat-btn kat-btn--outline kat-btn--rounded">角丸</button>
+                            <button type="button" class="kat-btn kat-btn--secondary kat-btn--square">四角</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="kat-section__subtitle">ツールチップ付きボタン</h3>
+                        <div class="kat-btn-group">
+                            <button type="button" class="kat-btn kat-btn--outline" data-kat-tooltip="上にツールチップが表示されます" data-kat-tooltip-position="top">上</button>
+                            <button type="button" class="kat-btn kat-btn--outline" data-kat-tooltip="右にツールチップが表示されます" data-kat-tooltip-position="right">右</button>
+                            <button type="button" class="kat-btn kat-btn--outline" data-kat-tooltip="下にツールチップが表示されます" data-kat-tooltip-position="bottom">下</button>
+                            <button type="button" class="kat-btn kat-btn--outline" data-kat-tooltip="左にツールチップが表示されます" data-kat-tooltip-position="left">左</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Form Examples -->
+            <section class="kat-section" id="forms">
+                <h2 class="kat-section__title">フォーム</h2>
+                
+                <div class="kat-card">
+                    <div class="kat-card__header">
+                        <h3 class="kat-card__title">ログインフォーム</h3>
+                    </div>
+                    <div class="kat-card__content">
+                        <form class="kat-form">
+                            <div class="kat-form__group">
+                                <label for="email" class="kat-label">メールアドレス <span class="kat-label__required">*</span></label>
+                                <input type="email" id="email" class="kat-input" placeholder="user@example.com" required>
+                            </div>
+                            
+                            <div class="kat-form__group">
+                                <label for="password" class="kat-label">パスワード <span class="kat-label__required">*</span></label>
+                                <input type="password" id="password" class="kat-input" placeholder="パスワードを入力" required>
+                            </div>
+
+                            <div class="kat-form__group">
+                                <div class="kat-checkbox">
+                                    <input type="checkbox" id="remember" class="kat-checkbox__input">
+                                    <label for="remember" class="kat-checkbox__label">ログイン状態を保持</label>
+                                </div>
+                            </div>
+
+                            <div class="kat-form__actions">
+                                <button type="submit" class="kat-btn kat-btn--primary kat-btn--full">ログイン</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="kat-card kat-mt--lg">
+                    <div class="kat-card__header">
+                        <h3 class="kat-card__title">設定フォーム</h3>
+                    </div>
+                    <div class="kat-card__content">
+                        <form class="kat-form">
+                            <div class="kat-form__group">
+                                <label for="username" class="kat-label">ユーザー名 <span class="kat-label__required">*</span></label>
+                                <input type="text" id="username" class="kat-input kat-input--error" value="jo" required>
+                                <div class="kat-form__error">ユーザー名は3文字以上で入力してください。</div>
+                            </div>
+
+                            <div class="kat-form__group">
+                                <label for="bio" class="kat-label">自己紹介</label>
+                                <textarea id="bio" class="kat-textarea" rows="4" placeholder="自己紹介を書いてください..."></textarea>
+                                <div class="kat-form__help">最大500文字まで入力できます。</div>
+                            </div>
+
+                            <div class="kat-form__group">
+                                <label for="country" class="kat-label">国</label>
+                                <select id="country" class="kat-select">
+                                    <option value="">選択してください</option>
+                                    <option value="jp">日本</option>
+                                    <option value="us">アメリカ</option>
+                                    <option value="uk">イギリス</option>
+                                </select>
+                            </div>
+
+                            <div class="kat-form__group">
+                                <fieldset class="kat-radio-group">
+                                    <legend class="kat-label">通知設定</legend>
+                                    <div class="kat-radio">
+                                        <input type="radio" id="notifications-all" name="notifications" value="all" class="kat-radio__input" checked>
+                                        <label for="notifications-all" class="kat-radio__label">すべて受信</label>
+                                    </div>
+                                    <div class="kat-radio">
+                                        <input type="radio" id="notifications-important" name="notifications" value="important" class="kat-radio__input">
+                                        <label for="notifications-important" class="kat-radio__label">重要なもののみ</label>
+                                    </div>
+                                    <div class="kat-radio">
+                                        <input type="radio" id="notifications-none" name="notifications" value="none" class="kat-radio__input">
+                                        <label for="notifications-none" class="kat-radio__label">受信しない</label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="kat-form__group">
+                                <div class="kat-toggle">
+                                    <input type="checkbox" id="dark-mode" class="kat-toggle__input">
+                                    <label for="dark-mode" class="kat-toggle__label">ダークモード</label>
+                                </div>
+                            </div>
+
+                            <div class="kat-form__group">
+                                <label for="volume" class="kat-label">音量</label>
+                                <input type="range" id="volume" class="kat-range" min="0" max="100" value="50">
+                                <div class="kat-range__value">50%</div>
+                            </div>
+
+                            <div class="kat-form__actions">
+                                <button type="button" class="kat-btn kat-btn--outline">キャンセル</button>
+                                <button type="submit" class="kat-btn kat-btn--primary">保存</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tabs Example -->
+            <section class="kat-section" id="tabs">
+                <h2 class="kat-section__title">タブ</h2>
+                
+                <div class="kat-card">
+                    <div class="kat-card__header">
+                        <h3 class="kat-card__title">水平タブ</h3>
+                    </div>
+                    <div class="kat-card__content">
+                        <div class="kat-tabs" data-kat-component="tabs">
+                            <div class="kat-tabs__list" role="tablist">
+                                <button class="kat-tabs__tab kat-tabs__tab--active" role="tab" data-kat-target="tab1" aria-selected="true">一般</button>
+                                <button class="kat-tabs__tab" role="tab" data-kat-target="tab2" aria-selected="false" tabindex="-1">セキュリティ</button>
+                                <button class="kat-tabs__tab" role="tab" data-kat-target="tab3" aria-selected="false" tabindex="-1">通知</button>
+                            </div>
+                            <div class="kat-tabs__content">
+                                <div class="kat-tabs__panel kat-tabs__panel--active" id="tab1" role="tabpanel">
+                                    <h4>一般設定</h4>
+                                    <p>アカウントの基本設定を管理できます。</p>
+                                </div>
+                                <div class="kat-tabs__panel" id="tab2" role="tabpanel" hidden>
+                                    <h4>セキュリティ設定</h4>
+                                    <p>パスワードの変更、二要素認証の設定ができます。</p>
+                                </div>
+                                <div class="kat-tabs__panel" id="tab3" role="tabpanel" hidden>
+                                    <h4>通知設定</h4>
+                                    <p>メール通知、プッシュ通知の設定を管理できます。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Accordion Example -->
+            <section class="kat-section" id="accordion">
+                <h2 class="kat-section__title">アコーディオン</h2>
+                <div class="kat-card">
+                    <div class="kat-card__content">
+                        <div class="kat-accordion" data-kat-component="accordion">
+                            <div class="kat-accordion__item">
+                                <h3>
+                                    <button class="kat-accordion__trigger" data-kat-toggle="accordion-item" data-kat-target="item1" aria-expanded="false">
+                                        <span>よくある質問 1: アカウントの作成方法は？</span>
+                                        <span class="kat-accordion__icon">▼</span>
+                                    </button>
+                                </h3>
+                                <div class="kat-accordion__content" id="item1" role="region">
+                                    <div class="kat-accordion__body">
+                                        <p>アカウントの作成は簡単です。トップページの「新規登録」ボタンをクリックし、必要な情報を入力してください。</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="kat-accordion__item">
+                                <h3>
+                                    <button class="kat-accordion__trigger" data-kat-toggle="accordion-item" data-kat-target="item2" aria-expanded="false">
+                                        <span>よくある質問 2: パスワードを忘れた場合は？</span>
+                                        <span class="kat-accordion__icon">▼</span>
+                                    </button>
+                                </h3>
+                                <div class="kat-accordion__content" id="item2" role="region">
+                                    <div class="kat-accordion__body">
+                                        <p>ログインページの「パスワードを忘れた方」リンクをクリックし、登録されたメールアドレスを入力してください。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modal Trigger Buttons -->
+            <section class="kat-section" id="modals">
+                <h2 class="kat-section__title">モーダル</h2>
+                <div class="kat-flex kat-gap--md kat-flex--wrap">
+                    <button type="button" class="kat-btn kat-btn--primary" data-kat-toggle="modal" data-kat-target="confirm-modal">
+                        確認モーダル
+                    </button>
+                    <button type="button" class="kat-btn kat-btn--outline" data-kat-toggle="modal" data-kat-target="form-modal">
+                        フォームモーダル
+                    </button>
+                </div>
+            </section>
+
+            <!-- Badge Examples -->
+            <section class="kat-section" id="badges">
+                <h2 class="kat-section__title">バッジ</h2>
+                <div>
+                    <h3 class="kat-section__subtitle">カラーバリエーション</h3>
+                    <div class="kat-flex kat-gap--sm kat-flex--wrap">
+                        <span class="kat-badge">デフォルト</span>
+                        <span class="kat-badge kat-badge--primary">プライマリ</span>
+                        <span class="kat-badge kat-badge--success">成功</span>
+                        <span class="kat-badge kat-badge--warning">警告</span>
+                        <span class="kat-badge kat-badge--error">エラー</span>
+                        <span class="kat-badge kat-badge--info">情報</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skeleton Examples -->
+            <section class="kat-section" id="skeletons">
+                <h2 class="kat-section__title">スケルトンローディング</h2>
+                
+                <div class="kat-card">
+                    <div class="kat-card__header">
+                        <h3 class="kat-card__title">ローディング状態</h3>
+                    </div>
+                    <div class="kat-card__content">
+                        <div class="kat-skeleton-card">
+                            <div class="kat-skeleton-card__header">
+                                <div class="kat-skeleton kat-skeleton--avatar"></div>
+                                <div class="kat-skeleton-group">
+                                    <div class="kat-skeleton kat-skeleton--heading"></div>
+                                    <div class="kat-skeleton kat-skeleton--text" style="width: 60%;"></div>
+                                </div>
+                            </div>
+                            <div class="kat-skeleton-card__content">
+                                <div class="kat-skeleton kat-skeleton--line"></div>
+                                <div class="kat-skeleton kat-skeleton--line"></div>
+                                <div class="kat-skeleton kat-skeleton--line"></div>
+                            </div>
+                            <div class="kat-skeleton-card__footer">
+                                <div class="kat-skeleton kat-skeleton--button"></div>
+                                <div class="kat-skeleton kat-skeleton--button"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Toggle Group Examples -->
+            <section class="kat-section" id="toggle-groups">
+                <h2 class="kat-section__title">トグルグループ</h2>
+                
+                <div class="kat-grid kat-grid--cols-1 kat-gap--md">
+                    <div>
+                        <h3 class="kat-section__subtitle">基本トグルグループ</h3>
+                        <div class="kat-toggle-group">
+                            <button class="kat-toggle-group__item kat-toggle-group__item--selected">左</button>
+                            <button class="kat-toggle-group__item">中央</button>
+                            <button class="kat-toggle-group__item">右</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="kat-section__subtitle">ピル形状</h3>
+                        <div class="kat-toggle-group kat-toggle-group--pill">
+                            <button class="kat-toggle-group__item">日</button>
+                            <button class="kat-toggle-group__item kat-toggle-group__item--selected">週</button>
+                            <button class="kat-toggle-group__item">月</button>
+                            <button class="kat-toggle-group__item">年</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="kat-section__subtitle">アイコン付き</h3>
+                        <div class="kat-toggle-group">
+                            <button class="kat-toggle-group__item kat-toggle-group__item--with-icon kat-toggle-group__item--selected">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                </svg>
+                                編集
+                            </button>
+                            <button class="kat-toggle-group__item kat-toggle-group__item--with-icon">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                                </svg>
+                                閲覧
+                            </button>
+                            <button class="kat-toggle-group__item kat-toggle-group__item--with-icon">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                </svg>
+                                削除
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Input OTP Examples -->
+            <section class="kat-section" id="input-otp">
+                <h2 class="kat-section__title">OTP入力</h2>
+                
+                <div class="kat-card">
+                    <div class="kat-card__header">
+                        <h3 class="kat-card__title">認証コード入力</h3>
+                    </div>
+                    <div class="kat-card__content">
+                        <div class="kat-input-otp-wrapper">
+                            <label class="kat-input-otp__label">6桁の認証コードを入力してください</label>
+                            <div class="kat-input-otp">
+                                <input type="text" class="kat-input-otp__field" maxlength="1" pattern="[0-9]">
+                                <input type="text" class="kat-input-otp__field" maxlength="1" pattern="[0-9]">
+                                <input type="text" class="kat-input-otp__field" maxlength="1" pattern="[0-9]">
+                                <div class="kat-input-otp__separator"></div>
+                                <input type="text" class="kat-input-otp__field" maxlength="1" pattern="[0-9]">
+                                <input type="text" class="kat-input-otp__field" maxlength="1" pattern="[0-9]">
+                                <input type="text" class="kat-input-otp__field" maxlength="1" pattern="[0-9]">
+                            </div>
+                            <div class="kat-input-otp__description">携帯電話に送信されたコードを入力してください</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Card Examples -->
+            <section class="kat-section" id="cards">
+                <h2 class="kat-section__title">カード</h2>
+                <div class="kat-grid kat-grid--cols-3 kat-gap--md">
+                    <div class="kat-card">
+                        <div class="kat-card__header">
+                            <h3 class="kat-card__title">基本カード</h3>
+                            <p class="kat-card__subtitle">サブタイトル</p>
+                        </div>
+                        <div class="kat-card__content">
+                            <p>これは基本的なカードコンポーネントです。</p>
+                        </div>
+                        <div class="kat-card__footer">
+                            <button type="button" class="kat-btn kat-btn--outline kat-btn--sm">詳細</button>
+                            <button type="button" class="kat-btn kat-btn--primary kat-btn--sm">実行</button>
+                        </div>
+                    </div>
+
+                    <div class="kat-card">
+                        <div class="kat-card__image">
+                            <div style="width: 100%; height: 200px; background: linear-gradient(45deg, #f3f4f6, #e5e7eb); display: flex; align-items: center; justify-content: center; color: #6b7280;">
+                                画像プレースホルダー
+                            </div>
+                        </div>
+                        <div class="kat-card__header">
+                            <h3 class="kat-card__title">画像付きカード</h3>
+                        </div>
+                        <div class="kat-card__content">
+                            <p>画像を含むカードです。</p>
+                        </div>
+                    </div>
+
+                    <div class="kat-card kat-card--compact">
+                        <div class="kat-card__content">
+                            <h3 class="kat-card__title">コンパクトカード</h3>
+                            <p>小さなスペースに最適です。</p>
+                            <div class="kat-badge kat-badge--success">アクティブ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Collapsible Card Example -->
+                <div class="kat-card kat-mt--lg">
+                    <div class="kat-card__header kat-card__header--collapsible">
+                        <h3 class="kat-card__title">折りたたみ可能なカード</h3>
+                        <p class="kat-card__subtitle">クリックして展開/折りたたみ</p>
+                    </div>
+                    <div class="kat-card__content kat-card__content--collapsible">
+                        <p>このカードは展開・折りたたみが可能です。ヘッダーをクリックすることで、コンテンツの表示/非表示を切り替えることができます。</p>
+                        <p>この機能は、多くの情報を整理して表示したい場合に便利です。</p>
+                    </div>
+                </div>
+                </div>
+            </section>
+
+            <!-- Pagination Examples -->
+            <section class="kat-section" id="pagination">
+                <h2 class="kat-section__title">ページネーション</h2>
+                <div class="kat-card">
+                    <div class="kat-card__content">
+                        <div class="kat-pagination">
+                            <button class="kat-pagination__item kat-pagination__item--prev" disabled>
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                </svg>
+                            </button>
+                            <button class="kat-pagination__item">1</button>
+                            <button class="kat-pagination__item kat-pagination__item--current">2</button>
+                            <button class="kat-pagination__item">3</button>
+                            <button class="kat-pagination__item kat-pagination__item--ellipsis">...</button>
+                            <button class="kat-pagination__item">10</button>
+                            <button class="kat-pagination__item kat-pagination__item--next">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <div class="kat-separator kat-separator--light"></div>
+                        
+                        <div class="kat-pagination kat-pagination--pills">
+                            <button class="kat-pagination__item kat-pagination__item--prev">前へ</button>
+                            <span class="kat-pagination__info">ページ <span class="kat-pagination__info--highlight">2</span> / 10</span>
+                            <button class="kat-pagination__item kat-pagination__item--next">次へ</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Separator Examples -->
+            <section class="kat-section" id="separators">
+                <h2 class="kat-section__title">区切り線</h2>
+                <div class="kat-card">
+                    <div class="kat-card__content">
+                        <p>基本的な水平区切り線</p>
+                        <div class="kat-separator"></div>
+                        <p>点線の区切り線</p>
+                        <div class="kat-separator kat-separator--dashed"></div>
+                        <p>テキスト付き区切り線</p>
+                        <div class="kat-separator-text">
+                            <span class="kat-separator-text__content">または</span>
+                        </div>
+                        <p>セクション区切り線</p>
+                        <div class="kat-section-divider">
+                            <div class="kat-section-divider__icon">✦</div>
+                        </div>
+                        <p>最後のコンテンツ</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Toast Examples -->
+            <section class="kat-section" id="toasts">
+                <h2 class="kat-section__title">トースト通知</h2>
+                <div class="kat-card">
+                    <div class="kat-card__content">
+                        <div class="kat-btn-group">
+                            <button type="button" class="kat-btn kat-btn--outline" onclick="katUI.toast.success('成功', '操作が正常に完了しました')">成功トースト</button>
+                            <button type="button" class="kat-btn kat-btn--outline" onclick="katUI.toast.error('エラー', '問題が発生しました')">エラートースト</button>
+                            <button type="button" class="kat-btn kat-btn--outline" onclick="katUI.toast.warning('警告', 'この操作は元に戻せません')">警告トースト</button>
+                            <button type="button" class="kat-btn kat-btn--outline" onclick="katUI.toast.info('情報', '新しい機能が利用可能です')">情報トースト</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Table Examples -->
+            <section class="kat-section" id="tables">
+                <h2 class="kat-section__title">テーブル</h2>
+                <div class="kat-card">
+                    <div class="kat-card__content">
+                        <div class="kat-table-container">
+                            <table class="kat-table kat-table--striped">
+                                <thead class="kat-table__head">
+                                    <tr class="kat-table__row">
+                                        <th class="kat-table__header">名前</th>
+                                        <th class="kat-table__header">メール</th>
+                                        <th class="kat-table__header">役職</th>
+                                        <th class="kat-table__header">ステータス</th>
+                                        <th class="kat-table__header">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="kat-table__body">
+                                    <tr class="kat-table__row kat-table__row--selectable">
+                                        <td class="kat-table__cell">田中 太郎</td>
+                                        <td class="kat-table__cell">tanaka@example.com</td>
+                                        <td class="kat-table__cell">エンジニア</td>
+                                        <td class="kat-table__cell">
+                                            <span class="kat-badge kat-badge--success">アクティブ</span>
+                                        </td>
+                                        <td class="kat-table__cell">
+                                            <button class="kat-btn kat-btn--ghost kat-btn--sm">編集</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="kat-table__row kat-table__row--selectable">
+                                        <td class="kat-table__cell">佐藤 花子</td>
+                                        <td class="kat-table__cell">sato@example.com</td>
+                                        <td class="kat-table__cell">デザイナー</td>
+                                        <td class="kat-table__cell">
+                                            <span class="kat-badge kat-badge--warning">保留中</span>
+                                        </td>
+                                        <td class="kat-table__cell">
+                                            <button class="kat-btn kat-btn--ghost kat-btn--sm">編集</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="kat-table__row kat-table__row--selectable">
+                                        <td class="kat-table__cell">鈴木 一郎</td>
+                                        <td class="kat-table__cell">suzuki@example.com</td>
+                                        <td class="kat-table__cell">マネージャー</td>
+                                        <td class="kat-table__cell">
+                                            <span class="kat-badge kat-badge--error">非アクティブ</span>
+                                        </td>
+                                        <td class="kat-table__cell">
+                                            <button class="kat-btn kat-btn--ghost kat-btn--sm">編集</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Image Examples -->
+            <section class="kat-section" id="images">
+                <h2 class="kat-section__title">画像とアバター</h2>
+                <div class="kat-card">
+                    <div class="kat-card__content">
+                        <h3 class="kat-section__subtitle">アバター</h3>
+                        <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 2rem;">
+                            <div class="kat-avatar kat-avatar--xs">JD</div>
+                            <div class="kat-avatar kat-avatar--sm">JD</div>
+                            <div class="kat-avatar">JD</div>
+                            <div class="kat-avatar kat-avatar--lg">JD</div>
+                            <div class="kat-avatar kat-avatar--xl kat-avatar--with-status">JD</div>
+                        </div>
+                        
+                        <h3 class="kat-section__subtitle">画像プレースホルダー</h3>
+                        <div class="kat-image-placeholder kat-image-placeholder--sm">
+                            <div>
+                                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <div>画像をアップロード</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div class="kat-modal" id="confirm-modal" role="dialog" aria-modal="true">
+        <div class="kat-modal__backdrop" data-kat-close="modal"></div>
+        <div class="kat-modal__content">
+            <div class="kat-modal__header">
+                <h2 class="kat-modal__title">確認</h2>
+                <button class="kat-modal__close" data-kat-close="modal" aria-label="モーダルを閉じる">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="kat-modal__body">
+                <p>この操作を実行してもよろしいですか？</p>
+            </div>
+            <div class="kat-modal__footer">
+                <button type="button" class="kat-btn kat-btn--outline" data-kat-close="modal">キャンセル</button>
+                <button type="button" class="kat-btn kat-btn--primary kat-btn--danger">削除</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="kat-modal" id="form-modal" role="dialog" aria-modal="true">
+        <div class="kat-modal__backdrop" data-kat-close="modal"></div>
+        <div class="kat-modal__content kat-modal__content--lg">
+            <div class="kat-modal__header">
+                <h2 class="kat-modal__title">新しいプロジェクト</h2>
+                <button class="kat-modal__close" data-kat-close="modal" aria-label="モーダルを閉じる">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="kat-modal__body">
+                <form class="kat-form">
+                    <div class="kat-form__group">
+                        <label for="project-name" class="kat-label">プロジェクト名 <span class="kat-label__required">*</span></label>
+                        <input type="text" id="project-name" class="kat-input" placeholder="プロジェクト名を入力" required>
+                    </div>
+                    <div class="kat-form__group">
+                        <label for="project-description" class="kat-label">説明</label>
+                        <textarea id="project-description" class="kat-textarea" rows="4" placeholder="プロジェクトの説明を入力してください..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="kat-modal__footer">
+                <button type="button" class="kat-btn kat-btn--outline" data-kat-close="modal">キャンセル</button>
+                <button type="button" class="kat-btn kat-btn--primary">作成</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/kat-ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+@use '../globals' as *;
+/**
+ * Kat UI Framework - 商品フィルターコンポーネント
+ * 
+ * ECサイトで商品を絞り込むためのフィルター機能
+ * カテゴリ、価格、ブランドなどの条件で商品を検索
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* 商品フィルター - 商品検索の絞り込み機能 */
+.kat-product-filter {
+  width: 100%;
+  background-color: $kat-white;
+  margin-bottom: $kat-space-6;
+}
+
+/* 商品フィルター内部 - フィルター要素の配置とレイアウト */
+.kat-product-filter__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* フィルター行 - フィルターボタンを横並びに配置 */
+.kat-filter-row {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-3;
+  flex-wrap: wrap;
+}
+
+/* フィルターボタン - フィルター条件を選択するボタン */
+.kat-filter-btn {
+  @include kat-button-base;
+  @include kat-button-sm;
+  display: inline-flex;
+  align-items: center;
+  gap: $kat-space-4;
+  background-color: $kat-white;
+  color: $kat-primary-700;
+  border: $kat-border-1 solid $kat-primary-200;
+  border-radius: $kat-radius-full;
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  cursor: pointer;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  position: relative;
+  
+  @include kat-focus-ring;
+  
+  @include kat-hover {
+    background-color: $kat-primary-50;
+    color: $kat-primary-800;
+  }
+  
+  /* アクティブ状態 - 現在選択されているフィルター条件 */
+  &.kat-filter-btn--active {
+    background-color: $kat-primary-100;
+    color: $kat-primary-900;
+    
+    @include kat-hover {
+      background-color: $kat-primary-150;
+    }
+  }
+  
+  /* チェバー - フィルターの開閉を示す矢印アイコン */
+  .kat-filter-btn__chevron {
+    transition: transform $kat-duration-200 $kat-ease-apple;
+    
+    &::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid currentColor;
+      margin: 0 auto;
+    }
+  }
+  
+  /* 開いている状態 - フィルターが展開されている状態 */
+  &.kat-filter-btn--open {
+    background-color: $kat-primary-100;
+    color: $kat-primary-900;
+    
+    .kat-filter-btn__chevron {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+/* フィルターポップオーバー - フィルターオプションを表示するポップアップ */
+.kat-filter-popover {
+  @extend .kat-popover !optional;
+  position: fixed;
+  min-width: 16rem;
+  max-width: 20rem;
+  z-index: $kat-z-dropdown;
+  transform: translateY(0);
+  transition: transform $kat-duration-200 $kat-ease-apple;
+  /* ポップオーバーベース（@extend 不成立時のフォールバック） */
+  background-color: $kat-white;
+  border: $kat-border-1 solid $kat-primary-200;
+  border-radius: $kat-radius-lg;
+  box-shadow: $kat-shadow-lg;
+  padding: $kat-space-4;
+  
+  /* 上向きの矢印 - ポップオーバーが上に表示される場合の矢印 */
+  &.kat-filter-popover--top {
+    &::before {
+      bottom: -12px;
+      left: 50%;
+      margin-left: -6px;
+      border-top-color: $kat-primary-200;
+    }
+    
+    &::after {
+      bottom: -10px;
+      left: 50%;
+      margin-left: -5px;
+      border-top-color: $kat-white;
+    }
+  }
+  
+  /* 下向きの矢印（デフォルト） - ポップオーバーが下に表示される場合の矢印 */
+  &:not(.kat-filter-popover--top) {
+    &::before {
+      top: -12px;
+      left: 50%;
+      margin-left: -6px;
+      border-bottom-color: $kat-primary-200;
+    }
+    
+    &::after {
+      top: -10px;
+      left: 50%;
+      margin-left: -5px;
+      border-bottom-color: $kat-white;
+    }
+  }
+  
+  /* スクロール時の位置調整 - スクロール中のポップオーバーの位置制御 */
+  &.kat-filter-popover--scrolling {
+    transition: none;
+  }
+}
+
+/* フィルターヘッダー - フィルターのタイトルと閉じるボタン */
+.kat-filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $kat-space-4;
+  border-bottom: $kat-border-1 solid $kat-primary-200;
+}
+
+/* フィルタータイトル - フィルターの種類を示す見出し */
+.kat-filter-title {
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-semibold;
+  color: $kat-primary-900;
+  margin: 0;
+}
+
+/* フィルター閉じるボタン - フィルターを閉じるためのボタン */
+.kat-filter-close {
+  @include kat-button-base;
+  background: none;
+  border: none;
+  color: $kat-primary-400;
+  padding: $kat-space-1;
+  cursor: pointer;
+  
+  @include kat-hover {
+    background-color: $kat-primary-100;
+    color: $kat-primary-600;
+  }
+  
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+/* フィルターオプション - フィルター条件の選択肢一覧 */
+.kat-filter-options {
+  display: flex;
+  flex-direction: column;
+  gap: $kat-space-2;
+}
+
+/* フィルターオプション - 個別のフィルター条件選択肢 */
+.kat-filter-option {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-2;
+  padding: $kat-space-1 0;
+  border-radius: $kat-radius-md;
+  cursor: pointer;
+  transition: background-color $kat-duration-150 $kat-ease-in-out;
+  
+  @include kat-hover {
+    background-color: $kat-primary-50;
+  }
+  
+  /* チェックボックス - フィルター条件の選択状態 */
+  .kat-checkbox {
+    margin: 0;
+  }
+  
+  /* ラベル - フィルター条件の説明テキスト */
+  .kat-filter-option__label {
+    font-size: $kat-font-size-sm;
+    color: $kat-primary-700;
+    cursor: pointer;
+    flex: 1;
+  }
+  
+  /* カウントバッジ - フィルター条件に該当する商品数 */
+  .kat-filter-option__count {
+    @extend .kat-badge !optional;
+    @extend .kat-badge--outline !optional;
+    font-size: $kat-font-size-xs;
+    padding: $kat-space-0-5 $kat-space-1;
+    margin-left: auto;
+  }
+}
+
+/* フィルターアクション - フィルターの適用とクリアボタン */
+.kat-filter-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $kat-space-3;
+  margin-top: $kat-space-4;
+  padding-top: $kat-space-3;
+  border-top: $kat-border-1 solid $kat-primary-200;
+}
+
+/* フィルタークリアボタン - 選択されたフィルター条件をリセット */
+#kat-filter-clear {
+  @include kat-button-base;
+  @include kat-button-sm;
+  background: none;
+  border: none;
+  color: $kat-primary-600;
+  text-decoration: underline;
+  
+  @include kat-hover {
+    color: $kat-primary-800;
+    background-color: $kat-primary-50;
+  }
+}
+
+/* フィルター適用ボタン - 選択されたフィルター条件を適用 */
+#kat-filter-apply {
+  @extend .kat-btn !optional;
+  @extend .kat-btn--primary !optional;
+  @extend .kat-btn--sm !optional;
+}
+
+/* レスポンシブデザイン - 画面サイズに応じた表示の最適化 */
+@include kat-screen-sm {
+  .kat-filter-row {
+    gap: $kat-space-2;
+  }
+  
+  .kat-filter-btn {
+    font-size: $kat-font-size-xs;
+  }
+}
+
+/* タブレットサイズ対応 - 中画面での表示最適化 */
+@include kat-screen-md {
+  .kat-filter-row {
+    gap: $kat-space-3;
+  }
+  
+  .kat-filter-btn {
+    font-size: $kat-font-size-sm;
+  }
+}

@@ -1,0 +1,523 @@
+@use '../globals' as *;
+/**
+ * Kat UI Framework - インタラクティブコンポーネント
+ * 
+ * タブ、アコーディオン、ドロップダウン、ツールチップ、プログレスなど
+ * ユーザー操作に応じて状態が変化するUI要素群のスタイル。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* タブコンポーネント */
+.kat-tabs {
+  width: 100%;
+  
+  &.kat-tabs--vertical {
+    display: flex;
+    gap: $kat-space-6;
+    
+    .kat-tabs__list {
+      flex-direction: column;
+      border-right: $kat-border-1 solid $kat-gray-200;
+      border-bottom: none;
+      padding-right: $kat-space-4;
+      min-width: 12rem;
+    }
+    
+    .kat-tabs__tab {
+      justify-content: flex-start;
+      text-align: left;
+      border-bottom: none;
+      border-right: 2px solid transparent;
+      
+      &.kat-tabs__tab--active {
+        border-bottom: none;
+        border-right-color: $kat-primary-600;
+        background-color: $kat-primary-50;
+      }
+    }
+    
+    .kat-tabs__content {
+      flex: 1;
+    }
+  }
+}
+
+.kat-tabs__list {
+  display: flex;
+  border-bottom: $kat-border-1 solid $kat-gray-200;
+  margin-bottom: $kat-space-6;
+  overflow-x: auto;
+  
+  @include kat-scrollbar;
+}
+
+.kat-tabs__tab {
+  background: none;
+  border: none;
+  padding: $kat-space-3 $kat-space-4;
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-gray-600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all $kat-duration-150 $kat-ease-in-out;
+  white-space: nowrap;
+  
+  @include kat-focus-ring;
+  
+  @include kat-hover {
+    color: $kat-gray-900;
+    background-color: $kat-gray-50;
+  }
+  
+  &.kat-tabs__tab--active {
+    color: $kat-primary-600;
+    border-bottom-color: $kat-primary-600;
+    background-color: transparent;
+    
+    @include kat-hover {
+      background-color: transparent;
+    }
+  }
+  
+  &:disabled {
+    color: $kat-gray-400;
+    cursor: not-allowed;
+    
+    @include kat-hover {
+      color: $kat-gray-400;
+      background-color: transparent;
+    }
+  }
+}
+
+.kat-tabs__content {
+  min-height: 0;
+}
+
+.kat-tabs__panel {
+  display: none;
+  animation: kat-fade-in $kat-duration-200 $kat-ease-out;
+  
+  &.kat-tabs__panel--active {
+    display: block;
+  }
+  
+  > *:first-child {
+    margin-top: 0;
+  }
+  
+  > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* アコーディオン */
+.kat-accordion {
+  border: $kat-border-1 solid $kat-gray-200;
+  border-radius: $kat-radius-lg;
+  overflow: hidden;
+}
+
+.kat-accordion__item {
+  border-bottom: $kat-border-1 solid $kat-gray-200;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.kat-accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $kat-space-4 $kat-space-6;
+  background-color: $kat-white;
+  border: none;
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-gray-900;
+  text-align: left;
+  cursor: pointer;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  
+  @include kat-focus-ring;
+  
+  @include kat-hover {
+    background-color: $kat-gray-50;
+  }
+  
+  &[aria-expanded="true"] {
+    background-color: $kat-gray-50;
+    
+    .kat-accordion__icon {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.kat-accordion__icon {
+  flex-shrink: 0;
+  transition: transform $kat-duration-300 $kat-ease-apple;
+}
+
+.kat-accordion__content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height $kat-duration-400 $kat-ease-apple, opacity $kat-duration-250 $kat-ease-apple;
+  
+  &.kat-accordion__content--open {
+    opacity: 1;
+  }
+}
+
+.kat-accordion__body {
+  padding: $kat-space-4 $kat-space-6 $kat-space-6;
+  color: $kat-gray-700;
+  line-height: $kat-line-height-relaxed;
+  
+  > *:first-child {
+    margin-top: 0;
+  }
+  
+  > *:last-child {
+    margin-bottom: 0;
+  }
+  
+  p {
+    margin-bottom: $kat-space-4;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ドロップダウン */
+.kat-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.kat-dropdown__trigger {
+  position: relative;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    right: $kat-space-3;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid currentColor;
+    transition: transform $kat-duration-200 $kat-ease-apple;
+  }
+  
+  &[aria-expanded="true"]::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  
+  &.kat-dropdown__trigger--no-arrow::after {
+    display: none;
+  }
+}
+
+.kat-dropdown__menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: $kat-z-dropdown;
+  min-width: 10rem;
+  background-color: $kat-white;
+  border: $kat-border-1 solid $kat-gray-200;
+  border-radius: $kat-radius-md;
+  box-shadow: $kat-shadow-lg;
+  padding: $kat-space-1 0;
+  margin-top: $kat-space-1;
+  display: none;
+  animation: kat-dropdown-in $kat-duration-150 $kat-ease-out;
+  
+  &.kat-dropdown__menu--open {
+    display: block;
+  }
+  
+  &.kat-dropdown__menu--right {
+    right: 0;
+    left: auto;
+  }
+  
+  &.kat-dropdown__menu--up {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: $kat-space-1;
+  }
+  
+  &.kat-dropdown__menu--lg {
+    min-width: 16rem;
+  }
+  
+  &.kat-dropdown__menu--sm {
+    min-width: 8rem;
+  }
+}
+
+.kat-dropdown__item {
+  display: block;
+  width: 100%;
+  padding: $kat-space-2 $kat-space-4;
+  font-size: $kat-font-size-sm;
+  color: $kat-gray-700;
+  text-decoration: none;
+  transition: background-color $kat-duration-150 $kat-ease-in-out;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  
+  @include kat-focus-ring;
+  
+  @include kat-hover {
+    background-color: $kat-gray-100;
+    color: $kat-gray-900;
+  }
+  
+  &.kat-dropdown__item--active {
+    background-color: $kat-primary-100;
+    color: $kat-primary-700;
+  }
+  
+  &.kat-dropdown__item--danger {
+    color: $kat-error-600;
+    
+    @include kat-hover {
+      background-color: $kat-error-50;
+      color: $kat-error-700;
+    }
+  }
+  
+  &:disabled {
+    color: $kat-gray-400;
+    cursor: not-allowed;
+    
+    @include kat-hover {
+      background-color: transparent;
+      color: $kat-gray-400;
+    }
+  }
+}
+
+.kat-dropdown__separator {
+  height: 1px;
+  background-color: $kat-gray-200;
+  margin: $kat-space-1 0;
+}
+
+.kat-dropdown__header {
+  padding: $kat-space-2 $kat-space-4;
+  font-size: $kat-font-size-xs;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-gray-500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ツールチップ */
+.kat-tooltip {
+  position: absolute;
+  z-index: $kat-z-tooltip;
+  padding: $kat-space-2 $kat-space-3;
+  background-color: $kat-gray-900;
+  color: $kat-white;
+  font-size: $kat-font-size-sm;
+  border-radius: $kat-radius-md;
+  box-shadow: $kat-shadow-lg;
+  max-width: 16rem;
+  word-wrap: break-word;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity $kat-duration-150 $kat-ease-in-out;
+  
+  &.kat-tooltip--visible {
+    opacity: 1;
+  }
+  
+  /* 矢印 */
+  &::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+  }
+  
+  &.kat-tooltip--top {
+    &::after {
+      top: 100%;
+      left: 50%;
+      margin-left: -4px;
+      border-top-color: $kat-gray-900;
+    }
+  }
+  
+  &.kat-tooltip--bottom {
+    &::after {
+      bottom: 100%;
+      left: 50%;
+      margin-left: -4px;
+      border-bottom-color: $kat-gray-900;
+    }
+  }
+  
+  &.kat-tooltip--left {
+    &::after {
+      top: 50%;
+      left: 100%;
+      margin-top: -4px;
+      border-left-color: $kat-gray-900;
+    }
+  }
+  
+  &.kat-tooltip--right {
+    &::after {
+      top: 50%;
+      right: 100%;
+      margin-top: -4px;
+      border-right-color: $kat-gray-900;
+    }
+  }
+}
+
+/* 進捗インジケーター */
+.kat-progress {
+  width: 100%;
+  height: 0.5rem;
+  background-color: $kat-gray-200;
+  border-radius: $kat-radius-full;
+  overflow: hidden;
+  
+  &.kat-progress--sm {
+    height: 0.25rem;
+  }
+  
+  &.kat-progress--lg {
+    height: 0.75rem;
+  }
+}
+
+.kat-progress__bar {
+  height: 100%;
+  background-color: $kat-primary-600;
+  border-radius: inherit;
+  transition: width $kat-duration-300 $kat-ease-out;
+  
+  &.kat-progress__bar--success {
+    background-color: $kat-success-600;
+  }
+  
+  &.kat-progress__bar--warning {
+    background-color: $kat-warning-600;
+  }
+  
+  &.kat-progress__bar--error {
+    background-color: $kat-error-600;
+  }
+  
+  &.kat-progress__bar--animated {
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.15) 25%,
+      transparent 25%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.15) 50%,
+      rgba(255, 255, 255, 0.15) 75%,
+      transparent 75%,
+      transparent
+    );
+    background-size: 1rem 1rem;
+    animation: kat-progress-stripes 1s linear infinite;
+  }
+}
+
+/* 円形プログレス */
+.kat-progress-circle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kat-progress-circle__svg {
+  transform: rotate(-90deg);
+}
+
+.kat-progress-circle__bg {
+  fill: none;
+  stroke: $kat-gray-200;
+  stroke-width: 8;
+}
+
+.kat-progress-circle__bar {
+  fill: none;
+  stroke: $kat-primary-600;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset $kat-duration-300 $kat-ease-out;
+  
+  &.kat-progress-circle__bar--success {
+    stroke: $kat-success-600;
+  }
+  
+  &.kat-progress-circle__bar--warning {
+    stroke: $kat-warning-600;
+  }
+  
+  &.kat-progress-circle__bar--error {
+    stroke: $kat-error-600;
+  }
+}
+
+.kat-progress-circle__text {
+  position: absolute;
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-gray-700;
+}
+
+/* アニメーション */
+@keyframes kat-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes kat-dropdown-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes kat-progress-stripes {
+  from {
+    background-position: 1rem 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}

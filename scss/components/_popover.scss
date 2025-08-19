@@ -1,0 +1,415 @@
+@use '../globals' as *;
+/**
+ * Kat UI Framework - ポップオーバーコンポーネント
+ * 
+ * 任意位置に表示される補助情報・小型フォーム等のコンテナ。
+ * 矢印位置、ダークテーマ、サイズ、フォーム/確認用などをサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* ポップオーバーコンテナ */
+.kat-popover {
+  position: absolute;
+  z-index: $kat-z-popover;
+  background-color: $kat-white;
+  border: $kat-border-1 solid $kat-primary-200;
+  border-radius: $kat-radius-lg;
+  box-shadow: $kat-shadow-lg;
+  padding: $kat-space-4;
+  max-width: 20rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.95);
+  transition: all $kat-duration-200 $kat-ease-apple;
+  backdrop-filter: blur(8px);
+  
+  &.kat-popover--open {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+  
+  /* ポップオーバー矢印 */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border: solid transparent;
+  }
+  
+  &::before {
+    border-width: 6px;
+    border-color: transparent;
+  }
+  
+  &::after {
+    border-width: 5px;
+    border-color: transparent;
+  }
+  
+  /* 矢印位置 */
+  &.kat-popover--top {
+    &::before {
+      bottom: -12px;
+      left: 50%;
+      margin-left: -6px;
+      border-top-color: $kat-primary-200;
+    }
+    
+    &::after {
+      bottom: -10px;
+      left: 50%;
+      margin-left: -5px;
+      border-top-color: $kat-white;
+    }
+  }
+  
+  &.kat-popover--bottom {
+    &::before {
+      top: -12px;
+      left: 50%;
+      margin-left: -6px;
+      border-bottom-color: $kat-primary-200;
+    }
+    
+    &::after {
+      top: -10px;
+      left: 50%;
+      margin-left: -5px;
+      border-bottom-color: $kat-white;
+    }
+  }
+  
+  &.kat-popover--left {
+    &::before {
+      right: -12px;
+      top: 50%;
+      margin-top: -6px;
+      border-left-color: $kat-primary-200;
+    }
+    
+    &::after {
+      right: -10px;
+      top: 50%;
+      margin-top: -5px;
+      border-left-color: $kat-white;
+    }
+  }
+  
+  &.kat-popover--right {
+    &::before {
+      left: -12px;
+      top: 50%;
+      margin-top: -6px;
+      border-right-color: $kat-primary-200;
+    }
+    
+    &::after {
+      left: -10px;
+      top: 50%;
+      margin-top: -5px;
+      border-right-color: $kat-white;
+    }
+  }
+}
+
+/* ポップオーバーヘッダー */
+.kat-popover__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $kat-space-3;
+  padding-bottom: $kat-space-3;
+  border-bottom: $kat-border-1 solid $kat-primary-200;
+  
+  &:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.kat-popover__title {
+  font-size: $kat-font-size-base;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-primary-900;
+  margin: 0;
+  line-height: $kat-line-height-tight;
+}
+
+.kat-popover__close {
+  @include kat-button-base;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  background-color: transparent;
+  color: $kat-primary-400;
+  border: none;
+  border-radius: $kat-radius-sm;
+  
+  @include kat-hover {
+    background-color: $kat-primary-100;
+    color: $kat-primary-600;
+  }
+  
+  svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}
+
+/* ポップオーバーコンテンツ */
+.kat-popover__content {
+  color: $kat-primary-700;
+  font-size: $kat-font-size-sm;
+  line-height: $kat-line-height-relaxed;
+  
+  > *:first-child {
+    margin-top: 0;
+  }
+  
+  > *:last-child {
+    margin-bottom: 0;
+  }
+  
+  p {
+    margin-bottom: $kat-space-3;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ポップオーバーフッター */
+.kat-popover__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: $kat-space-2;
+  margin-top: $kat-space-4;
+  padding-top: $kat-space-3;
+  border-top: $kat-border-1 solid $kat-primary-200;
+  
+  &:first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+  
+  &.kat-popover__footer--center {
+    justify-content: center;
+  }
+  
+  &.kat-popover__footer--start {
+    justify-content: flex-start;
+  }
+  
+  &.kat-popover__footer--between {
+    justify-content: space-between;
+  }
+}
+
+/* トリガー */
+.kat-popover-trigger {
+  position: relative;
+  display: inline-block;
+}
+
+/* バリアント */
+.kat-popover--large {
+  max-width: 24rem;
+  padding: $kat-space-6;
+}
+
+.kat-popover--small {
+  max-width: 16rem;
+  padding: $kat-space-3;
+  
+  .kat-popover__title {
+    font-size: $kat-font-size-sm;
+  }
+  
+  .kat-popover__content {
+    font-size: $kat-font-size-xs;
+  }
+}
+
+.kat-popover--no-arrow {
+  &::before,
+  &::after {
+    display: none;
+  }
+}
+
+.kat-popover--dark {
+  background-color: $kat-primary-900;
+  border-color: $kat-primary-800;
+  color: $kat-white;
+  
+  .kat-popover__title {
+    color: $kat-white;
+  }
+  
+  .kat-popover__content {
+    color: $kat-primary-100;
+  }
+  
+  .kat-popover__header {
+    border-bottom-color: $kat-primary-700;
+  }
+  
+  .kat-popover__footer {
+    border-top-color: $kat-primary-700;
+  }
+  
+  .kat-popover__close {
+    color: $kat-primary-400;
+    
+    @include kat-hover {
+      background-color: $kat-primary-800;
+      color: $kat-white;
+    }
+  }
+  
+  /* Dark theme arrows */
+  &.kat-popover--top {
+    &::before {
+      border-top-color: $kat-primary-800;
+    }
+    
+    &::after {
+      border-top-color: $kat-primary-900;
+    }
+  }
+  
+  &.kat-popover--bottom {
+    &::before {
+      border-bottom-color: $kat-primary-800;
+    }
+    
+    &::after {
+      border-bottom-color: $kat-primary-900;
+    }
+  }
+  
+  &.kat-popover--left {
+    &::before {
+      border-left-color: $kat-primary-800;
+    }
+    
+    &::after {
+      border-left-color: $kat-primary-900;
+    }
+  }
+  
+  &.kat-popover--right {
+    &::before {
+      border-right-color: $kat-primary-800;
+    }
+    
+    &::after {
+      border-right-color: $kat-primary-900;
+    }
+  }
+}
+
+/* Confirmation popover */
+.kat-popover--confirm {
+  .kat-popover__content {
+    display: flex;
+    align-items: flex-start;
+    gap: $kat-space-3;
+  }
+  
+  .kat-popover__icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.125rem;
+    
+    &.kat-popover__icon--warning {
+      color: $kat-warning-500;
+    }
+    
+    &.kat-popover__icon--error {
+      color: $kat-error-500;
+    }
+    
+    &.kat-popover__icon--info {
+      color: $kat-info-500;
+    }
+  }
+  
+  .kat-popover__message {
+    flex: 1;
+    margin: 0;
+  }
+}
+
+/* Loading popover */
+.kat-popover--loading {
+  .kat-popover__content {
+    display: flex;
+    align-items: center;
+    gap: $kat-space-3;
+  }
+  
+  .kat-spinner {
+    flex-shrink: 0;
+  }
+}
+
+/* Form popover */
+.kat-popover--form {
+  .kat-form__group {
+    margin-bottom: $kat-space-3;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .kat-form__actions {
+    margin-top: $kat-space-4;
+    justify-content: flex-end;
+  }
+}
+
+/* Responsive adjustments */
+@include kat-screen-sm {
+  .kat-popover {
+    max-width: 24rem;
+  }
+  
+  .kat-popover--large {
+    max-width: 28rem;
+  }
+}
+
+/* Animation entrance variants */
+.kat-popover--slide-down {
+  transform: translateY(-0.5rem) scale(0.95);
+  
+  &.kat-popover--open {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.kat-popover--slide-up {
+  transform: translateY(0.5rem) scale(0.95);
+  
+  &.kat-popover--open {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.kat-popover--fade {
+  transform: none;
+  
+  &.kat-popover--open {
+    transform: none;
+  }
+}

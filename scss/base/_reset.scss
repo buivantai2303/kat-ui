@@ -1,0 +1,134 @@
+@use '../globals' as *;
+
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、CSS リセットとスタイルの正規化 */
+
+/* モダン CSS リセット */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  font-family: $kat-font-family-base;
+  font-size: $kat-font-size-base;
+  font-weight: $kat-font-weight-normal;
+  line-height: $kat-line-height-normal;
+  color: $kat-gray-900;
+  background-color: $kat-white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* デフォルトのボタンスタイルを削除 */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* デフォルトのインプットスタイルを削除 */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+
+/* デフォルトのリストスタイルを削除 */
+ul,
+ol {
+  list-style: none;
+}
+
+/* デフォルトのリンクスタイルを削除 */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* デフォルトのテーブルスタイルを削除 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* デフォルトのフォームスタイルを削除 */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+/* デフォルトのサマリースタイルを削除 */
+summary {
+  display: list-item;
+  cursor: pointer;
+}
+
+/* デフォルトのメディアスタイルを削除 */
+img,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+/* デフォルトのSVGスタイルを削除 */
+svg {
+  display: block;
+  vertical-align: middle;
+}
+
+/* フォーカススタイル */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid $kat-primary-500;
+  outline-offset: 2px;
+}
+
+/* 非表示属性 */
+[hidden] {
+  display: none !important;
+}
+
+/* 無効な要素 */
+[disabled] {
+  cursor: not-allowed;
+}
+
+/* スクリーンリーダー専用クラス */
+.kat-sr-only {
+  @include kat-sr-only;
+}

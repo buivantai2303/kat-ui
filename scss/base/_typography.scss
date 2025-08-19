@@ -1,0 +1,314 @@
+@use '../globals' as *;
+
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Typography styles and text utilities */
+
+/* Base typography */
+body {
+  font-family: $kat-font-family-base;
+  font-size: $kat-font-size-base;
+  line-height: $kat-line-height-normal;
+  color: $kat-gray-900;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: $kat-font-weight-bold;
+  line-height: $kat-line-height-tight;
+  color: $kat-gray-900;
+}
+
+h1 {
+  font-size: $kat-font-size-4xl;
+  
+  @include kat-screen-sm {
+    font-size: 2.5rem;
+  }
+}
+
+h2 {
+  font-size: $kat-font-size-3xl;
+  
+  @include kat-screen-sm {
+    font-size: 2rem;
+  }
+}
+
+h3 {
+  font-size: $kat-font-size-2xl;
+}
+
+h4 {
+  font-size: $kat-font-size-xl;
+}
+
+h5 {
+  font-size: $kat-font-size-lg;
+}
+
+h6 {
+  font-size: $kat-font-size-base;
+}
+
+/* Paragraphs */
+p {
+  margin: 0;
+  line-height: $kat-line-height-normal;
+}
+
+/* Links */
+a {
+  color: $kat-primary-600;
+  text-decoration: none;
+  transition: color $kat-duration-150 $kat-ease-in-out;
+  
+  @include kat-hover {
+    color: $kat-primary-700;
+    text-decoration: underline;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $kat-primary-500;
+    outline-offset: 2px;
+    border-radius: $kat-radius-sm;
+  }
+}
+
+/* Text emphasis */
+strong, b {
+  font-weight: $kat-font-weight-bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* Code */
+code {
+  font-family: $kat-font-family-mono;
+  font-size: 0.875em;
+  color: $kat-gray-800;
+  background-color: $kat-gray-100;
+  padding: $kat-space-1 $kat-space-1-5;
+  border-radius: $kat-radius-sm;
+}
+
+pre {
+  font-family: $kat-font-family-mono;
+  font-size: $kat-font-size-sm;
+  line-height: $kat-line-height-normal;
+  color: $kat-gray-800;
+  background-color: $kat-gray-100;
+  padding: $kat-space-4;
+  border-radius: $kat-radius-md;
+  overflow-x: auto;
+  
+  code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+  }
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 0;
+  padding: $kat-space-4 $kat-space-6;
+  border-left: 4px solid $kat-gray-300;
+  background-color: $kat-gray-50;
+  font-style: italic;
+  color: $kat-gray-700;
+}
+
+/* Horizontal rule */
+hr {
+  border: 0;
+  height: 1px;
+  background-color: $kat-gray-200;
+  margin: $kat-space-6 0;
+}
+
+/* Mark */
+mark {
+  background-color: $kat-warning-200;
+  color: $kat-warning-900;
+  padding: $kat-space-0-5 $kat-space-1;
+  border-radius: $kat-radius-sm;
+}
+
+/* Small text */
+small {
+  font-size: $kat-font-size-sm;
+  color: $kat-gray-600;
+}
+
+/* Subscript and superscript */
+sub, sup {
+  font-size: $kat-font-size-xs;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Text utility classes */
+.kat-text--xs {
+  font-size: $kat-font-size-xs;
+}
+
+.kat-text--sm {
+  font-size: $kat-font-size-sm;
+}
+
+.kat-text--base {
+  font-size: $kat-font-size-base;
+}
+
+.kat-text--lg {
+  font-size: $kat-font-size-lg;
+}
+
+.kat-text--xl {
+  font-size: $kat-font-size-xl;
+}
+
+.kat-text--2xl {
+  font-size: $kat-font-size-2xl;
+}
+
+.kat-text--3xl {
+  font-size: $kat-font-size-3xl;
+}
+
+.kat-text--4xl {
+  font-size: $kat-font-size-4xl;
+}
+
+/* Font weight utilities */
+.kat-font--light {
+  font-weight: $kat-font-weight-light;
+}
+
+.kat-font--normal {
+  font-weight: $kat-font-weight-normal;
+}
+
+.kat-font--medium {
+  font-weight: $kat-font-weight-medium;
+}
+
+.kat-font--bold {
+  font-weight: $kat-font-weight-bold;
+}
+
+/* Text alignment */
+.kat-text--left {
+  text-align: left;
+}
+
+.kat-text--center {
+  text-align: center;
+}
+
+.kat-text--right {
+  text-align: right;
+}
+
+.kat-text--justify {
+  text-align: justify;
+}
+
+/* Text color utilities */
+.kat-text--muted {
+  color: $kat-gray-600;
+}
+
+.kat-text--primary {
+  color: $kat-primary-600;
+}
+
+.kat-text--success {
+  color: $kat-success-600;
+}
+
+.kat-text--warning {
+  color: $kat-warning-600;
+}
+
+.kat-text--error {
+  color: $kat-error-600;
+}
+
+.kat-text--info {
+  color: $kat-info-600;
+}
+
+/* Text decoration */
+.kat-text--underline {
+  text-decoration: underline;
+}
+
+.kat-text--no-underline {
+  text-decoration: none;
+}
+
+.kat-text--line-through {
+  text-decoration: line-through;
+}
+
+/* Text transform */
+.kat-text--uppercase {
+  text-transform: uppercase;
+}
+
+.kat-text--lowercase {
+  text-transform: lowercase;
+}
+
+.kat-text--capitalize {
+  text-transform: capitalize;
+}
+
+.kat-text--normal-case {
+  text-transform: none;
+}
+
+/* Text overflow */
+.kat-text--truncate {
+  @include kat-truncate;
+}
+
+.kat-text--ellipsis {
+  @include kat-truncate;
+}
+
+.kat-text--clip {
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+/* Line height utilities */
+.kat-leading--tight {
+  line-height: $kat-line-height-tight;
+}
+
+.kat-leading--normal {
+  line-height: $kat-line-height-normal;
+}
+
+.kat-leading--relaxed {
+  line-height: $kat-line-height-relaxed;
+}
+
+.kat-leading--loose {
+  line-height: $kat-line-height-loose;
+}

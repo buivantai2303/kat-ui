@@ -1,0 +1,506 @@
+@use '../globals' as *;
+/**
+ * Kat UI Framework - ヘッダーポップアップコンポーネント
+ * 
+ * ヘッダーに表示される通知、カート、ウィッシュリストなどの
+ * ドロップダウンポップアップのスタイル
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* ベースポップアップスタイル - ポップアップの基本レイアウト */
+.kat-header-popup {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: $kat-z-dropdown;
+  min-width: 20rem;
+  background-color: $kat-white;
+  border: $kat-border-1 solid $kat-primary-200;
+  border-radius: $kat-radius-lg;
+  box-shadow: $kat-shadow-xl;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.5rem);
+  transition: all $kat-duration-300 $kat-ease-apple;
+  margin-top: $kat-space-2;
+  
+  /* 開いた状態 - ポップアップが表示されている状態 */
+  &.kat-header-popup--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  /* ポップアップの矢印 - ポップアップの位置を示す視覚的要素 */
+  &::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    right: $kat-space-4;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid $kat-primary-200;
+  }
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: $kat-space-4;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid $kat-white;
+  }
+}
+
+/* 通知ポップアップ - システム通知を表示するポップアップ */
+.kat-notification-popup {
+  @extend .kat-header-popup !optional;
+  width: 24rem;
+  max-height: 28rem;
+  overflow: hidden;
+}
+
+.kat-notification-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $kat-space-4;
+  border-bottom: $kat-border-1 solid $kat-primary-200;
+  background-color: $kat-primary-50;
+  
+  h3 {
+    font-size: $kat-font-size-base;
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-primary-900;
+    margin: 0;
+  }
+  
+  .kat-notification-popup__mark-read {
+    @include kat-button-base;
+    background: none;
+    border: none;
+    color: $kat-primary-600;
+    font-size: $kat-font-size-xs;
+    text-decoration: underline;
+    
+    @include kat-hover {
+      color: $kat-primary-800;
+    }
+  }
+}
+
+.kat-notification-popup__content {
+  max-height: 20rem;
+  overflow-y: auto;
+  
+  @include kat-scrollbar;
+}
+
+.kat-notification-popup__item {
+  display: flex;
+  align-items: flex-start;
+  gap: $kat-space-3;
+  padding: $kat-space-3 $kat-space-4;
+  border-bottom: $kat-border-1 solid $kat-primary-100;
+  cursor: pointer;
+  transition: background-color $kat-duration-150 $kat-ease-in-out;
+  
+  @include kat-hover {
+    background-color: $kat-primary-50;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  /* 未読状態 */
+  &.kat-notification-popup__item--unread {
+    background-color: $kat-primary-25;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background-color: $kat-primary-600;
+    }
+  }
+}
+
+.kat-notification-popup__icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: $kat-radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $kat-info-100;
+  color: $kat-info-600;
+  
+  &.kat-notification-popup__icon--success {
+    background-color: $kat-success-100;
+    color: $kat-success-600;
+  }
+  
+  &.kat-notification-popup__icon--warning {
+    background-color: $kat-warning-100;
+    color: $kat-warning-600;
+  }
+  
+  &.kat-notification-popup__icon--error {
+    background-color: $kat-error-100;
+    color: $kat-error-600;
+  }
+  
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.kat-notification-popup__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.kat-notification-popup__title {
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-primary-900;
+  margin: 0 0 $kat-space-1 0;
+  line-height: $kat-line-height-tight;
+}
+
+.kat-notification-popup__message {
+  font-size: $kat-font-size-xs;
+  color: $kat-primary-600;
+  margin: 0 0 $kat-space-1 0;
+  line-height: $kat-line-height-normal;
+}
+
+.kat-notification-popup__time {
+  font-size: $kat-font-size-xs;
+  color: $kat-primary-400;
+  margin: 0;
+}
+
+.kat-notification-popup__footer {
+  padding: $kat-space-3 $kat-space-4;
+  border-top: $kat-border-1 solid $kat-primary-200;
+  text-align: center;
+  
+  .kat-notification-popup__view-all {
+    @extend .kat-btn !optional;
+    @extend .kat-btn--ghost !optional;
+    @extend .kat-btn--sm !optional;
+    color: $kat-primary-600;
+    text-decoration: none;
+    
+    @include kat-hover {
+      color: $kat-primary-800;
+      background-color: $kat-primary-50;
+    }
+  }
+}
+
+/* カートポップアップ - ショッピングカートの内容を表示 */
+.kat-cart-popup {
+  @extend .kat-header-popup !optional;
+  width: 22rem;
+  max-height: 32rem;
+  overflow: hidden;
+}
+
+.kat-cart-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $kat-space-4;
+  border-bottom: $kat-border-1 solid $kat-primary-200;
+  background-color: $kat-primary-50;
+  
+  h3 {
+    font-size: $kat-font-size-base;
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-primary-900;
+    margin: 0;
+  }
+  
+  .kat-cart-popup__count {
+    @extend .kat-badge !optional;
+    @extend .kat-badge--primary !optional;
+    @extend .kat-badge--sm !optional;
+  }
+}
+
+.kat-cart-popup__content {
+  max-height: 20rem;
+  overflow-y: auto;
+  
+  @include kat-scrollbar;
+}
+
+.kat-cart-popup__item {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-3;
+  padding: $kat-space-3 $kat-space-4;
+  border-bottom: $kat-border-1 solid $kat-primary-100;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.kat-cart-popup__image {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: $kat-radius-md;
+  overflow: hidden;
+  border: $kat-border-1 solid $kat-primary-200;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.kat-cart-popup__details {
+  flex: 1;
+  min-width: 0;
+}
+
+.kat-cart-popup__name {
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-primary-900;
+  margin: 0 0 $kat-space-0-5 0;
+  line-height: $kat-line-height-tight;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kat-cart-popup__price {
+  font-size: $kat-font-size-xs;
+  color: $kat-primary-600;
+  margin: 0;
+}
+
+.kat-cart-popup__quantity {
+  flex-shrink: 0;
+  font-size: $kat-font-size-xs;
+  color: $kat-primary-500;
+  margin-left: $kat-space-2;
+}
+
+.kat-cart-popup__footer {
+  padding: $kat-space-4;
+  border-top: $kat-border-1 solid $kat-primary-200;
+  background-color: $kat-primary-25;
+}
+
+.kat-cart-popup__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $kat-space-3;
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-semibold;
+  color: $kat-primary-900;
+}
+
+.kat-cart-popup__actions {
+  display: flex;
+  gap: $kat-space-2;
+  
+  .kat-btn {
+    flex: 1;
+  }
+}
+
+/* ウィッシュリストポップアップ - お気に入り商品の一覧を表示 */
+.kat-wishlist-popup {
+  @extend .kat-header-popup !optional;
+  width: 20rem;
+  max-height: 28rem;
+  overflow: hidden;
+}
+
+.kat-wishlist-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $kat-space-4;
+  border-bottom: $kat-border-1 solid $kat-primary-200;
+  background-color: $kat-primary-50;
+  
+  h3 {
+    font-size: $kat-font-size-base;
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-primary-900;
+    margin: 0;
+  }
+  
+  .kat-wishlist-popup__count {
+    @extend .kat-badge !optional;
+    @extend .kat-badge--outline !optional;
+    @extend .kat-badge--sm !optional;
+  }
+}
+
+.kat-wishlist-popup__content {
+  max-height: 16rem;
+  overflow-y: auto;
+  
+  @include kat-scrollbar;
+}
+
+.kat-wishlist-popup__item {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-3;
+  padding: $kat-space-3 $kat-space-4;
+  border-bottom: $kat-border-1 solid $kat-primary-100;
+  cursor: pointer;
+  transition: background-color $kat-duration-150 $kat-ease-in-out;
+  
+  @include kat-hover {
+    background-color: $kat-primary-50;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.kat-wishlist-popup__image {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $kat-radius-md;
+  overflow: hidden;
+  border: $kat-border-1 solid $kat-primary-200;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.kat-wishlist-popup__details {
+  flex: 1;
+  min-width: 0;
+}
+
+.kat-wishlist-popup__name {
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-primary-900;
+  margin: 0 0 $kat-space-0-5 0;
+  line-height: $kat-line-height-tight;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kat-wishlist-popup__price {
+  font-size: $kat-font-size-xs;
+  color: $kat-primary-600;
+  margin: 0;
+}
+
+.kat-wishlist-popup__footer {
+  padding: $kat-space-3 $kat-space-4;
+  border-top: $kat-border-1 solid $kat-primary-200;
+  text-align: center;
+  
+  .kat-wishlist-popup__view-all {
+    @extend .kat-btn !optional;
+    @extend .kat-btn--ghost !optional;
+    @extend .kat-btn--sm !optional;
+    color: $kat-primary-600;
+    text-decoration: none;
+    
+    @include kat-hover {
+      color: $kat-primary-800;
+      background-color: $kat-primary-50;
+    }
+  }
+}
+
+/* 空の状態 - ポップアップにコンテンツが存在しない場合の表示 */
+.kat-header-popup__empty {
+  padding: $kat-space-8 $kat-space-6;
+  text-align: center;
+  color: $kat-primary-500;
+  
+  svg {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: $kat-space-3;
+    opacity: 0.5;
+  }
+  
+  h4 {
+    font-size: $kat-font-size-sm;
+    font-weight: $kat-font-weight-medium;
+    margin: 0 0 $kat-space-1 0;
+    color: $kat-primary-700;
+  }
+  
+  p {
+    font-size: $kat-font-size-xs;
+    margin: 0;
+    line-height: $kat-line-height-relaxed;
+  }
+}
+
+/* レスポンシブデザイン - 画面サイズに応じた表示の最適化 */
+@include kat-screen-sm {
+  .kat-header-popup {
+    min-width: 16rem;
+    right: -$kat-space-4;
+    
+    &::before {
+      right: $kat-space-6;
+    }
+    
+    &::after {
+      right: $kat-space-6;
+    }
+  }
+  
+  .kat-notification-popup {
+    width: 20rem;
+  }
+  
+  .kat-cart-popup {
+    width: 18rem;
+  }
+  
+  .kat-wishlist-popup {
+    width: 16rem;
+  }
+}
+
+/* アクセシビリティ - アニメーション軽減設定への対応 */
+@media (prefers-reduced-motion: reduce) {
+  .kat-header-popup {
+    transition: none;
+  }
+}

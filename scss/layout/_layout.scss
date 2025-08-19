@@ -1,0 +1,344 @@
+@use '../globals' as *;
+/**
+ * Kat UI Framework - レイアウトコンポーネント
+ * 
+ * 一般的なページ骨格（ヘッダー、3カラム、サイドバー、本文エリア）の
+ * レイアウトと挙動を定義。スティッキー、スクロール、レスポンシブ対応を含む。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* ボディの基本スタイル - ベースとなる文字/背景/行間 */
+.kat-body {
+  margin: 0;
+  padding: 0;
+  font-family: $kat-font-family-base;
+  background-color: $kat-primary-50;
+  color: $kat-primary-900;
+  background-color: $kat-white;
+  line-height: $kat-line-height-normal;
+}
+
+/* ヘッダー - 高さ80pxの固定ヘッダー、上部固定（sticky） */
+.kat-header {
+  position: sticky;
+  top: 0;
+  z-index: $kat-z-sticky;
+  height: 80px;
+  background-color: $kat-white;
+  border-bottom: $kat-border-1 solid $kat-primary-200;
+  
+  .kat-header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 $kat-space-6;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  
+  .kat-header__title {
+    font-size: $kat-font-size-2xl;
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-primary-900;
+    margin: 0;
+  }
+  
+  .kat-header__nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: $kat-space-6;
+  }
+  
+  .kat-header__nav-link {
+    color: $kat-primary-600;
+    text-decoration: none;
+    font-weight: $kat-font-weight-medium;
+    padding: $kat-space-2 $kat-space-3;
+    border-radius: $kat-radius-base;
+    transition: all $kat-duration-200 $kat-ease-out;
+    
+    &:hover {
+      color: $kat-primary-900;
+      background-color: $kat-primary-100;
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: $kat-focus-ring;
+    }
+  }
+}
+
+/* 3カラムレイアウトコンテナ - 左右サイドバー+本文の構成 */
+.kat-layout-3col {
+  display: flex;
+  min-height: calc(100vh - 80px);
+  max-width: 1300px;
+  margin: 0 auto;
+  
+  /* モバイルファースト: 縦並び、後述でデスクトップを上書き */
+  flex-direction: column;
+  
+  /* デスクトップ: 3カラム */
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+  
+  /* 非スティッキーモード - サイドバー/本文とも通常フロー */
+  &.kat-layout-3col--no-sticky {
+    @media (min-width: 1024px) {
+      .kat-sidebar-left,
+      .kat-sidebar-right {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+      }
+      
+      .kat-body-content {
+        overflow-y: visible;
+      }
+    }
+  }
+}
+
+/* 左サイドバー - デスクトップで固定幅、モバイルは全幅 */
+.kat-sidebar-left {
+  width: 100%;
+  padding-top: 1rem;
+  background-color: $kat-white;
+  border-bottom: $kat-border-1 solid $kat-primary-200;
+  position: static;
+  height: auto;
+  overflow-y: visible;
+  
+  /* デスクトップ: 固定幅とスティッキー */
+  @media (min-width: 1024px) {
+    width: 250px;
+    border-bottom: none;
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    overflow-y: scroll;
+    
+    /* スクロールバーを非表示にする（装飾目的） */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    
+    /* 非スティッキーモード */
+    &.kat-sidebar-left--no-sticky {
+      position: static;
+      height: auto;
+      overflow-y: visible;
+    }
+  }
+  
+  .kat-sidebar-left__content {
+    padding-right: $kat-space-4;
+  }
+  
+  .kat-sidebar-left__title {
+    font-size: $kat-font-size-lg;
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-primary-900;
+    padding-bottom: $kat-space-3;
+    border-bottom: $kat-border-1 solid $kat-primary-200;
+  }
+  
+  .kat-sidebar-left__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .kat-sidebar-left__nav-link {
+    display: block;
+    color: $kat-primary-600;
+    text-decoration: none;
+    padding: $kat-space-2 $kat-space-3;
+    border-radius: $kat-radius-base;
+    transition: all $kat-duration-200 $kat-ease-out;
+    
+    &:hover {
+      color: $kat-primary-900;
+      background-color: $kat-primary-100;
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: $kat-focus-ring;
+    }
+  }
+  
+  .kat-sidebar-left__widget {
+    padding-top: $kat-space-4;
+    border-top: $kat-border-1 solid $kat-primary-200;
+    
+    h4 {
+      font-size: $kat-font-size-base;
+      font-weight: $kat-font-weight-medium;
+      color: $kat-primary-800;
+      margin: 0 0 $kat-space-3 0;
+    }
+  }
+}
+
+/* 右サイドバー - デスクトップで固定幅、モバイルは全幅 */
+.kat-sidebar-right {
+  width: 100%;
+  padding-top: 1rem;
+  background-color: $kat-white;
+  border-top: $kat-border-1 solid $kat-primary-200;
+  position: static;
+  height: auto;
+  overflow-y: visible;
+  
+  /* デスクトップ: 固定幅とスティッキー */
+  @media (min-width: 1024px) {
+    width: 250px;
+    border-top: none;
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    overflow-y: scroll;
+    
+    /* スクロールバーを非表示にする（装飾目的） */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    
+    /* 非スティッキーモード */
+    &.kat-sidebar-right--no-sticky {
+      position: static;
+      height: auto;
+      overflow-y: visible;
+    }
+  }
+  
+  .kat-sidebar-right__content {
+    padding-left: $kat-space-4;
+  }
+  
+  .kat-sidebar-right__title {
+    font-size: $kat-font-size-lg;
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-primary-900;
+    margin: 0 0 $kat-space-4 0;
+  }
+  
+  .kat-sidebar-right__widget {
+    padding-top: $kat-space-4;
+    border-top: $kat-border-1 solid $kat-primary-200;
+    
+    h4 {
+      font-size: $kat-font-size-base;
+      font-weight: $kat-font-weight-medium;
+      color: $kat-primary-800;
+      margin: 0 0 $kat-space-3 0;
+    }
+  }
+  
+  .kat-activity-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      padding: $kat-space-2 0;
+      color: $kat-primary-600;
+      font-size: $kat-font-size-sm;
+      border-bottom: $kat-border-1 solid $kat-primary-100;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .kat-post-image {
+    margin-top: $kat-space-4;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+/* ボディコンテンツエリア - デスクトップで900px想定の本文領域 */
+.kat-body-content {
+  flex: 1;
+  width: 100%;
+  background-color: $kat-white;
+  overflow-y: visible;
+  height: auto;
+  
+  /* デスクトップ: 固定幅とスクロール可能 */
+  @media (min-width: 1024px) {
+    width: 900px;
+    overflow-y: visible;
+    height: auto;
+  }
+  
+  .kat-body-content__inner {
+    padding: $kat-space-4;
+  }
+  
+  .kat-body-content__title {
+    font-size: $kat-font-size-3xl;
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-primary-900;
+    margin: 0 0 $kat-space-4 0;
+  }
+  
+  .kat-body-content__text {
+    font-size: $kat-font-size-base;
+    color: $kat-primary-600;
+    margin: 0 0 $kat-space-6 0;
+    line-height: $kat-line-height-relaxed;
+  }
+}
+
+/* レスポンシブデザイン - 画面幅に応じた微調整 */
+@media (min-width: 1024px) {
+  .kat-layout-3col {
+    margin: 0 auto;
+  }
+  
+  .kat-header .kat-header__content {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 640px) {
+  .kat-header {
+    min-height: 80px;
+    
+    .kat-header__content {
+      flex-direction: column;
+      padding: $kat-space-4;
+      gap: $kat-space-3;
+    }
+    
+    .kat-header__nav-list {
+      gap: $kat-space-3;
+    }
+  }
+  
+  .kat-layout-3col {
+    min-height: auto;
+  }
+}

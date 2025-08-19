@@ -1,0 +1,245 @@
+/**
+ * Kat UI Framework - テーブルコンポーネント
+ * 
+ * デザイントークンとして使用される変数群。
+ * コンポーネントのスタイルに依存しない基本設定。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* カラートークン */
+$kat-primary-50: #fafafa;
+$kat-primary-100: #f5f5f5;
+$kat-primary-150: #f0f0f0;
+$kat-primary-200: #e5e5e5;
+$kat-primary-300: #d4d4d4;
+$kat-primary-400: #a3a3a3;
+$kat-primary-500: #737373;
+$kat-primary-600: #525252;
+$kat-primary-700: #404040;
+$kat-primary-800: #262626;
+$kat-primary-900: #171717;
+
+/* セマンティックカラートークン */
+$kat-success-25: #f7fef8;
+$kat-success-50: #f0fdf4;
+$kat-success-100: #dcfce7;
+$kat-success-200: #bbf7d0;
+$kat-success-300: #86efac;
+$kat-success-400: #4ade80;
+$kat-success-500: #22c55e;
+$kat-success-600: #16a34a;
+$kat-success-700: #15803d;
+$kat-success-800: #166534;
+$kat-success-900: #14532d;
+
+$kat-warning-25: #fffdf7;
+$kat-warning-50: #fffbeb;
+$kat-warning-100: #fef3c7;
+$kat-warning-200: #fde68a;
+$kat-warning-300: #fcd34d;
+$kat-warning-400: #fbbf24;
+$kat-warning-500: #f59e0b;
+$kat-warning-600: #d97706;
+$kat-warning-700: #b45309;
+$kat-warning-800: #92400e;
+$kat-warning-900: #78350f;
+
+$kat-error-25: #fefafa;
+$kat-error-50: #fef2f2;
+$kat-error-100: #fee2e2;
+$kat-error-200: #fecaca;
+$kat-error-300: #fca5a5;
+$kat-error-400: #f87171;
+$kat-error-500: #ef4444;
+$kat-error-600: #dc2626;
+$kat-error-700: #b91c1c;
+$kat-error-800: #991b1b;
+$kat-error-900: #7f1d1d;
+
+$kat-info-25: #f8faff;
+$kat-info-50: #eff6ff;
+$kat-info-100: #dbeafe;
+$kat-info-200: #bfdbfe;
+$kat-info-300: #93c5fd;
+$kat-info-400: #60a5fa;
+$kat-info-500: #3b82f6;
+$kat-info-600: #2563eb;
+$kat-info-700: #1d4ed8;
+$kat-info-800: #1e40af;
+$kat-info-900: #1e3a8a;
+
+/* ニュートラルグレートークン */
+$kat-gray-25: #fcfcfc;
+$kat-primary-25: #f9f9f9;
+$kat-gray-50: #fafafa;
+$kat-gray-100: #f4f4f5;
+$kat-gray-200: #e4e4e7;
+$kat-gray-300: #d4d4d8;
+$kat-gray-400: #a1a1aa;
+$kat-gray-500: #71717a;
+$kat-gray-600: #52525b;
+$kat-gray-700: #3f3f46;
+$kat-gray-800: #27272a;
+$kat-gray-900: #18181b;
+
+/* ベースカラートークン */
+$kat-white: #ffffff;
+$kat-black: #000000;
+/* タイポグラフィトークン */
+$kat-font-family-base: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$kat-font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+/* フォントサイズトークン - 可読性向上のため削減 */
+$kat-font-size-xs: 0.6875rem;  // 11px
+$kat-font-size-sm: 0.8125rem;  // 13px  
+$kat-font-size-base: 0.875rem; // 14px
+$kat-font-size-lg: 1rem;       // 16px
+$kat-font-size-xl: 1.125rem;   // 18px
+$kat-font-size-2xl: 1.25rem;   // 20px
+$kat-font-size-3xl: 1.5rem;    // 24px
+$kat-font-size-4xl: 1.875rem;  // 30px
+
+/* フォントウェイトトークン */
+$kat-font-weight-light: 300;
+$kat-font-weight-normal: 400;
+$kat-font-weight-medium: 500;
+$kat-font-weight-semibold: 600;
+$kat-font-weight-bold: 700;
+
+/* ラインハイトトークン */
+$kat-line-height-tight: 1.25;
+$kat-line-height-normal: 1.5;
+$kat-line-height-relaxed: 1.625;
+$kat-line-height-loose: 2;
+
+/* スペーシングスケールトークン - クリーンなレイアウトのため緊密 */
+$kat-space-0: 0;
+$kat-space-px: 1px;
+$kat-space-0-5: 0.125rem;  // 2px
+$kat-space-1: 0.25rem;     // 4px
+$kat-space-1-5: 0.375rem;  // 6px
+$kat-space-2: 0.5rem;      // 8px
+$kat-space-2-5: 0.625rem;  // 10px
+$kat-space-3: 0.75rem;     // 12px
+$kat-space-3-5: 0.875rem;  // 14px
+$kat-space-4: 1rem;        // 16px
+$kat-space-5: 1.25rem;     // 20px
+$kat-space-6: 1.5rem;      // 24px
+$kat-space-7: 1.75rem;     // 28px
+$kat-space-8: 2rem;        // 32px
+$kat-space-9: 2.25rem;     // 36px
+$kat-space-10: 2.5rem;     // 40px
+$kat-space-11: 2.75rem;    // 44px
+$kat-space-12: 3rem;       // 48px
+$kat-space-14: 3.5rem;     // 56px
+$kat-space-16: 4rem;       // 64px
+$kat-space-20: 5rem;       // 80px
+$kat-space-24: 6rem;       // 96px
+$kat-space-28: 7rem;       // 112px
+$kat-space-32: 8rem;       // 128px
+
+/* ボーダーラウンドトークン - クリーンな見た目のため削減 */
+$kat-radius-none: 0;
+$kat-radius-sm: 0.0625rem;  // 1px
+$kat-radius-base: 0.125rem; // 2px  
+$kat-radius-md: 0.1875rem;  // 3px
+$kat-radius-lg: 0.25rem;    // 4px
+$kat-radius-xl: 0.375rem;   // 6px
+$kat-radius-2xl: 0.5rem;    // 8px
+$kat-radius-3xl: 0.75rem;   // 12px
+$kat-radius-4xl: 1rem;      // 16px
+$kat-radius-5xl: 1.25rem;   // 20px
+$kat-radius-6xl: 1.5rem;    // 24px
+$kat-radius-7xl: 1.75rem;   // 28px
+$kat-radius-8xl: 2rem;      // 32px
+$kat-radius-9xl: 2.25rem;   // 36px
+$kat-radius-10xl: 2.5rem;   // 40px
+$kat-radius-pill: 100px;    // Half-pill shape
+$kat-radius-full: 9999px;
+
+/* ボーダーウィジェットトークン */
+$kat-border-0: 0;
+$kat-border-1: 1px;
+$kat-border-2: 2px;
+$kat-border-4: 4px;
+$kat-border-8: 8px;
+
+/* シャドウトークン */
+$kat-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$kat-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$kat-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$kat-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$kat-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$kat-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+$kat-shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+
+/* Z-インデックススケールトークン */
+$kat-z-auto: auto;
+$kat-z-0: 0;
+$kat-z-10: 10;
+$kat-z-20: 20;
+$kat-z-30: 30;
+$kat-z-40: 40;
+$kat-z-50: 50;
+$kat-z-dropdown: 1000;
+$kat-z-popover: 1019;
+$kat-z-sticky: 1020;
+$kat-z-fixed: 1030;
+$kat-z-modal-backdrop: 1040;
+$kat-z-modal: 1050;
+$kat-z-tooltip: 1070;
+$kat-z-toast: 1080;
+
+/* レスポンシブデザインのブレークポイントトークン */
+$kat-breakpoint-xs: 0;
+$kat-breakpoint-sm: 640px;
+$kat-breakpoint-md: 768px;
+$kat-breakpoint-lg: 1024px;
+$kat-breakpoint-xl: 1280px;
+$kat-breakpoint-2xl: 1536px;
+
+/* アニメーションタイミングトークン - スムーズなアニメーション */
+$kat-duration-75: 75ms;
+$kat-duration-100: 100ms;
+$kat-duration-150: 150ms;
+$kat-duration-200: 200ms;
+$kat-duration-250: 250ms;
+$kat-duration-300: 300ms;
+$kat-duration-350: 350ms;
+$kat-duration-400: 400ms;
+$kat-duration-500: 500ms;
+$kat-duration-600: 600ms;
+$kat-duration-700: 700ms;
+$kat-duration-1000: 1000ms;
+
+/* イージング関数トークン - Apple風のスムーズな曲線 */
+$kat-ease-linear: linear;
+$kat-ease-in: cubic-bezier(0.42, 0, 1, 1);
+$kat-ease-out: cubic-bezier(0, 0, 0.58, 1);
+$kat-ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+$kat-ease-apple: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+/* コンポーネント固有の変数トークン */
+$kat-navbar-height: 4rem;
+$kat-sidebar-width: 16rem;
+$kat-sidebar-width-collapsed: 4rem;
+$kat-container-max-width: 1200px;
+$kat-container-padding: $kat-space-4;
+$kat-section-padding: $kat-space-4;
+
+/* フォーカスリングトークン */
+$kat-focus-ring-width: 2px;
+$kat-focus-ring-offset: 2px;
+$kat-focus-ring-color: $kat-primary-500;
+$kat-focus-ring: 0 0 0 $kat-focus-ring-width $kat-focus-ring-color;
+$kat-focus-ring-offset-shadow: 0 0 0 $kat-focus-ring-offset $kat-white;
+
+/* アロートークン */
+$kat-arrow-width: 6px;
+$kat-arrow-height: 9px;
+
+/* アイコントークン */
+$kat-icon-arrow: url(data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2034.31%2061.16%22%20width%3D%2234.31%22%20height%3D%2261.16%22%3E%3Cpath%20fill%3D%22%23aaa%22%20fill-rule%3D%22evenodd%22%20class%3D%22cls-1%22%20d%3D%22M5%2C61.16a4.94%2C4.94%2C0%2C0%2C1-3.4-1.4%2C5%2C5%2C0%2C0%2C1-.2-7.1l21-22.1-21-22.1a5%2C5%2C0%2C0%2C1%2C7.3-6.9L33%2C27.06A5.08%2C5.08%2C0%2C0%2C1%2C33%2C34L8.56%2C59.56A5.19%2C5.19%2C0%2C0%2C1%2C5%2C61.16Z%22%2F%3E%3C%2Fsvg%3E);
