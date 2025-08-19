@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2025-08-12, 商品カード */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - 商品カードコンポーネント
+ * 
+ * ECサイトで商品を表示するためのカード形式のレイアウト
+ * 画像、タイトル、価格、評価などを含む包括的な商品表示
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2025-08-12
+ * @version: 1.0.0
+ */
 
-/* 商品グリッド */
+/* 商品グリッド - 商品カードを配置するグリッドレイアウト */
 .kat-product-grid {
   display: grid;
   gap: $kat-space-6;
@@ -18,7 +27,7 @@
   }
 }
 
-/* 商品カードのスタイル */
+/* 商品カードのスタイル - 個別の商品カードのデザイン */
 .kat-product-card {
   display: block;
   color: $kat-primary-900;
@@ -35,7 +44,6 @@
       height: 100%;
       object-fit: cover;
       border: 1px solid $kat-primary-200;
-      border-radius: $kat-radius-lg;
       // padding: $kat-space-2;
 
       &:hover {
@@ -43,12 +51,11 @@
       }
     }
     
-    /* NEW ラベル */
+    /* NEW ラベル - 新商品を示す目立つラベル */
     .kat-sticky-new {
       position: absolute;
       top: $kat-space-2;
       left: $kat-space-2;
-      border: 1px solid $kat-error-400;
       background-color: $kat-error-600;
       color: $kat-white;
       font-size: $kat-font-size-xs;
@@ -80,6 +87,7 @@
     }
   }
   
+  /* 商品評価 - 星評価と評価テキストの表示 */
   .kat-product-card__rating {
     display: flex;
     align-items: center;
@@ -97,6 +105,7 @@
     }
   }
   
+  /* 商品価格 - 現在価格と税込価格の表示 */
   .kat-product-card__price {
     color: $kat-primary-900;
     font-size: $kat-font-size-base;

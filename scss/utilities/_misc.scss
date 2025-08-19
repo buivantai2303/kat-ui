@@ -1,3 +1,5 @@
+@use '../globals' as *;
+
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Miscellaneous utility classes */
 
@@ -261,59 +263,6 @@
     min-height: 1rem;
     display: inline-block;
     vertical-align: middle;
-  }
-}
-
-/* Avatar component */
-.kat-avatar {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: $kat-radius-full;
-  background-color: $kat-gray-100;
-  overflow: hidden;
-  flex-shrink: 0;
-  
-  &.kat-avatar--sm {
-    width: 2rem;
-    height: 2rem;
-  }
-  
-  &.kat-avatar--lg {
-    width: 3rem;
-    height: 3rem;
-  }
-  
-  &.kat-avatar--xl {
-    width: 4rem;
-    height: 4rem;
-  }
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.kat-avatar__fallback {
-  font-size: $kat-font-size-sm;
-  font-weight: $kat-font-weight-medium;
-  color: $kat-gray-700;
-  
-  .kat-avatar--sm & {
-    font-size: $kat-font-size-xs;
-  }
-  
-  .kat-avatar--lg & {
-    font-size: $kat-font-size-base;
-  }
-  
-  .kat-avatar--xl & {
-    font-size: $kat-font-size-lg;
   }
 }
 

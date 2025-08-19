@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Alert and notification component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - アラート・通知コンポーネント
+ * 
+ * システム全体で使用されるアラート、通知、トーストメッセージのスタイル
+ * 成功、警告、エラー、情報の4つの状態をサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Base alert styles */
+/* ベースアラートスタイル - 基本的なアラートの見た目と動作 */
 .kat-alert {
   display: flex;
   align-items: flex-start;
@@ -13,12 +22,12 @@
   line-height: $kat-line-height-normal;
   position: relative;
   
-  /* Default/neutral alert */
+  /* デフォルト/ニュートラルアラート - 基本的な情報表示用 */
   background-color: $kat-gray-50;
   border-color: $kat-gray-200;
   color: $kat-gray-800;
   
-  /* Alert variants */
+  /* アラートバリアント - 状態に応じた色分け */
   &.kat-alert--success {
     background-color: $kat-success-50;
     border-color: $kat-success-200;
@@ -59,7 +68,7 @@
     }
   }
   
-  /* Solid variant */
+  /* ソリッドバリアント - 背景色が濃いバージョン */
   &.kat-alert--solid {
     border: none;
     color: $kat-white;
@@ -85,7 +94,7 @@
     }
   }
   
-  /* Dismissible alerts */
+  /* 閉じることができるアラート - 閉じるボタン付き */
   &.kat-alert--dismissible {
     padding-right: $kat-space-12;
   }
@@ -93,7 +102,7 @@
 
 .kat-alert__icon {
   flex-shrink: 0;
-  margin-top: 0.125rem; /* Align with first line of text */
+  margin-top: 0.125rem; /* テキストの最初の行に合わせる */
 }
 
 .kat-alert__content {
@@ -139,7 +148,7 @@
   }
 }
 
-/* Alert group for stacking alerts */
+/* アラートグループ - 複数のアラートを積み重ねて表示 */
 .kat-alert-group {
   position: fixed;
   top: $kat-space-4;
@@ -167,38 +176,9 @@
   }
 }
 
-/* Toast notifications */
-.kat-toast {
-  @extend .kat-alert;
-  min-width: 20rem;
-  max-width: 24rem;
-  box-shadow: $kat-shadow-lg;
-  border: $kat-border-1 solid $kat-gray-200;
-  
-  &.kat-toast--top-left {
-    animation: kat-toast-in-left $kat-duration-300 $kat-ease-out;
-  }
-  
-  &.kat-toast--top-right {
-    animation: kat-toast-in-right $kat-duration-300 $kat-ease-out;
-  }
-  
-  &.kat-toast--bottom-left {
-    animation: kat-toast-in-bottom-left $kat-duration-300 $kat-ease-out;
-  }
-  
-  &.kat-toast--bottom-right {
-    animation: kat-toast-in-bottom-right $kat-duration-300 $kat-ease-out;
-  }
-  
-  &.kat-toast--removing {
-    animation: kat-toast-out $kat-duration-200 $kat-ease-in;
-  }
-}
-
-/* Banner alerts */
+/* バナーアラート - ページ上部に表示される幅広い通知 */
 .kat-banner {
-  @extend .kat-alert;
+  @extend .kat-alert !optional;
   border-radius: 0;
   border-left: none;
   border-right: none;
@@ -226,9 +206,9 @@
   }
 }
 
-/* Inline alerts (for forms) */
+/* インラインアラート - フォーム内で使用される小さな通知 */
 .kat-inline-alert {
-  @extend .kat-alert;
+  @extend .kat-alert !optional;
   padding: $kat-space-2 $kat-space-3;
   font-size: $kat-font-size-xs;
   border-radius: $kat-radius-sm;
@@ -243,7 +223,7 @@
   }
 }
 
-/* Alert animations */
+/* アラートアニメーション - 表示・非表示の滑らかな動き */
 @keyframes kat-alert-in {
   from {
     opacity: 0;
@@ -266,57 +246,3 @@
   }
 }
 
-@keyframes kat-toast-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes kat-toast-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes kat-toast-in-bottom-left {
-  from {
-    opacity: 0;
-    transform: translateX(-100%) translateY(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) translateY(0);
-  }
-}
-
-@keyframes kat-toast-in-bottom-right {
-  from {
-    opacity: 0;
-    transform: translateX(100%) translateY(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) translateY(0);
-  }
-}
-
-@keyframes kat-toast-out {
-  from {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(20px) scale(0.95);
-  }
-}

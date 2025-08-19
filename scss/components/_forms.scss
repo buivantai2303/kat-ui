@@ -1,12 +1,21 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Form component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - フォームコンポーネント
+ * 
+ * ユーザー入力を受け付けるためのフォーム要素
+ * テキスト入力、セレクト、チェックボックス、ラジオボタンなどをサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Form container */
+/* フォームコンテナ - フォーム要素の基本レイアウト */
 .kat-form {
   width: 100%;
 }
 
-/* Form group */
+/* フォームグループ - 関連するフォーム要素をまとめる */
 .kat-form__group {
   margin-bottom: $kat-space-4;
   
@@ -15,7 +24,7 @@
   }
 }
 
-/* Form actions */
+/* フォームアクション - 送信、キャンセルなどのボタン配置 */
 .kat-form__actions {
   display: flex;
   gap: $kat-space-3;
@@ -27,7 +36,7 @@
   }
 }
 
-/* Labels */
+/* ラベル - フォーム要素の説明テキスト */
 .kat-label {
   display: block;
   font-size: $kat-font-size-sm;
@@ -41,11 +50,12 @@
   }
 }
 
+/* 必須ラベル - 必須項目を示す赤いアスタリスク */
 .kat-label__required {
   color: $kat-error-500;
 }
 
-/* Base input styles */
+/* ベース入力スタイル - テキスト入力の基本デザイン */
 .kat-input {
   @include kat-input-base;
   
@@ -67,7 +77,7 @@
     }
   }
   
-  /* Input sizes */
+  /* 入力サイズ - 小、中、大のサイズバリエーション */
   &.kat-input--sm {
     padding: $kat-space-2 $kat-space-2-5;
     font-size: $kat-font-size-xs;
@@ -78,7 +88,7 @@
     font-size: $kat-font-size-base;
   }
   
-  /* File input styles */
+  /* ファイル入力スタイル - ファイルアップロード用の入力 */
   &.kat-input--file {
     padding: $kat-space-2;
     cursor: pointer;
@@ -100,7 +110,7 @@
   }
 }
 
-/* Textarea */
+/* テキストエリア - 複数行のテキスト入力 */
 .kat-textarea {
   @include kat-input-base;
   resize: vertical;
@@ -129,7 +139,7 @@
   }
 }
 
-/* Select */
+/* セレクト - ドロップダウン形式の選択肢 */
 .kat-select {
   @include kat-input-base;
   appearance: none;
@@ -142,7 +152,7 @@
   padding-right: $kat-space-10;
   cursor: pointer;
   
-  /* Hide dropdown arrow variant */
+  /* ドロップダウン矢印非表示バリアント - カスタム矢印を使用 */
   &.kat-select--no-arrow {
     background-image: none;
     padding-right: $kat-space-3;
@@ -167,7 +177,7 @@
   }
 }
 
-/* Checkbox */
+/* チェックボックス - 真偽値の選択 */
 .kat-checkbox {
   display: flex;
   align-items: flex-start;
@@ -233,7 +243,7 @@
   }
 }
 
-/* Radio */
+/* ラジオボタン - 単一選択の選択肢 */
 .kat-radio-group {
   display: flex;
   flex-direction: column;
@@ -305,7 +315,7 @@
   line-height: $kat-line-height-normal;
 }
 
-/* Toggle switch */
+/* トグルスイッチ - ON/OFFの切り替え */
 .kat-toggle {
   display: flex;
   align-items: center;
@@ -364,7 +374,7 @@
   cursor: pointer;
 }
 
-/* Range slider */
+/* レンジスライダー - 数値範囲の選択 */
 .kat-range {
   width: 100%;
   height: 1.5rem;
@@ -381,7 +391,7 @@
     border-radius: $kat-radius-full;
   }
   
-  /* Custom background with gradient for filled portion */
+  /* カスタム背景 - 塗りつぶし部分のグラデーション表示 */
   background: linear-gradient(to right, $kat-primary-600 0%, $kat-primary-600 50%, $kat-primary-200 50%, $kat-primary-200 100%);
   background-size: 100% 0.125rem;
   background-repeat: no-repeat;
@@ -458,7 +468,7 @@
   text-align: center;
 }
 
-/* Form validation messages */
+/* フォームバリデーションメッセージ - エラー、成功、ヘルプの表示 */
 .kat-form__error {
   margin-top: $kat-space-1;
   font-size: $kat-font-size-sm;

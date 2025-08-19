@@ -1,7 +1,17 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Carousel component styles */
+@use '../globals' as *;
 
-/* Carousel container */
+/**
+ * Kat UI Framework - カルーセルコンポーネント
+ * 
+ * 画像やコンテンツをスライド形式で表示する
+ * 自動再生、手動操作、レスポンシブ対応などの機能をサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* カルーセルコンテナ - スライド表示の基本レイアウト */
 .kat-carousel {
   position: relative;
   overflow: hidden;
@@ -13,21 +23,21 @@
   }
 }
 
-/* Carousel viewport */
+/* カルーセルビューポート - スライドが表示される表示領域 */
 .kat-carousel__viewport {
   overflow: hidden;
   position: relative;
   width: 100%;
 }
 
-/* Carousel container for slides */
+/* カルーセルコンテナ - スライドを格納する移動可能なコンテナ */
 .kat-carousel__container {
   display: flex;
   transition: transform $kat-duration-350 $kat-ease-apple;
   will-change: transform;
 }
 
-/* Individual carousel slide */
+/* 個別カルーセルスライド - 各スライドの表示とスタイル */
 .kat-carousel__slide {
   min-width: 100%;
   flex-shrink: 0;
@@ -75,7 +85,7 @@
   }
 }
 
-/* Carousel navigation */
+/* カルーセルナビゲーション - 前後スライドへの移動ボタン */
 .kat-carousel__nav {
   position: absolute;
   top: 50%;
@@ -129,7 +139,7 @@
   }
 }
 
-/* Carousel dots/indicators */
+/* カルーセルドット/インジケーター - 現在のスライド位置を示す */
 .kat-carousel__dots {
   display: flex;
   justify-content: center;
@@ -183,7 +193,7 @@
   }
 }
 
-/* Carousel content overlay */
+/* カルーセルコンテンツオーバーレイ - スライド上のテキスト表示 */
 .kat-carousel__content {
   position: absolute;
   bottom: 0;
@@ -214,7 +224,7 @@
   line-height: $kat-line-height-normal;
 }
 
-/* Carousel variants */
+/* カルーセルバリアント - フェード、垂直、サムネイルなどの表示方法 */
 .kat-carousel--fade {
   .kat-carousel__container {
     position: relative;
@@ -259,7 +269,7 @@
   }
 }
 
-/* Carousel with thumbnails */
+/* サムネイル付きカルーセル - 小さな画像でスライドを選択 */
 .kat-carousel__thumbnails {
   display: flex;
   gap: $kat-space-2;
@@ -299,7 +309,7 @@
   }
 }
 
-/* Auto-play progress indicator */
+/* 自動再生プログレスインジケーター - 自動再生の進行状況表示 */
 .kat-carousel__progress {
   position: absolute;
   bottom: 0;
@@ -310,7 +320,7 @@
   z-index: $kat-z-10;
 }
 
-/* Loading state */
+/* ローディング状態 - スライド読み込み中の表示 */
 .kat-carousel--loading {
   .kat-carousel__slide {
     display: flex;
@@ -321,7 +331,7 @@
   }
 }
 
-/* Responsive adjustments */
+/* レスポンシブ調整 - 画面サイズに応じた表示の最適化 */
 @include kat-screen-sm {
   .kat-carousel__nav-btn {
     width: 3rem;
@@ -334,7 +344,7 @@
   }
 }
 
-/* Touch/swipe indicators */
+/* タッチ/スワイプインジケーター - モバイルでの操作感向上 */
 .kat-carousel--touch {
   touch-action: pan-y;
   user-select: none;

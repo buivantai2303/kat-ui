@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2025-08-12, Badge and tag component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - バッジ・タグコンポーネント
+ * 
+ * ステータス表示、カウント表示、カテゴリ分類に使用される
+ * 小さくて目立つラベルコンポーネントのスタイル
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2025-08-12
+ * @version: 1.0.0
+ */
 
-/* Base badge styles */
+/* ベースバッジスタイル - 基本的なバッジの見た目と動作 */
 .kat-badge-group {
   margin-bottom: $kat-space-1-5;
 }
@@ -14,15 +23,14 @@
   font-size: $kat-font-size-xs;
   font-weight: $kat-font-weight-medium;
   line-height: 1;
-  border-radius: $kat-radius-full;
   white-space: nowrap;
   vertical-align: baseline;
   
-  /* Default badge */
+  /* デフォルトバッジ - 基本的なグレーバッジ */
   background-color: $kat-gray-100;
   color: $kat-gray-800;
   
-  /* Badge variants */
+  /* バッジバリアント - 用途に応じた色分け */
   &.kat-badge--primary {
     background-color: $kat-primary-100;
     color: $kat-primary-800;
@@ -48,7 +56,7 @@
     color: $kat-info-800;
   }
   
-  /* Outline variant */
+  /* アウトラインバリアント - 枠線のみの透明背景 */
   &.kat-badge--outline {
     background-color: transparent;
     border: $kat-border-1 solid $kat-gray-300;
@@ -80,7 +88,7 @@
     }
   }
   
-  /* Solid variant */
+  /* ソリッドバリアント - 背景色が濃いバージョン */
   &.kat-badge--solid {
     color: $kat-white;
     
@@ -105,7 +113,7 @@
     }
   }
   
-  /* Badge sizes */
+  /* バッジサイズ - 用途に応じた大きさのバリエーション */
   &.kat-badge--sm {
     padding: $kat-space-0-5 $kat-space-1-5;
     font-size: 0.6875rem; /* 11px */
@@ -116,18 +124,18 @@
     font-size: $kat-font-size-sm;
   }
   
-  /* Pill variant (more rounded) */
+  /* ピルバリアント - より丸みを帯びたデザイン */
   &.kat-badge--pill {
     border-radius: $kat-radius-full;
     padding: $kat-space-1 $kat-space-3;
   }
   
-  /* Square variant */
+  /* スクエアバリアント - 角張ったデザイン */
   &.kat-badge--square {
     border-radius: $kat-radius-sm;
   }
   
-  /* Badge with icon */
+  /* アイコン付きバッジ - アイコンとテキストを組み合わせたバッジ */
   &.kat-badge--with-icon {
     gap: $kat-space-1;
     padding-left: $kat-space-1-5;
@@ -158,7 +166,7 @@
     }
   }
   
-  /* Removable badge */
+  /* 削除可能バッジ - 閉じるボタン付きのバッジ */
   &.kat-badge--removable {
     padding-right: $kat-space-1;
     gap: $kat-space-1;
@@ -215,7 +223,7 @@
   }
 }
 
-/* Notification badge (dot) */
+/* 通知バッジ - 小さな丸い通知インジケーター */
 .kat-badge--dot {
   width: 0.5rem;
   height: 0.5rem;
@@ -234,7 +242,7 @@
   }
 }
 
-/* Badge group */
+/* バッジグループ - 複数のバッジをまとめて表示 */
 .kat-badge-group {
   display: inline-flex;
   align-items: center;
@@ -250,7 +258,7 @@
   }
 }
 
-/* Position badge (for overlaying on other elements) */
+/* 位置指定バッジ - 他の要素の上に重ねて表示 */
 .kat-position-badge {
   position: relative;
   display: inline-block;
@@ -284,7 +292,7 @@
   }
 }
 
-/* Interactive badge (clickable) */
+/* インタラクティブバッジ - クリック可能なバッジ */
 .kat-badge--interactive {
   cursor: pointer;
   transition: all $kat-duration-150 $kat-ease-in-out;
@@ -338,9 +346,9 @@
   }
 }
 
-/* Status indicators */
+/* ステータスインジケーター - ユーザーの状態を表示 */
 .kat-status {
-  @extend .kat-badge;
+  @extend .kat-badge !optional;
   
   &.kat-status--online {
     background-color: $kat-success-500;
@@ -363,11 +371,11 @@
   }
 }
 
-/* Counter badge */
+/* カウンターバッジ - 数値を表示する専用バッジ */
 .kat-counter {
-  @extend .kat-badge;
-  @extend .kat-badge--solid;
-  @extend .kat-badge--primary;
+  @extend .kat-badge !optional;
+  @extend .kat-badge--solid !optional;
+  @extend .kat-badge--primary !optional;
   min-width: 1.25rem;
   height: 1.25rem;
   font-size: 0.6875rem;

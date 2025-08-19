@@ -1,21 +1,30 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Separator component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - セパレーターコンポーネント
+ * 
+ * 水平/垂直の仕切り線、点線/破線、余白や濃淡のバリエーション。
+ * テキスト入りセパレーターやセクション区切りも提供。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Base separator */
+/* ベースセパレーター */
 .kat-separator {
   border: none;
   margin: 0;
   background-color: $kat-primary-200;
   flex-shrink: 0;
   
-  /* Horizontal separator (default) */
+  /* 水平セパレーター（デフォルト） */
   &:not(.kat-separator--vertical) {
     width: 100%;
     height: 1px;
     margin: $kat-space-4 0;
   }
   
-  /* Vertical separator */
+  /* 垂直セパレーター */
   &.kat-separator--vertical {
     width: 1px;
     height: 100%;
@@ -23,7 +32,7 @@
     align-self: stretch;
   }
   
-  /* Separator variants */
+  /* バリアント */
   &.kat-separator--thick {
     &:not(.kat-separator--vertical) {
       height: 2px;
@@ -54,7 +63,7 @@
     }
   }
   
-  /* Color variants */
+  /* カラーバリアント */
   &.kat-separator--light {
     background-color: $kat-primary-100;
     
@@ -73,7 +82,7 @@
     }
   }
   
-  /* Spacing variants */
+  /* 余白バリアント */
   &.kat-separator--tight {
     &:not(.kat-separator--vertical) {
       margin: $kat-space-2 0;
@@ -95,7 +104,7 @@
   }
 }
 
-/* Separator with text */
+/* テキスト付きセパレーター */
 .kat-separator-text {
   position: relative;
   display: flex;
@@ -125,7 +134,7 @@
     white-space: nowrap;
   }
   
-  /* Text separator variants */
+  /* テキストセパレーターのバリアント */
   &.kat-separator-text--tight {
     margin: $kat-space-4 0;
     
@@ -143,7 +152,7 @@
   }
 }
 
-/* Section divider */
+/* セクション区切り */
 .kat-section-divider {
   display: flex;
   align-items: center;
@@ -168,7 +177,7 @@
   }
 }
 
-/* Breadcrumb separator */
+/* パンくず用セパレーター */
 .kat-breadcrumb-separator {
   display: inline-flex;
   align-items: center;
@@ -182,7 +191,7 @@
   }
 }
 
-/* Responsive behavior */
+/* レスポンシブ */
 @include kat-screen-sm {
   .kat-separator-text .kat-separator-text__content {
     font-size: $kat-font-size-xs;

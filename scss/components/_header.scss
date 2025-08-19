@@ -1,17 +1,25 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Header component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - ヘッダーコンポーネント
+ * 
+ * ECサイトのヘッダー部分を構成する要素
+ * ロゴ、検索バー、ナビゲーション、ユーザーアクションなどを含む
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Ecommerce Header Container */
+/* ECサイトヘッダーコンテナ - ヘッダーの基本レイアウト */
 .kat-ecommerce-header {
   background-color: $kat-white;
   border-bottom: $kat-border-1 solid $kat-primary-200;
   position: sticky;
   top: 0;
   z-index: 1001;
-  box-shadow: $kat-shadow-sm;
 }
 
-/* Top Header Bar */
+/* トップヘッダーバー - お知らせとトップリンクの表示 */
 .kat-ecommerce-header__top {
   background-color: $kat-primary-900;
   color: $kat-white;
@@ -49,7 +57,7 @@
   }
 }
 
-/* Main Header */
+/* メインヘッダー - ロゴ、検索バー、アクションの配置 */
 .kat-ecommerce-header__main {
   padding: $kat-space-4 0;
   
@@ -63,7 +71,7 @@
   }
 }
 
-/* Logo */
+/* ロゴ - サイトブランドの表示 */
 .kat-ecommerce-header__logo {
   flex-shrink: 0;
   
@@ -82,7 +90,7 @@
     .kat-ecommerce-header__logo-icon {
       width: 2rem;
       height: 2rem;
-      margin-right: $kat-space-2;
+      margin-right: $kat-space-3;
       background-color: $kat-primary-900;
       border-radius: $kat-radius-full;
       display: flex;
@@ -94,7 +102,7 @@
   }
 }
 
-/* Search Bar */
+/* 検索バー - 商品検索のための入力フィールド */
 .kat-ecommerce-header__search {
   flex: 1;
   max-width: 32rem;
@@ -145,7 +153,7 @@
   }
 }
 
-/* Header Actions */
+/* ヘッダーアクション - 通知、カート、ユーザーメニューなどのボタン */
 .kat-ecommerce-header__actions {
   display: flex;
   align-items: center;
@@ -153,7 +161,7 @@
   flex-shrink: 0;
 }
 
-/* Header Action Item */
+/* ヘッダーアクションアイテム - 個別のアクションボタン */
 .kat-ecommerce-header__action {
   position: relative;
   display: flex;
@@ -204,16 +212,15 @@
   }
 }
 
-/* Navigation Bar */
+/* ナビゲーションバー - メニュー項目の横並び表示 */
 .kat-ecommerce-header__nav {
-  background-color: $kat-primary-50;
+  background-color: $kat-white;
   border-top: $kat-border-1 solid $kat-primary-200;
   position: sticky;
   top: 0;
   z-index: 1000;
   transition: transform $kat-duration-300 $kat-ease-apple;
   
-  /* スクロールアップ時に隠す */
   &.kat-ecommerce-header__nav--hidden {
     transform: translateY(-100%);
   }
@@ -226,19 +233,36 @@
   
   .kat-ecommerce-header__nav-list {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 0;
     list-style: none;
     margin: 0;
     padding: 0;
+    width: 100%;
   }
   
   .kat-ecommerce-header__nav-item {
     position: relative;
+    flex: 1;
+    text-align: center;
+    
+    /* ナビゲーション項目間の縦線セパレーター - メニュー項目の区切り */
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 1.5rem;
+      background-color: $kat-primary-200;
+    }
     
     .kat-ecommerce-header__nav-link {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: $kat-space-2;
       padding: $kat-space-3 $kat-space-4;
       color: $kat-primary-700;
@@ -247,10 +271,12 @@
       font-weight: $kat-font-weight-medium;
       transition: all $kat-duration-200 $kat-ease-apple;
       border-bottom: 2px solid transparent;
+      width: 100%;
+      height: 100%;
       
       &:hover {
         color: $kat-primary-900;
-        background-color: $kat-white;
+        background-color: $kat-primary-50;
         border-bottom-color: $kat-primary-900;
       }
       
@@ -265,7 +291,7 @@
       }
     }
     
-    /* Navigation Dropdown */
+    /* ドロップダウン - ナビゲーションメニューの展開部分 */
     .kat-ecommerce-header__nav-dropdown {
       position: absolute;
       top: 100%;
@@ -290,7 +316,7 @@
       .kat-ecommerce-header__nav-dropdown-header {
         padding: $kat-space-3 $kat-space-4;
         border-bottom: $kat-border-1 solid $kat-primary-200;
-        background-color: $kat-primary-50;
+        background-color: $kat-white;
         
         h3 {
           font-size: $kat-font-size-sm;
@@ -332,7 +358,7 @@
   }
 }
 
-/* Responsive Design */
+/* レスポンシブデザイン - 画面サイズに応じた表示の最適化 */
 @include kat-screen-sm {
   .kat-ecommerce-header__main-inner {
     gap: $kat-space-4;
@@ -357,7 +383,7 @@
   }
 }
 
-/* Mobile Menu Toggle */
+/* モバイルメニュートグル - モバイルでのメニュー開閉ボタン */
 .kat-ecommerce-header__mobile-toggle {
   display: none;
   background: none;
@@ -376,7 +402,7 @@
   }
 }
 
-/* Mobile Navigation */
+/* モバイルナビゲーション - モバイル専用のメニュー表示 */
 .kat-ecommerce-header__mobile-nav {
   display: none;
   

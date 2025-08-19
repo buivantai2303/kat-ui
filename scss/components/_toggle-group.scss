@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Toggle Group component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - トグルグループコンポーネント
+ * 
+ * ボタン群の選択/切替UI。単一/複数選択、サイズ、アウトライン/ゴースト/
+ * ピル/セグメント、色バリアント、ローディング対応などを提供。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Toggle group container */
+/* トグルグループコンテナ */
 .kat-toggle-group {
   display: inline-flex;
   background-color: $kat-primary-100;
@@ -22,7 +31,7 @@
   }
 }
 
-/* Individual toggle item */
+/* 個別トグル項目 */
 .kat-toggle-group__item {
   position: relative;
   display: inline-flex;
@@ -51,7 +60,7 @@
     transform: translateY(0);
   }
   
-  /* Selected state */
+  /* 選択状態 */
   &.kat-toggle-group__item--selected {
     background-color: $kat-white;
     color: $kat-primary-900;
@@ -63,7 +72,7 @@
     }
   }
   
-  /* Disabled state */
+  /* 無効状態 */
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -75,7 +84,7 @@
     }
   }
   
-  /* With icons */
+  /* アイコン付き */
   &.kat-toggle-group__item--with-icon {
     display: inline-flex;
     align-items: center;
@@ -88,7 +97,7 @@
     }
   }
   
-  /* Icon only */
+  /* アイコンのみ */
   &.kat-toggle-group__item--icon-only {
     padding: $kat-space-2;
     width: 2.25rem;
@@ -101,7 +110,7 @@
   }
 }
 
-/* Toggle group sizes */
+/* サイズ */
 .kat-toggle-group--sm {
   padding: $kat-space-0-5;
   gap: $kat-space-0-5;
@@ -146,7 +155,7 @@
   }
 }
 
-/* Toggle group variants */
+/* バリアント */
 .kat-toggle-group--outline {
   background-color: transparent;
   border: $kat-border-1 solid $kat-primary-300;
@@ -194,7 +203,7 @@
   }
 }
 
-/* Multi-select toggle group */
+/* 複数選択 */
 .kat-toggle-group--multi {
   .kat-toggle-group__item {
     &.kat-toggle-group__item--selected {
@@ -214,14 +223,14 @@
   }
 }
 
-/* Segmented control style */
+/* セグメントスタイル */
 .kat-toggle-group--segmented {
   border-radius: $kat-radius-lg;
   background-color: $kat-primary-100;
   padding: $kat-space-1;
   position: relative;
   
-  /* Moving background indicator */
+  /* 背景インジケーター */
   &::before {
     content: "";
     position: absolute;
@@ -247,7 +256,7 @@
   }
 }
 
-/* Color variants */
+/* カラーバリアント */
 .kat-toggle-group--success {
   .kat-toggle-group__item {
     &.kat-toggle-group__item--selected {
@@ -287,7 +296,7 @@
   }
 }
 
-/* Loading state */
+/* ローディング状態 */
 .kat-toggle-group--loading {
   pointer-events: none;
   
@@ -311,7 +320,7 @@
   }
 }
 
-/* Responsive adjustments */
+/* レスポンシブ調整 */
 @include kat-screen-sm {
   .kat-toggle-group--responsive {
     flex-direction: column;
@@ -323,7 +332,7 @@
   }
 }
 
-/* High contrast mode */
+/* ハイコントラストモード */
 @media (prefers-contrast: high) {
   .kat-toggle-group__item {
     &.kat-toggle-group__item--selected {
@@ -333,7 +342,7 @@
   }
 }
 
-/* Reduced motion */
+/* 低速モーション設定 */
 @media (prefers-reduced-motion: reduce) {
   .kat-toggle-group__item,
   .kat-toggle-group--segmented::before {
@@ -341,14 +350,14 @@
   }
 }
 
-/* Animation for the segmented control indicator */
+/* セグメントインジケーター用アニメーション */
 @keyframes kat-spin {
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
-/* JavaScript positioning helpers for segmented control */
+/* セグメント位置決め用のヘルパーデータ属性 */
 .kat-toggle-group--segmented {
   &[data-selected="0"]::before {
     width: var(--item-width, 33.333%);

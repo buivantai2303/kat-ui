@@ -1,3 +1,14 @@
+@use '../globals' as *;
+/**
+ * Kat UI Framework - ページタイトルコンポーネント
+ * 
+ * ページの見出しを表示するためのシンプルなヘッダー領域。
+ * 下線と余白を持ち、レスポンシブコンテナ内に整列。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 .kat-page-title {
     width: 100%;
     margin-bottom: $kat-space-4;

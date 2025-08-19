@@ -1,0 +1,298 @@
+@use '../globals' as *;
+/**
+ * Footer Component - フッターコンポーネント
+ * 
+ * エコマースサイト用の包括的なフッターコンポーネント
+ * 5カラムレイアウトで情報を整理し、ニュースレター登録フォームを含む
+ */
+
+.kat-ecommerce-footer {
+  background-color: $kat-primary-900;
+  color: $kat-white;
+  margin-top: auto;
+
+  /* メインフッター */
+  &__main {
+    margin-top: $kat-space-20;
+    padding: $kat-space-8 0 $kat-space-8;
+    border-bottom: $kat-border-1 solid $kat-primary-700;
+
+    &-inner {
+      max-width: $kat-container-max-width;
+      margin: 0 auto;
+      padding: 0 $kat-container-padding;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: $kat-space-8;
+    }
+  }
+
+  /* フッターカラム */
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: $kat-space-4;
+  }
+
+  /* フッタータイトル */
+  &__title {
+    font-size: $kat-font-size-xl;
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-white;
+    margin: 0 0 $kat-space-4 0;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -$kat-space-2;
+      left: 0;
+      width: $kat-space-8;
+      height: $kat-border-2;
+      background-color: $kat-white;
+    }
+  }
+
+  /* フッターデスクリプション */
+  &__description {
+    font-size: $kat-font-size-base;
+    line-height: $kat-line-height-relaxed;
+    color: $kat-primary-300;
+    margin: 0;
+  }
+
+  /* フッターリスト */
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $kat-space-2;
+  }
+
+  /* フッターリンク */
+  &__link {
+    color: $kat-primary-300;
+    text-decoration: none;
+    font-size: $kat-font-size-base;
+    transition: color $kat-duration-200 $kat-ease-apple;
+
+    &:hover {
+      color: $kat-white;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: $kat-focus-ring-width solid $kat-white;
+      outline-offset: $kat-focus-ring-offset;
+    }
+  }
+
+  /* ソーシャルメディア */
+  &__social {
+    display: flex;
+    gap: $kat-space-4;
+    margin-top: $kat-space-4;
+  }
+
+  &__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $kat-space-10;
+    height: $kat-space-10;
+    background-color: $kat-primary-700;
+    border-radius: $kat-radius-full;
+    color: $kat-white;
+    text-decoration: none;
+    transition: all $kat-duration-200 $kat-ease-apple;
+
+    svg {
+      width: $kat-space-5;
+      height: $kat-space-5;
+    }
+
+    &:hover {
+      background-color: $kat-white;
+      color: $kat-primary-900;
+      transform: translateY(-$kat-space-1);
+    }
+
+    &:focus {
+      outline: $kat-focus-ring-width solid $kat-white;
+      outline-offset: $kat-focus-ring-offset;
+    }
+  }
+
+  /* ニュースレター */
+  &__newsletter {
+    margin-top: $kat-space-4;
+  }
+
+  &__newsletter-input {
+    display: flex;
+    gap: $kat-space-2;
+    position: relative;
+  }
+
+  &__newsletter-input input[type="email"] {
+    flex: 1;
+    padding: $kat-space-3;
+    border: $kat-border-1 solid $kat-primary-700;
+    border-radius: $kat-radius-lg;
+    background-color: $kat-primary-700;
+    color: $kat-white;
+    font-size: $kat-font-size-base;
+
+    &::placeholder {
+      color: $kat-primary-500;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $kat-white;
+      background-color: $kat-primary-600;
+    }
+  }
+
+  &__newsletter-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $kat-space-11;
+    height: $kat-space-11;
+    background-color: $kat-white;
+    border: none;
+    border-radius: $kat-radius-lg;
+    color: $kat-primary-900;
+    cursor: pointer;
+    transition: all $kat-duration-200 $kat-ease-apple;
+
+    svg {
+      width: $kat-space-4;
+      height: $kat-space-4;
+    }
+
+    &:hover {
+      background-color: $kat-primary-100;
+      transform: translateY(-$kat-space-px);
+    }
+
+    &:focus {
+      outline: $kat-focus-ring-width solid $kat-white;
+      outline-offset: $kat-focus-ring-offset;
+    }
+  }
+
+  /* フッターボトム */
+  &__bottom {
+    padding: $kat-space-6 0;
+    background-color: $kat-black;
+
+    &-inner {
+      max-width: $kat-container-max-width;
+      margin: 0 auto;
+      padding: 0 $kat-container-padding;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: $kat-space-4;
+    }
+  }
+
+  /* コピーライト */
+  &__copyright {
+    p {
+      margin: 0;
+      font-size: $kat-font-size-base;
+      color: $kat-primary-500;
+    }
+  }
+
+  /* 決済方法 */
+  &__payment {
+    display: flex;
+    align-items: center;
+    gap: $kat-space-4;
+    flex-wrap: wrap;
+  }
+
+  &__payment-text {
+    font-size: $kat-font-size-base;
+    color: $kat-primary-500;
+  }
+
+  &__payment-icons {
+    display: flex;
+    gap: $kat-space-2;
+  }
+
+  &__payment-icon {
+    font-size: $kat-font-size-2xl;
+    cursor: help;
+    transition: transform $kat-duration-200 $kat-ease-apple;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+/* レスポンシブデザイン */
+@media (max-width: $kat-breakpoint-md) {
+  .kat-ecommerce-footer {
+    &__main {
+      padding: $kat-space-8 0 $kat-space-4;
+
+      &-inner {
+        grid-template-columns: 1fr;
+        gap: $kat-space-6;
+      }
+    }
+
+    &__bottom {
+      &-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: $kat-space-4;
+      }
+    }
+
+    &__payment {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: $kat-breakpoint-sm) {
+  .kat-ecommerce-footer {
+    &__main {
+      padding: $kat-space-6 0 $kat-space-4;
+
+      &-inner {
+        padding: 0 $kat-space-3;
+      }
+    }
+
+    &__bottom {
+      &-inner {
+        padding: 0 $kat-space-3;
+      }
+    }
+
+    &__social {
+      justify-content: center;
+    }
+
+    &__newsletter-input {
+      flex-direction: column;
+    }
+
+    &__newsletter-button {
+      width: 100%;
+      height: $kat-space-11;
+    }
+  }
+}

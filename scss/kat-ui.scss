@@ -16,46 +16,47 @@
 * - モジュール式で拡張可能なアーキテクチャ
 */
 
-/* モジュールのインポート */
-@import 'variables';
-@import 'mixins';
+/* モジュールの読み込み（@use/@forward へ移行） */
+@use 'globals' as *;
 
 /* 基本スタイル */
-@import 'base/reset';
-@import 'base/typography';
+@use 'base/reset';
+@use 'base/typography';
 
 /* レイアウトシステム */
-@import 'layout/grid';
-@import 'layout/layout';
+@use 'layout/grid';
+@use 'layout/layout';
 
 /* コンポーネント */
-@import 'components/buttons';
-@import 'components/forms';
-@import 'components/cards';
-@import 'components/modals';
-@import 'components/navigation';
-@import 'components/header';
-@import 'components/category-nav';
-@import 'components/category-image';
-@import 'components/alerts';
-@import 'components/badges';
-@import 'components/tables';
-@import 'components/interactive';
-@import 'components/skeleton';
-@import 'components/calendar';
-@import 'components/carousel';
-@import 'components/popover';
-@import 'components/filters';
-@import 'components/input-otp';
-@import 'components/toggle-group';
-@import 'components/data-table';
-@import 'components/separator';
-@import 'components/pagination';
-@import 'components/toast';
-@import 'components/images';
-@import 'components/page-title';
-@import 'components/breadcrumbs';
+@use 'components/buttons';
+@use 'components/forms';
+@use 'components/cards';
+@use 'components/modals';
+@use 'components/navigation';
+@use 'components/header';
+@use 'components/header-popups';
+@use 'components/category-nav';
+@use 'components/category-image';
+@use 'components/alerts';
+@use 'components/badges';
+@use 'components/tables';
+@use 'components/interactive';
+@use 'components/skeleton';
+@use 'components/calendar';
+@use 'components/carousel';
+@use 'components/popover';
+@use 'components/filters';
+@use 'components/input-otp';
+@use 'components/toggle-group';
+@use 'components/data-table';
+@use 'components/separator';
+@use 'components/pagination';
+@use 'components/toast';
+@use 'components/images';
+@use 'components/page-title';
+@use 'components/breadcrumbs';
+@use 'components/footer';
 
-/* ユーティリティ（最後にインポート） */
-@import 'utilities/spacing';
-@import 'utilities/misc';
+/* ユーティリティ（最後に） */
+@use 'utilities/spacing';
+@use 'utilities/misc';

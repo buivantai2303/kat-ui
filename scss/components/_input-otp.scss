@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Input OTP component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - 入力OTPコンポーネント
+ * 
+ * ワンタイムパスコード入力用のUI。等幅入力ボックス、状態（成功/エラー/読み込み）、
+ * サイズ、スタイルバリアント（アウトライン/フィルド/下線）をサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* OTP input container */
+/* OTP入力コンテナ - 入力フィールドの横並び配置 */
 .kat-input-otp {
   display: flex;
   align-items: center;
@@ -14,7 +23,7 @@
   }
 }
 
-/* Individual OTP input field */
+/* 個別OTP入力フィールド - 各桁の入力ボックス */
 .kat-input-otp__field {
   width: 2.5rem;
   height: 2.5rem;
@@ -45,7 +54,7 @@
     cursor: not-allowed;
   }
   
-  /* States */
+  /* 状態 - 入力済み/エラー/成功/アニメーション */
   &.kat-input-otp__field--filled {
     border-color: $kat-primary-600;
     background-color: $kat-primary-50;
@@ -66,13 +75,13 @@
     background-color: $kat-success-50;
   }
   
-  /* Animation for value changes */
+  /* 値変更アニメーション - 軽い拡大のパルス */
   &.kat-input-otp__field--animate {
     animation: kat-otp-pulse 0.3s ease-in-out;
   }
 }
 
-/* OTP group separator */
+/* OTPセパレーター - 桁グループの視覚的区切り */
 .kat-input-otp__separator {
   width: 0.75rem;
   height: 2px;
@@ -94,7 +103,7 @@
   }
 }
 
-/* OTP size variants */
+/* サイズバリアント - 小/大用の最適化 */
 .kat-input-otp--sm {
   gap: $kat-space-1-5;
   
@@ -125,7 +134,7 @@
   }
 }
 
-/* OTP style variants */
+/* スタイルバリアント - 視覚デザインの変更 */
 .kat-input-otp--outline {
   .kat-input-otp__field {
     background-color: transparent;
@@ -199,7 +208,7 @@
   }
 }
 
-/* OTP container with label */
+/* ラベル付きOTPコンテナ - ラベル/説明/メッセージの配置 */
 .kat-input-otp-wrapper {
   display: flex;
   flex-direction: column;
@@ -242,7 +251,7 @@
   gap: $kat-space-1;
 }
 
-/* Loading state */
+/* 読み込み状態 - スピナー表示 */
 .kat-input-otp--loading {
   .kat-input-otp__field {
     position: relative;
@@ -267,7 +276,7 @@
   }
 }
 
-/* Countdown timer */
+/* カウントダウンタイマー - 再送信までの残り時間 */
 .kat-input-otp__timer {
   display: flex;
   align-items: center;
@@ -298,7 +307,7 @@
   }
 }
 
-/* Animations */
+/* アニメーション - パルス/スピン */
 @keyframes kat-otp-pulse {
   0% {
     transform: scale(1);
@@ -317,7 +326,7 @@
   }
 }
 
-/* Auto-format variants (e.g., for phone numbers, credit cards) */
+/* 自動フォーマットバリアント - 電話番号/クレジットカード向け */
 .kat-input-otp--phone {
   .kat-input-otp__field {
     font-family: $kat-font-family-base;
@@ -331,7 +340,7 @@
   }
 }
 
-/* High contrast mode */
+/* ハイコントラストモード - 視認性向上 */
 @media (prefers-contrast: high) {
   .kat-input-otp__field {
     border-width: $kat-border-2;
@@ -343,7 +352,7 @@
   }
 }
 
-/* Reduced motion */
+/* 低速モーション設定 - アニメーション軽減 */
 @media (prefers-reduced-motion: reduce) {
   .kat-input-otp__field {
     transition: none;

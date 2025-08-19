@@ -1,0 +1,10 @@
+/**
+ * Kat UI Framework - グローバルエクスポート
+ * 
+ * 変数とミックスインを他のモジュールから簡単に参照できるように再エクスポート
+ */
+
+@forward 'variables';
+@forward 'mixins';
+
+

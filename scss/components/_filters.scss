@@ -1,20 +1,29 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, 商品フィルター */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - 商品フィルターコンポーネント
+ * 
+ * ECサイトで商品を絞り込むためのフィルター機能
+ * カテゴリ、価格、ブランドなどの条件で商品を検索
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* 商品フィルター */
+/* 商品フィルター - 商品検索の絞り込み機能 */
 .kat-product-filter {
   width: 100%;
   background-color: $kat-white;
   margin-bottom: $kat-space-6;
 }
 
-/* 商品フィルター内部 */
+/* 商品フィルター内部 - フィルター要素の配置とレイアウト */
 .kat-product-filter__inner {
   max-width: 1300px;
   margin: 0 auto;
 }
 
-/* フィルター行 */
+/* フィルター行 - フィルターボタンを横並びに配置 */
 .kat-filter-row {
   display: flex;
   align-items: center;
@@ -22,7 +31,7 @@
   flex-wrap: wrap;
 }
 
-/* フィルターボタン */
+/* フィルターボタン - フィルター条件を選択するボタン */
 .kat-filter-btn {
   @include kat-button-base;
   @include kat-button-sm;
@@ -46,7 +55,7 @@
     color: $kat-primary-800;
   }
   
-  /* アクティブ状態 */
+  /* アクティブ状態 - 現在選択されているフィルター条件 */
   &.kat-filter-btn--active {
     background-color: $kat-primary-100;
     color: $kat-primary-900;
@@ -56,7 +65,7 @@
     }
   }
   
-  /* チェバー */
+  /* チェバー - フィルターの開閉を示す矢印アイコン */
   .kat-filter-btn__chevron {
     transition: transform $kat-duration-200 $kat-ease-apple;
     
@@ -72,7 +81,7 @@
     }
   }
   
-  /* 開いている状態 */
+  /* 開いている状態 - フィルターが展開されている状態 */
   &.kat-filter-btn--open {
     background-color: $kat-primary-100;
     color: $kat-primary-900;
@@ -83,17 +92,23 @@
   }
 }
 
-/* フィルターポップオーバー */
+/* フィルターポップオーバー - フィルターオプションを表示するポップアップ */
 .kat-filter-popover {
-  @extend .kat-popover;
+  @extend .kat-popover !optional;
   position: fixed;
   min-width: 16rem;
   max-width: 20rem;
-  z-index: $kat-z-popover;
+  z-index: $kat-z-dropdown;
   transform: translateY(0);
   transition: transform $kat-duration-200 $kat-ease-apple;
+  /* ポップオーバーベース（@extend 不成立時のフォールバック） */
+  background-color: $kat-white;
+  border: $kat-border-1 solid $kat-primary-200;
+  border-radius: $kat-radius-lg;
+  box-shadow: $kat-shadow-lg;
+  padding: $kat-space-4;
   
-  /* 上向きの矢印 */
+  /* 上向きの矢印 - ポップオーバーが上に表示される場合の矢印 */
   &.kat-filter-popover--top {
     &::before {
       bottom: -12px;
@@ -110,7 +125,7 @@
     }
   }
   
-  /* 下向きの矢印（デフォルト） */
+  /* 下向きの矢印（デフォルト） - ポップオーバーが下に表示される場合の矢印 */
   &:not(.kat-filter-popover--top) {
     &::before {
       top: -12px;
@@ -127,13 +142,13 @@
     }
   }
   
-  /* スクロール時の位置調整 */
+  /* スクロール時の位置調整 - スクロール中のポップオーバーの位置制御 */
   &.kat-filter-popover--scrolling {
     transition: none;
   }
 }
 
-/* フィルターヘッダー */
+/* フィルターヘッダー - フィルターのタイトルと閉じるボタン */
 .kat-filter-header {
   display: flex;
   align-items: center;
@@ -142,7 +157,7 @@
   border-bottom: $kat-border-1 solid $kat-primary-200;
 }
 
-/* フィルタータイトル */
+/* フィルタータイトル - フィルターの種類を示す見出し */
 .kat-filter-title {
   font-size: $kat-font-size-sm;
   font-weight: $kat-font-weight-semibold;
@@ -150,7 +165,7 @@
   margin: 0;
 }
 
-/* フィルター閉じるボタン */
+/* フィルター閉じるボタン - フィルターを閉じるためのボタン */
 .kat-filter-close {
   @include kat-button-base;
   background: none;
@@ -170,14 +185,14 @@
   }
 }
 
-/* フィルターオプション */
+/* フィルターオプション - フィルター条件の選択肢一覧 */
 .kat-filter-options {
   display: flex;
   flex-direction: column;
   gap: $kat-space-2;
 }
 
-/* フィルターオプション */
+/* フィルターオプション - 個別のフィルター条件選択肢 */
 .kat-filter-option {
   display: flex;
   align-items: center;
@@ -191,12 +206,12 @@
     background-color: $kat-primary-50;
   }
   
-  /* チェックボックス */
+  /* チェックボックス - フィルター条件の選択状態 */
   .kat-checkbox {
     margin: 0;
   }
   
-  /* ラベル */
+  /* ラベル - フィルター条件の説明テキスト */
   .kat-filter-option__label {
     font-size: $kat-font-size-sm;
     color: $kat-primary-700;
@@ -204,17 +219,17 @@
     flex: 1;
   }
   
-  /* カウントバッジ */
+  /* カウントバッジ - フィルター条件に該当する商品数 */
   .kat-filter-option__count {
-    @extend .kat-badge;
-    @extend .kat-badge--outline;
+    @extend .kat-badge !optional;
+    @extend .kat-badge--outline !optional;
     font-size: $kat-font-size-xs;
     padding: $kat-space-0-5 $kat-space-1;
     margin-left: auto;
   }
 }
 
-/* フィルターアクション */
+/* フィルターアクション - フィルターの適用とクリアボタン */
 .kat-filter-actions {
   display: flex;
   align-items: center;
@@ -225,7 +240,7 @@
   border-top: $kat-border-1 solid $kat-primary-200;
 }
 
-/* フィルタークリアボタン */
+/* フィルタークリアボタン - 選択されたフィルター条件をリセット */
 #kat-filter-clear {
   @include kat-button-base;
   @include kat-button-sm;
@@ -240,14 +255,14 @@
   }
 }
 
-/* フィルター適用ボタン */
+/* フィルター適用ボタン - 選択されたフィルター条件を適用 */
 #kat-filter-apply {
-  @extend .kat-btn;
-  @extend .kat-btn--primary;
-  @extend .kat-btn--sm;
+  @extend .kat-btn !optional;
+  @extend .kat-btn--primary !optional;
+  @extend .kat-btn--sm !optional;
 }
 
-/* レスポンシブデザイン */
+/* レスポンシブデザイン - 画面サイズに応じた表示の最適化 */
 @include kat-screen-sm {
   .kat-filter-row {
     gap: $kat-space-2;
@@ -258,6 +273,7 @@
   }
 }
 
+/* タブレットサイズ対応 - 中画面での表示最適化 */
 @include kat-screen-md {
   .kat-filter-row {
     gap: $kat-space-3;

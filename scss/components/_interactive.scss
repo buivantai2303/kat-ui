@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Interactive component styles (tabs, accordion, dropdown, tooltip) */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - インタラクティブコンポーネント
+ * 
+ * タブ、アコーディオン、ドロップダウン、ツールチップ、プログレスなど
+ * ユーザー操作に応じて状態が変化するUI要素群のスタイル。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Tabs */
+/* タブコンポーネント */
 .kat-tabs {
   width: 100%;
   
@@ -106,7 +115,7 @@
   }
 }
 
-/* Accordion */
+/* アコーディオン */
 .kat-accordion {
   border: $kat-border-1 solid $kat-gray-200;
   border-radius: $kat-radius-lg;
@@ -189,7 +198,7 @@
   }
 }
 
-/* Dropdown */
+/* ドロップダウン */
 .kat-dropdown {
   position: relative;
   display: inline-block;
@@ -321,7 +330,7 @@
   letter-spacing: 0.05em;
 }
 
-/* Tooltip */
+/* ツールチップ */
 .kat-tooltip {
   position: absolute;
   z-index: $kat-z-tooltip;
@@ -341,7 +350,7 @@
     opacity: 1;
   }
   
-  /* Arrow */
+  /* 矢印 */
   &::after {
     content: "";
     position: absolute;
@@ -387,7 +396,7 @@
   }
 }
 
-/* Progress indicators */
+/* 進捗インジケーター */
 .kat-progress {
   width: 100%;
   height: 0.5rem;
@@ -438,7 +447,7 @@
   }
 }
 
-/* Circular progress */
+/* 円形プログレス */
 .kat-progress-circle {
   position: relative;
   display: inline-flex;
@@ -483,7 +492,7 @@
   color: $kat-gray-700;
 }
 
-/* Animations */
+/* アニメーション */
 @keyframes kat-fade-in {
   from {
     opacity: 0;

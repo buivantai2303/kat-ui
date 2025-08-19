@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Modal and dialog component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - モーダル/ダイアログコンポーネント
+ * 
+ * モーダル、ドロワー、ボトムシート、アラートダイアログ等の
+ * オーバーレイUIのスタイルとアニメーションを定義。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Modal backdrop */
+/* モーダル全体（バックドロップを含む） */
 .kat-modal {
   position: fixed;
   top: 0;
@@ -31,7 +40,7 @@
   animation: kat-modal-backdrop-in $kat-duration-200 $kat-ease-out;
 }
 
-/* Modal content */
+/* モーダル内容領域 */
 .kat-modal__content {
   position: relative;
   z-index: $kat-z-modal;
@@ -68,7 +77,7 @@
   }
 }
 
-/* Modal header */
+/* モーダルヘッダー */
 .kat-modal__header {
   display: flex;
   align-items: center;
@@ -117,7 +126,7 @@
   }
 }
 
-/* Modal body */
+/* モーダルボディ */
 .kat-modal__body {
   padding: $kat-space-6;
   overflow-y: auto;
@@ -141,7 +150,7 @@
   }
 }
 
-/* Modal footer */
+/* モーダルフッター */
 .kat-modal__footer {
   display: flex;
   align-items: center;
@@ -179,7 +188,7 @@
   }
 }
 
-/* Modal animations */
+/* モーダルアニメーション */
 @keyframes kat-modal-backdrop-in {
   from {
     opacity: 0;
@@ -231,7 +240,7 @@
   }
 }
 
-/* Drawer variant */
+/* ドロワーバリアント */
 .kat-modal--drawer {
   align-items: stretch;
   justify-content: flex-end;
@@ -272,7 +281,7 @@
   }
 }
 
-/* Bottom sheet variant */
+/* ボトムシートバリアント */
 .kat-modal--bottom-sheet {
   align-items: flex-end;
   justify-content: center;
@@ -308,7 +317,7 @@
   }
 }
 
-/* Alert dialog variant */
+/* アラートダイアログバリアント */
 .kat-modal--alert {
   .kat-modal__content {
     max-width: 28rem;
@@ -350,7 +359,7 @@
   }
 }
 
-/* Modal overlay for page content - Fix layout shift */
+/* ページ側のオーバーレイ状態（レイアウトシフト抑制） */
 .kat-modal-open {
   overflow: hidden;
   padding-right: var(--scrollbar-width, 0);
@@ -363,7 +372,7 @@
   }
 }
 
-/* Responsive adjustments */
+/* レスポンシブ調整 */
 @media (max-height: 640px) {
   .kat-modal {
     align-items: flex-start;

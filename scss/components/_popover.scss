@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Popover component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - ポップオーバーコンポーネント
+ * 
+ * 任意位置に表示される補助情報・小型フォーム等のコンテナ。
+ * 矢印位置、ダークテーマ、サイズ、フォーム/確認用などをサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Popover container */
+/* ポップオーバーコンテナ */
 .kat-popover {
   position: absolute;
   z-index: $kat-z-popover;
@@ -23,7 +32,7 @@
     transform: scale(1);
   }
   
-  /* Popover arrow */
+  /* ポップオーバー矢印 */
   &::before,
   &::after {
     content: "";
@@ -41,7 +50,7 @@
     border-color: transparent;
   }
   
-  /* Arrow positions */
+  /* 矢印位置 */
   &.kat-popover--top {
     &::before {
       bottom: -12px;
@@ -107,7 +116,7 @@
   }
 }
 
-/* Popover header */
+/* ポップオーバーヘッダー */
 .kat-popover__header {
   display: flex;
   align-items: center;
@@ -152,7 +161,7 @@
   }
 }
 
-/* Popover content */
+/* ポップオーバーコンテンツ */
 .kat-popover__content {
   color: $kat-primary-700;
   font-size: $kat-font-size-sm;
@@ -175,7 +184,7 @@
   }
 }
 
-/* Popover footer */
+/* ポップオーバーフッター */
 .kat-popover__footer {
   display: flex;
   justify-content: flex-end;
@@ -203,13 +212,13 @@
   }
 }
 
-/* Popover trigger */
+/* トリガー */
 .kat-popover-trigger {
   position: relative;
   display: inline-block;
 }
 
-/* Popover variants */
+/* バリアント */
 .kat-popover--large {
   max-width: 24rem;
   padding: $kat-space-6;

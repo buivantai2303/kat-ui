@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Table component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - テーブルコンポーネント
+ * 
+ * 表形式データの表示用スタイル。ストライプ、ボーダー、コンパクト/ラージ、
+ * 並び替え、レスポンシブ、空/読み込み状態、フッター等をサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Table container */
+/* テーブルコンテナ */
 .kat-table-container {
   width: 100%;
   overflow-x: auto;
@@ -11,7 +20,7 @@
   @include kat-scrollbar;
 }
 
-/* Base table styles */
+/* ベーステーブル */
 .kat-table {
   width: 100%;
   border-collapse: collapse;
@@ -19,14 +28,14 @@
   background-color: $kat-white;
   transition: all $kat-duration-200 $kat-ease-apple;
   
-  /* Striped variant */
+  /* ストライプ行 */
   &.kat-table--striped {
     .kat-table__row:nth-child(even) {
       background-color: $kat-gray-50;
     }
   }
   
-  /* Bordered variant */
+  /* 罫線あり */
   &.kat-table--bordered {
     .kat-table__cell,
     .kat-table__header {
@@ -34,7 +43,7 @@
     }
   }
   
-  /* Compact variant */
+  /* コンパクト */
   &.kat-table--compact {
     .kat-table__cell,
     .kat-table__header {
@@ -42,7 +51,7 @@
     }
   }
   
-  /* Large variant */
+  /* ラージ */
   &.kat-table--lg {
     font-size: $kat-font-size-base;
     
@@ -53,13 +62,13 @@
   }
 }
 
-/* Table head */
+/* テーブルヘッド */
 .kat-table__head {
   background-color: $kat-gray-50;
   border-bottom: $kat-border-1 solid $kat-gray-200;
 }
 
-/* Table header */
+/* テーブルヘッダーセル */
 .kat-table__header {
   padding: $kat-space-3 $kat-space-4;
   text-align: left;
@@ -76,7 +85,7 @@
     border-right: none;
   }
   
-  /* Sortable headers */
+  /* ソート可能ヘッダー */
   &.kat-table__header--sortable {
     cursor: pointer;
     user-select: none;
@@ -120,7 +129,7 @@
     }
   }
   
-  /* Text alignment */
+  /* 文字揃え */
   &.kat-table__header--center {
     text-align: center;
   }
@@ -130,12 +139,12 @@
   }
 }
 
-/* Table body */
+/* テーブルボディ */
 .kat-table__body {
   background-color: $kat-white;
 }
 
-/* Table row */
+/* テーブル行 */
 .kat-table__row {
   border-bottom: $kat-border-1 solid $kat-gray-200;
   transition: all $kat-duration-200 $kat-ease-apple;
@@ -144,7 +153,7 @@
     border-bottom: none;
   }
   
-  /* Selectable rows */
+  /* 行選択可能 */
   &.kat-table__row--selectable {
     cursor: pointer;
     
@@ -162,7 +171,7 @@
     }
   }
   
-  /* Row states */
+  /* 行状態 */
   &.kat-table__row--highlighted {
     background-color: $kat-warning-50;
   }
@@ -185,7 +194,7 @@
   }
 }
 
-/* Table cell */
+/* テーブルセル */
 .kat-table__cell {
   padding: $kat-space-3 $kat-space-4;
   vertical-align: middle;
@@ -200,7 +209,7 @@
     border-right: none;
   }
   
-  /* Text alignment */
+  /* 文字揃え */
   &.kat-table__cell--center {
     text-align: center;
   }
@@ -209,19 +218,19 @@
     text-align: right;
   }
   
-  /* Numeric cells */
+  /* 数値セル */
   &.kat-table__cell--numeric {
     text-align: right;
     font-variant-numeric: tabular-nums;
   }
   
-  /* Fixed width cells */
+  /* 固定幅セル */
   &.kat-table__cell--fixed {
     width: 1%;
     white-space: nowrap;
   }
   
-  /* Expandable cells */
+  /* 展開可能セル */
   &.kat-table__cell--expandable {
     max-width: 0;
     overflow: hidden;
@@ -237,7 +246,7 @@
   }
 }
 
-/* Table actions */
+/* テーブルアクション */
 .kat-table__actions {
   display: flex;
   align-items: center;
@@ -249,7 +258,7 @@
   }
 }
 
-/* Table selection */
+/* 選択（全選択等） */
 .kat-table__select-all {
   .kat-checkbox__input:indeterminate {
     background-color: $kat-primary-600;
@@ -257,7 +266,7 @@
   }
 }
 
-/* Empty state */
+/* 空状態 */
 .kat-table__empty {
   text-align: center;
   padding: $kat-space-12 $kat-space-6;
@@ -284,7 +293,7 @@
   }
 }
 
-/* Loading state */
+/* 読み込み状態 */
 .kat-table--loading {
   position: relative;
   overflow: hidden;
@@ -320,7 +329,7 @@
   }
 }
 
-/* Table footer */
+/* テーブルフッター */
 .kat-table__footer {
   padding: $kat-space-4;
   border-top: $kat-border-1 solid $kat-gray-200;
@@ -336,7 +345,7 @@
   }
 }
 
-/* Responsive table */
+/* レスポンシブテーブル */
 @include kat-screen-sm {
   .kat-table--responsive {
     .kat-table__cell,
@@ -369,7 +378,7 @@
   }
 }
 
-/* Table caption */
+/* テーブルキャプション */
 .kat-table__caption {
   caption-side: top;
   padding: $kat-space-4;
@@ -379,7 +388,7 @@
   text-align: left;
 }
 
-/* Table summary */
+/* テーブルサマリー */
 .kat-table__summary {
   padding: $kat-space-3 $kat-space-4;
   font-size: $kat-font-size-sm;

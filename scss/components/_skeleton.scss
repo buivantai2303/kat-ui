@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Skeleton loading component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - スケルトンローディングコンポーネント
+ * 
+ * 読み込み中のプレースホルダー表示。テキスト/見出し/アバター/ボタン/カード
+ * などの形状と、シマー/パルスのアニメーションをサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Base skeleton styles */
+/* ベーススケルトン */
 .kat-skeleton {
   position: relative;
   overflow: hidden;
@@ -24,7 +33,7 @@
     animation: kat-skeleton-shimmer 1.5s infinite;
   }
   
-  /* Skeleton variants */
+  /* 形状バリアント */
   &.kat-skeleton--text {
     height: 1rem;
     width: 100%;
@@ -92,7 +101,7 @@
   }
 }
 
-/* Skeleton groups */
+/* スケルトングループ */
 .kat-skeleton-group {
   display: flex;
   flex-direction: column;
@@ -104,14 +113,14 @@
   }
 }
 
-/* Pulse animation variant */
+/* パルスアニメーション */
 .kat-skeleton--pulse {
   &::after {
     animation: kat-skeleton-pulse 2s ease-in-out infinite;
   }
 }
 
-/* Animation keyframes */
+/* アニメーション定義 */
 @keyframes kat-skeleton-shimmer {
   0% {
     transform: translateX(-100%);
@@ -130,7 +139,7 @@
   }
 }
 
-/* Complex skeleton layouts */
+/* 複合レイアウトのスケルトン */
 .kat-skeleton-card {
   padding: $kat-space-4;
   border: $kat-border-1 solid $kat-primary-200;
@@ -169,7 +178,7 @@
   gap: $kat-space-3;
 }
 
-/* Dark mode skeleton */
+/* ダークモード対応 */
 @media (prefers-color-scheme: dark) {
   .kat-skeleton {
     background-color: $kat-primary-800;

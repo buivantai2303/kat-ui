@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Data Table component styles with advanced features */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - データテーブルコンポーネント
+ * 
+ * 大量のデータを表形式で表示するための高度なテーブル
+ * ソート、フィルター、ページネーション、選択機能などをサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Data table wrapper */
+/* データテーブルラッパー - テーブルの基本コンテナ */
 .kat-data-table {
   background-color: $kat-white;
   border: $kat-border-1 solid $kat-primary-200;
@@ -17,7 +26,7 @@
   }
 }
 
-/* Data table toolbar */
+/* データテーブルツールバー - 検索、フィルター、アクションの配置 */
 .kat-data-table__toolbar {
   display: flex;
   align-items: center;
@@ -59,7 +68,7 @@
   margin: 0;
 }
 
-/* Search and filters */
+/* 検索とフィルター - データの絞り込み機能 */
 .kat-data-table__search {
   position: relative;
   min-width: 16rem;
@@ -130,7 +139,7 @@
   }
 }
 
-/* Enhanced table container */
+/* 拡張テーブルコンテナ - スクロールと固定高さの制御 */
 .kat-data-table__container {
   overflow: auto;
   max-height: 32rem;
@@ -147,12 +156,12 @@
   }
 }
 
-/* Enhanced table */
+/* 拡張テーブル - 高度な機能を持つテーブル本体 */
 .kat-data-table__table {
   width: 100%;
   border-collapse: collapse;
   
-  /* Sticky header */
+  /* スティッキーヘッダー - スクロール時も固定されるヘッダー */
   &.kat-data-table__table--sticky-header {
     .kat-data-table__header {
       position: sticky;
@@ -172,7 +181,7 @@
     }
   }
   
-  /* Sticky first column */
+  /* スティッキー第一列 - スクロール時も固定される第一列 */
   &.kat-data-table__table--sticky-first-column {
     .kat-data-table__header:first-child,
     .kat-data-table__cell:first-child {
@@ -194,7 +203,7 @@
   }
 }
 
-/* Enhanced table headers */
+/* 拡張テーブルヘッダー - ソート、リサイズ可能なヘッダー */
 .kat-data-table__header {
   padding: $kat-space-3 $kat-space-4;
   text-align: left;
@@ -207,7 +216,7 @@
   letter-spacing: 0.05em;
   white-space: nowrap;
   
-  /* Sortable headers */
+  /* ソート可能ヘッダー - クリックでソート順を変更 */
   &.kat-data-table__header--sortable {
     cursor: pointer;
     position: relative;
@@ -240,7 +249,7 @@
     }
   }
   
-  /* Resizable headers */
+  /* リサイズ可能ヘッダー - 列幅を調整可能 */
   &.kat-data-table__header--resizable {
     position: relative;
     
@@ -260,7 +269,7 @@
     }
   }
   
-  /* Column types */
+  /* 列タイプ - 数値、中央揃えなどの列の種類 */
   &.kat-data-table__header--numeric {
     text-align: right;
   }
@@ -270,7 +279,7 @@
   }
 }
 
-/* Enhanced table cells */
+/* 拡張テーブルセル - 高度な機能を持つセル */
 .kat-data-table__cell {
   padding: $kat-space-3 $kat-space-4;
   border-bottom: $kat-border-1 solid $kat-primary-200;
@@ -278,7 +287,7 @@
   color: $kat-primary-700;
   vertical-align: middle;
   
-  /* Cell types */
+  /* セルタイプ - 数値、中央揃え、折り返しなどのセルの種類 */
   &.kat-data-table__cell--numeric {
     text-align: right;
     font-family: $kat-font-family-mono;
@@ -304,7 +313,7 @@
     word-break: break-word;
   }
   
-  /* Interactive cells */
+  /* インタラクティブセル - クリック可能なセル */
   &.kat-data-table__cell--clickable {
     cursor: pointer;
     
@@ -314,7 +323,7 @@
   }
 }
 
-/* Enhanced table rows */
+/* 拡張テーブル行 - 高度な機能を持つ行 */
 .kat-data-table__row {
   &.kat-data-table__row--selectable {
     cursor: pointer;
@@ -342,6 +351,7 @@
     }
   }
   
+  /* 行の状態 - ハイライト、エラー、成功などの状態表示 */
   &.kat-data-table__row--highlighted {
     background-color: $kat-warning-50;
     border-left: 3px solid $kat-warning-500;
@@ -358,7 +368,7 @@
   }
 }
 
-/* Expanded row content */
+/* 展開行コンテンツ - 行の詳細情報を表示 */
 .kat-data-table__expanded-content {
   background-color: $kat-primary-25;
   border-bottom: $kat-border-1 solid $kat-primary-200;
@@ -369,7 +379,7 @@
   }
 }
 
-/* Selection column */
+/* 選択列 - 行の選択チェックボックス */
 .kat-data-table__select-cell {
   width: 3rem;
   padding: $kat-space-3 $kat-space-4;
@@ -379,7 +389,7 @@
   }
 }
 
-/* Action column */
+/* アクション列 - 行に対する操作ボタン */
 .kat-data-table__actions {
   display: flex;
   gap: $kat-space-1;
@@ -395,7 +405,7 @@
   }
 }
 
-/* Loading states */
+/* ローディング状態 - データ読み込み中の表示 */
 .kat-data-table--loading {
   position: relative;
   
@@ -425,7 +435,7 @@
   font-size: $kat-font-size-sm;
 }
 
-/* Empty state */
+/* 空の状態 - データが存在しない場合の表示 */
 .kat-data-table__empty {
   padding: $kat-space-8 $kat-space-4;
   text-align: center;
@@ -450,7 +460,7 @@
   }
 }
 
-/* Footer with pagination and info */
+/* フッター - ページネーションと情報の表示 */
 .kat-data-table__footer {
   display: flex;
   align-items: center;
@@ -465,7 +475,7 @@
   }
 }
 
-/* Density variants */
+/* 密度バリアント - コンパクト、快適などの表示密度 */
 .kat-data-table--compact {
   .kat-data-table__header,
   .kat-data-table__cell {
@@ -484,7 +494,7 @@
   }
 }
 
-/* Responsive table */
+/* レスポンシブテーブル - 画面サイズに応じた表示の最適化 */
 @include kat-screen-sm {
   .kat-data-table--responsive {
     .kat-data-table__container {

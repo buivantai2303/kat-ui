@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Pagination component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - ページネーションコンポーネント
+ * 
+ * ページ切り替えUIのスタイル。サイズ、配置、ラウンド/ピル等の
+ * バリアントと、シンプル/ミニマル/モバイル向け最適化を含む。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Base pagination */
+/* ベースページネーション */
 .kat-pagination {
   display: flex;
   align-items: center;
@@ -9,7 +18,7 @@
   gap: $kat-space-1;
   margin: $kat-space-6 0;
   
-  /* Center alignment by default */
+  /* デフォルトは中央寄せ */
   &.kat-pagination--left {
     justify-content: flex-start;
   }
@@ -18,7 +27,7 @@
     justify-content: flex-end;
   }
   
-  /* Size variants */
+  /* サイズバリアント */
   &.kat-pagination--sm {
     gap: $kat-space-0-5;
     margin: $kat-space-4 0;
@@ -42,7 +51,7 @@
   }
 }
 
-/* Pagination items */
+/* ページ要素 */
 .kat-pagination__item {
   display: inline-flex;
   align-items: center;
@@ -74,7 +83,7 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
   
-  /* Current/active page */
+  /* 現在ページ */
   &.kat-pagination__item--current {
     background-color: $kat-primary-900;
     color: $kat-white;
@@ -87,7 +96,7 @@
     }
   }
   
-  /* Disabled state */
+  /* 無効状態 */
   &:disabled,
   &.kat-pagination__item--disabled {
     color: $kat-primary-400;
@@ -102,7 +111,7 @@
     }
   }
   
-  /* Navigation arrows */
+  /* ナビゲーション矢印 */
   &.kat-pagination__item--prev,
   &.kat-pagination__item--next {
     svg {
@@ -111,7 +120,7 @@
     }
   }
   
-  /* Ellipsis */
+  /* 省略記号 */
   &.kat-pagination__item--ellipsis {
     background: none;
     border: none;
@@ -125,7 +134,7 @@
   }
 }
 
-/* Pagination info */
+/* ページ情報 */
 .kat-pagination__info {
   margin: 0 $kat-space-4;
   font-size: $kat-font-size-sm;
@@ -138,7 +147,7 @@
   }
 }
 
-/* Simple pagination (prev/next only) */
+/* シンプルページネーション（前/次のみ） */
 .kat-pagination--simple {
   justify-content: space-between;
   
@@ -156,7 +165,7 @@
   }
 }
 
-/* Minimal pagination */
+/* ミニマルページネーション */
 .kat-pagination--minimal {
   .kat-pagination__item {
     background: none;
@@ -173,14 +182,14 @@
   }
 }
 
-/* Rounded pagination */
+/* 角丸ページネーション */
 .kat-pagination--rounded {
   .kat-pagination__item {
     border-radius: $kat-radius-full;
   }
 }
 
-/* Pills pagination */
+/* ピル型ページネーション */
 .kat-pagination--pills {
   gap: $kat-space-2;
   
@@ -199,7 +208,7 @@
   }
 }
 
-/* Compact pagination for mobile */
+/* モバイル向けコンパクト表示 */
 @include kat-screen-sm {
   .kat-pagination {
     &:not(.kat-pagination--simple) {

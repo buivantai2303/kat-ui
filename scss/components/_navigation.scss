@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Navigation component styles (navbar, sidebar, breadcrumb) */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - ナビゲーションコンポーネント
+ * 
+ * ナビバー、サイドバー、パンくず、ページレイアウト補助の一式。
+ * レスポンシブとアクセシビリティを考慮したナビゲーションUI。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Navbar */
+/* ナビバー */
 .kat-navbar {
   position: sticky;
   top: 0;
@@ -85,7 +94,7 @@
   }
 }
 
-/* Sidebar */
+/* サイドバー */
 .kat-sidebar {
   position: fixed;
   top: $kat-navbar-height;
@@ -273,7 +282,7 @@
   }
 }
 
-/* Breadcrumb */
+/* パンくず */
 .kat-breadcrumb {
   margin-bottom: $kat-space-6;
 }
@@ -321,88 +330,7 @@
   }
 }
 
-/* Pagination */
-.kat-pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: $kat-space-1;
-  
-  &.kat-pagination--start {
-    justify-content: flex-start;
-  }
-  
-  &.kat-pagination--end {
-    justify-content: flex-end;
-  }
-}
-
-.kat-pagination__btn {
-  @include kat-button-base;
-  @include kat-button-sm;
-  background-color: transparent;
-  color: $kat-gray-600;
-  border: $kat-border-1 solid $kat-gray-300;
-  gap: $kat-space-1;
-  
-  @include kat-hover {
-    background-color: $kat-gray-50;
-    color: $kat-gray-900;
-  }
-  
-  &:disabled {
-    color: $kat-gray-400;
-    border-color: $kat-gray-200;
-    cursor: not-allowed;
-    
-    @include kat-hover {
-      background-color: transparent;
-      color: $kat-gray-400;
-    }
-  }
-}
-
-.kat-pagination__pages {
-  display: flex;
-  align-items: center;
-  gap: $kat-space-1;
-}
-
-.kat-pagination__page {
-  @include kat-button-base;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  background-color: transparent;
-  color: $kat-gray-600;
-  border: $kat-border-1 solid transparent;
-  font-size: $kat-font-size-sm;
-  
-  @include kat-hover {
-    background-color: $kat-gray-100;
-    color: $kat-gray-900;
-  }
-  
-  &.kat-pagination__page--active {
-    background-color: $kat-primary-600;
-    color: $kat-white;
-    border-color: $kat-primary-600;
-    
-    @include kat-hover {
-      background-color: $kat-primary-700;
-      color: $kat-white;
-    }
-  }
-}
-
-.kat-pagination__ellipsis {
-  padding: $kat-space-2;
-  color: $kat-gray-400;
-  font-size: $kat-font-size-sm;
-  user-select: none;
-}
-
-/* Main content area */
+/* メインコンテンツ領域 */
 .kat-main {
   min-height: calc(100vh - #{$kat-navbar-height});
   padding: $kat-space-4;
@@ -416,7 +344,7 @@
   }
 }
 
-/* Page layout utilities */
+/* ページレイアウト用ユーティリティ */
 .kat-page-header {
   margin-bottom: $kat-space-8;
   text-align: center;
@@ -470,7 +398,7 @@
   line-height: $kat-line-height-tight;
 }
 
-/* Hover Navigation Menu */
+/* ホバーナビゲーションメニュー */
 .kat-nav-hover {
   display: flex;
   align-items: center;

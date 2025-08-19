@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Calendar component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - カレンダーコンポーネント
+ * 
+ * 日付選択、予定表示、期間選択に使用される
+ * 月表示、年表示、複数月表示などのバリエーションをサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Calendar container */
+/* カレンダーコンテナ - カレンダーの基本レイアウト */
 .kat-calendar {
   background-color: $kat-white;
   border: $kat-border-1 solid $kat-primary-200;
@@ -23,7 +32,7 @@
   }
 }
 
-/* Calendar header */
+/* カレンダーヘッダー - 月・年の表示とナビゲーション */
 .kat-calendar__header {
   display: flex;
   align-items: center;
@@ -65,7 +74,7 @@
   margin: 0;
 }
 
-/* Calendar grid */
+/* カレンダーグリッド - 日付を表示する表形式のレイアウト */
 .kat-calendar__grid {
   width: 100%;
   border-collapse: collapse;
@@ -181,7 +190,7 @@
   }
 }
 
-/* Calendar footer */
+/* カレンダーフッター - 今日の日付ボタンなどのアクション */
 .kat-calendar__footer {
   display: flex;
   justify-content: space-between;
@@ -204,7 +213,7 @@
   }
 }
 
-/* Month/Year picker */
+/* 月・年ピッカー - 月や年を選択するためのインターフェース */
 .kat-calendar__picker {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -233,7 +242,7 @@
   }
 }
 
-/* Range selection */
+/* 範囲選択 - 開始日から終了日までの期間選択 */
 .kat-calendar__day--range-start {
   background-color: $kat-primary-600;
   color: $kat-white;
@@ -258,7 +267,7 @@
   border-radius: $kat-radius-md;
 }
 
-/* Multi-month view */
+/* 複数月表示 - 複数の月を同時に表示するレイアウト */
 .kat-calendar--multi {
   display: flex;
   gap: $kat-space-6;
@@ -274,7 +283,7 @@
   }
 }
 
-/* Compact calendar */
+/* コンパクトカレンダー - スペースを節約した小さな表示 */
 .kat-calendar--compact {
   padding: $kat-space-3;
   
@@ -289,7 +298,7 @@
   }
 }
 
-/* Calendar with time picker */
+/* 時間選択付きカレンダー - 日付と時間を同時に選択 */
 .kat-calendar__time {
   display: flex;
   align-items: center;

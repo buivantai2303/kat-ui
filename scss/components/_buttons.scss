@@ -1,12 +1,21 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Button component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - ボタンコンポーネント
+ * 
+ * ユーザーインタラクションの中心となるボタンのスタイル
+ * プライマリ、セカンダリ、アウトラインなど複数のバリアントをサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Base button styles */
+/* ベースボタンスタイル - 基本的なボタンの見た目と動作 */
 .kat-btn {
-  @include kat-button-base;
   @include kat-button-base-size;
+  @include kat-button-base;
   
-  /* Button variants */
+  /* ボタンバリアント - 用途に応じた色分けとスタイル */
   &.kat-btn--primary {
     background-color: $kat-primary-900;
     color: $kat-white;
@@ -97,7 +106,7 @@
     }
   }
   
-  /* Button sizes */
+  /* ボタンサイズ - 用途に応じた大きさのバリエーション */
   &.kat-btn--sm {
     @include kat-button-sm;
   }
@@ -106,7 +115,7 @@
     @include kat-button-lg;
   }
   
-  /* Icon-only button */
+  /* アイコンのみボタン - テキストなしのアイコンボタン */
   &.kat-btn--icon {
     width: 2.5rem;
     height: 2.5rem;
@@ -123,12 +132,12 @@
     }
   }
   
-  /* Full width button */
+  /* フル幅ボタン - 親要素の幅いっぱいに広がるボタン */
   &.kat-btn--full {
     width: 100%;
   }
   
-  /* Button shapes */
+  /* ボタン形状 - 角丸、四角、丸などのバリエーション */
   &.kat-btn--pill {
     border-radius: $kat-radius-pill;
   }
@@ -141,7 +150,7 @@
     border-radius: $kat-radius-lg;
   }
   
-  /* Loading state */
+  /* ローディング状態 - 処理中のボタンの表示 */
   &.kat-btn--loading {
     position: relative;
     pointer-events: none;
@@ -151,7 +160,7 @@
     }
   }
   
-  /* Disabled state */
+  /* 無効状態 - クリックできないボタンの表示 */
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -159,7 +168,7 @@
   }
 }
 
-/* Button group */
+/* ボタングループ - 複数のボタンをまとめて表示 */
 .kat-btn-group {
   display: inline-flex;
   align-items: center;
@@ -217,7 +226,7 @@
   }
 }
 
-/* Spinner component for loading buttons */
+/* スピナーコンポーネント - ローディング状態の回転アニメーション */
 .kat-spinner {
   display: inline-block;
   width: 1rem;
@@ -242,6 +251,7 @@
   }
 }
 
+/* スピンアニメーション - スピナーの回転動作 */
 @keyframes kat-spin {
   to {
     transform: rotate(360deg);

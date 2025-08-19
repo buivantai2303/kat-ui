@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Image component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - 画像コンポーネント
+ * 
+ * 画像表示、アバター、プレースホルダーなどの
+ * 画像関連要素のスタイル
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Base image styles */
+/* ベース画像スタイル - 画像の基本表示と動作 */
 .kat-image {
   display: block;
   max-width: 100%;
@@ -9,7 +18,7 @@
   border-radius: $kat-radius-md;
   transition: all $kat-duration-200 $kat-ease-apple;
   
-  /* Image variants */
+  /* 画像バリアント - 角丸、四角、ソフトなどの形状 */
   &.kat-image--rounded {
     border-radius: $kat-radius-full;
   }
@@ -22,7 +31,7 @@
     border-radius: $kat-radius-lg;
   }
   
-  /* Size variants */
+  /* サイズバリアント - 小、中、大などのサイズ */
   &.kat-image--xs {
     width: 2rem;
     height: 2rem;
@@ -53,7 +62,7 @@
     height: 12rem;
   }
   
-  /* Interactive states */
+  /* インタラクティブ状態 - ホバー効果やクリック可能な画像 */
   &.kat-image--interactive {
     cursor: pointer;
     
@@ -72,7 +81,7 @@
   }
 }
 
-/* Avatar image */
+/* アバター画像 - ユーザーアイコンやプロフィール画像 */
 .kat-avatar {
   display: inline-flex;
   align-items: center;
@@ -94,7 +103,7 @@
     object-fit: cover;
   }
   
-  /* Avatar sizes */
+  /* アバターサイズ - 小、中、大などのサイズ */
   &.kat-avatar--xs {
     width: 1.5rem;
     height: 1.5rem;
@@ -125,7 +134,7 @@
     font-size: $kat-font-size-xl;
   }
   
-  /* Avatar with status indicator */
+  /* ステータスインジケーター付きアバター - オンライン状態などの表示 */
   &.kat-avatar--with-status {
     position: relative;
     
@@ -155,7 +164,7 @@
   }
 }
 
-/* Image placeholder */
+/* 画像プレースホルダー - 画像読み込み前の代替表示 */
 .kat-image-placeholder {
   display: flex;
   align-items: center;
@@ -181,7 +190,7 @@
     margin-bottom: $kat-space-2;
   }
   
-  /* Size variants */
+  /* サイズバリアント - 小、中、大などのサイズ */
   &.kat-image-placeholder--sm {
     min-height: 4rem;
     
@@ -201,7 +210,7 @@
   }
 }
 
-/* Figure with caption */
+/* キャプション付き図 - 画像と説明文の組み合わせ */
 .kat-figure {
   margin: 0;
   display: inline-block;
@@ -222,7 +231,7 @@
   }
 }
 
-/* Image gallery */
+/* 画像ギャラリー - 複数画像のグリッド表示 */
 .kat-image-gallery {
   display: grid;
   gap: $kat-space-4;
@@ -240,6 +249,7 @@
     grid-template-columns: repeat(4, 1fr);
   }
   
+  /* ギャラリーアイテム - 個別の画像表示要素 */
   .kat-image-gallery__item {
     position: relative;
     overflow: hidden;
@@ -262,24 +272,25 @@
     }
   }
   
-  .kat-image-gallery__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity $kat-duration-200 $kat-ease-apple;
-    color: $kat-white;
-    font-size: $kat-font-size-sm;
-  }
+      /* ギャラリーオーバーレイ - 画像上の情報表示 */
+    .kat-image-gallery__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity $kat-duration-200 $kat-ease-apple;
+      color: $kat-white;
+      font-size: $kat-font-size-sm;
+    }
 }
 
-/* Image crop utilities */
+/* 画像クロップユーティリティ - アスペクト比の制御 */
 .kat-image-crop {
   position: relative;
   overflow: hidden;
@@ -290,7 +301,7 @@
     object-fit: cover;
   }
   
-  /* Aspect ratios */
+  /* アスペクト比 - 1:1、4:3、16:9などの比率 */
   &.kat-image-crop--1-1 {
     aspect-ratio: 1 / 1;
   }
@@ -312,7 +323,7 @@
   }
 }
 
-/* Responsive images */
+/* レスポンシブ画像 - 画面サイズに応じた表示の最適化 */
 @include kat-screen-sm {
   .kat-image-gallery {
     grid-template-columns: repeat(2, 1fr);
@@ -339,7 +350,7 @@
   }
 }
 
-/* Loading state */
+/* ローディング状態 - 画像読み込み中の表示 */
 .kat-image--loading {
   background: linear-gradient(90deg, $kat-primary-100 25%, $kat-primary-150 50%, $kat-primary-100 75%);
   background-size: 200% 100%;
@@ -355,7 +366,7 @@
   }
 }
 
-/* Error state */
+/* エラー状態 - 画像読み込み失敗時の表示 */
 .kat-image--error {
   display: flex;
   align-items: center;

@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Mixins and utility functions for Kat UI */
+@use 'variables' as *;
 
-// Media query mixins
+/**
+ * Kat UI Framework - ミックスイン
+ * 
+ * コンポーネントのスタイルに依存しない基本設定。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* レスポンシブミックスイン */
 @mixin kat-screen-sm {
   @media (min-width: #{$kat-breakpoint-sm}) {
     @content;
@@ -32,7 +41,7 @@
   }
 }
 
-// Focus styles mixin
+/* フォーカススタイルミックスイン */
 @mixin kat-focus-ring {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -42,7 +51,7 @@
   }
 }
 
-// Button base styles
+/* ボタンベーススタイルミックスイン */
 @mixin kat-button-base {
   display: inline-flex;
   align-items: center;
@@ -64,7 +73,7 @@
   }
 }
 
-// Button sizes
+/* ボタンサイズミックスイン */
 @mixin kat-button-xs {
   height: 1.5rem;
   padding: 0 $kat-space-2;
@@ -93,7 +102,7 @@
   gap: $kat-space-2;
 }
 
-// Card base styles
+/* カードベーススタイルミックスイン */
 @mixin kat-card-base {
   background-color: $kat-white;
   border: $kat-border-1 solid $kat-gray-200;
@@ -101,7 +110,7 @@
   box-shadow: $kat-shadow-sm;
 }
 
-// Input base styles
+/* インプットベーススタイルミックスイン */
 @mixin kat-input-base {
   width: 100%;
   border: $kat-border-1 solid $kat-gray-300;
@@ -138,7 +147,7 @@
   }
 }
 
-// Screen reader only
+/* スクリーンリーダーのみミックスイン */
 @mixin kat-sr-only {
   position: absolute;
   width: 1px;
@@ -151,7 +160,7 @@
   border: 0;
 }
 
-// Clearfix
+/* クリアフィックスミックスイン */
 @mixin kat-clearfix {
   &::after {
     content: "";
@@ -160,14 +169,14 @@
   }
 }
 
-// Flex center
+/* フレックスセンターミックスイン */
 @mixin kat-flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-// Aspect ratio
+/* アスペクト比ミックスイン */
 @mixin kat-aspect-ratio($ratio: 1) {
   aspect-ratio: $ratio;
   
@@ -186,19 +195,19 @@
   }
 }
 
-// Visually hidden but accessible
+/* 視覚的に非表示だがアクセシビリティに優れたミックスイン */
 @mixin kat-visually-hidden {
   @include kat-sr-only;
 }
 
-// Truncate text
+/* テキストの切り捨てミックスイン */
 @mixin kat-truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-// Line clamp
+/* 行のクランプミックスイン */
 @mixin kat-line-clamp($lines: 2) {
   display: -webkit-box;
   -webkit-line-clamp: $lines;
@@ -206,7 +215,7 @@
   overflow: hidden;
 }
 
-// Hover and focus states
+/* ホバーとフォーカスステートミックスイン */
 @mixin kat-hover {
   @media (hover: hover) {
     &:hover {
@@ -215,7 +224,7 @@
   }
 }
 
-// Animation keyframes for common patterns
+/* アニメーションキーフレームミックスイン */
 @keyframes kat-spin {
   from {
     transform: rotate(0deg);
@@ -245,7 +254,7 @@
   }
 }
 
-// Scrollbar styling
+/* スクロールバースタイルミックスイン */
 @mixin kat-scrollbar {
   &::-webkit-scrollbar {
     width: 8px;
@@ -266,12 +275,12 @@
     }
   }
   
-  /* Firefox */
+  /* Firefox - スクロールバーのスタイル */
   scrollbar-width: thin;
   scrollbar-color: $kat-gray-300 $kat-gray-100;
 }
 
-// Shadow mixins
+/* シャドウミックスイン */
 @mixin kat-elevation-1 {
   box-shadow: $kat-shadow-sm;
 }

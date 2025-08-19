@@ -1,7 +1,16 @@
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Toast notification component styles */
+@use '../globals' as *;
+/**
+ * Kat UI Framework - トースト通知コンポーネント
+ * 
+ * 画面隅に一時的に表示される通知。位置、バリアント（成功/警告/エラー/情報）、
+ * 進捗バー、アニメーション、コンパクト表示をサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 
-/* Toast container */
+/* トーストコンテナ */
 .kat-toast-container {
   position: fixed;
   top: $kat-space-4;
@@ -20,7 +29,7 @@
     top: $kat-space-2;
   }
   
-  /* Container positions */
+  /* 配置バリエーション */
   &.kat-toast-container--top-left {
     top: $kat-space-4;
     left: $kat-space-4;
@@ -56,7 +65,7 @@
   }
 }
 
-/* Toast notification */
+/* トースト通知本体 */
 .kat-toast {
   display: flex;
   align-items: flex-start;
@@ -71,20 +80,20 @@
   opacity: 0;
   transition: all $kat-duration-300 $kat-ease-apple;
   
-  /* Show animation */
+  /* 表示アニメーション */
   &.kat-toast--show {
     transform: translateY(0);
     opacity: 1;
   }
   
-  /* Hide animation */
+  /* 非表示アニメーション */
   &.kat-toast--hide {
     transform: translateY(-20px);
     opacity: 0;
     pointer-events: none;
   }
   
-  /* Toast variants */
+  /* バリアント */
   &.kat-toast--success {
     border-left: 4px solid $kat-success-500;
     background-color: $kat-success-25;
@@ -121,7 +130,7 @@
     }
   }
   
-  /* Loading toast */
+  /* ローディングトースト */
   &.kat-toast--loading {
     .kat-toast__icon {
       animation: kat-toast-spin 1s linear infinite;
@@ -129,7 +138,7 @@
   }
 }
 
-/* Toast icon */
+/* アイコン */
 .kat-toast__icon {
   flex-shrink: 0;
   width: 1.25rem;
@@ -138,7 +147,7 @@
   color: $kat-primary-600;
 }
 
-/* Toast content */
+/* コンテンツ */
 .kat-toast__content {
   flex: 1;
   min-width: 0;
@@ -159,7 +168,7 @@
   line-height: $kat-line-height-normal;
 }
 
-/* Toast actions */
+/* アクション */
 .kat-toast__actions {
   display: flex;
   gap: $kat-space-2;
@@ -170,7 +179,7 @@
   }
 }
 
-/* Toast close button */
+/* 閉じるボタン */
 .kat-toast__close {
   flex-shrink: 0;
   background: none;
@@ -195,7 +204,7 @@
   }
 }
 
-/* Toast progress bar */
+/* 進捗バー */
 .kat-toast__progress {
   position: absolute;
   bottom: 0;
@@ -222,7 +231,7 @@
   }
 }
 
-/* Compact toast */
+/* コンパクト表示 */
 .kat-toast--compact {
   padding: $kat-space-3;
   
@@ -240,7 +249,7 @@
   }
 }
 
-/* Toast with image */
+/* 画像付きトースト */
 .kat-toast--with-image {
   .kat-toast__image {
     width: 2.5rem;
@@ -251,7 +260,7 @@
   }
 }
 
-/* Slide animations */
+/* スライドアニメーション */
 @keyframes kat-toast-slide-in-right {
   from {
     transform: translateX(100%);
@@ -305,7 +314,7 @@
   }
 }
 
-/* Animation classes */
+/* アニメーションクラス */
 .kat-toast--slide-right {
   animation: kat-toast-slide-in-right $kat-duration-300 $kat-ease-apple;
 }
@@ -322,7 +331,7 @@
   animation: kat-toast-slide-in-bottom $kat-duration-300 $kat-ease-apple;
 }
 
-/* High contrast mode */
+/* ハイコントラストモード */
 @media (prefers-contrast: high) {
   .kat-toast {
     border-width: 2px;
@@ -330,7 +339,7 @@
   }
 }
 
-/* Reduced motion */
+/* 低速モーション設定 */
 @media (prefers-reduced-motion: reduce) {
   .kat-toast {
     transition: opacity $kat-duration-150 ease;

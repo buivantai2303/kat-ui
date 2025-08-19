@@ -15,9 +15,19 @@
 * - kat- プレフィックス付きのBEM手法
 * - モジュール式で拡張可能なアーキテクチャ
 */
-/* モジュールのインポート */
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - グローバルエクスポート
+ * 
+ * 変数とミックスインを他のモジュールから簡単に参照できるように再エクスポート
+ */
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Variables and design tokens for Kat UI */
+/**
+ * Kat UI Framework - グローバルエクスポート
+ * 
+ * 変数とミックスインを他のモジュールから簡単に参照できるように再エクスポート
+ */
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Mixins and utility functions for Kat UI */
 @keyframes kat-spin {
@@ -47,6 +57,23 @@
   }
 }
 /* 基本スタイル */
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai、2024-12-15、CSS リセットとスタイルの正規化 */
 /* モダン CSS リセット */
@@ -187,6 +214,23 @@ svg {
   border: 0;
 }
 
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Typography styles and text utilities */
 /* Base typography */
@@ -506,12 +550,38 @@ sup {
 
 /* レイアウトシステム */
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Grid system and layout utilities */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - グリッドシステム & レイアウトユーティリティ
+ * 
+ * フレックスボックスとCSSグリッドを用いたレスポンシブレイアウトの基盤となるユーティリティ群。
+ * コンテナ、フレックス方向、整列、ギャップ、列/行のスパン指定など幅広い補助クラスを提供。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* セクション領域 - ページ内の論理的区切り */
 .kat-section {
   padding: 1rem;
 }
 
-/* Container */
+/* コンテナ - 幅と左右パディングの基本レイアウト */
 .kat-container {
   width: 100%;
   margin: 0 auto;
@@ -519,7 +589,7 @@ sup {
   max-width: 1200px;
 }
 
-/* Flexbox utilities */
+/* フレックスボックスユーティリティ - 柔軟なレイアウト制御 */
 .kat-flex {
   display: flex;
 }
@@ -528,7 +598,7 @@ sup {
   display: inline-flex;
 }
 
-/* Flex direction */
+/* フレックス方向 - 行/列の切り替え */
 .kat-flex--row {
   flex-direction: row;
 }
@@ -545,7 +615,7 @@ sup {
   flex-direction: column-reverse;
 }
 
-/* Flex wrap */
+/* 折り返し - 改行の制御 */
 .kat-flex--wrap {
   flex-wrap: wrap;
 }
@@ -558,7 +628,7 @@ sup {
   flex-wrap: nowrap;
 }
 
-/* Justify content */
+/* 主軸方向の整列（justify-content） */
 .kat-justify--start {
   justify-content: flex-start;
 }
@@ -583,7 +653,7 @@ sup {
   justify-content: space-evenly;
 }
 
-/* Align items */
+/* 交差軸方向の整列（align-items） */
 .kat-items--start {
   align-items: flex-start;
 }
@@ -604,7 +674,7 @@ sup {
   align-items: stretch;
 }
 
-/* Align content */
+/* 複数行の整列（align-content） */
 .kat-content--start {
   align-content: flex-start;
 }
@@ -629,7 +699,7 @@ sup {
   align-content: space-evenly;
 }
 
-/* Align self */
+/* 個別要素の整列（align-self） */
 .kat-self--auto {
   align-self: auto;
 }
@@ -654,7 +724,7 @@ sup {
   align-self: baseline;
 }
 
-/* Flex grow and shrink */
+/* フレックス伸縮 - grow/shrink の制御 */
 .kat-flex--1 {
   flex: 1 1 0%;
 }
@@ -687,7 +757,7 @@ sup {
   flex-shrink: 0;
 }
 
-/* Gap utilities */
+/* ギャップユーティリティ - 子要素間の間隔 */
 .kat-gap--0 {
   gap: 0;
 }
@@ -752,7 +822,7 @@ sup {
   gap: 6rem;
 }
 
-/* Row gap */
+/* 行方向のギャップ（row-gap） */
 .kat-gap-y--0 {
   row-gap: 0;
 }
@@ -781,7 +851,7 @@ sup {
   row-gap: 2rem;
 }
 
-/* Column gap */
+/* 列方向のギャップ（column-gap） */
 .kat-gap-x--0 {
   column-gap: 0;
 }
@@ -810,7 +880,7 @@ sup {
   column-gap: 2rem;
 }
 
-/* Grid system */
+/* グリッドシステム - CSS Grid の基本構成 */
 .kat-grid {
   display: grid;
 }
@@ -843,7 +913,7 @@ sup {
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
-/* Responsive grid */
+/* レスポンシブグリッド - 画面幅に応じた列数 */
 @media (min-width: 640px) {
   .kat-grid--sm-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -895,7 +965,7 @@ sup {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 }
-/* Column span */
+/* 列スパン指定 - 指定数の列幅にまたがる */
 .kat-col-span-1 {
   grid-column: span 1/span 1;
 }
@@ -924,7 +994,7 @@ sup {
   grid-column: 1/-1;
 }
 
-/* Row span */
+/* 行スパン指定 - 指定数の行高にまたがる */
 .kat-row-span-1 {
   grid-row: span 1/span 1;
 }
@@ -953,7 +1023,7 @@ sup {
   grid-row: 1/-1;
 }
 
-/* Auto fit and fill */
+/* 自動調整 - auto-fit/auto-fill による可変列 */
 .kat-grid--auto-fit {
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 }
@@ -963,8 +1033,33 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, 3カラムレイアウトシステム */
-/* ボディの基本スタイル */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - レイアウトコンポーネント
+ * 
+ * 一般的なページ骨格（ヘッダー、3カラム、サイドバー、本文エリア）の
+ * レイアウトと挙動を定義。スティッキー、スクロール、レスポンシブ対応を含む。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* ボディの基本スタイル - ベースとなる文字/背景/行間 */
 .kat-body {
   margin: 0;
   padding: 0;
@@ -975,7 +1070,7 @@ sup {
   line-height: 1.5;
 }
 
-/* ヘッダー - 80px固定 */
+/* ヘッダー - 高さ80pxの固定ヘッダー、上部固定（sticky） */
 .kat-header {
   position: sticky;
   top: 0;
@@ -1023,16 +1118,16 @@ sup {
   box-shadow: 0 0 0 2px #737373;
 }
 
-/* 3カラムレイアウトコンテナ */
+/* 3カラムレイアウトコンテナ - 左右サイドバー+本文の構成 */
 .kat-layout-3col {
   display: flex;
   min-height: calc(100vh - 80px);
   max-width: 1300px;
   margin: 0 auto;
-  /* モバイルファースト: 縦に並べる */
+  /* モバイルファースト: 縦並び、後述でデスクトップを上書き */
   flex-direction: column;
   /* デスクトップ: 3カラム */
-  /* 非スティッキーモード - 全体スクロール */
+  /* 非スティッキーモード - サイドバー/本文とも通常フロー */
 }
 @media (min-width: 1024px) {
   .kat-layout-3col {
@@ -1051,7 +1146,7 @@ sup {
   }
 }
 
-/* 左サイドバー - 200px固定幅 */
+/* 左サイドバー - デスクトップで固定幅、モバイルは全幅 */
 .kat-sidebar-left {
   width: 100%;
   padding-top: 1rem;
@@ -1070,7 +1165,7 @@ sup {
     top: 80px;
     height: calc(100vh - 80px);
     overflow-y: scroll;
-    /* スクロールバーを非表示にする */
+    /* スクロールバーを非表示にする（装飾目的） */
     -ms-overflow-style: none;
     scrollbar-width: none;
     /* 非スティッキーモード */
@@ -1126,7 +1221,7 @@ sup {
   margin: 0 0 0.75rem 0;
 }
 
-/* 右サイドバー - 200px固定幅 */
+/* 右サイドバー - デスクトップで固定幅、モバイルは全幅 */
 .kat-sidebar-right {
   width: 100%;
   padding-top: 1rem;
@@ -1145,7 +1240,7 @@ sup {
     top: 80px;
     height: calc(100vh - 80px);
     overflow-y: scroll;
-    /* スクロールバーを非表示にする */
+    /* スクロールバーを非表示にする（装飾目的） */
     -ms-overflow-style: none;
     scrollbar-width: none;
     /* 非スティッキーモード */
@@ -1201,7 +1296,7 @@ sup {
   height: auto;
 }
 
-/* ボディコンテンツエリア - 900pxスクロール可能 */
+/* ボディコンテンツエリア - デスクトップで900px想定の本文領域 */
 .kat-body-content {
   flex: 1;
   width: 100%;
@@ -1233,7 +1328,7 @@ sup {
   line-height: 1.625;
 }
 
-/* レスポンシブデザイン */
+/* レスポンシブデザイン - 画面幅に応じた微調整 */
 @media (min-width: 1024px) {
   .kat-layout-3col {
     margin: 0 auto;
@@ -1260,9 +1355,38 @@ sup {
 }
 /* コンポーネント */
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Button component styles */
-/* Base button styles */
-.kat-btn, #kat-filter-apply {
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - ボタンコンポーネント
+ * 
+ * ユーザーインタラクションの中心となるボタンのスタイル
+ * プライマリ、セカンダリ、アウトラインなど複数のバリアントをサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* ベースボタンスタイル - 基本的なボタンの見た目と動作 */
+.kat-btn {
+  height: 2rem;
+  padding: 0 0.75rem;
+  font-size: 0.8125rem;
+  gap: 0.5rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1272,162 +1396,158 @@ sup {
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  height: 2rem;
-  padding: 0 0.75rem;
-  font-size: 0.8125rem;
-  gap: 0.5rem;
-  /* Button variants */
-  /* Button sizes */
-  /* Icon-only button */
-  /* Full width button */
-  /* Button shapes */
-  /* Loading state */
-  /* Disabled state */
+  /* ボタンバリアント - 用途に応じた色分けとスタイル */
+  /* ボタンサイズ - 用途に応じた大きさのバリエーション */
+  /* アイコンのみボタン - テキストなしのアイコンボタン */
+  /* フル幅ボタン - 親要素の幅いっぱいに広がるボタン */
+  /* ボタン形状 - 角丸、四角、丸などのバリエーション */
+  /* ローディング状態 - 処理中のボタンの表示 */
+  /* 無効状態 - クリックできないボタンの表示 */
 }
-.kat-btn:focus-visible, #kat-filter-apply:focus-visible {
+.kat-btn:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
 }
-.kat-btn:disabled, #kat-filter-apply:disabled {
+.kat-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-.kat-btn svg, #kat-filter-apply svg {
+.kat-btn svg {
   flex-shrink: 0;
 }
-.kat-btn.kat-btn--primary, #kat-filter-apply {
+.kat-btn.kat-btn--primary {
   background-color: #171717;
   color: #ffffff;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--primary:hover, #kat-filter-apply:hover {
+  .kat-btn.kat-btn--primary:hover {
     background-color: #262626;
   }
 }
-.kat-btn.kat-btn--primary:active, #kat-filter-apply:active {
+.kat-btn.kat-btn--primary:active {
   background-color: #171717;
   transform: translateY(0);
 }
-.kat-btn.kat-btn--primary:focus-visible, #kat-filter-apply:focus-visible {
+.kat-btn.kat-btn--primary:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
 }
-.kat-btn.kat-btn--primary.kat-btn--danger, .kat-btn--danger#kat-filter-apply {
+.kat-btn.kat-btn--primary.kat-btn--danger {
   background-color: #dc2626;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--primary.kat-btn--danger:hover, .kat-btn--danger#kat-filter-apply:hover {
+  .kat-btn.kat-btn--primary.kat-btn--danger:hover {
     background-color: #b91c1c;
   }
 }
-.kat-btn.kat-btn--primary.kat-btn--danger:active, .kat-btn--danger#kat-filter-apply:active {
+.kat-btn.kat-btn--primary.kat-btn--danger:active {
   background-color: #991b1b;
 }
-.kat-btn.kat-btn--secondary, .kat-btn--secondary#kat-filter-apply {
+.kat-btn.kat-btn--secondary {
   background-color: #f5f5f5;
   color: #171717;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--secondary:hover, .kat-btn--secondary#kat-filter-apply:hover {
+  .kat-btn.kat-btn--secondary:hover {
     background-color: #e5e5e5;
     transform: translateY(-1px);
   }
 }
-.kat-btn.kat-btn--secondary:active, .kat-btn--secondary#kat-filter-apply:active {
+.kat-btn.kat-btn--secondary:active {
   background-color: #f5f5f5;
   transform: translateY(0);
 }
-.kat-btn.kat-btn--outline, .kat-btn--outline#kat-filter-apply {
+.kat-btn.kat-btn--outline {
   background-color: transparent;
   color: #171717;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--outline:hover, .kat-btn--outline#kat-filter-apply:hover {
+  .kat-btn.kat-btn--outline:hover {
     background-color: #171717;
     color: #ffffff;
     transform: translateY(-1px);
   }
 }
-.kat-btn.kat-btn--outline:active, .kat-btn--outline#kat-filter-apply:active {
+.kat-btn.kat-btn--outline:active {
   background-color: #262626;
   transform: translateY(0);
 }
-.kat-btn.kat-btn--outline.kat-btn--danger, .kat-btn--outline.kat-btn--danger#kat-filter-apply {
+.kat-btn.kat-btn--outline.kat-btn--danger {
   color: #dc2626;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--outline.kat-btn--danger:hover, .kat-btn--outline.kat-btn--danger#kat-filter-apply:hover {
+  .kat-btn.kat-btn--outline.kat-btn--danger:hover {
     background-color: #fef2f2;
     color: #b91c1c;
   }
 }
-.kat-btn.kat-btn--outline.kat-btn--danger:active, .kat-btn--outline.kat-btn--danger#kat-filter-apply:active {
+.kat-btn.kat-btn--outline.kat-btn--danger:active {
   background-color: #fee2e2;
 }
-.kat-btn.kat-btn--ghost, .kat-btn--ghost#kat-filter-apply {
+.kat-btn.kat-btn--ghost {
   background-color: transparent;
   color: #404040;
 }
 @media (hover: hover) {
-  .kat-btn.kat-btn--ghost:hover, .kat-btn--ghost#kat-filter-apply:hover {
+  .kat-btn.kat-btn--ghost:hover {
     background-color: #f5f5f5;
     color: #171717;
     transform: translateY(-1px);
   }
 }
-.kat-btn.kat-btn--ghost:active, .kat-btn--ghost#kat-filter-apply:active {
+.kat-btn.kat-btn--ghost:active {
   background-color: #e5e5e5;
   transform: translateY(0);
 }
-.kat-btn.kat-btn--sm, #kat-filter-apply {
+.kat-btn.kat-btn--sm {
   height: 2rem;
   padding: 0 0.75rem;
   font-size: 0.8125rem;
   gap: 0.375rem;
 }
-.kat-btn.kat-btn--lg, .kat-btn--lg#kat-filter-apply {
+.kat-btn.kat-btn--lg {
   height: 3rem;
   padding: 0 1.5rem;
   font-size: 0.875rem;
   gap: 0.5rem;
 }
-.kat-btn.kat-btn--icon, .kat-btn--icon#kat-filter-apply {
+.kat-btn.kat-btn--icon {
   width: 2.5rem;
   height: 2.5rem;
   padding: 0;
 }
-.kat-btn.kat-btn--icon.kat-btn--sm, .kat-btn--icon#kat-filter-apply {
+.kat-btn.kat-btn--icon.kat-btn--sm {
   width: 2rem;
   height: 2rem;
 }
-.kat-btn.kat-btn--icon.kat-btn--lg, .kat-btn--icon.kat-btn--lg#kat-filter-apply {
+.kat-btn.kat-btn--icon.kat-btn--lg {
   width: 3rem;
   height: 3rem;
 }
-.kat-btn.kat-btn--full, .kat-btn--full#kat-filter-apply {
+.kat-btn.kat-btn--full {
   width: 100%;
 }
-.kat-btn.kat-btn--pill, .kat-btn--pill#kat-filter-apply {
+.kat-btn.kat-btn--pill {
   border-radius: 100px;
 }
-.kat-btn.kat-btn--square, .kat-btn--square#kat-filter-apply {
+.kat-btn.kat-btn--square {
   border-radius: 0;
 }
-.kat-btn.kat-btn--rounded, .kat-btn--rounded#kat-filter-apply {
+.kat-btn.kat-btn--rounded {
   border-radius: 0.25rem;
 }
-.kat-btn.kat-btn--loading, .kat-btn--loading#kat-filter-apply {
+.kat-btn.kat-btn--loading {
   position: relative;
   pointer-events: none;
 }
-.kat-btn.kat-btn--loading .kat-spinner, .kat-btn--loading#kat-filter-apply .kat-spinner {
+.kat-btn.kat-btn--loading .kat-spinner {
   margin-right: 0.5rem;
 }
-.kat-btn:disabled, #kat-filter-apply:disabled {
+.kat-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-/* Button group */
+/* ボタングループ - 複数のボタンをまとめて表示 */
 .kat-btn-group {
   display: inline-flex;
   align-items: center;
@@ -1437,21 +1557,21 @@ sup {
 .kat-btn-group.kat-btn-group--attached {
   gap: 0;
 }
-.kat-btn-group.kat-btn-group--attached .kat-btn, .kat-btn-group.kat-btn-group--attached #kat-filter-apply {
+.kat-btn-group.kat-btn-group--attached .kat-btn {
   border-radius: 0;
 }
-.kat-btn-group.kat-btn-group--attached .kat-btn:first-child, .kat-btn-group.kat-btn-group--attached #kat-filter-apply:first-child {
+.kat-btn-group.kat-btn-group--attached .kat-btn:first-child {
   border-top-left-radius: 0.1875rem;
   border-bottom-left-radius: 0.1875rem;
 }
-.kat-btn-group.kat-btn-group--attached .kat-btn:last-child, .kat-btn-group.kat-btn-group--attached #kat-filter-apply:last-child {
+.kat-btn-group.kat-btn-group--attached .kat-btn:last-child {
   border-top-right-radius: 0.1875rem;
   border-bottom-right-radius: 0.1875rem;
 }
-.kat-btn-group.kat-btn-group--attached .kat-btn:not(:first-child), .kat-btn-group.kat-btn-group--attached #kat-filter-apply:not(:first-child) {
+.kat-btn-group.kat-btn-group--attached .kat-btn:not(:first-child) {
   margin-left: -1px;
 }
-.kat-btn-group.kat-btn-group--attached .kat-btn:hover, .kat-btn-group.kat-btn-group--attached #kat-filter-apply:hover, .kat-btn-group.kat-btn-group--attached .kat-btn:focus, .kat-btn-group.kat-btn-group--attached #kat-filter-apply:focus {
+.kat-btn-group.kat-btn-group--attached .kat-btn:hover, .kat-btn-group.kat-btn-group--attached .kat-btn:focus {
   position: relative;
   z-index: 1;
 }
@@ -1459,18 +1579,18 @@ sup {
   flex-direction: column;
   align-items: stretch;
 }
-.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:first-child, .kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached #kat-filter-apply:first-child {
+.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:first-child {
   border-radius: 0.1875rem 0.1875rem 0 0;
 }
-.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:last-child, .kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached #kat-filter-apply:last-child {
+.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:last-child {
   border-radius: 0 0 0.1875rem 0.1875rem;
 }
-.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:not(:first-child), .kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached #kat-filter-apply:not(:first-child) {
+.kat-btn-group.kat-btn-group--vertical.kat-btn-group--attached .kat-btn:not(:first-child) {
   margin-left: 0;
   margin-top: -1px;
 }
 
-/* Spinner component for loading buttons */
+/* スピナーコンポーネント - ローディング状態の回転アニメーション */
 .kat-spinner {
   display: inline-block;
   width: 1rem;
@@ -1493,19 +1613,45 @@ sup {
   border-top-width: 2.5px;
 }
 
+/* スピンアニメーション - スピナーの回転動作 */
 @keyframes kat-spin {
   to {
     transform: rotate(360deg);
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Form component styles */
-/* Form container */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - フォームコンポーネント
+ * 
+ * ユーザー入力を受け付けるためのフォーム要素
+ * テキスト入力、セレクト、チェックボックス、ラジオボタンなどをサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* フォームコンテナ - フォーム要素の基本レイアウト */
 .kat-form {
   width: 100%;
 }
 
-/* Form group */
+/* フォームグループ - 関連するフォーム要素をまとめる */
 .kat-form__group {
   margin-bottom: 1rem;
 }
@@ -1513,7 +1659,7 @@ sup {
   margin-bottom: 0;
 }
 
-/* Form actions */
+/* フォームアクション - 送信、キャンセルなどのボタン配置 */
 .kat-form__actions {
   display: flex;
   gap: 0.75rem;
@@ -1526,7 +1672,7 @@ sup {
   }
 }
 
-/* Labels */
+/* ラベル - フォーム要素の説明テキスト */
 .kat-label {
   display: block;
   font-size: 0.8125rem;
@@ -1539,11 +1685,12 @@ sup {
   color: #ef4444;
 }
 
+/* 必須ラベル - 必須項目を示す赤いアスタリスク */
 .kat-label__required {
   color: #ef4444;
 }
 
-/* Base input styles */
+/* ベース入力スタイル - テキスト入力の基本デザイン */
 .kat-input {
   width: 100%;
   border: 1px solid #d4d4d8;
@@ -1556,8 +1703,8 @@ sup {
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   outline: 2px solid transparent;
   outline-offset: 2px;
-  /* Input sizes */
-  /* File input styles */
+  /* 入力サイズ - 小、中、大のサイズバリエーション */
+  /* ファイル入力スタイル - ファイルアップロード用の入力 */
 }
 .kat-input:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
@@ -1620,7 +1767,7 @@ sup {
   background-color: #e4e4e7;
 }
 
-/* Textarea */
+/* テキストエリア - 複数行のテキスト入力 */
 .kat-textarea {
   width: 100%;
   border: 1px solid #d4d4d8;
@@ -1675,7 +1822,7 @@ sup {
   resize: none;
 }
 
-/* Select */
+/* セレクト - ドロップダウン形式の選択肢 */
 .kat-select {
   width: 100%;
   border: 1px solid #d4d4d8;
@@ -1697,7 +1844,7 @@ sup {
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
   cursor: pointer;
-  /* Hide dropdown arrow variant */
+  /* ドロップダウン矢印非表示バリアント - カスタム矢印を使用 */
 }
 .kat-select:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
@@ -1739,7 +1886,7 @@ sup {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #22c55e;
 }
 
-/* Checkbox */
+/* チェックボックス - 真偽値の選択 */
 .kat-checkbox {
   display: flex;
   align-items: flex-start;
@@ -1811,7 +1958,7 @@ sup {
   border: 0;
 }
 
-/* Radio */
+/* ラジオボタン - 単一選択の選択肢 */
 .kat-radio-group {
   display: flex;
   flex-direction: column;
@@ -1881,7 +2028,7 @@ sup {
   line-height: 1.5;
 }
 
-/* Toggle switch */
+/* トグルスイッチ - ON/OFFの切り替え */
 .kat-toggle {
   display: flex;
   align-items: center;
@@ -1938,7 +2085,7 @@ sup {
   cursor: pointer;
 }
 
-/* Range slider */
+/* レンジスライダー - 数値範囲の選択 */
 .kat-range {
   width: 100%;
   height: 1.5rem;
@@ -1947,7 +2094,7 @@ sup {
   appearance: none;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  /* Custom background with gradient for filled portion */
+  /* カスタム背景 - 塗りつぶし部分のグラデーション表示 */
   background: linear-gradient(to right, #525252 0%, #525252 50%, #e5e5e5 50%, #e5e5e5 100%);
   background-size: 100% 0.125rem;
   background-repeat: no-repeat;
@@ -2023,7 +2170,7 @@ sup {
   text-align: center;
 }
 
-/* Form validation messages */
+/* フォームバリデーションメッセージ - エラー、成功、ヘルプの表示 */
 .kat-form__error {
   margin-top: 0.25rem;
   font-size: 0.8125rem;
@@ -2049,8 +2196,33 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2025-08-12, 商品カード */
-/* 商品グリッド */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - 商品カードコンポーネント
+ * 
+ * ECサイトで商品を表示するためのカード形式のレイアウト
+ * 画像、タイトル、価格、評価などを含む包括的な商品表示
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2025-08-12
+ * @version: 1.0.0
+ */
+/* 商品グリッド - 商品カードを配置するグリッドレイアウト */
 .kat-product-grid {
   display: grid;
   gap: 1.5rem;
@@ -2069,17 +2241,19 @@ sup {
   }
 }
 
-/* 商品カードのスタイル */
+/* 商品カードのスタイル - 個別の商品カードのデザイン */
 .kat-product-card {
   display: block;
   color: #171717;
   cursor: pointer;
+  /* 商品評価 - 星評価と評価テキストの表示 */
+  /* 商品価格 - 現在価格と税込価格の表示 */
 }
 .kat-product-card .kat-product-card__image {
   display: block;
   position: relative;
   width: 100%;
-  /* NEW ラベル */
+  /* NEW ラベル - 新商品を示す目立つラベル */
 }
 .kat-product-card .kat-product-card__image img {
   aspect-ratio: 1/1;
@@ -2087,7 +2261,6 @@ sup {
   height: 100%;
   object-fit: cover;
   border: 1px solid #e5e5e5;
-  border-radius: 0.25rem;
 }
 .kat-product-card .kat-product-card__image img:hover {
   opacity: 0.8;
@@ -2096,7 +2269,6 @@ sup {
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
-  border: 1px solid #f87171;
   background-color: #dc2626;
   color: #ffffff;
   font-size: 0.6875rem;
@@ -2150,8 +2322,33 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Modal and dialog component styles */
-/* Modal backdrop */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - モーダル/ダイアログコンポーネント
+ * 
+ * モーダル、ドロワー、ボトムシート、アラートダイアログ等の
+ * オーバーレイUIのスタイルとアニメーションを定義。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* モーダル全体（バックドロップを含む） */
 .kat-modal {
   position: fixed;
   top: 0;
@@ -2180,7 +2377,7 @@ sup {
   animation: kat-modal-backdrop-in 200ms cubic-bezier(0, 0, 0.58, 1);
 }
 
-/* Modal content */
+/* モーダル内容領域 */
 .kat-modal__content {
   position: relative;
   z-index: 1050;
@@ -2214,7 +2411,7 @@ sup {
   }
 }
 
-/* Modal header */
+/* モーダルヘッダー */
 .kat-modal__header {
   display: flex;
   align-items: center;
@@ -2283,7 +2480,7 @@ sup {
   background-color: #e4e4e7;
 }
 
-/* Modal body */
+/* モーダルボディ */
 .kat-modal__body {
   padding: 1.5rem;
   overflow-y: auto;
@@ -2303,7 +2500,7 @@ sup {
   margin-bottom: 0;
 }
 
-/* Modal footer */
+/* モーダルフッター */
 .kat-modal__footer {
   display: flex;
   align-items: center;
@@ -2332,12 +2529,12 @@ sup {
   }
 }
 @media (min-width: 640px) {
-  .kat-modal__footer .kat-btn, .kat-modal__footer #kat-filter-apply {
+  .kat-modal__footer .kat-btn {
     min-width: 6rem;
   }
 }
 
-/* Modal animations */
+/* モーダルアニメーション */
 @keyframes kat-modal-backdrop-in {
   from {
     opacity: 0;
@@ -2382,7 +2579,7 @@ sup {
   animation: kat-modal-content-out 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Drawer variant */
+/* ドロワーバリアント */
 .kat-modal--drawer {
   align-items: stretch;
   justify-content: flex-end;
@@ -2420,7 +2617,7 @@ sup {
     transform: translateX(100%);
   }
 }
-/* Bottom sheet variant */
+/* ボトムシートバリアント */
 .kat-modal--bottom-sheet {
   align-items: flex-end;
   justify-content: center;
@@ -2452,7 +2649,7 @@ sup {
     transform: translateY(100%);
   }
 }
-/* Alert dialog variant */
+/* アラートダイアログバリアント */
 .kat-modal--alert .kat-modal__content {
   max-width: 28rem;
   text-align: center;
@@ -2486,7 +2683,7 @@ sup {
   color: #2563eb;
 }
 
-/* Modal overlay for page content - Fix layout shift */
+/* ページ側のオーバーレイ状態（レイアウトシフト抑制） */
 .kat-modal-open {
   overflow: hidden;
   padding-right: var(--scrollbar-width, 0);
@@ -2498,7 +2695,7 @@ sup {
   transition: filter 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Responsive adjustments */
+/* レスポンシブ調整 */
 @media (max-height: 640px) {
   .kat-modal {
     align-items: flex-start;
@@ -2512,8 +2709,33 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Navigation component styles (navbar, sidebar, breadcrumb) */
-/* Navbar */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - ナビゲーションコンポーネント
+ * 
+ * ナビバー、サイドバー、パンくず、ページレイアウト補助の一式。
+ * レスポンシブとアクセシビリティを考慮したナビゲーションUI。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* ナビバー */
 .kat-navbar {
   position: sticky;
   top: 0;
@@ -2600,7 +2822,7 @@ sup {
   }
 }
 
-/* Sidebar */
+/* サイドバー */
 .kat-sidebar {
   position: fixed;
   top: 4rem;
@@ -2821,7 +3043,7 @@ sup {
   flex-shrink: 0;
 }
 
-/* Breadcrumb */
+/* パンくず */
 .kat-breadcrumb {
   margin-bottom: 1.5rem;
 }
@@ -2871,127 +3093,7 @@ sup {
   }
 }
 
-/* Pagination */
-.kat-pagination {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.25rem;
-}
-.kat-pagination.kat-pagination--start {
-  justify-content: flex-start;
-}
-.kat-pagination.kat-pagination--end {
-  justify-content: flex-end;
-}
-
-.kat-pagination__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-  cursor: pointer;
-  border: 1px solid transparent;
-  white-space: nowrap;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-  height: 2rem;
-  padding: 0 0.75rem;
-  font-size: 0.8125rem;
-  gap: 0.375rem;
-  background-color: transparent;
-  color: #52525b;
-  border: 1px solid #d4d4d8;
-  gap: 0.25rem;
-}
-.kat-pagination__btn:focus-visible {
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
-}
-.kat-pagination__btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.kat-pagination__btn svg {
-  flex-shrink: 0;
-}
-@media (hover: hover) {
-  .kat-pagination__btn:hover {
-    background-color: #fafafa;
-    color: #18181b;
-  }
-}
-.kat-pagination__btn:disabled {
-  color: #a1a1aa;
-  border-color: #e4e4e7;
-  cursor: not-allowed;
-}
-@media (hover: hover) {
-  .kat-pagination__btn:disabled:hover {
-    background-color: transparent;
-    color: #a1a1aa;
-  }
-}
-
-.kat-pagination__pages {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.kat-pagination__page {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-  cursor: pointer;
-  border: 1px solid transparent;
-  white-space: nowrap;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  background-color: transparent;
-  color: #52525b;
-  border: 1px solid transparent;
-  font-size: 0.8125rem;
-}
-.kat-pagination__page:focus-visible {
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
-}
-.kat-pagination__page:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.kat-pagination__page svg {
-  flex-shrink: 0;
-}
-@media (hover: hover) {
-  .kat-pagination__page:hover {
-    background-color: #f4f4f5;
-    color: #18181b;
-  }
-}
-.kat-pagination__page.kat-pagination__page--active {
-  background-color: #525252;
-  color: #ffffff;
-  border-color: #525252;
-}
-@media (hover: hover) {
-  .kat-pagination__page.kat-pagination__page--active:hover {
-    background-color: #404040;
-    color: #ffffff;
-  }
-}
-
-.kat-pagination__ellipsis {
-  padding: 0.5rem;
-  color: #a1a1aa;
-  font-size: 0.8125rem;
-  user-select: none;
-}
-
-/* Main content area */
+/* メインコンテンツ領域 */
 .kat-main {
   min-height: calc(100vh - 4rem);
   padding: 1rem;
@@ -3005,7 +3107,7 @@ sup {
   }
 }
 
-/* Page layout utilities */
+/* ページレイアウト用ユーティリティ */
 .kat-page-header {
   margin-bottom: 2rem;
   text-align: center;
@@ -3060,7 +3162,7 @@ sup {
   line-height: 1.25;
 }
 
-/* Hover Navigation Menu */
+/* ホバーナビゲーションメニュー */
 .kat-nav-hover {
   display: flex;
   align-items: center;
@@ -3160,18 +3262,42 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Header component styles */
-/* Ecommerce Header Container */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - ヘッダーコンポーネント
+ * 
+ * ECサイトのヘッダー部分を構成する要素
+ * ロゴ、検索バー、ナビゲーション、ユーザーアクションなどを含む
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* ECサイトヘッダーコンテナ - ヘッダーの基本レイアウト */
 .kat-ecommerce-header {
   background-color: #ffffff;
   border-bottom: 1px solid #e5e5e5;
   position: sticky;
   top: 0;
   z-index: 1001;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-/* Top Header Bar */
+/* トップヘッダーバー - お知らせとトップリンクの表示 */
 .kat-ecommerce-header__top {
   background-color: #171717;
   color: #ffffff;
@@ -3204,7 +3330,7 @@ sup {
   color: #ffffff;
 }
 
-/* Main Header */
+/* メインヘッダー - ロゴ、検索バー、アクションの配置 */
 .kat-ecommerce-header__main {
   padding: 1rem 0;
 }
@@ -3217,7 +3343,7 @@ sup {
   gap: 1.5rem;
 }
 
-/* Logo */
+/* ロゴ - サイトブランドの表示 */
 .kat-ecommerce-header__logo {
   flex-shrink: 0;
 }
@@ -3235,7 +3361,7 @@ sup {
 .kat-ecommerce-header__logo a .kat-ecommerce-header__logo-icon {
   width: 2rem;
   height: 2rem;
-  margin-right: 0.5rem;
+  margin-right: 0.75rem;
   background-color: #171717;
   border-radius: 9999px;
   display: flex;
@@ -3245,7 +3371,7 @@ sup {
   font-weight: 700;
 }
 
-/* Search Bar */
+/* 検索バー - 商品検索のための入力フィールド */
 .kat-ecommerce-header__search {
   flex: 1;
   max-width: 32rem;
@@ -3290,7 +3416,7 @@ sup {
   height: 1rem;
 }
 
-/* Header Actions */
+/* ヘッダーアクション - 通知、カート、ユーザーメニューなどのボタン */
 .kat-ecommerce-header__actions {
   display: flex;
   align-items: center;
@@ -3298,7 +3424,7 @@ sup {
   flex-shrink: 0;
 }
 
-/* Header Action Item */
+/* ヘッダーアクションアイテム - 個別のアクションボタン */
 .kat-ecommerce-header__action {
   position: relative;
   display: flex;
@@ -3346,15 +3472,14 @@ sup {
   border: 2px solid #ffffff;
 }
 
-/* Navigation Bar */
+/* ナビゲーションバー - メニュー項目の横並び表示 */
 .kat-ecommerce-header__nav {
-  background-color: #fafafa;
+  background-color: #ffffff;
   border-top: 1px solid #e5e5e5;
   position: sticky;
   top: 0;
   z-index: 1000;
   transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* スクロールアップ時に隠す */
 }
 .kat-ecommerce-header__nav.kat-ecommerce-header__nav--hidden {
   transform: translateY(-100%);
@@ -3366,19 +3491,35 @@ sup {
 }
 .kat-ecommerce-header__nav .kat-ecommerce-header__nav-list {
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 0;
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 .kat-ecommerce-header__nav .kat-ecommerce-header__nav-item {
   position: relative;
-  /* Navigation Dropdown */
+  flex: 1;
+  text-align: center;
+  /* ナビゲーション項目間の縦線セパレーター - メニュー項目の区切り */
+  /* ドロップダウン - ナビゲーションメニューの展開部分 */
+}
+.kat-ecommerce-header__nav .kat-ecommerce-header__nav-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 1.5rem;
+  background-color: #e5e5e5;
 }
 .kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-link {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
   color: #404040;
@@ -3387,10 +3528,12 @@ sup {
   font-weight: 500;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   border-bottom: 2px solid transparent;
+  width: 100%;
+  height: 100%;
 }
 .kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-link:hover {
   color: #171717;
-  background-color: #ffffff;
+  background-color: #fafafa;
   border-bottom-color: #171717;
 }
 .kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-link svg {
@@ -3424,7 +3567,7 @@ sup {
 .kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-dropdown .kat-ecommerce-header__nav-dropdown-header {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #e5e5e5;
-  background-color: #fafafa;
+  background-color: #ffffff;
 }
 .kat-ecommerce-header__nav .kat-ecommerce-header__nav-item .kat-ecommerce-header__nav-dropdown .kat-ecommerce-header__nav-dropdown-header h3 {
   font-size: 0.8125rem;
@@ -3456,7 +3599,7 @@ sup {
   color: #737373;
 }
 
-/* Responsive Design */
+/* レスポンシブデザイン - 画面サイズに応じた表示の最適化 */
 @media (min-width: 640px) {
   .kat-ecommerce-header__main-inner {
     gap: 1rem;
@@ -3476,7 +3619,7 @@ sup {
     max-width: 38rem;
   }
 }
-/* Mobile Menu Toggle */
+/* モバイルメニュートグル - モバイルでのメニュー開閉ボタン */
 .kat-ecommerce-header__mobile-toggle {
   display: none;
   background: none;
@@ -3495,7 +3638,7 @@ sup {
   height: 1.5rem;
 }
 
-/* Mobile Navigation */
+/* モバイルナビゲーション - モバイル専用のメニュー表示 */
 .kat-ecommerce-header__mobile-nav {
   display: none;
 }
@@ -3541,8 +3684,572 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, カテゴリナビゲーションコンポーネントスタイル */
-/* カテゴリナビゲーションコンテナ */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - ヘッダーポップアップコンポーネント
+ * 
+ * ヘッダーに表示される通知、カート、ウィッシュリストなどの
+ * ドロップダウンポップアップのスタイル
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* ベースポップアップスタイル - ポップアップの基本レイアウト */
+.kat-header-popup, .kat-wishlist-popup, .kat-cart-popup, .kat-notification-popup {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  min-width: 20rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.5rem);
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-top: 0.5rem;
+  /* 開いた状態 - ポップアップが表示されている状態 */
+  /* ポップアップの矢印 - ポップアップの位置を示す視覚的要素 */
+}
+.kat-header-popup.kat-header-popup--open, .kat-header-popup--open.kat-wishlist-popup, .kat-header-popup--open.kat-cart-popup, .kat-header-popup--open.kat-notification-popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.kat-header-popup::before, .kat-wishlist-popup::before, .kat-cart-popup::before, .kat-notification-popup::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 1rem;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #e5e5e5;
+}
+.kat-header-popup::after, .kat-wishlist-popup::after, .kat-cart-popup::after, .kat-notification-popup::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 1rem;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ffffff;
+}
+
+/* 通知ポップアップ - システム通知を表示するポップアップ */
+.kat-notification-popup {
+  width: 24rem;
+  max-height: 28rem;
+  overflow: hidden;
+}
+
+.kat-notification-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fafafa;
+}
+.kat-notification-popup__header h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0;
+}
+.kat-notification-popup__header .kat-notification-popup__mark-read {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  background: none;
+  border: none;
+  color: #525252;
+  font-size: 0.6875rem;
+  text-decoration: underline;
+}
+.kat-notification-popup__header .kat-notification-popup__mark-read:focus-visible {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
+}
+.kat-notification-popup__header .kat-notification-popup__mark-read:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.kat-notification-popup__header .kat-notification-popup__mark-read svg {
+  flex-shrink: 0;
+}
+@media (hover: hover) {
+  .kat-notification-popup__header .kat-notification-popup__mark-read:hover {
+    color: #262626;
+  }
+}
+
+.kat-notification-popup__content {
+  max-height: 20rem;
+  overflow-y: auto;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d8 #f4f4f5;
+}
+.kat-notification-popup__content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.kat-notification-popup__content::-webkit-scrollbar-track {
+  background: #f4f4f5;
+  border-radius: 0.125rem;
+}
+.kat-notification-popup__content::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 0.125rem;
+}
+.kat-notification-popup__content::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+.kat-notification-popup__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f5f5f5;
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.42, 0, 0.58, 1);
+  /* 未読状態 */
+}
+@media (hover: hover) {
+  .kat-notification-popup__item:hover {
+    background-color: #fafafa;
+  }
+}
+.kat-notification-popup__item:last-child {
+  border-bottom: none;
+}
+.kat-notification-popup__item.kat-notification-popup__item--unread {
+  background-color: #f9f9f9;
+}
+.kat-notification-popup__item.kat-notification-popup__item--unread::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: #525252;
+}
+
+.kat-notification-popup__icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+.kat-notification-popup__icon.kat-notification-popup__icon--success {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+.kat-notification-popup__icon.kat-notification-popup__icon--warning {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+.kat-notification-popup__icon.kat-notification-popup__icon--error {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+.kat-notification-popup__icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.kat-notification-popup__text {
+  flex: 1;
+  min-width: 0;
+}
+
+.kat-notification-popup__title {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #171717;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.25;
+}
+
+.kat-notification-popup__message {
+  font-size: 0.6875rem;
+  color: #525252;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.5;
+}
+
+.kat-notification-popup__time {
+  font-size: 0.6875rem;
+  color: #a3a3a3;
+  margin: 0;
+}
+
+.kat-notification-popup__footer {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+}
+.kat-notification-popup__footer .kat-notification-popup__view-all {
+  color: #525252;
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .kat-notification-popup__footer .kat-notification-popup__view-all:hover {
+    color: #262626;
+    background-color: #fafafa;
+  }
+}
+
+/* カートポップアップ - ショッピングカートの内容を表示 */
+.kat-cart-popup {
+  width: 22rem;
+  max-height: 32rem;
+  overflow: hidden;
+}
+
+.kat-cart-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fafafa;
+}
+.kat-cart-popup__header h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0;
+}
+.kat-cart-popup__content {
+  max-height: 20rem;
+  overflow-y: auto;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d8 #f4f4f5;
+}
+.kat-cart-popup__content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.kat-cart-popup__content::-webkit-scrollbar-track {
+  background: #f4f4f5;
+  border-radius: 0.125rem;
+}
+.kat-cart-popup__content::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 0.125rem;
+}
+.kat-cart-popup__content::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+.kat-cart-popup__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f5f5f5;
+}
+.kat-cart-popup__item:last-child {
+  border-bottom: none;
+}
+
+.kat-cart-popup__image {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.1875rem;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+}
+.kat-cart-popup__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kat-cart-popup__details {
+  flex: 1;
+  min-width: 0;
+}
+
+.kat-cart-popup__name {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #171717;
+  margin: 0 0 0.125rem 0;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kat-cart-popup__price {
+  font-size: 0.6875rem;
+  color: #525252;
+  margin: 0;
+}
+
+.kat-cart-popup__quantity {
+  flex-shrink: 0;
+  font-size: 0.6875rem;
+  color: #737373;
+  margin-left: 0.5rem;
+}
+
+.kat-cart-popup__footer {
+  padding: 1rem;
+  border-top: 1px solid #e5e5e5;
+  background-color: #f9f9f9;
+}
+
+.kat-cart-popup__total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #171717;
+}
+
+.kat-cart-popup__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+.kat-cart-popup__actions .kat-btn, .kat-cart-popup__actions .kat-wishlist-popup__footer .kat-wishlist-popup__view-all, .kat-wishlist-popup__footer .kat-cart-popup__actions .kat-wishlist-popup__view-all, .kat-cart-popup__actions .kat-notification-popup__footer .kat-notification-popup__view-all, .kat-notification-popup__footer .kat-cart-popup__actions .kat-notification-popup__view-all {
+  flex: 1;
+}
+
+/* ウィッシュリストポップアップ - お気に入り商品の一覧を表示 */
+.kat-wishlist-popup {
+  width: 20rem;
+  max-height: 28rem;
+  overflow: hidden;
+}
+
+.kat-wishlist-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fafafa;
+}
+.kat-wishlist-popup__header h3 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0;
+}
+.kat-wishlist-popup__content {
+  max-height: 16rem;
+  overflow-y: auto;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d8 #f4f4f5;
+}
+.kat-wishlist-popup__content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.kat-wishlist-popup__content::-webkit-scrollbar-track {
+  background: #f4f4f5;
+  border-radius: 0.125rem;
+}
+.kat-wishlist-popup__content::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 0.125rem;
+}
+.kat-wishlist-popup__content::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+.kat-wishlist-popup__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f5f5f5;
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+@media (hover: hover) {
+  .kat-wishlist-popup__item:hover {
+    background-color: #fafafa;
+  }
+}
+.kat-wishlist-popup__item:last-child {
+  border-bottom: none;
+}
+
+.kat-wishlist-popup__image {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.1875rem;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+}
+.kat-wishlist-popup__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kat-wishlist-popup__details {
+  flex: 1;
+  min-width: 0;
+}
+
+.kat-wishlist-popup__name {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #171717;
+  margin: 0 0 0.125rem 0;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kat-wishlist-popup__price {
+  font-size: 0.6875rem;
+  color: #525252;
+  margin: 0;
+}
+
+.kat-wishlist-popup__footer {
+  padding: 0.75rem 1rem;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+}
+.kat-wishlist-popup__footer .kat-wishlist-popup__view-all {
+  color: #525252;
+  text-decoration: none;
+}
+@media (hover: hover) {
+  .kat-wishlist-popup__footer .kat-wishlist-popup__view-all:hover {
+    color: #262626;
+    background-color: #fafafa;
+  }
+}
+
+/* 空の状態 - ポップアップにコンテンツが存在しない場合の表示 */
+.kat-header-popup__empty {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: #737373;
+}
+.kat-header-popup__empty svg {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.75rem;
+  opacity: 0.5;
+}
+.kat-header-popup__empty h4 {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+  color: #404040;
+}
+.kat-header-popup__empty p {
+  font-size: 0.6875rem;
+  margin: 0;
+  line-height: 1.625;
+}
+
+/* レスポンシブデザイン - 画面サイズに応じた表示の最適化 */
+@media (min-width: 640px) {
+  .kat-header-popup, .kat-notification-popup, .kat-cart-popup, .kat-wishlist-popup {
+    min-width: 16rem;
+    right: -1rem;
+  }
+  .kat-header-popup::before, .kat-notification-popup::before, .kat-cart-popup::before, .kat-wishlist-popup::before {
+    right: 1.5rem;
+  }
+  .kat-header-popup::after, .kat-notification-popup::after, .kat-cart-popup::after, .kat-wishlist-popup::after {
+    right: 1.5rem;
+  }
+  .kat-notification-popup {
+    width: 20rem;
+  }
+  .kat-cart-popup {
+    width: 18rem;
+  }
+  .kat-wishlist-popup {
+    width: 16rem;
+  }
+}
+/* アクセシビリティ - アニメーション軽減設定への対応 */
+@media (prefers-reduced-motion: reduce) {
+  .kat-header-popup, .kat-notification-popup, .kat-cart-popup, .kat-wishlist-popup {
+    transition: none;
+  }
+}
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - カテゴリナビゲーションコンポーネント
+ * 
+ * ECサイトでカテゴリを階層的に表示するための
+ * アコーディオン形式のナビゲーション要素
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* カテゴリナビゲーションコンテナ - カテゴリ表示の基本レイアウト */
 .kat-category-nav {
   width: 100%;
 }
@@ -3553,10 +4260,10 @@ sup {
   padding: 0;
 }
 
-/* カテゴリアイテム */
+/* カテゴリアイテム - 個別のカテゴリナビゲーション要素 */
 .kat-category-nav__item {
   border-bottom: 1px solid #e5e5e5;
-  /* アクティブ状態 */
+  /* アクティブ状態 - 現在選択されているカテゴリの表示 */
 }
 .kat-category-nav__item.kat-category-nav__item--active {
   background-color: #fafafa;
@@ -3566,7 +4273,7 @@ sup {
   color: #171717;
 }
 
-/* カテゴリトグルボタン */
+/* カテゴリトグルボタン - カテゴリの開閉を制御するボタン */
 .kat-category-nav__toggle {
   display: flex;
   align-items: center;
@@ -3591,7 +4298,7 @@ sup {
   box-shadow: 0 0 0 2px #737373;
 }
 
-/* カテゴリラベル */
+/* カテゴリラベル - カテゴリ名の表示テキスト */
 .kat-category-nav__label {
   flex: 1;
   margin-right: 0.5rem;
@@ -3600,7 +4307,7 @@ sup {
   text-overflow: ellipsis;
 }
 
-/* カテゴリアイコン */
+/* カテゴリアイコン - カテゴリを表す視覚的要素 */
 .kat-category-nav__icon {
   padding-bottom: 0.2rem;
   display: flex;
@@ -3620,7 +4327,7 @@ sup {
   color: #737373;
 }
 
-/* サブメニュー */
+/* サブメニュー - カテゴリの下位項目を表示する展開可能なメニュー */
 .kat-category-nav__submenu {
   list-style: none;
   margin: 0;
@@ -3629,18 +4336,18 @@ sup {
   max-height: 0;
   overflow: hidden;
   transition: max-height 500ms cubic-bezier(0, 0, 0.58, 1);
-  /* 開いた状態 */
+  /* 開いた状態 - サブメニューが展開されている状態 */
 }
 .kat-category-nav__submenu.kat-category-nav__submenu--open {
   max-height: 20rem;
 }
 
-/* サブメニューアイテム */
+/* サブメニューアイテム - サブメニュー内の個別項目 */
 .kat-category-nav__subitem {
   border-bottom: 1px solid #f5f5f5;
 }
 
-/* サブメニューリンク */
+/* サブメニューリンク - サブメニュー内のクリック可能なリンク */
 .kat-category-nav__link {
   display: flex;
   align-items: center;
@@ -3650,7 +4357,7 @@ sup {
   text-decoration: none;
   font-size: 0.8125rem;
   transition: all 500ms cubic-bezier(0, 0, 0.58, 1);
-  /* 直接リンクの矢印を追加 */
+  /* 直接リンクの矢印を追加 - ナビゲーションを示す視覚的要素 */
 }
 .kat-category-nav__link:hover {
   background-color: #f5f5f5;
@@ -3673,7 +4380,7 @@ sup {
   margin-left: auto;
 }
 
-/* レスポンシブデザイン */
+/* レスポンシブデザイン - 画面サイズに応じた表示の最適化 */
 @media (min-width: 1024px) {
   .kat-category-nav__toggle {
     padding: 0.625rem 1rem;
@@ -3696,7 +4403,7 @@ sup {
     padding-left: 1.25rem;
   }
 }
-/* アニメーション */
+/* アニメーション - サブメニューの開閉動作 */
 .kat-category-nav__submenu {
   transition: max-height 600ms cubic-bezier(0, 0, 0.58, 1), opacity 350ms cubic-bezier(0, 0, 0.58, 1);
 }
@@ -3707,7 +4414,7 @@ sup {
   opacity: 1;
 }
 
-/* アクセシビリティのためのフォーカス管理 */
+/* アクセシビリティのためのフォーカス管理 - キーボードナビゲーション対応 */
 .kat-category-nav__toggle:focus-visible {
   position: relative;
   z-index: 1;
@@ -3718,7 +4425,7 @@ sup {
   z-index: 1;
 }
 
-/* ハイコントラストモードサポート */
+/* ハイコントラストモードサポート - 視認性向上のための調整 */
 @media (prefers-contrast: high) {
   .kat-category-nav__item {
     border-bottom-color: #d4d4d4;
@@ -3730,7 +4437,7 @@ sup {
     border-bottom-color: #e5e5e5;
   }
 }
-/* リダクションモーションサポート */
+/* リダクションモーションサポート - アニメーション軽減設定への対応 */
 @media (prefers-reduced-motion: reduce) {
   .kat-category-nav__submenu {
     transition: none;
@@ -3741,13 +4448,38 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Category Image component styles */
-/* カテゴリ画像コンテナ */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - カテゴリ画像コンポーネント
+ * 
+ * ECサイトでカテゴリを視覚的に表示するための
+ * 画像とテキストを組み合わせたナビゲーション要素
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* カテゴリ画像コンテナ - カテゴリ表示の基本レイアウト */
 .kat-category-image {
   width: 100%;
 }
 
-/* セクション */
+/* カテゴリセクション - 各カテゴリグループの区切り */
 .kat-category-image__section {
   margin-bottom: 1.5rem;
 }
@@ -3755,7 +4487,7 @@ sup {
   margin-bottom: 0;
 }
 
-/* セクションヘッダー */
+/* セクションヘッダー - カテゴリグループのタイトル表示 */
 .kat-category-image__section-title {
   font-size: 1rem;
   font-weight: 700;
@@ -3763,7 +4495,7 @@ sup {
   margin: 0 0 1rem 0;
 }
 
-/* カテゴリリスト */
+/* カテゴリリスト - カテゴリアイテムを縦に並べたリスト */
 .kat-category-image__list {
   list-style: none;
   margin: 0;
@@ -3772,7 +4504,7 @@ sup {
   flex-direction: column;
 }
 
-/* カテゴリアイテム */
+/* カテゴリアイテム - 個別のカテゴリ表示要素 */
 .kat-category-image__item {
   border-bottom: 1px solid #e5e5e5;
   cursor: pointer;
@@ -3790,12 +4522,12 @@ sup {
   padding: 0.5rem 0.75rem 0.5rem 0;
 }
 
-/* カテゴリアイコン/ロゴ */
+/* カテゴリアイコン/ロゴ - カテゴリを表す視覚的要素 */
 .kat-category-image__icon {
   width: 4rem;
   height: 2.5rem;
-  /* アイコンスタイル */
-  /* 特定のアイコンスタイル */
+  /* アイコンスタイル - テキストベースのアイコン表示 */
+  /* 特定のアイコンスタイル - カテゴリ別の専用デザイン */
 }
 .kat-category-image__icon img {
   width: 100%;
@@ -3822,7 +4554,7 @@ sup {
   font-size: 0.875rem;
 }
 
-/* カテゴリテキスト */
+/* カテゴリテキスト - カテゴリ名の表示 */
 .kat-category-image__text {
   flex: 1;
   font-size: 0.875rem;
@@ -3834,7 +4566,7 @@ sup {
   text-overflow: ellipsis;
 }
 
-/* カテゴリアロー */
+/* カテゴリアロー - ナビゲーションを示す矢印アイコン */
 .kat-category-image__arrow {
   margin-left: 0.75rem;
   padding-bottom: 0.2rem;
@@ -3852,7 +4584,7 @@ sup {
   display: inline-block;
 }
 
-/* レスポンシブデザイン */
+/* レスポンシブデザイン - 画面サイズに応じた表示の最適化 */
 @media (min-width: 1024px) {
   .kat-category-image__icon {
     margin-right: 0.5rem;
@@ -3868,13 +4600,13 @@ sup {
     font-size: 0.8125rem;
   }
 }
-/* アクセシビリティのためのフォーカス管理 */
+/* アクセシビリティのためのフォーカス管理 - キーボードナビゲーション対応 */
 .kat-category-image__item:focus-visible {
   outline: none;
   box-shadow: 0 0 0 2px #737373;
 }
 
-/* ハイコントラストモードサポート */
+/* ハイコントラストモードサポート - 視認性向上のための調整 */
 @media (prefers-contrast: high) {
   .kat-category-image__item {
     border-color: #a3a3a3;
@@ -3883,7 +4615,7 @@ sup {
     border-color: #525252;
   }
 }
-/* リダクションモーションサポート */
+/* リダクションモーションサポート - アニメーション軽減設定への対応 */
 @media (prefers-reduced-motion: reduce) {
   .kat-category-image__item {
     transition: none;
@@ -3893,9 +4625,34 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Alert and notification component styles */
-/* Base alert styles */
-.kat-alert, .kat-inline-alert, .kat-banner, .kat-toast {
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - アラート・通知コンポーネント
+ * 
+ * システム全体で使用されるアラート、通知、トーストメッセージのスタイル
+ * 成功、警告、エラー、情報の4つの状態をサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* ベースアラートスタイル - 基本的なアラートの見た目と動作 */
+.kat-alert, .kat-inline-alert, .kat-banner {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
@@ -3905,72 +4662,72 @@ sup {
   font-size: 0.8125rem;
   line-height: 1.5;
   position: relative;
-  /* Default/neutral alert */
+  /* デフォルト/ニュートラルアラート - 基本的な情報表示用 */
   background-color: #fafafa;
   border-color: #e4e4e7;
   color: #27272a;
-  /* Alert variants */
-  /* Solid variant */
-  /* Dismissible alerts */
+  /* アラートバリアント - 状態に応じた色分け */
+  /* ソリッドバリアント - 背景色が濃いバージョン */
+  /* 閉じることができるアラート - 閉じるボタン付き */
 }
-.kat-alert.kat-alert--success, .kat-alert--success.kat-inline-alert, .kat-alert--success.kat-banner, .kat-alert--success.kat-toast {
+.kat-alert.kat-alert--success, .kat-alert--success.kat-inline-alert, .kat-alert--success.kat-banner {
   background-color: #f0fdf4;
   border-color: #bbf7d0;
   color: #166534;
 }
-.kat-alert.kat-alert--success .kat-alert__icon, .kat-alert--success.kat-inline-alert .kat-alert__icon, .kat-alert--success.kat-banner .kat-alert__icon, .kat-alert--success.kat-toast .kat-alert__icon {
+.kat-alert.kat-alert--success .kat-alert__icon, .kat-alert--success.kat-inline-alert .kat-alert__icon, .kat-alert--success.kat-banner .kat-alert__icon {
   color: #16a34a;
 }
-.kat-alert.kat-alert--warning, .kat-alert--warning.kat-inline-alert, .kat-alert--warning.kat-banner, .kat-alert--warning.kat-toast {
+.kat-alert.kat-alert--warning, .kat-alert--warning.kat-inline-alert, .kat-alert--warning.kat-banner {
   background-color: #fffbeb;
   border-color: #fde68a;
   color: #92400e;
 }
-.kat-alert.kat-alert--warning .kat-alert__icon, .kat-alert--warning.kat-inline-alert .kat-alert__icon, .kat-alert--warning.kat-banner .kat-alert__icon, .kat-alert--warning.kat-toast .kat-alert__icon {
+.kat-alert.kat-alert--warning .kat-alert__icon, .kat-alert--warning.kat-inline-alert .kat-alert__icon, .kat-alert--warning.kat-banner .kat-alert__icon {
   color: #d97706;
 }
-.kat-alert.kat-alert--error, .kat-alert--error.kat-inline-alert, .kat-alert--error.kat-banner, .kat-alert--error.kat-toast {
+.kat-alert.kat-alert--error, .kat-alert--error.kat-inline-alert, .kat-alert--error.kat-banner {
   background-color: #fef2f2;
   border-color: #fecaca;
   color: #991b1b;
 }
-.kat-alert.kat-alert--error .kat-alert__icon, .kat-alert--error.kat-inline-alert .kat-alert__icon, .kat-alert--error.kat-banner .kat-alert__icon, .kat-alert--error.kat-toast .kat-alert__icon {
+.kat-alert.kat-alert--error .kat-alert__icon, .kat-alert--error.kat-inline-alert .kat-alert__icon, .kat-alert--error.kat-banner .kat-alert__icon {
   color: #dc2626;
 }
-.kat-alert.kat-alert--info, .kat-alert--info.kat-inline-alert, .kat-alert--info.kat-banner, .kat-alert--info.kat-toast {
+.kat-alert.kat-alert--info, .kat-alert--info.kat-inline-alert, .kat-alert--info.kat-banner {
   background-color: #eff6ff;
   border-color: #bfdbfe;
   color: #1e40af;
 }
-.kat-alert.kat-alert--info .kat-alert__icon, .kat-alert--info.kat-inline-alert .kat-alert__icon, .kat-alert--info.kat-banner .kat-alert__icon, .kat-alert--info.kat-toast .kat-alert__icon {
+.kat-alert.kat-alert--info .kat-alert__icon, .kat-alert--info.kat-inline-alert .kat-alert__icon, .kat-alert--info.kat-banner .kat-alert__icon {
   color: #2563eb;
 }
-.kat-alert.kat-alert--solid, .kat-alert--solid.kat-inline-alert, .kat-alert--solid.kat-banner, .kat-alert--solid.kat-toast {
+.kat-alert.kat-alert--solid, .kat-alert--solid.kat-inline-alert, .kat-alert--solid.kat-banner {
   border: none;
   color: #ffffff;
 }
-.kat-alert.kat-alert--solid.kat-alert--success, .kat-alert--solid.kat-alert--success.kat-inline-alert, .kat-alert--solid.kat-alert--success.kat-banner, .kat-alert--solid.kat-alert--success.kat-toast {
+.kat-alert.kat-alert--solid.kat-alert--success, .kat-alert--solid.kat-alert--success.kat-inline-alert, .kat-alert--solid.kat-alert--success.kat-banner {
   background-color: #16a34a;
 }
-.kat-alert.kat-alert--solid.kat-alert--warning, .kat-alert--solid.kat-alert--warning.kat-inline-alert, .kat-alert--solid.kat-alert--warning.kat-banner, .kat-alert--solid.kat-alert--warning.kat-toast {
+.kat-alert.kat-alert--solid.kat-alert--warning, .kat-alert--solid.kat-alert--warning.kat-inline-alert, .kat-alert--solid.kat-alert--warning.kat-banner {
   background-color: #d97706;
 }
-.kat-alert.kat-alert--solid.kat-alert--error, .kat-alert--solid.kat-alert--error.kat-inline-alert, .kat-alert--solid.kat-alert--error.kat-banner, .kat-alert--solid.kat-alert--error.kat-toast {
+.kat-alert.kat-alert--solid.kat-alert--error, .kat-alert--solid.kat-alert--error.kat-inline-alert, .kat-alert--solid.kat-alert--error.kat-banner {
   background-color: #dc2626;
 }
-.kat-alert.kat-alert--solid.kat-alert--info, .kat-alert--solid.kat-alert--info.kat-inline-alert, .kat-alert--solid.kat-alert--info.kat-banner, .kat-alert--solid.kat-alert--info.kat-toast {
+.kat-alert.kat-alert--solid.kat-alert--info, .kat-alert--solid.kat-alert--info.kat-inline-alert, .kat-alert--solid.kat-alert--info.kat-banner {
   background-color: #2563eb;
 }
-.kat-alert.kat-alert--solid .kat-alert__icon, .kat-alert--solid.kat-inline-alert .kat-alert__icon, .kat-alert--solid.kat-banner .kat-alert__icon, .kat-alert--solid.kat-toast .kat-alert__icon {
+.kat-alert.kat-alert--solid .kat-alert__icon, .kat-alert--solid.kat-inline-alert .kat-alert__icon, .kat-alert--solid.kat-banner .kat-alert__icon {
   color: #ffffff;
 }
-.kat-alert.kat-alert--dismissible, .kat-alert--dismissible.kat-inline-alert, .kat-alert--dismissible.kat-banner, .kat-alert--dismissible.kat-toast {
+.kat-alert.kat-alert--dismissible, .kat-alert--dismissible.kat-inline-alert, .kat-alert--dismissible.kat-banner {
   padding-right: 3rem;
 }
 
 .kat-alert__icon {
   flex-shrink: 0;
-  margin-top: 0.125rem; /* Align with first line of text */
+  margin-top: 0.125rem; /* テキストの最初の行に合わせる */
 }
 
 .kat-alert__content {
@@ -4018,7 +4775,7 @@ sup {
   opacity: 0.8;
 }
 
-/* Alert group for stacking alerts */
+/* アラートグループ - 複数のアラートを積み重ねて表示 */
 .kat-alert-group {
   position: fixed;
   top: 1rem;
@@ -4036,39 +4793,16 @@ sup {
     width: auto;
   }
 }
-.kat-alert-group .kat-alert, .kat-alert-group .kat-inline-alert, .kat-alert-group .kat-banner, .kat-alert-group .kat-toast {
+.kat-alert-group .kat-alert, .kat-alert-group .kat-inline-alert, .kat-alert-group .kat-banner {
   pointer-events: auto;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   animation: kat-alert-in 300ms cubic-bezier(0, 0, 0.58, 1);
 }
-.kat-alert-group .kat-alert.kat-alert--removing, .kat-alert-group .kat-alert--removing.kat-inline-alert, .kat-alert-group .kat-alert--removing.kat-banner, .kat-alert-group .kat-alert--removing.kat-toast {
+.kat-alert-group .kat-alert.kat-alert--removing, .kat-alert-group .kat-alert--removing.kat-inline-alert, .kat-alert-group .kat-alert--removing.kat-banner {
   animation: kat-alert-out 200ms cubic-bezier(0.42, 0, 1, 1);
 }
 
-/* Toast notifications */
-.kat-toast {
-  min-width: 20rem;
-  max-width: 24rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e4e4e7;
-}
-.kat-toast.kat-toast--top-left {
-  animation: kat-toast-in-left 300ms cubic-bezier(0, 0, 0.58, 1);
-}
-.kat-toast.kat-toast--top-right {
-  animation: kat-toast-in-right 300ms cubic-bezier(0, 0, 0.58, 1);
-}
-.kat-toast.kat-toast--bottom-left {
-  animation: kat-toast-in-bottom-left 300ms cubic-bezier(0, 0, 0.58, 1);
-}
-.kat-toast.kat-toast--bottom-right {
-  animation: kat-toast-in-bottom-right 300ms cubic-bezier(0, 0, 0.58, 1);
-}
-.kat-toast.kat-toast--removing {
-  animation: kat-toast-out 200ms cubic-bezier(0.42, 0, 1, 1);
-}
-
-/* Banner alerts */
+/* バナーアラート - ページ上部に表示される幅広い通知 */
 .kat-banner {
   border-radius: 0;
   border-left: none;
@@ -4096,7 +4830,7 @@ sup {
   }
 }
 
-/* Inline alerts (for forms) */
+/* インラインアラート - フォーム内で使用される小さな通知 */
 .kat-inline-alert {
   padding: 0.5rem 0.75rem;
   font-size: 0.6875rem;
@@ -4110,7 +4844,7 @@ sup {
   margin-bottom: 0;
 }
 
-/* Alert animations */
+/* アラートアニメーション - 表示・非表示の滑らかな動き */
 @keyframes kat-alert-in {
   from {
     opacity: 0;
@@ -4131,64 +4865,39 @@ sup {
     transform: translateY(-1rem) scale(0.95);
   }
 }
-@keyframes kat-toast-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes kat-toast-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes kat-toast-in-bottom-left {
-  from {
-    opacity: 0;
-    transform: translateX(-100%) translateY(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) translateY(0);
-  }
-}
-@keyframes kat-toast-in-bottom-right {
-  from {
-    opacity: 0;
-    transform: translateX(100%) translateY(100%);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) translateY(0);
-  }
-}
-@keyframes kat-toast-out {
-  from {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: translateX(20px) scale(0.95);
-  }
-}
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2025-08-12, Badge and tag component styles */
-/* Base badge styles */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - バッジ・タグコンポーネント
+ * 
+ * ステータス表示、カウント表示、カテゴリ分類に使用される
+ * 小さくて目立つラベルコンポーネントのスタイル
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2025-08-12
+ * @version: 1.0.0
+ */
+/* ベースバッジスタイル - 基本的なバッジの見た目と動作 */
 .kat-badge-group {
   margin-bottom: 0.375rem;
 }
 
-.kat-badge, .kat-filter-option .kat-filter-option__count, .kat-counter, .kat-status {
+.kat-badge, .kat-counter, .kat-status {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -4196,128 +4905,127 @@ sup {
   font-size: 0.6875rem;
   font-weight: 500;
   line-height: 1;
-  border-radius: 9999px;
   white-space: nowrap;
   vertical-align: baseline;
-  /* Default badge */
+  /* デフォルトバッジ - 基本的なグレーバッジ */
   background-color: #f4f4f5;
   color: #27272a;
-  /* Badge variants */
-  /* Outline variant */
-  /* Solid variant */
-  /* Badge sizes */
-  /* Pill variant (more rounded) */
-  /* Square variant */
-  /* Badge with icon */
-  /* Removable badge */
+  /* バッジバリアント - 用途に応じた色分け */
+  /* アウトラインバリアント - 枠線のみの透明背景 */
+  /* ソリッドバリアント - 背景色が濃いバージョン */
+  /* バッジサイズ - 用途に応じた大きさのバリエーション */
+  /* ピルバリアント - より丸みを帯びたデザイン */
+  /* スクエアバリアント - 角張ったデザイン */
+  /* アイコン付きバッジ - アイコンとテキストを組み合わせたバッジ */
+  /* 削除可能バッジ - 閉じるボタン付きのバッジ */
 }
-.kat-badge.kat-badge--primary, .kat-filter-option .kat-badge--primary.kat-filter-option__count, .kat-counter, .kat-badge--primary.kat-status {
+.kat-badge.kat-badge--primary, .kat-counter, .kat-badge--primary.kat-status {
   background-color: #f5f5f5;
   color: #262626;
 }
-.kat-badge.kat-badge--success, .kat-filter-option .kat-badge--success.kat-filter-option__count, .kat-badge--success.kat-counter, .kat-badge--success.kat-status {
+.kat-badge.kat-badge--success, .kat-badge--success.kat-counter, .kat-badge--success.kat-status {
   background-color: #dcfce7;
   color: #166534;
 }
-.kat-badge.kat-badge--warning, .kat-filter-option .kat-badge--warning.kat-filter-option__count, .kat-badge--warning.kat-counter, .kat-badge--warning.kat-status {
+.kat-badge.kat-badge--warning, .kat-badge--warning.kat-counter, .kat-badge--warning.kat-status {
   background-color: #fef3c7;
   color: #92400e;
 }
-.kat-badge.kat-badge--error, .kat-filter-option .kat-badge--error.kat-filter-option__count, .kat-badge--error.kat-counter, .kat-badge--error.kat-status {
+.kat-badge.kat-badge--error, .kat-badge--error.kat-counter, .kat-badge--error.kat-status {
   background-color: #fee2e2;
   color: #991b1b;
 }
-.kat-badge.kat-badge--info, .kat-filter-option .kat-badge--info.kat-filter-option__count, .kat-badge--info.kat-counter, .kat-badge--info.kat-status {
+.kat-badge.kat-badge--info, .kat-badge--info.kat-counter, .kat-badge--info.kat-status {
   background-color: #dbeafe;
   color: #1e40af;
 }
-.kat-badge.kat-badge--outline, .kat-filter-option .kat-filter-option__count, .kat-badge--outline.kat-counter, .kat-badge--outline.kat-status {
+.kat-badge.kat-badge--outline, .kat-badge--outline.kat-counter, .kat-badge--outline.kat-status {
   background-color: transparent;
   border: 1px solid #d4d4d8;
   color: #3f3f46;
 }
-.kat-badge.kat-badge--outline.kat-badge--primary, .kat-filter-option .kat-badge--primary.kat-filter-option__count, .kat-badge--outline.kat-counter, .kat-filter-option .kat-counter.kat-filter-option__count, .kat-badge--outline.kat-badge--primary.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--primary, .kat-badge--outline.kat-counter, .kat-badge--outline.kat-badge--primary.kat-status {
   border-color: #d4d4d4;
   color: #404040;
 }
-.kat-badge.kat-badge--outline.kat-badge--success, .kat-filter-option .kat-badge--success.kat-filter-option__count, .kat-badge--outline.kat-badge--success.kat-counter, .kat-badge--outline.kat-badge--success.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--success, .kat-badge--outline.kat-badge--success.kat-counter, .kat-badge--outline.kat-badge--success.kat-status {
   border-color: #86efac;
   color: #15803d;
 }
-.kat-badge.kat-badge--outline.kat-badge--warning, .kat-filter-option .kat-badge--warning.kat-filter-option__count, .kat-badge--outline.kat-badge--warning.kat-counter, .kat-badge--outline.kat-badge--warning.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--warning, .kat-badge--outline.kat-badge--warning.kat-counter, .kat-badge--outline.kat-badge--warning.kat-status {
   border-color: #fcd34d;
   color: #b45309;
 }
-.kat-badge.kat-badge--outline.kat-badge--error, .kat-filter-option .kat-badge--error.kat-filter-option__count, .kat-badge--outline.kat-badge--error.kat-counter, .kat-badge--outline.kat-badge--error.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--error, .kat-badge--outline.kat-badge--error.kat-counter, .kat-badge--outline.kat-badge--error.kat-status {
   border-color: #fca5a5;
   color: #b91c1c;
 }
-.kat-badge.kat-badge--outline.kat-badge--info, .kat-filter-option .kat-badge--info.kat-filter-option__count, .kat-badge--outline.kat-badge--info.kat-counter, .kat-badge--outline.kat-badge--info.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--info, .kat-badge--outline.kat-badge--info.kat-counter, .kat-badge--outline.kat-badge--info.kat-status {
   border-color: #93c5fd;
   color: #1d4ed8;
 }
-.kat-badge.kat-badge--solid, .kat-filter-option .kat-badge--solid.kat-filter-option__count, .kat-counter, .kat-badge--solid.kat-status {
+.kat-badge.kat-badge--solid, .kat-counter, .kat-badge--solid.kat-status {
   color: #ffffff;
 }
-.kat-badge.kat-badge--solid.kat-badge--primary, .kat-filter-option .kat-badge--solid.kat-badge--primary.kat-filter-option__count, .kat-counter, .kat-badge--solid.kat-badge--primary.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--primary, .kat-counter, .kat-badge--solid.kat-badge--primary.kat-status {
   background-color: #525252;
 }
-.kat-badge.kat-badge--solid.kat-badge--success, .kat-filter-option .kat-badge--solid.kat-badge--success.kat-filter-option__count, .kat-badge--success.kat-counter, .kat-badge--solid.kat-badge--success.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--success, .kat-badge--success.kat-counter, .kat-badge--solid.kat-badge--success.kat-status {
   background-color: #16a34a;
 }
-.kat-badge.kat-badge--solid.kat-badge--warning, .kat-filter-option .kat-badge--solid.kat-badge--warning.kat-filter-option__count, .kat-badge--warning.kat-counter, .kat-badge--solid.kat-badge--warning.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--warning, .kat-badge--warning.kat-counter, .kat-badge--solid.kat-badge--warning.kat-status {
   background-color: #d97706;
 }
-.kat-badge.kat-badge--solid.kat-badge--error, .kat-filter-option .kat-badge--solid.kat-badge--error.kat-filter-option__count, .kat-badge--error.kat-counter, .kat-badge--solid.kat-badge--error.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--error, .kat-badge--error.kat-counter, .kat-badge--solid.kat-badge--error.kat-status {
   background-color: #dc2626;
 }
-.kat-badge.kat-badge--solid.kat-badge--info, .kat-filter-option .kat-badge--solid.kat-badge--info.kat-filter-option__count, .kat-badge--info.kat-counter, .kat-badge--solid.kat-badge--info.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--info, .kat-badge--info.kat-counter, .kat-badge--solid.kat-badge--info.kat-status {
   background-color: #2563eb;
 }
-.kat-badge.kat-badge--sm, .kat-filter-option .kat-badge--sm.kat-filter-option__count, .kat-badge--sm.kat-counter, .kat-badge--sm.kat-status {
+.kat-badge.kat-badge--sm, .kat-badge--sm.kat-counter, .kat-badge--sm.kat-status {
   padding: 0.125rem 0.375rem;
   font-size: 0.6875rem; /* 11px */
 }
-.kat-badge.kat-badge--lg, .kat-filter-option .kat-badge--lg.kat-filter-option__count, .kat-badge--lg.kat-counter, .kat-badge--lg.kat-status {
+.kat-badge.kat-badge--lg, .kat-badge--lg.kat-counter, .kat-badge--lg.kat-status {
   padding: 0.375rem 0.75rem;
   font-size: 0.8125rem;
 }
-.kat-badge.kat-badge--pill, .kat-filter-option .kat-badge--pill.kat-filter-option__count, .kat-badge--pill.kat-counter, .kat-badge--pill.kat-status {
+.kat-badge.kat-badge--pill, .kat-badge--pill.kat-counter, .kat-badge--pill.kat-status {
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
 }
-.kat-badge.kat-badge--square, .kat-filter-option .kat-badge--square.kat-filter-option__count, .kat-badge--square.kat-counter, .kat-badge--square.kat-status {
+.kat-badge.kat-badge--square, .kat-badge--square.kat-counter, .kat-badge--square.kat-status {
   border-radius: 0.0625rem;
 }
-.kat-badge.kat-badge--with-icon, .kat-filter-option .kat-badge--with-icon.kat-filter-option__count, .kat-badge--with-icon.kat-counter, .kat-badge--with-icon.kat-status {
+.kat-badge.kat-badge--with-icon, .kat-badge--with-icon.kat-counter, .kat-badge--with-icon.kat-status {
   gap: 0.25rem;
   padding-left: 0.375rem;
 }
-.kat-badge.kat-badge--with-icon svg, .kat-filter-option .kat-badge--with-icon.kat-filter-option__count svg, .kat-badge--with-icon.kat-counter svg, .kat-badge--with-icon.kat-status svg {
+.kat-badge.kat-badge--with-icon svg, .kat-badge--with-icon.kat-counter svg, .kat-badge--with-icon.kat-status svg {
   width: 0.75rem;
   height: 0.75rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--sm, .kat-filter-option .kat-badge--with-icon.kat-badge--sm.kat-filter-option__count, .kat-badge--with-icon.kat-badge--sm.kat-counter, .kat-badge--with-icon.kat-badge--sm.kat-status {
+.kat-badge.kat-badge--with-icon.kat-badge--sm, .kat-badge--with-icon.kat-badge--sm.kat-counter, .kat-badge--with-icon.kat-badge--sm.kat-status {
   gap: 0.125rem;
   padding-left: 0.25rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--sm svg, .kat-filter-option .kat-badge--with-icon.kat-badge--sm.kat-filter-option__count svg, .kat-badge--with-icon.kat-badge--sm.kat-counter svg, .kat-badge--with-icon.kat-badge--sm.kat-status svg {
+.kat-badge.kat-badge--with-icon.kat-badge--sm svg, .kat-badge--with-icon.kat-badge--sm.kat-counter svg, .kat-badge--with-icon.kat-badge--sm.kat-status svg {
   width: 0.625rem;
   height: 0.625rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--lg, .kat-filter-option .kat-badge--with-icon.kat-badge--lg.kat-filter-option__count, .kat-badge--with-icon.kat-badge--lg.kat-counter, .kat-badge--with-icon.kat-badge--lg.kat-status {
+.kat-badge.kat-badge--with-icon.kat-badge--lg, .kat-badge--with-icon.kat-badge--lg.kat-counter, .kat-badge--with-icon.kat-badge--lg.kat-status {
   gap: 0.375rem;
   padding-left: 0.5rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--lg svg, .kat-filter-option .kat-badge--with-icon.kat-badge--lg.kat-filter-option__count svg, .kat-badge--with-icon.kat-badge--lg.kat-counter svg, .kat-badge--with-icon.kat-badge--lg.kat-status svg {
+.kat-badge.kat-badge--with-icon.kat-badge--lg svg, .kat-badge--with-icon.kat-badge--lg.kat-counter svg, .kat-badge--with-icon.kat-badge--lg.kat-status svg {
   width: 1rem;
   height: 1rem;
 }
-.kat-badge.kat-badge--removable, .kat-filter-option .kat-badge--removable.kat-filter-option__count, .kat-badge--removable.kat-counter, .kat-badge--removable.kat-status {
+.kat-badge.kat-badge--removable, .kat-badge--removable.kat-counter, .kat-badge--removable.kat-status {
   padding-right: 0.25rem;
   gap: 0.25rem;
 }
-.kat-badge.kat-badge--removable .kat-badge__remove, .kat-filter-option .kat-badge--removable.kat-filter-option__count .kat-badge__remove, .kat-badge--removable.kat-counter .kat-badge__remove, .kat-badge--removable.kat-status .kat-badge__remove {
+.kat-badge.kat-badge--removable .kat-badge__remove, .kat-badge--removable.kat-counter .kat-badge__remove, .kat-badge--removable.kat-status .kat-badge__remove {
   background: none;
   border: none;
   color: inherit;
@@ -4333,33 +5041,33 @@ sup {
   transition: opacity 150ms cubic-bezier(0.42, 0, 0.58, 1);
 }
 @media (hover: hover) {
-  .kat-badge.kat-badge--removable .kat-badge__remove:hover, .kat-filter-option .kat-badge--removable.kat-filter-option__count .kat-badge__remove:hover, .kat-badge--removable.kat-counter .kat-badge__remove:hover, .kat-badge--removable.kat-status .kat-badge__remove:hover {
+  .kat-badge.kat-badge--removable .kat-badge__remove:hover, .kat-badge--removable.kat-counter .kat-badge__remove:hover, .kat-badge--removable.kat-status .kat-badge__remove:hover {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.1);
   }
 }
-.kat-badge.kat-badge--removable .kat-badge__remove svg, .kat-filter-option .kat-badge--removable.kat-filter-option__count .kat-badge__remove svg, .kat-badge--removable.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-status .kat-badge__remove svg {
+.kat-badge.kat-badge--removable .kat-badge__remove svg, .kat-badge--removable.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-status .kat-badge__remove svg {
   width: 0.75rem;
   height: 0.75rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove, .kat-filter-option .kat-badge--removable.kat-badge--sm.kat-filter-option__count .kat-badge__remove, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove, .kat-badge--removable.kat-badge--sm.kat-status .kat-badge__remove {
+.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove, .kat-badge--removable.kat-badge--sm.kat-status .kat-badge__remove {
   width: 0.875rem;
   height: 0.875rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove svg, .kat-filter-option .kat-badge--removable.kat-badge--sm.kat-filter-option__count .kat-badge__remove svg, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-badge--sm.kat-status .kat-badge__remove svg {
+.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove svg, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-badge--sm.kat-status .kat-badge__remove svg {
   width: 0.625rem;
   height: 0.625rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove, .kat-filter-option .kat-badge--removable.kat-badge--lg.kat-filter-option__count .kat-badge__remove, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove, .kat-badge--removable.kat-badge--lg.kat-status .kat-badge__remove {
+.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove, .kat-badge--removable.kat-badge--lg.kat-status .kat-badge__remove {
   width: 1.25rem;
   height: 1.25rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove svg, .kat-filter-option .kat-badge--removable.kat-badge--lg.kat-filter-option__count .kat-badge__remove svg, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-badge--lg.kat-status .kat-badge__remove svg {
+.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove svg, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-badge--lg.kat-status .kat-badge__remove svg {
   width: 1rem;
   height: 1rem;
 }
 
-/* Notification badge (dot) */
+/* 通知バッジ - 小さな丸い通知インジケーター */
 .kat-badge--dot {
   width: 0.5rem;
   height: 0.5rem;
@@ -4376,7 +5084,7 @@ sup {
   height: 0.75rem;
 }
 
-/* Badge group */
+/* バッジグループ - 複数のバッジをまとめて表示 */
 .kat-badge-group {
   display: inline-flex;
   align-items: center;
@@ -4390,36 +5098,36 @@ sup {
   gap: 0.5rem;
 }
 
-/* Position badge (for overlaying on other elements) */
+/* 位置指定バッジ - 他の要素の上に重ねて表示 */
 .kat-position-badge {
   position: relative;
   display: inline-block;
 }
-.kat-position-badge .kat-badge, .kat-position-badge .kat-filter-option .kat-filter-option__count, .kat-filter-option .kat-position-badge .kat-filter-option__count, .kat-position-badge .kat-counter, .kat-position-badge .kat-status {
+.kat-position-badge .kat-badge, .kat-position-badge .kat-counter, .kat-position-badge .kat-status {
   position: absolute;
   transform: translate(50%, -50%);
 }
-.kat-position-badge .kat-badge.kat-badge--top-right, .kat-position-badge .kat-filter-option .kat-badge--top-right.kat-filter-option__count, .kat-filter-option .kat-position-badge .kat-badge--top-right.kat-filter-option__count, .kat-position-badge .kat-badge--top-right.kat-counter, .kat-position-badge .kat-badge--top-right.kat-status {
+.kat-position-badge .kat-badge.kat-badge--top-right, .kat-position-badge .kat-badge--top-right.kat-counter, .kat-position-badge .kat-badge--top-right.kat-status {
   top: 0;
   right: 0;
 }
-.kat-position-badge .kat-badge.kat-badge--top-left, .kat-position-badge .kat-filter-option .kat-badge--top-left.kat-filter-option__count, .kat-filter-option .kat-position-badge .kat-badge--top-left.kat-filter-option__count, .kat-position-badge .kat-badge--top-left.kat-counter, .kat-position-badge .kat-badge--top-left.kat-status {
+.kat-position-badge .kat-badge.kat-badge--top-left, .kat-position-badge .kat-badge--top-left.kat-counter, .kat-position-badge .kat-badge--top-left.kat-status {
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
 }
-.kat-position-badge .kat-badge.kat-badge--bottom-right, .kat-position-badge .kat-filter-option .kat-badge--bottom-right.kat-filter-option__count, .kat-filter-option .kat-position-badge .kat-badge--bottom-right.kat-filter-option__count, .kat-position-badge .kat-badge--bottom-right.kat-counter, .kat-position-badge .kat-badge--bottom-right.kat-status {
+.kat-position-badge .kat-badge.kat-badge--bottom-right, .kat-position-badge .kat-badge--bottom-right.kat-counter, .kat-position-badge .kat-badge--bottom-right.kat-status {
   bottom: 0;
   right: 0;
   transform: translate(50%, 50%);
 }
-.kat-position-badge .kat-badge.kat-badge--bottom-left, .kat-position-badge .kat-filter-option .kat-badge--bottom-left.kat-filter-option__count, .kat-filter-option .kat-position-badge .kat-badge--bottom-left.kat-filter-option__count, .kat-position-badge .kat-badge--bottom-left.kat-counter, .kat-position-badge .kat-badge--bottom-left.kat-status {
+.kat-position-badge .kat-badge.kat-badge--bottom-left, .kat-position-badge .kat-badge--bottom-left.kat-counter, .kat-position-badge .kat-badge--bottom-left.kat-status {
   bottom: 0;
   left: 0;
   transform: translate(-50%, 50%);
 }
 
-/* Interactive badge (clickable) */
+/* インタラクティブバッジ - クリック可能なバッジ */
 .kat-badge--interactive {
   cursor: pointer;
   transition: all 150ms cubic-bezier(0.42, 0, 0.58, 1);
@@ -4440,37 +5148,37 @@ sup {
   box-shadow: none;
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline:hover, .kat-filter-option .kat-badge--interactive.kat-filter-option__count:hover {
+  .kat-badge--interactive.kat-badge--outline:hover {
     background-color: #fafafa;
   }
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline.kat-badge--primary:hover, .kat-filter-option .kat-badge--interactive.kat-badge--primary.kat-filter-option__count:hover, .kat-badge--interactive.kat-badge--outline.kat-counter:hover, .kat-filter-option .kat-badge--interactive.kat-counter.kat-filter-option__count:hover {
+  .kat-badge--interactive.kat-badge--outline.kat-badge--primary:hover, .kat-badge--interactive.kat-badge--outline.kat-counter:hover {
     background-color: #fafafa;
   }
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline.kat-badge--success:hover, .kat-filter-option .kat-badge--interactive.kat-badge--success.kat-filter-option__count:hover {
+  .kat-badge--interactive.kat-badge--outline.kat-badge--success:hover {
     background-color: #f0fdf4;
   }
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline.kat-badge--warning:hover, .kat-filter-option .kat-badge--interactive.kat-badge--warning.kat-filter-option__count:hover {
+  .kat-badge--interactive.kat-badge--outline.kat-badge--warning:hover {
     background-color: #fffbeb;
   }
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline.kat-badge--error:hover, .kat-filter-option .kat-badge--interactive.kat-badge--error.kat-filter-option__count:hover {
+  .kat-badge--interactive.kat-badge--outline.kat-badge--error:hover {
     background-color: #fef2f2;
   }
 }
 @media (hover: hover) {
-  .kat-badge--interactive.kat-badge--outline.kat-badge--info:hover, .kat-filter-option .kat-badge--interactive.kat-badge--info.kat-filter-option__count:hover {
+  .kat-badge--interactive.kat-badge--outline.kat-badge--info:hover {
     background-color: #eff6ff;
   }
 }
 
-/* Status indicators */
+/* ステータスインジケーター - ユーザーの状態を表示 */
 .kat-status.kat-status--online {
   background-color: #22c55e;
   color: #ffffff;
@@ -4488,7 +5196,7 @@ sup {
   color: #ffffff;
 }
 
-/* Counter badge */
+/* カウンターバッジ - 数値を表示する専用バッジ */
 .kat-counter {
   min-width: 1.25rem;
   height: 1.25rem;
@@ -4507,8 +5215,33 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Table component styles */
-/* Table container */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - テーブルコンポーネント
+ * 
+ * 表形式データの表示用スタイル。ストライプ、ボーダー、コンパクト/ラージ、
+ * 並び替え、レスポンシブ、空/読み込み状態、フッター等をサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* テーブルコンテナ */
 .kat-table-container {
   width: 100%;
   overflow-x: auto;
@@ -4534,17 +5267,17 @@ sup {
   background: #a1a1aa;
 }
 
-/* Base table styles */
+/* ベーステーブル */
 .kat-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.8125rem;
   background-color: #ffffff;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* Striped variant */
-  /* Bordered variant */
-  /* Compact variant */
-  /* Large variant */
+  /* ストライプ行 */
+  /* 罫線あり */
+  /* コンパクト */
+  /* ラージ */
 }
 .kat-table.kat-table--striped .kat-table__row:nth-child(even) {
   background-color: #fafafa;
@@ -4565,13 +5298,13 @@ sup {
   padding: 1rem 1.5rem;
 }
 
-/* Table head */
+/* テーブルヘッド */
 .kat-table__head {
   background-color: #fafafa;
   border-bottom: 1px solid #e4e4e7;
 }
 
-/* Table header */
+/* テーブルヘッダーセル */
 .kat-table__header {
   padding: 0.75rem 1rem;
   text-align: left;
@@ -4579,8 +5312,8 @@ sup {
   color: #3f3f46;
   border-bottom: 1px solid #e4e4e7;
   vertical-align: middle;
-  /* Sortable headers */
-  /* Text alignment */
+  /* ソート可能ヘッダー */
+  /* 文字揃え */
 }
 .kat-table__header:first-child {
   border-left: none;
@@ -4631,17 +5364,17 @@ sup {
   text-align: right;
 }
 
-/* Table body */
+/* テーブルボディ */
 .kat-table__body {
   background-color: #ffffff;
 }
 
-/* Table row */
+/* テーブル行 */
 .kat-table__row {
   border-bottom: 1px solid #e4e4e7;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* Selectable rows */
-  /* Row states */
+  /* 行選択可能 */
+  /* 行状態 */
 }
 .kat-table__row:last-child {
   border-bottom: none;
@@ -4680,16 +5413,16 @@ sup {
   color: #a1a1aa;
 }
 
-/* Table cell */
+/* テーブルセル */
 .kat-table__cell {
   padding: 0.75rem 1rem;
   vertical-align: middle;
   color: #18181b;
   border-bottom: inherit;
-  /* Text alignment */
-  /* Numeric cells */
-  /* Fixed width cells */
-  /* Expandable cells */
+  /* 文字揃え */
+  /* 数値セル */
+  /* 固定幅セル */
+  /* 展開可能セル */
 }
 .kat-table__cell:first-child {
   border-left: none;
@@ -4724,24 +5457,24 @@ sup {
   z-index: 1;
 }
 
-/* Table actions */
+/* テーブルアクション */
 .kat-table__actions {
   display: flex;
   align-items: center;
   gap: 0.25rem;
   justify-content: flex-end;
 }
-.kat-table__actions .kat-btn, .kat-table__actions #kat-filter-apply {
+.kat-table__actions .kat-btn {
   padding: 0.25rem 0.5rem;
 }
 
-/* Table selection */
+/* 選択（全選択等） */
 .kat-table__select-all .kat-checkbox__input:indeterminate {
   background-color: #525252;
   border-color: #525252;
 }
 
-/* Empty state */
+/* 空状態 */
 .kat-table__empty {
   text-align: center;
   padding: 3rem 1.5rem;
@@ -4765,7 +5498,7 @@ sup {
   margin: 0 0 1rem 0;
 }
 
-/* Loading state */
+/* 読み込み状態 */
 .kat-table--loading {
   position: relative;
   overflow: hidden;
@@ -4793,7 +5526,7 @@ sup {
     transform: translateX(100%);
   }
 }
-/* Table footer */
+/* テーブルフッター */
 .kat-table__footer {
   padding: 1rem;
   border-top: 1px solid #e4e4e7;
@@ -4808,7 +5541,7 @@ sup {
   color: #52525b;
 }
 
-/* Responsive table */
+/* レスポンシブテーブル */
 @media (min-width: 640px) {
   .kat-table--responsive .kat-table__cell:not(.kat-table__cell--always-visible):not(.kat-table__header--always-visible),
   .kat-table--responsive .kat-table__header:not(.kat-table__cell--always-visible):not(.kat-table__header--always-visible) {
@@ -4828,7 +5561,7 @@ sup {
     display: table-cell;
   }
 }
-/* Table caption */
+/* テーブルキャプション */
 .kat-table__caption {
   caption-side: top;
   padding: 1rem;
@@ -4838,7 +5571,7 @@ sup {
   text-align: left;
 }
 
-/* Table summary */
+/* テーブルサマリー */
 .kat-table__summary {
   padding: 0.75rem 1rem;
   font-size: 0.8125rem;
@@ -4848,8 +5581,33 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Interactive component styles (tabs, accordion, dropdown, tooltip) */
-/* Tabs */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - インタラクティブコンポーネント
+ * 
+ * タブ、アコーディオン、ドロップダウン、ツールチップ、プログレスなど
+ * ユーザー操作に応じて状態が変化するUI要素群のスタイル。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* タブコンポーネント */
 .kat-tabs {
   width: 100%;
 }
@@ -4966,7 +5724,7 @@ sup {
   margin-bottom: 0;
 }
 
-/* Accordion */
+/* アコーディオン */
 .kat-accordion {
   border: 1px solid #e4e4e7;
   border-radius: 0.25rem;
@@ -5045,7 +5803,7 @@ sup {
   margin-bottom: 0;
 }
 
-/* Dropdown */
+/* ドロップダウン */
 .kat-dropdown {
   position: relative;
   display: inline-block;
@@ -5172,7 +5930,7 @@ sup {
   letter-spacing: 0.05em;
 }
 
-/* Tooltip */
+/* ツールチップ */
 .kat-tooltip {
   position: absolute;
   z-index: 1070;
@@ -5187,7 +5945,7 @@ sup {
   opacity: 0;
   pointer-events: none;
   transition: opacity 150ms cubic-bezier(0.42, 0, 0.58, 1);
-  /* Arrow */
+  /* 矢印 */
 }
 .kat-tooltip.kat-tooltip--visible {
   opacity: 1;
@@ -5224,7 +5982,7 @@ sup {
   border-right-color: #18181b;
 }
 
-/* Progress indicators */
+/* 進捗インジケーター */
 .kat-progress {
   width: 100%;
   height: 0.5rem;
@@ -5260,7 +6018,7 @@ sup {
   animation: kat-progress-stripes 1s linear infinite;
 }
 
-/* Circular progress */
+/* 円形プログレス */
 .kat-progress-circle {
   position: relative;
   display: inline-flex;
@@ -5302,7 +6060,7 @@ sup {
   color: #3f3f46;
 }
 
-/* Animations */
+/* アニメーション */
 @keyframes kat-fade-in {
   from {
     opacity: 0;
@@ -5330,14 +6088,39 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Skeleton loading component styles */
-/* Base skeleton styles */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - スケルトンローディングコンポーネント
+ * 
+ * 読み込み中のプレースホルダー表示。テキスト/見出し/アバター/ボタン/カード
+ * などの形状と、シマー/パルスのアニメーションをサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* ベーススケルトン */
 .kat-skeleton {
   position: relative;
   overflow: hidden;
   background-color: #f5f5f5;
   border-radius: 0.1875rem;
-  /* Skeleton variants */
+  /* 形状バリアント */
 }
 .kat-skeleton::after {
   content: "";
@@ -5402,7 +6185,7 @@ sup {
   border-radius: 0;
 }
 
-/* Skeleton groups */
+/* スケルトングループ */
 .kat-skeleton-group {
   display: flex;
   flex-direction: column;
@@ -5413,12 +6196,12 @@ sup {
   align-items: center;
 }
 
-/* Pulse animation variant */
+/* パルスアニメーション */
 .kat-skeleton--pulse::after {
   animation: kat-skeleton-pulse 2s ease-in-out infinite;
 }
 
-/* Animation keyframes */
+/* アニメーション定義 */
 @keyframes kat-skeleton-shimmer {
   0% {
     transform: translateX(-100%);
@@ -5435,7 +6218,7 @@ sup {
     opacity: 0.4;
   }
 }
-/* Complex skeleton layouts */
+/* 複合レイアウトのスケルトン */
 .kat-skeleton-card {
   padding: 1rem;
   border: 1px solid #e5e5e5;
@@ -5471,7 +6254,7 @@ sup {
   gap: 0.75rem;
 }
 
-/* Dark mode skeleton */
+/* ダークモード対応 */
 @media (prefers-color-scheme: dark) {
   .kat-skeleton {
     background-color: #262626;
@@ -5481,8 +6264,33 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Calendar component styles */
-/* Calendar container */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - カレンダーコンポーネント
+ * 
+ * 日付選択、予定表示、期間選択に使用される
+ * 月表示、年表示、複数月表示などのバリエーションをサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* カレンダーコンテナ - カレンダーの基本レイアウト */
 .kat-calendar {
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
@@ -5502,7 +6310,7 @@ sup {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Calendar header */
+/* カレンダーヘッダー - 月・年の表示とナビゲーション */
 .kat-calendar__header {
   display: flex;
   align-items: center;
@@ -5562,7 +6370,7 @@ sup {
   margin: 0;
 }
 
-/* Calendar grid */
+/* カレンダーグリッド - 日付を表示する表形式のレイアウト */
 .kat-calendar__grid {
   width: 100%;
   border-collapse: collapse;
@@ -5676,7 +6484,7 @@ sup {
   background-color: #ffffff;
 }
 
-/* Calendar footer */
+/* カレンダーフッター - 今日の日付ボタンなどのアクション */
 .kat-calendar__footer {
   display: flex;
   justify-content: space-between;
@@ -5721,7 +6529,7 @@ sup {
   }
 }
 
-/* Month/Year picker */
+/* 月・年ピッカー - 月や年を選択するためのインターフェース */
 .kat-calendar__picker {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -5768,7 +6576,7 @@ sup {
   border-color: #525252;
 }
 
-/* Range selection */
+/* 範囲選択 - 開始日から終了日までの期間選択 */
 .kat-calendar__day--range-start {
   background-color: #525252;
   color: #ffffff;
@@ -5793,7 +6601,7 @@ sup {
   border-radius: 0.1875rem;
 }
 
-/* Multi-month view */
+/* 複数月表示 - 複数の月を同時に表示するレイアウト */
 .kat-calendar--multi {
   display: flex;
   gap: 1.5rem;
@@ -5807,7 +6615,7 @@ sup {
   padding-right: 1.5rem;
 }
 
-/* Compact calendar */
+/* コンパクトカレンダー - スペースを節約した小さな表示 */
 .kat-calendar--compact {
   padding: 0.75rem;
 }
@@ -5820,7 +6628,7 @@ sup {
   margin-bottom: 0.75rem;
 }
 
-/* Calendar with time picker */
+/* 時間選択付きカレンダー - 日付と時間を同時に選択 */
 .kat-calendar__time {
   display: flex;
   align-items: center;
@@ -5875,8 +6683,33 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Carousel component styles */
-/* Carousel container */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - カルーセルコンポーネント
+ * 
+ * 画像やコンテンツをスライド形式で表示する
+ * 自動再生、手動操作、レスポンシブ対応などの機能をサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* カルーセルコンテナ - スライド表示の基本レイアウト */
 .kat-carousel {
   position: relative;
   overflow: hidden;
@@ -5887,21 +6720,21 @@ sup {
   padding: 0 3rem;
 }
 
-/* Carousel viewport */
+/* カルーセルビューポート - スライドが表示される表示領域 */
 .kat-carousel__viewport {
   overflow: hidden;
   position: relative;
   width: 100%;
 }
 
-/* Carousel container for slides */
+/* カルーセルコンテナ - スライドを格納する移動可能なコンテナ */
 .kat-carousel__container {
   display: flex;
   transition: transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
 }
 
-/* Individual carousel slide */
+/* 個別カルーセルスライド - 各スライドの表示とスタイル */
 .kat-carousel__slide {
   min-width: 100%;
   flex-shrink: 0;
@@ -5941,7 +6774,7 @@ sup {
   }
 }
 
-/* Carousel navigation */
+/* カルーセルナビゲーション - 前後スライドへの移動ボタン */
 .kat-carousel__nav {
   position: absolute;
   top: 50%;
@@ -6010,7 +6843,7 @@ sup {
   height: 1rem;
 }
 
-/* Carousel dots/indicators */
+/* カルーセルドット/インジケーター - 現在のスライド位置を示す */
 .kat-carousel__dots {
   display: flex;
   justify-content: center;
@@ -6065,7 +6898,7 @@ sup {
   background-color: #ffffff;
 }
 
-/* Carousel content overlay */
+/* カルーセルコンテンツオーバーレイ - スライド上のテキスト表示 */
 .kat-carousel__content {
   position: absolute;
   bottom: 0;
@@ -6091,7 +6924,7 @@ sup {
   line-height: 1.5;
 }
 
-/* Carousel variants */
+/* カルーセルバリアント - フェード、垂直、サムネイルなどの表示方法 */
 .kat-carousel--fade .kat-carousel__container {
   position: relative;
 }
@@ -6126,7 +6959,7 @@ sup {
   bottom: 1rem;
 }
 
-/* Carousel with thumbnails */
+/* サムネイル付きカルーセル - 小さな画像でスライドを選択 */
 .kat-carousel__thumbnails {
   display: flex;
   gap: 0.5rem;
@@ -6184,7 +7017,7 @@ sup {
   object-fit: cover;
 }
 
-/* Auto-play progress indicator */
+/* 自動再生プログレスインジケーター - 自動再生の進行状況表示 */
 .kat-carousel__progress {
   position: absolute;
   bottom: 0;
@@ -6195,7 +7028,7 @@ sup {
   z-index: 10;
 }
 
-/* Loading state */
+/* ローディング状態 - スライド読み込み中の表示 */
 .kat-carousel--loading .kat-carousel__slide {
   display: flex;
   align-items: center;
@@ -6204,7 +7037,7 @@ sup {
   color: #737373;
 }
 
-/* Responsive adjustments */
+/* レスポンシブ調整 - 画面サイズに応じた表示の最適化 */
 @media (min-width: 640px) {
   .kat-carousel__nav-btn {
     width: 3rem;
@@ -6215,7 +7048,7 @@ sup {
     height: 1.25rem;
   }
 }
-/* Touch/swipe indicators */
+/* タッチ/スワイプインジケーター - モバイルでの操作感向上 */
 .kat-carousel--touch {
   touch-action: pan-y;
   user-select: none;
@@ -6228,9 +7061,34 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Popover component styles */
-/* Popover container */
-.kat-popover, .kat-filter-popover {
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - ポップオーバーコンポーネント
+ * 
+ * 任意位置に表示される補助情報・小型フォーム等のコンテナ。
+ * 矢印位置、ダークテーマ、サイズ、フォーム/確認用などをサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* ポップオーバーコンテナ */
+.kat-popover {
   position: absolute;
   z-index: 1019;
   background-color: #ffffff;
@@ -6244,77 +7102,77 @@ sup {
   transform: scale(0.95);
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   backdrop-filter: blur(8px);
-  /* Popover arrow */
-  /* Arrow positions */
+  /* ポップオーバー矢印 */
+  /* 矢印位置 */
 }
-.kat-popover.kat-popover--open, .kat-popover--open.kat-filter-popover {
+.kat-popover.kat-popover--open {
   opacity: 1;
   visibility: visible;
   transform: scale(1);
 }
-.kat-popover::before, .kat-filter-popover::before, .kat-popover::after, .kat-filter-popover::after {
+.kat-popover::before, .kat-popover::after {
   content: "";
   position: absolute;
   border: solid transparent;
 }
-.kat-popover::before, .kat-filter-popover::before {
+.kat-popover::before {
   border-width: 6px;
   border-color: transparent;
 }
-.kat-popover::after, .kat-filter-popover::after {
+.kat-popover::after {
   border-width: 5px;
   border-color: transparent;
 }
-.kat-popover.kat-popover--top::before, .kat-popover--top.kat-filter-popover::before {
+.kat-popover.kat-popover--top::before {
   bottom: -12px;
   left: 50%;
   margin-left: -6px;
   border-top-color: #e5e5e5;
 }
-.kat-popover.kat-popover--top::after, .kat-popover--top.kat-filter-popover::after {
+.kat-popover.kat-popover--top::after {
   bottom: -10px;
   left: 50%;
   margin-left: -5px;
   border-top-color: #ffffff;
 }
-.kat-popover.kat-popover--bottom::before, .kat-popover--bottom.kat-filter-popover::before {
+.kat-popover.kat-popover--bottom::before {
   top: -12px;
   left: 50%;
   margin-left: -6px;
   border-bottom-color: #e5e5e5;
 }
-.kat-popover.kat-popover--bottom::after, .kat-popover--bottom.kat-filter-popover::after {
+.kat-popover.kat-popover--bottom::after {
   top: -10px;
   left: 50%;
   margin-left: -5px;
   border-bottom-color: #ffffff;
 }
-.kat-popover.kat-popover--left::before, .kat-popover--left.kat-filter-popover::before {
+.kat-popover.kat-popover--left::before {
   right: -12px;
   top: 50%;
   margin-top: -6px;
   border-left-color: #e5e5e5;
 }
-.kat-popover.kat-popover--left::after, .kat-popover--left.kat-filter-popover::after {
+.kat-popover.kat-popover--left::after {
   right: -10px;
   top: 50%;
   margin-top: -5px;
   border-left-color: #ffffff;
 }
-.kat-popover.kat-popover--right::before, .kat-popover--right.kat-filter-popover::before {
+.kat-popover.kat-popover--right::before {
   left: -12px;
   top: 50%;
   margin-top: -6px;
   border-right-color: #e5e5e5;
 }
-.kat-popover.kat-popover--right::after, .kat-popover--right.kat-filter-popover::after {
+.kat-popover.kat-popover--right::after {
   left: -10px;
   top: 50%;
   margin-top: -5px;
   border-right-color: #ffffff;
 }
 
-/* Popover header */
+/* ポップオーバーヘッダー */
 .kat-popover__header {
   display: flex;
   align-items: center;
@@ -6376,7 +7234,7 @@ sup {
   height: 0.875rem;
 }
 
-/* Popover content */
+/* ポップオーバーコンテンツ */
 .kat-popover__content {
   color: #404040;
   font-size: 0.8125rem;
@@ -6395,7 +7253,7 @@ sup {
   margin-bottom: 0;
 }
 
-/* Popover footer */
+/* ポップオーバーフッター */
 .kat-popover__footer {
   display: flex;
   justify-content: flex-end;
@@ -6419,13 +7277,13 @@ sup {
   justify-content: space-between;
 }
 
-/* Popover trigger */
+/* トリガー */
 .kat-popover-trigger {
   position: relative;
   display: inline-block;
 }
 
-/* Popover variants */
+/* バリアント */
 .kat-popover--large {
   max-width: 24rem;
   padding: 1.5rem;
@@ -6548,7 +7406,7 @@ sup {
 
 /* Responsive adjustments */
 @media (min-width: 640px) {
-  .kat-popover, .kat-filter-popover {
+  .kat-popover {
     max-width: 24rem;
   }
   .kat-popover--large {
@@ -6578,21 +7436,46 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, 商品フィルター */
-/* 商品フィルター */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - 商品フィルターコンポーネント
+ * 
+ * ECサイトで商品を絞り込むためのフィルター機能
+ * カテゴリ、価格、ブランドなどの条件で商品を検索
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* 商品フィルター - 商品検索の絞り込み機能 */
 .kat-product-filter {
   width: 100%;
   background-color: #ffffff;
   margin-bottom: 1.5rem;
 }
 
-/* 商品フィルター内部 */
+/* 商品フィルター内部 - フィルター要素の配置とレイアウト */
 .kat-product-filter__inner {
   max-width: 1300px;
   margin: 0 auto;
 }
 
-/* フィルター行 */
+/* フィルター行 - フィルターボタンを横並びに配置 */
 .kat-filter-row {
   display: flex;
   align-items: center;
@@ -6600,7 +7483,7 @@ sup {
   flex-wrap: wrap;
 }
 
-/* フィルターボタン */
+/* フィルターボタン - フィルター条件を選択するボタン */
 .kat-filter-btn {
   display: inline-flex;
   align-items: center;
@@ -6629,9 +7512,9 @@ sup {
   position: relative;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  /* アクティブ状態 */
-  /* チェバー */
-  /* 開いている状態 */
+  /* アクティブ状態 - 現在選択されているフィルター条件 */
+  /* チェバー - フィルターの開閉を示す矢印アイコン */
+  /* 開いている状態 - フィルターが展開されている状態 */
 }
 .kat-filter-btn:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
@@ -6682,17 +7565,23 @@ sup {
   transform: rotate(180deg);
 }
 
-/* フィルターポップオーバー */
+/* フィルターポップオーバー - フィルターオプションを表示するポップアップ */
 .kat-filter-popover {
   position: fixed;
   min-width: 16rem;
   max-width: 20rem;
-  z-index: 1019;
+  z-index: 1000;
   transform: translateY(0);
   transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* 上向きの矢印 */
-  /* 下向きの矢印（デフォルト） */
-  /* スクロール時の位置調整 */
+  /* ポップオーバーベース（@extend 不成立時のフォールバック） */
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.25rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  /* 上向きの矢印 - ポップオーバーが上に表示される場合の矢印 */
+  /* 下向きの矢印（デフォルト） - ポップオーバーが下に表示される場合の矢印 */
+  /* スクロール時の位置調整 - スクロール中のポップオーバーの位置制御 */
 }
 .kat-filter-popover.kat-filter-popover--top::before {
   bottom: -12px;
@@ -6722,7 +7611,7 @@ sup {
   transition: none;
 }
 
-/* フィルターヘッダー */
+/* フィルターヘッダー - フィルターのタイトルと閉じるボタン */
 .kat-filter-header {
   display: flex;
   align-items: center;
@@ -6731,7 +7620,7 @@ sup {
   border-bottom: 1px solid #e5e5e5;
 }
 
-/* フィルタータイトル */
+/* フィルタータイトル - フィルターの種類を示す見出し */
 .kat-filter-title {
   font-size: 0.8125rem;
   font-weight: 600;
@@ -6739,7 +7628,7 @@ sup {
   margin: 0;
 }
 
-/* フィルター閉じるボタン */
+/* フィルター閉じるボタン - フィルターを閉じるためのボタン */
 .kat-filter-close {
   display: inline-flex;
   align-items: center;
@@ -6777,14 +7666,14 @@ sup {
   height: 1rem;
 }
 
-/* フィルターオプション */
+/* フィルターオプション - フィルター条件の選択肢一覧 */
 .kat-filter-options {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-/* フィルターオプション */
+/* フィルターオプション - 個別のフィルター条件選択肢 */
 .kat-filter-option {
   display: flex;
   align-items: center;
@@ -6793,9 +7682,9 @@ sup {
   border-radius: 0.1875rem;
   cursor: pointer;
   transition: background-color 150ms cubic-bezier(0.42, 0, 0.58, 1);
-  /* チェックボックス */
-  /* ラベル */
-  /* カウントバッジ */
+  /* チェックボックス - フィルター条件の選択状態 */
+  /* ラベル - フィルター条件の説明テキスト */
+  /* カウントバッジ - フィルター条件に該当する商品数 */
 }
 @media (hover: hover) {
   .kat-filter-option:hover {
@@ -6817,7 +7706,7 @@ sup {
   margin-left: auto;
 }
 
-/* フィルターアクション */
+/* フィルターアクション - フィルターの適用とクリアボタン */
 .kat-filter-actions {
   display: flex;
   align-items: center;
@@ -6828,7 +7717,7 @@ sup {
   border-top: 1px solid #e5e5e5;
 }
 
-/* フィルタークリアボタン */
+/* フィルタークリアボタン - 選択されたフィルター条件をリセット */
 #kat-filter-clear {
   display: inline-flex;
   align-items: center;
@@ -6865,8 +7754,8 @@ sup {
   }
 }
 
-/* フィルター適用ボタン */
-/* レスポンシブデザイン */
+/* フィルター適用ボタン - 選択されたフィルター条件を適用 */
+/* レスポンシブデザイン - 画面サイズに応じた表示の最適化 */
 @media (min-width: 640px) {
   .kat-filter-row {
     gap: 0.5rem;
@@ -6875,6 +7764,7 @@ sup {
     font-size: 0.6875rem;
   }
 }
+/* タブレットサイズ対応 - 中画面での表示最適化 */
 @media (min-width: 768px) {
   .kat-filter-row {
     gap: 0.75rem;
@@ -6884,8 +7774,33 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Input OTP component styles */
-/* OTP input container */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - 入力OTPコンポーネント
+ * 
+ * ワンタイムパスコード入力用のUI。等幅入力ボックス、状態（成功/エラー/読み込み）、
+ * サイズ、スタイルバリアント（アウトライン/フィルド/下線）をサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* OTP入力コンテナ - 入力フィールドの横並び配置 */
 .kat-input-otp {
   display: flex;
   align-items: center;
@@ -6897,7 +7812,7 @@ sup {
   pointer-events: none;
 }
 
-/* Individual OTP input field */
+/* 個別OTP入力フィールド - 各桁の入力ボックス */
 .kat-input-otp__field {
   width: 2.5rem;
   height: 2.5rem;
@@ -6913,8 +7828,8 @@ sup {
   outline: none;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  /* States */
-  /* Animation for value changes */
+  /* 状態 - 入力済み/エラー/成功/アニメーション */
+  /* 値変更アニメーション - 軽い拡大のパルス */
 }
 .kat-input-otp__field:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
@@ -6951,7 +7866,7 @@ sup {
   animation: kat-otp-pulse 0.3s ease-in-out;
 }
 
-/* OTP group separator */
+/* OTPセパレーター - 桁グループの視覚的区切り */
 .kat-input-otp__separator {
   width: 0.75rem;
   height: 2px;
@@ -6971,7 +7886,7 @@ sup {
   background-color: #a3a3a3;
 }
 
-/* OTP size variants */
+/* サイズバリアント - 小/大用の最適化 */
 .kat-input-otp--sm {
   gap: 0.375rem;
 }
@@ -6998,7 +7913,7 @@ sup {
   margin: 0 0.5rem;
 }
 
-/* OTP style variants */
+/* スタイルバリアント - 視覚デザインの変更 */
 .kat-input-otp--outline .kat-input-otp__field {
   background-color: transparent;
   border-width: 1px;
@@ -7055,7 +7970,7 @@ sup {
   background-color: transparent;
 }
 
-/* OTP container with label */
+/* ラベル付きOTPコンテナ - ラベル/説明/メッセージの配置 */
 .kat-input-otp-wrapper {
   display: flex;
   flex-direction: column;
@@ -7098,7 +8013,7 @@ sup {
   gap: 0.25rem;
 }
 
-/* Loading state */
+/* 読み込み状態 - スピナー表示 */
 .kat-input-otp--loading .kat-input-otp__field {
   position: relative;
 }
@@ -7119,7 +8034,7 @@ sup {
   animation: kat-spin 1s linear infinite;
 }
 
-/* Countdown timer */
+/* カウントダウンタイマー - 再送信までの残り時間 */
 .kat-input-otp__timer {
   display: flex;
   align-items: center;
@@ -7168,7 +8083,7 @@ sup {
   text-decoration: none;
 }
 
-/* Animations */
+/* アニメーション - パルス/スピン */
 @keyframes kat-otp-pulse {
   0% {
     transform: scale(1);
@@ -7185,7 +8100,7 @@ sup {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-/* Auto-format variants (e.g., for phone numbers, credit cards) */
+/* 自動フォーマットバリアント - 電話番号/クレジットカード向け */
 .kat-input-otp--phone .kat-input-otp__field {
   font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -7195,7 +8110,7 @@ sup {
   width: 3rem;
 }
 
-/* High contrast mode */
+/* ハイコントラストモード - 視認性向上 */
 @media (prefers-contrast: high) {
   .kat-input-otp__field {
     border-width: 2px;
@@ -7205,7 +8120,7 @@ sup {
     outline-offset: 2px;
   }
 }
-/* Reduced motion */
+/* 低速モーション設定 - アニメーション軽減 */
 @media (prefers-reduced-motion: reduce) {
   .kat-input-otp__field {
     transition: none;
@@ -7215,8 +8130,33 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Toggle Group component styles */
-/* Toggle group container */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - トグルグループコンポーネント
+ * 
+ * ボタン群の選択/切替UI。単一/複数選択、サイズ、アウトライン/ゴースト/
+ * ピル/セグメント、色バリアント、ローディング対応などを提供。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* トグルグループコンテナ */
 .kat-toggle-group {
   display: inline-flex;
   background-color: #f5f5f5;
@@ -7234,7 +8174,7 @@ sup {
   flex: 1;
 }
 
-/* Individual toggle item */
+/* 個別トグル項目 */
 .kat-toggle-group__item {
   position: relative;
   display: inline-flex;
@@ -7252,10 +8192,10 @@ sup {
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  /* Selected state */
-  /* Disabled state */
-  /* With icons */
-  /* Icon only */
+  /* 選択状態 */
+  /* 無効状態 */
+  /* アイコン付き */
+  /* アイコンのみ */
 }
 .kat-toggle-group__item:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
@@ -7312,7 +8252,7 @@ sup {
   height: 1rem;
 }
 
-/* Toggle group sizes */
+/* サイズ */
 .kat-toggle-group--sm {
   padding: 0.125rem;
   gap: 0.125rem;
@@ -7351,7 +8291,7 @@ sup {
   height: 1.125rem;
 }
 
-/* Toggle group variants */
+/* バリアント */
 .kat-toggle-group--outline {
   background-color: transparent;
   border: 1px solid #d4d4d4;
@@ -7393,7 +8333,7 @@ sup {
   border-radius: 100px;
 }
 
-/* Multi-select toggle group */
+/* 複数選択 */
 .kat-toggle-group--multi .kat-toggle-group__item {
   /* Partially selected (in multi-select scenarios) */
 }
@@ -7411,13 +8351,13 @@ sup {
   }
 }
 
-/* Segmented control style */
+/* セグメントスタイル */
 .kat-toggle-group--segmented {
   border-radius: 0.25rem;
   background-color: #f5f5f5;
   padding: 0.25rem;
   position: relative;
-  /* Moving background indicator */
+  /* 背景インジケーター */
 }
 .kat-toggle-group--segmented::before {
   content: "";
@@ -7441,7 +8381,7 @@ sup {
   box-shadow: none;
 }
 
-/* Color variants */
+/* カラーバリアント */
 .kat-toggle-group--success .kat-toggle-group__item.kat-toggle-group__item--selected {
   background-color: #16a34a;
   color: #ffffff;
@@ -7472,7 +8412,7 @@ sup {
   }
 }
 
-/* Loading state */
+/* ローディング状態 */
 .kat-toggle-group--loading {
   pointer-events: none;
 }
@@ -7494,7 +8434,7 @@ sup {
   animation: kat-spin 1s linear infinite;
 }
 
-/* Responsive adjustments */
+/* レスポンシブ調整 */
 @media (min-width: 640px) {
   .kat-toggle-group--responsive {
     flex-direction: column;
@@ -7504,27 +8444,27 @@ sup {
     text-align: left;
   }
 }
-/* High contrast mode */
+/* ハイコントラストモード */
 @media (prefers-contrast: high) {
   .kat-toggle-group__item.kat-toggle-group__item--selected {
     outline: 2px solid #171717;
     outline-offset: -2px;
   }
 }
-/* Reduced motion */
+/* 低速モーション設定 */
 @media (prefers-reduced-motion: reduce) {
   .kat-toggle-group__item,
   .kat-toggle-group--segmented::before {
     transition: none;
   }
 }
-/* Animation for the segmented control indicator */
+/* セグメントインジケーター用アニメーション */
 @keyframes kat-spin {
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
-/* JavaScript positioning helpers for segmented control */
+/* セグメント位置決め用のヘルパーデータ属性 */
 .kat-toggle-group--segmented {
   /* Add more as needed */
 }
@@ -7542,8 +8482,33 @@ sup {
 }
 
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Data Table component styles with advanced features */
-/* Data table wrapper */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - データテーブルコンポーネント
+ * 
+ * 大量のデータを表形式で表示するための高度なテーブル
+ * ソート、フィルター、ページネーション、選択機能などをサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* データテーブルラッパー - テーブルの基本コンテナ */
 .kat-data-table {
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
@@ -7557,7 +8522,7 @@ sup {
   border: none;
 }
 
-/* Data table toolbar */
+/* データテーブルツールバー - 検索、フィルター、アクションの配置 */
 .kat-data-table__toolbar {
   display: flex;
   align-items: center;
@@ -7596,7 +8561,7 @@ sup {
   margin: 0;
 }
 
-/* Search and filters */
+/* 検索とフィルター - データの絞り込み機能 */
 .kat-data-table__search {
   position: relative;
   min-width: 16rem;
@@ -7665,7 +8630,7 @@ sup {
   }
 }
 
-/* Enhanced table container */
+/* 拡張テーブルコンテナ - スクロールと固定高さの制御 */
 .kat-data-table__container {
   overflow: auto;
   max-height: 32rem;
@@ -7696,12 +8661,12 @@ sup {
   max-height: none;
 }
 
-/* Enhanced table */
+/* 拡張テーブル - 高度な機能を持つテーブル本体 */
 .kat-data-table__table {
   width: 100%;
   border-collapse: collapse;
-  /* Sticky header */
-  /* Sticky first column */
+  /* スティッキーヘッダー - スクロール時も固定されるヘッダー */
+  /* スティッキー第一列 - スクロール時も固定される第一列 */
 }
 .kat-data-table__table.kat-data-table__table--sticky-header .kat-data-table__header {
   position: sticky;
@@ -7736,7 +8701,7 @@ sup {
   background-color: #e5e5e5;
 }
 
-/* Enhanced table headers */
+/* 拡張テーブルヘッダー - ソート、リサイズ可能なヘッダー */
 .kat-data-table__header {
   padding: 0.75rem 1rem;
   text-align: left;
@@ -7748,9 +8713,9 @@ sup {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
-  /* Sortable headers */
-  /* Resizable headers */
-  /* Column types */
+  /* ソート可能ヘッダー - クリックでソート順を変更 */
+  /* リサイズ可能ヘッダー - 列幅を調整可能 */
+  /* 列タイプ - 数値、中央揃えなどの列の種類 */
 }
 .kat-data-table__header.kat-data-table__header--sortable {
   cursor: pointer;
@@ -7806,15 +8771,15 @@ sup {
   text-align: center;
 }
 
-/* Enhanced table cells */
+/* 拡張テーブルセル - 高度な機能を持つセル */
 .kat-data-table__cell {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #e5e5e5;
   font-size: 0.8125rem;
   color: #404040;
   vertical-align: middle;
-  /* Cell types */
-  /* Interactive cells */
+  /* セルタイプ - 数値、中央揃え、折り返しなどのセルの種類 */
+  /* インタラクティブセル - クリック可能なセル */
 }
 .kat-data-table__cell.kat-data-table__cell--numeric {
   text-align: right;
@@ -7845,7 +8810,10 @@ sup {
   }
 }
 
-/* Enhanced table rows */
+/* 拡張テーブル行 - 高度な機能を持つ行 */
+.kat-data-table__row {
+  /* 行の状態 - ハイライト、エラー、成功などの状態表示 */
+}
 .kat-data-table__row.kat-data-table__row--selectable {
   cursor: pointer;
 }
@@ -7881,7 +8849,7 @@ sup {
   border-left: 3px solid #22c55e;
 }
 
-/* Expanded row content */
+/* 展開行コンテンツ - 行の詳細情報を表示 */
 .kat-data-table__expanded-content {
   background-color: #f9f9f9;
   border-bottom: 1px solid #e5e5e5;
@@ -7891,7 +8859,7 @@ sup {
   border-left: 3px solid #d4d4d4;
 }
 
-/* Selection column */
+/* 選択列 - 行の選択チェックボックス */
 .kat-data-table__select-cell {
   width: 3rem;
   padding: 0.75rem 1rem;
@@ -7900,7 +8868,7 @@ sup {
   margin: 0;
 }
 
-/* Action column */
+/* アクション列 - 行に対する操作ボタン */
 .kat-data-table__actions {
   display: flex;
   gap: 0.25rem;
@@ -7914,7 +8882,7 @@ sup {
   justify-content: center;
 }
 
-/* Loading states */
+/* ローディング状態 - データ読み込み中の表示 */
 .kat-data-table--loading {
   position: relative;
 }
@@ -7943,7 +8911,7 @@ sup {
   font-size: 0.8125rem;
 }
 
-/* Empty state */
+/* 空の状態 - データが存在しない場合の表示 */
 .kat-data-table__empty {
   padding: 2rem 1rem;
   text-align: center;
@@ -7965,7 +8933,7 @@ sup {
   margin: 0;
 }
 
-/* Footer with pagination and info */
+/* フッター - ページネーションと情報の表示 */
 .kat-data-table__footer {
   display: flex;
   align-items: center;
@@ -7979,7 +8947,7 @@ sup {
   color: #525252;
 }
 
-/* Density variants */
+/* 密度バリアント - コンパクト、快適などの表示密度 */
 .kat-data-table--compact .kat-data-table__header,
 .kat-data-table--compact .kat-data-table__cell {
   padding: 0.5rem 0.75rem;
@@ -7993,7 +8961,7 @@ sup {
   padding: 1rem 1.5rem;
 }
 
-/* Responsive table */
+/* レスポンシブテーブル - 画面サイズに応じた表示の最適化 */
 @media (min-width: 640px) {
   .kat-data-table--responsive .kat-data-table__container {
     overflow-x: auto;
@@ -8003,18 +8971,43 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Separator component styles */
-/* Base separator */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - セパレーターコンポーネント
+ * 
+ * 水平/垂直の仕切り線、点線/破線、余白や濃淡のバリエーション。
+ * テキスト入りセパレーターやセクション区切りも提供。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* ベースセパレーター */
 .kat-separator {
   border: none;
   margin: 0;
   background-color: #e5e5e5;
   flex-shrink: 0;
-  /* Horizontal separator (default) */
-  /* Vertical separator */
-  /* Separator variants */
-  /* Color variants */
-  /* Spacing variants */
+  /* 水平セパレーター（デフォルト） */
+  /* 垂直セパレーター */
+  /* バリアント */
+  /* カラーバリアント */
+  /* 余白バリアント */
 }
 .kat-separator:not(.kat-separator--vertical) {
   width: 100%;
@@ -8074,14 +9067,14 @@ sup {
   margin: 0 2rem;
 }
 
-/* Separator with text */
+/* テキスト付きセパレーター */
 .kat-separator-text {
   position: relative;
   display: flex;
   align-items: center;
   text-align: center;
   margin: 1.5rem 0;
-  /* Text separator variants */
+  /* テキストセパレーターのバリアント */
 }
 .kat-separator-text::before {
   content: "";
@@ -8115,7 +9108,7 @@ sup {
   padding: 0 1.5rem;
 }
 
-/* Section divider */
+/* セクション区切り */
 .kat-section-divider {
   display: flex;
   align-items: center;
@@ -8137,7 +9130,7 @@ sup {
   height: 1px;
 }
 
-/* Breadcrumb separator */
+/* パンくず用セパレーター */
 .kat-breadcrumb-separator {
   display: inline-flex;
   align-items: center;
@@ -8150,7 +9143,7 @@ sup {
   height: 1rem;
 }
 
-/* Responsive behavior */
+/* レスポンシブ */
 @media (min-width: 640px) {
   .kat-separator-text .kat-separator-text__content {
     font-size: 0.6875rem;
@@ -8158,16 +9151,41 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Pagination component styles */
-/* Base pagination */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - ページネーションコンポーネント
+ * 
+ * ページ切り替えUIのスタイル。サイズ、配置、ラウンド/ピル等の
+ * バリアントと、シンプル/ミニマル/モバイル向け最適化を含む。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* ベースページネーション */
 .kat-pagination {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.25rem;
   margin: 1.5rem 0;
-  /* Center alignment by default */
-  /* Size variants */
+  /* デフォルトは中央寄せ */
+  /* サイズバリアント */
 }
 .kat-pagination.kat-pagination--left {
   justify-content: flex-start;
@@ -8194,7 +9212,7 @@ sup {
   font-size: 1rem;
 }
 
-/* Pagination items */
+/* ページ要素 */
 .kat-pagination__item {
   display: inline-flex;
   align-items: center;
@@ -8213,10 +9231,10 @@ sup {
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   outline: 2px solid transparent;
   outline-offset: 2px;
-  /* Current/active page */
-  /* Disabled state */
-  /* Navigation arrows */
-  /* Ellipsis */
+  /* 現在ページ */
+  /* 無効状態 */
+  /* ナビゲーション矢印 */
+  /* 省略記号 */
 }
 .kat-pagination__item:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
@@ -8267,7 +9285,7 @@ sup {
   box-shadow: none;
 }
 
-/* Pagination info */
+/* ページ情報 */
 .kat-pagination__info {
   margin: 0 1rem;
   font-size: 0.8125rem;
@@ -8279,7 +9297,7 @@ sup {
   color: #171717;
 }
 
-/* Simple pagination (prev/next only) */
+/* シンプルページネーション（前/次のみ） */
 .kat-pagination--simple {
   justify-content: space-between;
 }
@@ -8294,7 +9312,7 @@ sup {
   margin-left: auto;
 }
 
-/* Minimal pagination */
+/* ミニマルページネーション */
 .kat-pagination--minimal .kat-pagination__item {
   background: none;
   border: none;
@@ -8307,12 +9325,12 @@ sup {
   border-radius: 9999px;
 }
 
-/* Rounded pagination */
+/* 角丸ページネーション */
 .kat-pagination--rounded .kat-pagination__item {
   border-radius: 9999px;
 }
 
-/* Pills pagination */
+/* ピル型ページネーション */
 .kat-pagination--pills {
   gap: 0.5rem;
 }
@@ -8328,7 +9346,7 @@ sup {
   background-color: #171717;
 }
 
-/* Compact pagination for mobile */
+/* モバイル向けコンパクト表示 */
 @media (min-width: 640px) {
   .kat-pagination:not(.kat-pagination--simple) .kat-pagination__item:not(.kat-pagination__item--current):not(.kat-pagination__item--prev):not(.kat-pagination__item--next) {
     display: none;
@@ -8403,8 +9421,33 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Toast notification component styles */
-/* Toast container */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - トースト通知コンポーネント
+ * 
+ * 画面隅に一時的に表示される通知。位置、バリアント（成功/警告/エラー/情報）、
+ * 進捗バー、アニメーション、コンパクト表示をサポート。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* トーストコンテナ */
 .kat-toast-container {
   position: fixed;
   top: 1rem;
@@ -8416,7 +9459,7 @@ sup {
   pointer-events: none;
   max-width: 24rem;
   width: 100%;
-  /* Container positions */
+  /* 配置バリエーション */
 }
 @media (min-width: 640px) {
   .kat-toast-container {
@@ -8455,7 +9498,7 @@ sup {
   transform: translateX(-50%);
 }
 
-/* Toast notification */
+/* トースト通知本体 */
 .kat-toast {
   display: flex;
   align-items: flex-start;
@@ -8469,10 +9512,10 @@ sup {
   transform: translateY(-100%);
   opacity: 0;
   transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* Show animation */
-  /* Hide animation */
-  /* Toast variants */
-  /* Loading toast */
+  /* 表示アニメーション */
+  /* 非表示アニメーション */
+  /* バリアント */
+  /* ローディングトースト */
 }
 .kat-toast.kat-toast--show {
   transform: translateY(0);
@@ -8515,7 +9558,7 @@ sup {
   animation: kat-toast-spin 1s linear infinite;
 }
 
-/* Toast icon */
+/* アイコン */
 .kat-toast__icon {
   flex-shrink: 0;
   width: 1.25rem;
@@ -8524,7 +9567,7 @@ sup {
   color: #525252;
 }
 
-/* Toast content */
+/* コンテンツ */
 .kat-toast__content {
   flex: 1;
   min-width: 0;
@@ -8545,20 +9588,20 @@ sup {
   line-height: 1.5;
 }
 
-/* Toast actions */
+/* アクション */
 .kat-toast__actions {
   display: flex;
   gap: 0.5rem;
   margin-top: 0.75rem;
 }
-.kat-toast__actions .kat-btn, .kat-toast__actions #kat-filter-apply {
+.kat-toast__actions .kat-btn {
   height: 1.5rem;
   padding: 0 0.5rem;
   font-size: 0.6875rem;
   gap: 0.25rem;
 }
 
-/* Toast close button */
+/* 閉じるボタン */
 .kat-toast__close {
   flex-shrink: 0;
   background: none;
@@ -8584,7 +9627,7 @@ sup {
   height: 1rem;
 }
 
-/* Toast progress bar */
+/* 進捗バー */
 .kat-toast__progress {
   position: absolute;
   bottom: 0;
@@ -8607,7 +9650,7 @@ sup {
   background-color: #3b82f6;
 }
 
-/* Compact toast */
+/* コンパクト表示 */
 .kat-toast--compact {
   padding: 0.75rem;
 }
@@ -8622,7 +9665,7 @@ sup {
   font-size: 0.6875rem;
 }
 
-/* Toast with image */
+/* 画像付きトースト */
 .kat-toast--with-image .kat-toast__image {
   width: 2.5rem;
   height: 2.5rem;
@@ -8631,7 +9674,7 @@ sup {
   flex-shrink: 0;
 }
 
-/* Slide animations */
+/* スライドアニメーション */
 @keyframes kat-toast-slide-in-right {
   from {
     transform: translateX(100%);
@@ -8680,7 +9723,7 @@ sup {
     transform: rotate(360deg);
   }
 }
-/* Animation classes */
+/* アニメーションクラス */
 .kat-toast--slide-right {
   animation: kat-toast-slide-in-right 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -8697,14 +9740,14 @@ sup {
   animation: kat-toast-slide-in-bottom 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* High contrast mode */
+/* ハイコントラストモード */
 @media (prefers-contrast: high) {
   .kat-toast {
     border-width: 2px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 }
-/* Reduced motion */
+/* 低速モーション設定 */
 @media (prefers-reduced-motion: reduce) {
   .kat-toast {
     transition: opacity 150ms ease;
@@ -8724,17 +9767,42 @@ sup {
   }
 }
 /** @project: Kat UI Framework */
-/** @author: Bui Van Tai, 2024-12-15, Image component styles */
-/* Base image styles */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - 画像コンポーネント
+ * 
+ * 画像表示、アバター、プレースホルダーなどの
+ * 画像関連要素のスタイル
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* ベース画像スタイル - 画像の基本表示と動作 */
 .kat-image {
   display: block;
   max-width: 100%;
   height: auto;
   border-radius: 0.1875rem;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* Image variants */
-  /* Size variants */
-  /* Interactive states */
+  /* 画像バリアント - 角丸、四角、ソフトなどの形状 */
+  /* サイズバリアント - 小、中、大などのサイズ */
+  /* インタラクティブ状態 - ホバー効果やクリック可能な画像 */
 }
 .kat-image.kat-image--rounded {
   border-radius: 9999px;
@@ -8783,7 +9851,7 @@ sup {
   transform: scale(1.02);
 }
 
-/* Avatar image */
+/* アバター画像 - ユーザーアイコンやプロフィール画像 */
 .kat-avatar {
   display: inline-flex;
   align-items: center;
@@ -8798,8 +9866,8 @@ sup {
   text-transform: uppercase;
   overflow: hidden;
   position: relative;
-  /* Avatar sizes */
-  /* Avatar with status indicator */
+  /* アバターサイズ - 小、中、大などのサイズ */
+  /* ステータスインジケーター付きアバター - オンライン状態などの表示 */
 }
 .kat-avatar img {
   width: 100%;
@@ -8855,7 +9923,7 @@ sup {
   background-color: #a3a3a3;
 }
 
-/* Image placeholder */
+/* 画像プレースホルダー - 画像読み込み前の代替表示 */
 .kat-image-placeholder {
   display: flex;
   align-items: center;
@@ -8869,7 +9937,7 @@ sup {
   text-align: center;
   padding: 1rem;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* Size variants */
+  /* サイズバリアント - 小、中、大などのサイズ */
 }
 .kat-image-placeholder:hover {
   border-color: #a3a3a3;
@@ -8895,7 +9963,7 @@ sup {
   height: 3rem;
 }
 
-/* Figure with caption */
+/* キャプション付き図 - 画像と説明文の組み合わせ */
 .kat-figure {
   margin: 0;
   display: inline-block;
@@ -8914,11 +9982,13 @@ sup {
   line-height: 1.625;
 }
 
-/* Image gallery */
+/* 画像ギャラリー - 複数画像のグリッド表示 */
 .kat-image-gallery {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* ギャラリーアイテム - 個別の画像表示要素 */
+  /* ギャラリーオーバーレイ - 画像上の情報表示 */
 }
 .kat-image-gallery.kat-image-gallery--2cols {
   grid-template-columns: repeat(2, 1fr);
@@ -8963,11 +10033,11 @@ sup {
   font-size: 0.8125rem;
 }
 
-/* Image crop utilities */
+/* 画像クロップユーティリティ - アスペクト比の制御 */
 .kat-image-crop {
   position: relative;
   overflow: hidden;
-  /* Aspect ratios */
+  /* アスペクト比 - 1:1、4:3、16:9などの比率 */
 }
 .kat-image-crop img {
   width: 100%;
@@ -8990,7 +10060,7 @@ sup {
   aspect-ratio: 9/16;
 }
 
-/* Responsive images */
+/* レスポンシブ画像 - 画面サイズに応じた表示の最適化 */
 @media (min-width: 640px) {
   .kat-image-gallery {
     grid-template-columns: repeat(2, 1fr);
@@ -9010,7 +10080,7 @@ sup {
     font-size: 1rem;
   }
 }
-/* Loading state */
+/* ローディング状態 - 画像読み込み中の表示 */
 .kat-image--loading {
   background: linear-gradient(90deg, #f5f5f5 25%, #f0f0f0 50%, #f5f5f5 75%);
   background-size: 200% 100%;
@@ -9025,7 +10095,7 @@ sup {
     background-position: -200% 0;
   }
 }
-/* Error state */
+/* エラー状態 - 画像読み込み失敗時の表示 */
 .kat-image--error {
   display: flex;
   align-items: center;
@@ -9040,6 +10110,33 @@ sup {
   height: 2rem;
 }
 
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - ページタイトルコンポーネント
+ * 
+ * ページの見出しを表示するためのシンプルなヘッダー領域。
+ * 下線と余白を持ち、レスポンシブコンテナ内に整列。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
 .kat-page-title {
   width: 100%;
   margin-bottom: 1rem;
@@ -9054,6 +10151,34 @@ sup {
   font-size: 1.25rem;
 }
 
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - パンくずリストコンポーネント
+ * 
+ * ユーザーの現在位置を表示し、ナビゲーションを支援する
+ * 階層構造を持つサイトで重要な役割を果たす
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+/* パンくずリストセクション - ページ上部に表示されるナビゲーション */
 .kat-breadcrumbs-section {
   width: 100%;
   background-color: #eff6ff;
@@ -9061,6 +10186,7 @@ sup {
 .kat-breadcrumbs-section .kat-breadcrumbs-section__inner {
   max-width: 1300px;
   margin: 0 auto;
+  /* パンくずリスト - 階層構造を表示するリスト */
 }
 .kat-breadcrumbs-section .kat-breadcrumbs-section__inner .kat-breadcrumbs__list {
   display: flex;
@@ -9069,6 +10195,8 @@ sup {
   list-style: none;
   padding: 0.5rem 0;
   font-size: 0.8125rem;
+  /* パンくずアイテム - 最後の項目以外に矢印を表示 */
+  /* パンくずリンク - クリック可能なナビゲーションリンク */
 }
 .kat-breadcrumbs-section .kat-breadcrumbs-section__inner .kat-breadcrumbs__list .kat-breadcrumbs__item:not(:last-child)::after {
   margin-left: 0.5rem;
@@ -9088,7 +10216,286 @@ sup {
   color: #2563eb;
 }
 
-/* ユーティリティ（最後にインポート） */
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Footer Component - フッターコンポーネント
+ * 
+ * エコマースサイト用の包括的なフッターコンポーネント
+ * 5カラムレイアウトで情報を整理し、ニュースレター登録フォームを含む
+ */
+.kat-ecommerce-footer {
+  background-color: #171717;
+  color: #ffffff;
+  margin-top: auto;
+  /* メインフッター */
+  /* フッターカラム */
+  /* フッタータイトル */
+  /* フッターデスクリプション */
+  /* フッターリスト */
+  /* フッターリンク */
+  /* ソーシャルメディア */
+  /* ニュースレター */
+  /* フッターボトム */
+  /* コピーライト */
+  /* 決済方法 */
+}
+.kat-ecommerce-footer__main {
+  margin-top: 5rem;
+  padding: 2rem 0 2rem;
+  border-bottom: 1px solid #404040;
+}
+.kat-ecommerce-footer__main-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+.kat-ecommerce-footer__column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.kat-ecommerce-footer__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  position: relative;
+}
+.kat-ecommerce-footer__title::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 2rem;
+  height: 2px;
+  background-color: #ffffff;
+}
+.kat-ecommerce-footer__description {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: #d4d4d4;
+  margin: 0;
+}
+.kat-ecommerce-footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.kat-ecommerce-footer__link {
+  color: #d4d4d4;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-ecommerce-footer__link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.kat-ecommerce-footer__link:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+.kat-ecommerce-footer__social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.kat-ecommerce-footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #404040;
+  border-radius: 9999px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-ecommerce-footer__social-link svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.kat-ecommerce-footer__social-link:hover {
+  background-color: #ffffff;
+  color: #171717;
+  transform: translateY(-0.25rem);
+}
+.kat-ecommerce-footer__social-link:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+.kat-ecommerce-footer__newsletter {
+  margin-top: 1rem;
+}
+.kat-ecommerce-footer__newsletter-input {
+  display: flex;
+  gap: 0.5rem;
+  position: relative;
+}
+.kat-ecommerce-footer__newsletter-input input[type=email] {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #404040;
+  border-radius: 0.25rem;
+  background-color: #404040;
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+.kat-ecommerce-footer__newsletter-input input[type=email]::placeholder {
+  color: #737373;
+}
+.kat-ecommerce-footer__newsletter-input input[type=email]:focus {
+  outline: none;
+  border-color: #ffffff;
+  background-color: #525252;
+}
+.kat-ecommerce-footer__newsletter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 0.25rem;
+  color: #171717;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-ecommerce-footer__newsletter-button svg {
+  width: 1rem;
+  height: 1rem;
+}
+.kat-ecommerce-footer__newsletter-button:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-1px);
+}
+.kat-ecommerce-footer__newsletter-button:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+.kat-ecommerce-footer__bottom {
+  padding: 1.5rem 0;
+  background-color: #000000;
+}
+.kat-ecommerce-footer__bottom-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.kat-ecommerce-footer__copyright p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #737373;
+}
+.kat-ecommerce-footer__payment {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.kat-ecommerce-footer__payment-text {
+  font-size: 0.875rem;
+  color: #737373;
+}
+.kat-ecommerce-footer__payment-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+.kat-ecommerce-footer__payment-icon {
+  font-size: 1.25rem;
+  cursor: help;
+  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-ecommerce-footer__payment-icon:hover {
+  transform: scale(1.1);
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .kat-ecommerce-footer__main {
+    padding: 2rem 0 1rem;
+  }
+  .kat-ecommerce-footer__main-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .kat-ecommerce-footer__bottom-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .kat-ecommerce-footer__payment {
+    justify-content: center;
+  }
+}
+@media (max-width: 640px) {
+  .kat-ecommerce-footer__main {
+    padding: 1.5rem 0 1rem;
+  }
+  .kat-ecommerce-footer__main-inner {
+    padding: 0 0.75rem;
+  }
+  .kat-ecommerce-footer__bottom-inner {
+    padding: 0 0.75rem;
+  }
+  .kat-ecommerce-footer__social {
+    justify-content: center;
+  }
+  .kat-ecommerce-footer__newsletter-input {
+    flex-direction: column;
+  }
+  .kat-ecommerce-footer__newsletter-button {
+    width: 100%;
+    height: 2.75rem;
+  }
+}
+/* ユーティリティ（最後に） */
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Spacing utility classes */
 /* Margin utilities */
@@ -10369,6 +11776,23 @@ sup {
 }
 
 /** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/** @project: Kat UI Framework */
 /** @author: Bui Van Tai, 2024-12-15, Miscellaneous utility classes */
 /* Display utilities */
 .kat-block {
@@ -11181,52 +12605,6 @@ sup {
   min-height: 1rem;
   display: inline-block;
   vertical-align: middle;
-}
-
-/* Avatar component */
-.kat-avatar {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 9999px;
-  background-color: #f4f4f5;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.kat-avatar.kat-avatar--sm {
-  width: 2rem;
-  height: 2rem;
-}
-.kat-avatar.kat-avatar--lg {
-  width: 3rem;
-  height: 3rem;
-}
-.kat-avatar.kat-avatar--xl {
-  width: 4rem;
-  height: 4rem;
-}
-.kat-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.kat-avatar__fallback {
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: #3f3f46;
-}
-.kat-avatar--sm .kat-avatar__fallback {
-  font-size: 0.6875rem;
-}
-.kat-avatar--lg .kat-avatar__fallback {
-  font-size: 0.875rem;
-}
-.kat-avatar--xl .kat-avatar__fallback {
-  font-size: 1rem;
 }
 
 /* Loading states */

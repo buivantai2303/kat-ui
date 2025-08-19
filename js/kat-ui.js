@@ -46,6 +46,254 @@ katUI.utils = {
 };
 
 /**
+ * ヘッダーポップアップコンポーネント
+ */
+katUI.headerPopups = {
+  init: function() {
+    this.initNotificationPopup();
+    this.initCartPopup();
+    this.initWishlistPopup();
+    this.initExternalClickHandlers();
+  },
+
+  // 通知ポップアップ（クリック）
+  initNotificationPopup: function() {
+    const trigger = document.getElementById('notification-trigger');
+    const popup = document.getElementById('notification-popup');
+    
+    if (!trigger || !popup) return;
+
+    trigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // 他のポップアップを閉じる
+      katUI.headerPopups.closeAllPopups();
+      
+      // ポップアップの表示切り替え
+      const isCurrentlyOpen = popup.classList.contains('kat-header-popup--open');
+      if (isCurrentlyOpen) {
+        popup.classList.remove('kat-header-popup--open');
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        popup.classList.add('kat-header-popup--open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // すべて既読にするボタン
+    const markReadBtn = popup.querySelector('.kat-notification-popup__mark-read');
+    if (markReadBtn) {
+      markReadBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const unreadItems = popup.querySelectorAll('.kat-notification-popup__item--unread');
+        unreadItems.forEach(item => {
+          item.classList.remove('kat-notification-popup__item--unread');
+        });
+        
+        // バッジを更新
+        const badge = trigger.querySelector('.kat-ecommerce-header__action-badge');
+        if (badge) {
+          badge.textContent = '0';
+          badge.style.display = 'none';
+        }
+      });
+    }
+  },
+
+  // カートポップアップ（ホバー）
+  initCartPopup: function() {
+    const trigger = document.getElementById('cart-trigger');
+    const popup = document.getElementById('cart-popup');
+    
+    if (!trigger || !popup) return;
+
+    let hoverTimeout;
+
+    trigger.addEventListener('mouseenter', function() {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        katUI.headerPopups.closeAllPopups();
+        popup.classList.add('kat-header-popup--open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }, 200);
+    });
+
+    trigger.addEventListener('mouseleave', function() {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        if (!popup.matches(':hover')) {
+          popup.classList.remove('kat-header-popup--open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      }, 200);
+    });
+
+    popup.addEventListener('mouseenter', function() {
+      clearTimeout(hoverTimeout);
+    });
+
+    popup.addEventListener('mouseleave', function() {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        popup.classList.remove('kat-header-popup--open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }, 200);
+    });
+  },
+
+  // ウィッシュリストポップアップ（ホバー）
+  initWishlistPopup: function() {
+    const trigger = document.getElementById('wishlist-trigger');
+    const popup = document.getElementById('wishlist-popup');
+    
+    if (!trigger || !popup) return;
+
+    let hoverTimeout;
+
+    trigger.addEventListener('mouseenter', function() {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        katUI.headerPopups.closeAllPopups();
+        popup.classList.add('kat-header-popup--open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }, 200);
+    });
+
+    trigger.addEventListener('mouseleave', function() {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        if (!popup.matches(':hover')) {
+          popup.classList.remove('kat-header-popup--open');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      }, 200);
+    });
+
+    popup.addEventListener('mouseenter', function() {
+      clearTimeout(hoverTimeout);
+    });
+
+    popup.addEventListener('mouseleave', function() {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => {
+        popup.classList.remove('kat-header-popup--open');
+        trigger.setAttribute('aria-expanded', 'false');
+      }, 200);
+    });
+  },
+
+  // すべてのポップアップを閉じる
+  closeAllPopups: function() {
+    // すべてのヘッダーポップアップを閉じる
+    const headerPopups = document.querySelectorAll('.kat-header-popup');
+    headerPopups.forEach(popup => {
+      popup.classList.remove('kat-header-popup--open');
+    });
+    
+    // 通知ポップアップを閉じる
+    const notificationPopup = document.querySelector('.kat-notification-popup');
+    if (notificationPopup) {
+      notificationPopup.classList.remove('kat-header-popup--open');
+    }
+    
+    // カートポップアップを閉じる
+    const cartPopup = document.querySelector('.kat-cart-popup');
+    if (cartPopup) {
+      cartPopup.classList.remove('kat-header-popup--open');
+    }
+    
+    // ウィッシュリストポップアップを閉じる
+    const wishlistPopup = document.querySelector('.kat-wishlist-popup');
+    if (wishlistPopup) {
+      wishlistPopup.classList.remove('kat-header-popup--open');
+    }
+    
+    // すべてのトリガーのaria-expandedをfalseに設定
+    const triggers = document.querySelectorAll('[aria-expanded]');
+    triggers.forEach(trigger => {
+      trigger.setAttribute('aria-expanded', 'false');
+    });
+  },
+
+  // 外部クリックハンドラーを初期化
+  initExternalClickHandlers: function() {
+    // 通知ポップアップの外部クリック処理
+    const notificationTrigger = document.getElementById('notification-trigger');
+    const notificationPopup = document.getElementById('notification-popup');
+    
+    if (notificationTrigger && notificationPopup) {
+      document.addEventListener('click', function(e) {
+        // 通知トリガーまたはポップアップ内をクリックした場合は何もしない
+        if (notificationTrigger.contains(e.target) || notificationPopup.contains(e.target)) {
+          return;
+        }
+        
+        // 外部をクリックした場合はポップアップを閉じる
+        if (notificationPopup.classList.contains('kat-header-popup--open')) {
+          notificationPopup.classList.remove('kat-header-popup--open');
+          notificationTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // カートポップアップの外部クリック処理
+    const cartTrigger = document.getElementById('cart-trigger');
+    const cartPopup = document.getElementById('cart-popup');
+    
+    if (cartTrigger && cartPopup) {
+      document.addEventListener('click', function(e) {
+        if (cartTrigger.contains(e.target) || cartPopup.contains(e.target)) {
+          return;
+        }
+        
+        if (cartPopup.classList.contains('kat-header-popup--open')) {
+          cartPopup.classList.remove('kat-header-popup--open');
+          cartTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // ウィッシュリストポップアップの外部クリック処理
+    const wishlistTrigger = document.getElementById('wishlist-trigger');
+    const wishlistPopup = document.getElementById('wishlist-popup');
+    
+    if (wishlistTrigger && wishlistPopup) {
+      document.addEventListener('click', function(e) {
+        if (wishlistTrigger.contains(e.target) || wishlistPopup.contains(e.target)) {
+          return;
+        }
+        
+        if (wishlistPopup.classList.contains('kat-header-popup--open')) {
+          wishlistPopup.classList.remove('kat-header-popup--open');
+          wishlistTrigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  }
+};
+
+// 外部クリックでポップアップを閉じる
+document.addEventListener('click', function(e) {
+  const headerAction = e.target.closest('.kat-ecommerce-header__action');
+  const headerPopup = e.target.closest('.kat-header-popup');
+  const notificationPopup = e.target.closest('.kat-notification-popup');
+  const cartPopup = e.target.closest('.kat-cart-popup');
+  const wishlistPopup = e.target.closest('.kat-wishlist-popup');
+  
+  if (!headerAction && !headerPopup && !notificationPopup && !cartPopup && !wishlistPopup) {
+    katUI.headerPopups.closeAllPopups();
+  }
+});
+
+// ESCキーでポップアップを閉じる
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    katUI.headerPopups.closeAllPopups();
+  }
+});
+
+/**
  * モーダルコンポーネント
  */
 katUI.modal = {
@@ -700,28 +948,32 @@ katUI.categoryNav = {
     const categoryToggles = document.querySelectorAll('.kat-category-nav__toggle');
     
     categoryToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
             const item = this.closest('.kat-category-nav__item');
             const submenu = item.querySelector('.kat-category-nav__submenu');
             const icon = this.querySelector('.kat-category-nav__icon');
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
             
             /* 展開状態を切り替え */
-            this.setAttribute('aria-expanded', !isExpanded);
+            const newExpandedState = !isExpanded;
+            this.setAttribute('aria-expanded', newExpandedState);
             
             /* サブメニューの表示を切り替え */
-            if (isExpanded) {
-                submenu.classList.remove('kat-category-nav__submenu--open');
-                icon.textContent = '+';
-                icon.className = 'kat-category-nav__icon kat-category-nav__icon--plus';
-                /* 閉じた時にアクティブ状態を削除 */
-                item.classList.remove('kat-category-nav__item--active');
-            } else {
+            if (newExpandedState) {
+                // 開く
                 submenu.classList.add('kat-category-nav__submenu--open');
                 icon.textContent = '-';
                 icon.className = 'kat-category-nav__icon kat-category-nav__icon--minus';
-                /* 開いた時にアクティブ状態を追加 */
                 item.classList.add('kat-category-nav__item--active');
+            } else {
+                // 閉じる
+                submenu.classList.remove('kat-category-nav__submenu--open');
+                icon.textContent = '+';
+                icon.className = 'kat-category-nav__icon kat-category-nav__icon--plus';
+                item.classList.remove('kat-category-nav__item--active');
             }
         });
     });
@@ -1089,6 +1341,7 @@ katUI.navigationDropdown = {
 
 // すべてのコンポーネントを初期化
 function initKatUI() {
+  katUI.headerPopups.init();
   katUI.modal.init();
   katUI.dropdown.init();
   katUI.tabs.init();

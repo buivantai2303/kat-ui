@@ -1,3 +1,16 @@
+@use '../globals' as *;
+/**
+ * Kat UI Framework - パンくずリストコンポーネント
+ * 
+ * ユーザーの現在位置を表示し、ナビゲーションを支援する
+ * 階層構造を持つサイトで重要な役割を果たす
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* パンくずリストセクション - ページ上部に表示されるナビゲーション */
 .kat-breadcrumbs-section {
     width: 100%;
     background-color: $kat-info-50;
@@ -6,6 +19,7 @@
         max-width: 1300px;
         margin: 0 auto;
 
+        /* パンくずリスト - 階層構造を表示するリスト */
         .kat-breadcrumbs__list {
             display: flex;
             align-items: center;
@@ -14,6 +28,7 @@
             padding: $kat-space-2 0;
             font-size: $kat-font-size-sm;
 
+            /* パンくずアイテム - 最後の項目以外に矢印を表示 */
             .kat-breadcrumbs__item:not(:last-child) {
                 &::after {
                     margin-left: $kat-space-2;
@@ -28,6 +43,7 @@
                 }
             }
 
+            /* パンくずリンク - クリック可能なナビゲーションリンク */
             .kat-breadcrumbs__item-link {
                 color: $kat-info-400;
 
