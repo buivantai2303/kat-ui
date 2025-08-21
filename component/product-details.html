@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kat UI - Product Details</title>
+    <link rel="stylesheet" href="../css/kat-ui.css">
+    <script type="module" src="../js/kat-index.js"></script>
+    <style>
+      /* 商品詳細ページのレイアウト */
+      .kat-layout-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        align-items: start;
+      }
+      
+      .kat-product-gallery { position: sticky; top: 2rem; }
+
+      .kat-product-gallery__main {
+        width: 100%;
+        aspect-ratio: 4/3;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        background: #f7f7f7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .kat-product-gallery__main img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .kat-product-gallery__thumbs {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+        overflow-x: auto;
+        padding-bottom: 0.25rem;
+      }
+      .kat-product-gallery__thumb {
+        width: 5rem;
+        height: 4rem;
+        border-radius: 0.375rem;
+        overflow: hidden;
+        border: 2px solid transparent;
+        cursor: pointer;
+        background: #fff;
+        padding: 0;
+      }
+      .kat-product-gallery__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .kat-product-gallery__thumb--active { border-color: #111; }
+      
+      .kat-product-info__title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+      
+      .kat-product-info__rating {
+        margin-bottom: 1rem;
+      }
+      
+      .kat-product-info__badges {
+        margin-bottom: 1.5rem;
+      }
+      
+      .kat-product-info__price {
+        margin-bottom: 2rem;
+      }
+      
+      .kat-product-info__price-main {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+      }
+      
+      .kat-product-info__price-tax {
+        font-size: 1rem;
+        color: #666;
+        text-decoration: line-through;
+        margin-left: 0.5rem;
+      }
+      
+      .kat-product-variants__group {
+        margin-bottom: 1.5rem;
+      }
+      
+      .kat-product-variants__label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+      
+      .kat-product-variants__options {
+        gap: 0.5rem;
+      }
+      
+      .kat-product-actions {
+        margin-bottom: 2rem;
+      }
+      
+      .kat-quantity-selector {
+        margin-bottom: 1.5rem;
+      }
+      
+      .kat-quantity-selector__label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #333;
+      }
+      
+      .kat-quantity-selector__controls {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .kat-quantity-selector__input {
+        width: 4rem;
+        text-align: center;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 0.25rem;
+      }
+      
+      .kat-product-actions__buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .kat-product-meta {
+        border-top: 1px solid #eee;
+        padding-top: 1.5rem;
+      }
+      
+      .kat-product-meta__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.75rem;
+      }
+      
+      .kat-product-meta__label {
+        font-weight: bold;
+        color: #333;
+      }
+      
+      .kat-product-meta__value {
+        color: #666;
+      }
+      
+      /* タブスタイル */
+      .kat-tabs__nav {
+        display: flex;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 2rem;
+      }
+      
+      .kat-tabs__btn {
+        padding: 1rem 2rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        color: #666;
+      }
+      
+      .kat-tabs__btn--active {
+        color: #333;
+        border-bottom-color: #333;
+      }
+      
+      .kat-tabs__panel {
+        display: none;
+      }
+      
+      .kat-tabs__panel--active {
+        display: block;
+      }
+      
+      /* 商品説明 */
+      .kat-product-description h3,
+      .kat-product-specs h3,
+      .kat-product-reviews h3 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+      
+      .kat-product-description h4 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin: 1.5rem 0 0.75rem 0;
+        color: #333;
+      }
+      
+      .kat-product-description ul {
+        margin: 0.75rem 0;
+        padding-left: 1.5rem;
+      }
+      
+      .kat-product-description li {
+        margin-bottom: 0.5rem;
+      }
+      
+      /* 仕様テーブル */
+      .kat-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+      }
+      
+      .kat-table th,
+      .kat-table td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .kat-table th {
+        font-weight: bold;
+        color: #333;
+        width: 30%;
+      }
+      
+      /* レビュー */
+      .kat-review-summary {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background: #f9f9f9;
+        border-radius: 0.5rem;
+      }
+      
+      .kat-review-rating {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      
+      .kat-review-score {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+      }
+      
+      .kat-review-count {
+        color: #666;
+        margin: 0;
+      }
+      
+      .kat-review-item {
+        border-bottom: 1px solid #eee;
+        padding: 1.5rem 0;
+      }
+      
+      .kat-review-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+      }
+      
+      .kat-review-author {
+        font-weight: bold;
+        color: #333;
+      }
+      
+      .kat-review-date {
+        color: #666;
+        font-size: 0.9rem;
+      }
+      
+      .kat-review-text {
+        color: #333;
+        line-height: 1.6;
+      }
+      
+      /* レスポンシブ対応 */
+      @media (max-width: 768px) {
+        .kat-layout-2col {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        
+        .kat-product-gallery {
+          position: static;
+        }
+        
+        .kat-tabs__nav {
+          flex-direction: column;
+        }
+        
+        .kat-tabs__btn {
+          text-align: left;
+          border-bottom: none;
+          border-left: 2px solid transparent;
+        }
+        
+        .kat-tabs__btn--active {
+          border-left-color: #333;
+        }
+      }
+    </style>
+  </head>
+  <body class="kat-body">
+    <!-- エンタープライズヘッダー（商品詳細） -->
+    <header class="kat-ecommerce-header" id="header">
+      <!-- トップヘッダーバー -->
+      <div class="kat-ecommerce-header__top">
+        <div class="kat-ecommerce-header__top-inner">
+          <div class="kat-ecommerce-header__announcement">🎉 春の新作コレクションが入荷しました！</div>
+        </div>
+      </div>
+
+      <!-- メインヘッダー -->
+      <div class="kat-ecommerce-header__main">
+        <div class="kat-ecommerce-header__main-inner">
+          <div class="kat-ecommerce-header__logo">
+            <a href="../index.html">
+              <div class="kat-ecommerce-header__logo-icon">
+                <img src="../img/images2.jpg" alt="Kat Store">
+              </div>
+              <h1 class="kat-ecommerce-header__logo-text">PISKE & USAGI</h1>
+            </a>
+          </div>
+
+          <!-- 検索バー -->
+          <div class="kat-ecommerce-header__search">
+            <input type="text" class="kat-ecommerce-header__search-input" placeholder="商品名、ブランド、カテゴリで検索...">
+            <button class="kat-ecommerce-header__search-button" aria-label="検索">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- ヘッダーアクション -->
+          <div class="kat-ecommerce-header__actions">
+            <!-- Notification -->
+            <div class="kat-ecommerce-header__action" data-action="notification" aria-label="通知" id="notification-trigger">
+              <svg class="kat-ecommerce-header__action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+              </svg>
+              <span class="kat-ecommerce-header__action-text">通知</span>
+              <span class="kat-ecommerce-header__action-badge">3</span>
+
+              <!-- Notification Popup -->
+              <div class="kat-notification-popup" id="notification-popup">
+                <div class="kat-notification-popup__header">
+                  <h3>通知</h3>
+                  <button class="kat-notification-popup__mark-read">すべて既読にする</button>
+                </div>
+                <div class="kat-notification-popup__content">
+                  <div class="kat-notification-popup__item kat-notification-popup__item--unread">
+                    <div class="kat-notification-popup__icon kat-notification-popup__icon--success">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                      </svg>
+                    </div>
+                    <div class="kat-notification-popup__text">
+                      <h4 class="kat-notification-popup__title">ようこそ</h4>
+                      <p class="kat-notification-popup__message">商品詳細ページへようこそ。</p>
+                      <p class="kat-notification-popup__time">今</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="kat-notification-popup__footer">
+                  <a href="#" class="kat-notification-popup__view-all">すべての通知を見る</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cart -->
+            <div class="kat-ecommerce-header__action" data-action="cart" aria-label="カート" id="cart-trigger">
+              <svg class="kat-ecommerce-header__action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              <span class="kat-ecommerce-header__action-text">カート</span>
+              <span class="kat-ecommerce-header__action-badge">1</span>
+
+              <!-- Cart Popup -->
+              <div class="kat-cart-popup" id="cart-popup">
+                <div class="kat-cart-popup__header">
+                  <h3>ショッピングカート</h3>
+                  <span class="kat-cart-popup__count">1</span>
+                </div>
+                <div class="kat-cart-popup__content">
+                  <div class="kat-cart-popup__item">
+                    <div class="kat-cart-popup__image">
+                      <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ダンボールカーディガン">
+                    </div>
+                    <div class="kat-cart-popup__details">
+                      <h4 class="kat-cart-popup__name">ダンボールカーディガン</h4>
+                      <p class="kat-cart-popup__price">¥1,500</p>
+                    </div>
+                    <div class="kat-cart-popup__quantity">×1</div>
+                  </div>
+                </div>
+                <div class="kat-cart-popup__footer">
+                  <div class="kat-cart-popup__total">
+                    <span>合計</span>
+                    <span>¥1,500</span>
+                  </div>
+                  <div class="kat-cart-popup__actions">
+                    <a href="#" class="kat-btn kat-btn--outline kat-btn--sm">カートを見る</a>
+                    <a href="#" class="kat-btn kat-btn--primary kat-btn--sm">レジへ進む</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Love Products -->
+            <div class="kat-ecommerce-header__action" data-action="wishlist" aria-label="お気に入り" id="wishlist-trigger">
+              <svg class="kat-ecommerce-header__action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+              <span class="kat-ecommerce-header__action-text">お気に入り</span>
+              <span class="kat-ecommerce-header__action-badge">2</span>
+
+              <!-- Wishlist Popup -->
+              <div class="kat-wishlist-popup" id="wishlist-popup">
+                <div class="kat-wishlist-popup__header">
+                  <h3>お気に入り</h3>
+                  <span class="kat-wishlist-popup__count">2</span>
+                </div>
+                <div class="kat-wishlist-popup__content">
+                  <div class="kat-wishlist-popup__item">
+                    <div class="kat-wishlist-popup__image">
+                      <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ワークシャツ">
+                    </div>
+                    <div class="kat-wishlist-popup__details">
+                      <h4 class="kat-wishlist-popup__name">ワークシャツ</h4>
+                      <p class="kat-wishlist-popup__price">¥2,300</p>
+                    </div>
+                  </div>
+                  <div class="kat-wishlist-popup__item">
+                    <div class="kat-wishlist-popup__image">
+                      <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="作業パンツ">
+                    </div>
+                    <div class="kat-wishlist-popup__details">
+                      <h4 class="kat-wishlist-popup__name">作業パンツ</h4>
+                      <p class="kat-wishlist-popup__price">¥2,800</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="kat-wishlist-popup__footer">
+                  <a href="#" class="kat-wishlist-popup__view-all">すべてのお気に入りを見る</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Account -->
+            <div class="kat-ecommerce-header__action" data-action="account" aria-label="アカウント">
+              <svg class="kat-ecommerce-header__action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span class="kat-ecommerce-header__action-text">アカウント</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- パンくずリスト（商品詳細） -->
+    <div class="kat-breadcrumbs-section">
+      <div class="kat-breadcrumbs-section__inner">
+        <ul class="kat-breadcrumbs__list">
+          <li class="kat-breadcrumbs__item"><a href="../index.html" class="kat-breadcrumbs__item-link">ホーム</a></li>
+          <li class="kat-breadcrumbs__item"><a href="#" class="kat-breadcrumbs__item-link">メンズ</a></li>
+          <li class="kat-breadcrumbs__item"><a href="#" class="kat-breadcrumbs__item-link">ジャケット</a></li>
+          <li class="kat-breadcrumbs__item"><span class="kat-breadcrumbs__item-link">商品詳細</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 商品詳細メイン -->
+    <section class="kat-section" id="product-details">
+      <div class="kat-container">
+        <div class="kat-layout-2col">
+          <!-- 左カラム：商品ギャラリー -->
+          <div class="kat-layout-2col__left">
+            <div class="kat-product-gallery">
+              <div class="kat-product-gallery__main kat-image-crop kat-image-crop--1-1">
+                <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="商品画像 メイン">
+              </div>
+              <div class="kat-product-gallery__thumbs-wrap">
+                <button class="kat-product-gallery__thumbs-btn kat-product-gallery__thumbs-btn--prev" aria-label="前へ">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <div class="kat-product-gallery__thumbs" role="list">
+                  <button class="kat-product-gallery__thumb kat-product-gallery__thumb--active" role="listitem" aria-label="画像1" aria-selected="true" data-full="https://workman.jp/img/goods/S/21576_t1.jpg">
+                    <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="サムネイル1">
+                  </button>
+                  <button class="kat-product-gallery__thumb" role="listitem" aria-label="画像2" aria-selected="false" data-full="https://plus.unsplash.com/premium_photo-1718913936342-eaafff98834b?q=80&w=1172&auto=format&fit=crop">
+                    <img src="https://plus.unsplash.com/premium_photo-1718913936342-eaafff98834b?q=80&w=600&auto=format&fit=crop" alt="サムネイル2">
+                  </button>
+                  <button class="kat-product-gallery__thumb" role="listitem" aria-label="画像3" aria-selected="false" data-full="https://plus.unsplash.com/premium_photo-1690406381422-e423308ad61b?q=80&w=1170&auto=format&fit=crop">
+                    <img src="https://plus.unsplash.com/premium_photo-1690406381422-e423308ad61b?q=80&w=600&auto=format&fit=crop" alt="サムネイル3">
+                  </button>
+                  <button class="kat-product-gallery__thumb" role="listitem" aria-label="画像4" aria-selected="false" data-full="https://images.unsplash.com/photo-1520975922284-7b683c1bd03a?q=80&w=1200&auto=format&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1520975922284-7b683c1bd03a?q=80&w=600&auto=format&fit=crop" alt="サムネイル4">
+                  </button>
+                  <button class="kat-product-gallery__thumb" role="listitem" aria-label="画像5" aria-selected="false" data-full="https://images.unsplash.com/photo-1535914254981-b5012eebbd15?q=80&w=1200&auto=format&fit=crop">
+                    <img src="https://images.unsplash.com/photo-1535914254981-b5012eebbd15?q=80&w=600&auto=format&fit=crop" alt="サムネイル5">
+                  </button>
+                </div>
+                <button class="kat-product-gallery__thumbs-btn kat-product-gallery__thumbs-btn--next" aria-label="次へ">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右カラム：商品情報 -->
+          <div class="kat-layout-2col__right">
+            <div class="kat-product-info">
+              <h1 class="kat-product-info__title">ダンボールカーディガン</h1>
+              <div class="kat-product-info__rating">
+                <span class="kat-stars">★★★★★</span>
+                <span class="kat-rating-text">4.7 (94件)</span>
+              </div>
+              <div class="kat-product-info__badges kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                <span class="kat-badge kat-badge--success">人気</span>
+                <span class="kat-badge kat-badge--warning">限定</span>
+              </div>
+              <div class="kat-product-info__price">
+                <span class="kat-product-info__price-main">¥1,500</span>
+                <span class="kat-product-info__price-tax">¥2,000</span>
+              </div>
+
+              <!-- バリエーション選択 -->
+              <div class="kat-product-variants">
+                <div class="kat-product-variants__group">
+                  <div class="kat-product-variants__label">カラー</div>
+                  <div class="kat-product-variants__options kat-flex kat-gap--sm">
+                    <button class="kat-btn kat-btn--outline kat-btn--sm kat-btn--active">ブラック</button>
+                    <button class="kat-btn kat-btn--outline kat-btn--sm">ホワイト</button>
+                    <button class="kat-btn kat-btn--outline kat-btn--sm">グレー</button>
+                  </div>
+                </div>
+                <div class="kat-product-variants__group">
+                  <div class="kat-product-variants__label">サイズ</div>
+                  <div class="kat-product-variants__options kat-flex kat-gap--sm">
+                    <button class="kat-btn kat-btn--outline kat-btn--sm">S</button>
+                    <button class="kat-btn kat-btn--outline kat-btn--sm kat-btn--active">M</button>
+                    <button class="kat-btn kat-btn--outline kat-btn--sm">L</button>
+                    <button class="kat-btn kat-btn--outline kat-btn--sm">XL</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 数量とアクション -->
+              <div class="kat-product-actions">
+                <div class="kat-quantity-selector">
+                  <label class="kat-quantity-selector__label">数量</label>
+                  <div class="kat-quantity-selector__controls">
+                    <button class="kat-btn kat-btn--outline kat-btn--sm" aria-label="減らす">-</button>
+                    <input type="number" class="kat-quantity-selector__input" value="1" min="1" aria-label="数量">
+                    <button class="kat-btn kat-btn--outline kat-btn--sm" aria-label="増やす">+</button>
+                  </div>
+                </div>
+                <div class="kat-product-actions__buttons">
+                  <button class="kat-btn kat-btn--primary kat-btn--lg">カートに追加</button>
+                  <button class="kat-btn kat-btn--outline kat-btn--lg">今すぐ購入</button>
+                </div>
+              </div>
+
+              <!-- 情報補足 -->
+              <div class="kat-product-meta">
+                <div class="kat-product-meta__item">
+                  <span class="kat-product-meta__label">在庫状況:</span>
+                  <span class="kat-product-meta__value kat-badge kat-badge--success">在庫あり</span>
+                </div>
+                <div class="kat-product-meta__item">
+                  <span class="kat-product-variants__label">配送:</span>
+                  <span class="kat-product-meta__value">通常2-3営業日</span>
+                </div>
+                <div class="kat-product-meta__item">
+                  <span class="kat-product-variants__label">返品:</span>
+                  <span class="kat-product-meta__value">30日以内返品可能</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 詳細/仕様/レビュー タブ -->
+    <section class="kat-section" id="product-tabs">
+      <div class="kat-container">
+        <div class="kat-tabs">
+          <div class="kat-tabs__nav" role="tablist">
+            <button class="kat-tabs__btn kat-tabs__btn--active" role="tab" aria-selected="true" aria-controls="tab-panel-1">説明</button>
+            <button class="kat-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-panel-2">仕様</button>
+            <button class="kat-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-panel-3">レビュー</button>
+          </div>
+          <div class="kat-tabs__panels">
+            <div class="kat-tabs__panel kat-tabs__panel--active" id="tab-panel-1" role="tabpanel">
+              <div class="kat-product-description">
+                <h3>商品説明</h3>
+                <p>高品質な素材を使用し、快適な着心地と耐久性を両立したカーディガンです。日常から作業現場まで幅広く活躍します。</p>
+                
+                <h4>特徴</h4>
+                <ul>
+                  <li>軽量で通気性の良い素材</li>
+                  <li>動きやすいデザイン</li>
+                  <li>洗濯機で簡単に洗える</li>
+                  <li>速乾性に優れている</li>
+                </ul>
+                
+                <h4>使用シーン</h4>
+                <p>作業現場、アウトドア、日常着として幅広くご利用いただけます。特に軽作業や軽スポーツに最適です。</p>
+              </div>
+            </div>
+            <div class="kat-tabs__panel" id="tab-panel-2" role="tabpanel">
+              <div class="kat-product-specs">
+                <h3>商品仕様</h3>
+                <table class="kat-table">
+                  <tbody>
+                    <tr>
+                      <th>素材</th>
+                      <td>ポリエステル 100%</td>
+                    </tr>
+                    <tr>
+                      <th>重量</th>
+                      <td>450g</td>
+                    </tr>
+                    <tr>
+                      <th>洗濯</th>
+                      <td>洗濯機可（ネット使用推奨）</td>
+                    </tr>
+                    <tr>
+                      <th>乾燥</th>
+                      <td>乾燥機不可</td>
+                    </tr>
+                    <tr>
+                      <th>原産国</th>
+                      <td>日本</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="kat-tabs__panel" id="tab-panel-3" role="tabpanel">
+              <div class="kat-product-reviews">
+                <h3>ユーザーレビュー</h3>
+                <div class="kat-review-summary">
+                  <div class="kat-review-rating">
+                    <span class="kat-stars">★★★★★</span>
+                    <span class="kat-review-score">4.7</span>
+                    <span class="kat-review-total">/5</span>
+                  </div>
+                  <p class="kat-review-count">94件のレビュー</p>
+                </div>
+                
+                <div class="kat-review-item">
+                  <div class="kat-review-header">
+                    <span class="kat-stars">★★★★★</span>
+                    <span class="kat-review-author">田中さん</span>
+                    <span class="kat-review-date">2024年1月15日</span>
+                  </div>
+                  <p class="kat-review-text">とても快適で動きやすいです！作業現場でも重宝しています。洗濯も簡単で、乾きも早いのが良いです。</p>
+                </div>
+                
+                <div class="kat-review-item">
+                  <div class="kat-review-header">
+                    <span class="kat-stars">★★★★☆</span>
+                    <span class="kat-review-author">佐藤さん</span>
+                    <span class="kat-review-date">2024年1月10日</span>
+                  </div>
+                  <p class="kat-review-text">軽くて着心地が良いです。サイズもぴったりで、作業がしやすいです。</p>
+                </div>
+                
+                <a href="#" class="kat-btn kat-btn--outline">すべてのレビューを見る</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 関連商品 -->
+    <section class="kat-section" id="related-products">
+      <div class="kat-container">
+        <h2 class="kat-section__title">関連商品</h2>
+        <div class="kat-product-grid">
+          <div class="kat-product-card">
+            <a href="#" class="kat-product-card__image">
+              <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ワークシャツ">
+              <span class="kat-sticky-new">NEW</span>
+            </a>
+            <div class="kat-product-card__content">
+              <a href="#" class="kat-product-card__title">ワークシャツ</a>
+              <div class="kat-product-card__rating">
+                <span class="kat-stars">★★★★☆</span>
+                <span class="kat-rating-text">4.3 (51件)</span>
+              </div>
+              <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                <span class="kat-badge kat-badge--success">人気</span>
+              </div>
+              <div class="kat-product-card__price">¥2,300</div>
+            </div>
+          </div>
+
+          <div class="kat-product-card">
+            <a href="#" class="kat-product-card__image">
+              <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="作業パンツ">
+              <span class="kat-sticky-new">NEW</span>
+            </a>
+            <div class="kat-product-card__content">
+              <a href="#" class="kat-product-card__title">作業パンツ</a>
+              <div class="kat-product-card__rating">
+                <span class="kat-stars">★★★★★</span>
+                <span class="kat-rating-text">4.9 (18件)</span>
+              </div>
+              <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                <span class="kat-badge kat-badge--warning">限定</span>
+              </div>
+              <div class="kat-product-card__price">¥2,800</div>
+            </div>
+          </div>
+
+          <div class="kat-product-card">
+            <a href="#" class="kat-product-card__image">
+              <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="安全靴">
+              <span class="kat-sticky-new">NEW</span>
+            </a>
+            <div class="kat-product-card__content">
+              <a href="#" class="kat-product-card__title">安全靴</a>
+              <div class="kat-product-card__rating">
+                <span class="kat-stars">★★★★☆</span>
+                <span class="kat-rating-text">4.2 (36件)</span>
+              </div>
+              <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                <span class="kat-badge kat-badge--info">軽量</span>
+              </div>
+              <div class="kat-product-card__price">¥3,800</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="kat-ecommerce-footer" id="footer">
+      <!-- メインフッター -->
+      <div class="kat-ecommerce-footer__main">
+        <div class="kat-ecommerce-footer__main-inner">
+          <!-- フッターカラム1: 会社情報 -->
+          <div class="kat-ecommerce-footer__column">
+            <h3 class="kat-ecommerce-footer__title">PISKE & USAGI</h3>
+            <p class="kat-ecommerce-footer__description">
+              高品質な作業服とワークウェアを提供する専門店です。
+              安全で快適な作業環境をサポートします。
+            </p>
+            <div class="kat-ecommerce-footer__social">
+              <a href="#" class="kat-ecommerce-footer__social-link" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                </svg>
+              </a>
+              <a href="#" class="kat-ecommerce-footer__social-link" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                </svg>
+              </a>
+              <a href="#" class="kat-ecommerce-footer__social-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.297-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.807.875 1.297 2.026 1.297 3.323s-.49 2.448-1.297 3.323z"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- フッターカラム2: 商品カテゴリー -->
+          <div class="kat-ecommerce-footer__column">
+            <h3 class="kat-ecommerce-footer__title">商品カテゴリー</h3>
+            <ul class="kat-ecommerce-footer__list">
+              <li><a href="#" class="kat-ecommerce-footer__link">作業服</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">メンズ</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">レディース</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">キッズ</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">安全靴</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">作業用手袋</a></li>
+            </ul>
+          </div>
+
+          <!-- フッターカラム3: サポート -->
+          <div class="kat-ecommerce-footer__column">
+            <h3 class="kat-ecommerce-footer__title">サポート</h3>
+            <ul class="kat-ecommerce-footer__list">
+              <li><a href="#" class="kat-ecommerce-footer__link">お問い合わせ</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">よくある質問</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">サイズガイド</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">返品・交換</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">配送について</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">在庫確認</a></li>
+            </ul>
+          </div>
+
+          <!-- フッターカラム4: 会社情報 -->
+          <div class="kat-ecommerce-footer__column">
+            <h3 class="kat-ecommerce-footer__title">会社情報</h3>
+            <ul class="kat-ecommerce-footer__list">
+              <li><a href="#" class="kat-ecommerce-footer__link">会社概要</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">採用情報</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">プライバシーポリシー</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">利用規約</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">特定商取引法</a></li>
+              <li><a href="#" class="kat-ecommerce-footer__link">サイトマップ</a></li>
+            </ul>
+          </div>
+
+          <!-- フッターカラム5: ニュースレター -->
+          <div class="kat-ecommerce-footer__column">
+            <h3 class="kat-ecommerce-footer__title">ニュースレター</h3>
+            <p class="kat-ecommerce-footer__description">
+              新商品やセール情報をお届けします。
+            </p>
+            <form class="kat-ecommerce-footer__newsletter">
+              <div class="kat-ecommerce-footer__newsletter-input">
+                <input type="email" placeholder="メールアドレス" required>
+                <button type="submit" class="kat-ecommerce-footer__newsletter-button" aria-label="登録">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 2L11 13"></path>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z"></path>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- フッターボトム -->
+      <div class="kat-ecommerce-footer__bottom">
+        <div class="kat-ecommerce-footer__bottom-inner">
+          <div class="kat-ecommerce-footer__copyright">
+            <p>&copy; 2024 PISKE & USAGI. All rights reserved.</p>
+          </div>
+          <div class="kat-ecommerce-footer__payment">
+            <span class="kat-ecommerce-footer__payment-text">対応決済方法</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // 商品詳細ページのタブ機能
+      document.addEventListener('DOMContentLoaded', function() {
+        // ギャラリー：サムネイルクリックでメイン画像切替
+        (function setupGallery() {
+          const mainImg = document.querySelector('.kat-product-gallery__main img');
+          const thumbs = document.querySelectorAll('.kat-product-gallery__thumb');
+          const thumbsContainer = document.querySelector('.kat-product-gallery__thumbs');
+          const btnPrev = document.querySelector('.kat-product-gallery__thumbs-btn--prev');
+          const btnNext = document.querySelector('.kat-product-gallery__thumbs-btn--next');
+          if (!mainImg || !thumbs.length) return;
+          thumbs.forEach(btn => {
+            btn.addEventListener('click', () => {
+              const full = btn.getAttribute('data-full');
+              if (full) {
+                mainImg.src = full;
+              }
+              thumbs.forEach(t => {
+                t.classList.remove('kat-product-gallery__thumb--active');
+                t.setAttribute('aria-selected', 'false');
+              });
+              btn.classList.add('kat-product-gallery__thumb--active');
+              btn.setAttribute('aria-selected', 'true');
+            });
+          });
+
+          // サムネイルの水平スクロール制御
+          const scrollStep = 120;
+          const updateButtons = () => {
+            if (!thumbsContainer) return;
+            const maxScroll = thumbsContainer.scrollWidth - thumbsContainer.clientWidth;
+            if (btnPrev) btnPrev.disabled = thumbsContainer.scrollLeft <= 0;
+            if (btnNext) btnNext.disabled = thumbsContainer.scrollLeft >= maxScroll - 1;
+          };
+          if (btnPrev && thumbsContainer) {
+            btnPrev.addEventListener('click', () => {
+              thumbsContainer.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+              setTimeout(updateButtons, 200);
+            });
+          }
+          if (btnNext && thumbsContainer) {
+            btnNext.addEventListener('click', () => {
+              thumbsContainer.scrollBy({ left: scrollStep, behavior: 'smooth' });
+              setTimeout(updateButtons, 200);
+            });
+          }
+          if (thumbsContainer) {
+            thumbsContainer.addEventListener('scroll', updateButtons, { passive: true });
+            updateButtons();
+          }
+        })();
+
+        const tabButtons = document.querySelectorAll('.kat-tabs__btn');
+        const tabPanels = document.querySelectorAll('.kat-tabs__panel');
+        
+        // タブ切り替え機能
+        tabButtons.forEach((button, index) => {
+          button.addEventListener('click', () => {
+            // すべてのタブとパネルを非アクティブにする
+            tabButtons.forEach(btn => {
+              btn.classList.remove('kat-tabs__btn--active');
+              btn.setAttribute('aria-selected', 'false');
+            });
+            tabPanels.forEach(panel => {
+              panel.classList.remove('kat-tabs__panel--active');
+            });
+            
+            // クリックされたタブとパネルをアクティブにする
+            button.classList.add('kat-tabs__btn--active');
+            button.setAttribute('aria-selected', 'true');
+            tabPanels[index].classList.add('kat-tabs__panel--active');
+          });
+        });
+        
+        // 数量選択機能
+        const quantityInput = document.querySelector('.kat-quantity-selector__input');
+        const decreaseBtn = document.querySelector('.kat-quantity-selector__controls .kat-btn:first-child');
+        const increaseBtn = document.querySelector('.kat-quantity-selector__controls .kat-btn:last-child');
+        
+        if (decreaseBtn && increaseBtn && quantityInput) {
+          decreaseBtn.addEventListener('click', () => {
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+              quantityInput.value = currentValue - 1;
+            }
+          });
+          
+          increaseBtn.addEventListener('click', () => {
+            const currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+          });
+        }
+        
+        // バリエーション選択機能
+        const colorButtons = document.querySelectorAll('.kat-product-variants__group:first-child .kat-btn');
+        const sizeButtons = document.querySelectorAll('.kat-product-variants__group:last-child .kat-btn');
+        
+        colorButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            colorButtons.forEach(btn => {
+              btn.classList.remove('kat-btn--active');
+            });
+            button.classList.add('kat-btn--active');
+          });
+        });
+        
+        sizeButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            sizeButtons.forEach(btn => {
+              btn.classList.remove('kat-btn--active');
+            });
+            button.classList.add('kat-btn--active');
+          });
+        });
+        
+        // カートに追加ボタンの処理
+        const addToCartBtn = document.querySelector('.kat-btn--primary');
+        if (addToCartBtn) {
+          addToCartBtn.addEventListener('click', () => {
+            // カートに追加の処理
+            alert('商品をカートに追加しました');
+          });
+        }
+        
+        // 今すぐ購入ボタンの処理
+        const buyNowBtn = document.querySelector('.kat-btn--outline:last-of-type');
+        if (buyNowBtn) {
+          buyNowBtn.addEventListener('click', () => {
+            // 購入ページへの遷移処理
+            alert('購入ページに移動します');
+          });
+        }
+      });
+    </script>
+  </body>
+  </html>
+
+

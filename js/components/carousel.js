@@ -437,10 +437,7 @@ export const carousel = {
     // イベントの発火
     this.dispatchSlideChangeEvent(carouselId, index);
     
-    // トランジション完了後の処理
-    setTimeout(() => {
-      state.isTransitioning = false;
-    }, 60000);
+    // トランジション完了後の処理は executeTransition 内で行う（実際のdurationに追従）
   },
 
   /**
@@ -454,13 +451,29 @@ export const carousel = {
     
     const { container, config } = state;
     
+    const completeAfter = (el, fallbackMs = 500) => {
+      // 実際のCSSトランジション時間を計算
+      try {
+        const style = window.getComputedStyle(el);
+        const durs = style.transitionDuration.split(',').map(v => parseFloat(v) * 1000 || 0);
+        const delays = style.transitionDelay.split(',').map(v => parseFloat(v) * 1000 || 0);
+        const ms = Math.max(...durs.map((d, i) => d + (delays[i] || 0)), 0) || fallbackMs;
+        setTimeout(() => { state.isTransitioning = false; }, ms + 50);
+      } catch (_) {
+        setTimeout(() => { state.isTransitioning = false; }, fallbackMs);
+      }
+    };
+
     if (config.transition === 'slide') {
       container.style.transform = `translateX(-${index * 100}%)`;
+      completeAfter(container, 400);
     } else if (config.transition === 'fade') {
       // フェードトランジション
       state.slides.forEach((slide, i) => {
         slide.style.opacity = i === index ? '1' : '0';
       });
+      // フェードはスライドのCSSに依存
+      completeAfter(state.slides[index] || container, 500);
     }
   },
 
