@@ -88,6 +88,7 @@
   /* デスクトップ: 3カラム */
   @media (min-width: 1024px) {
     flex-direction: row;
+    align-items: flex-start; /* サイドバーを上部に揃える */
   }
   
   /* 非スティッキーモード - サイドバー/本文とも通常フロー */
@@ -110,7 +111,6 @@
 /* 左サイドバー - デスクトップで固定幅、モバイルは全幅 */
 .kat-sidebar-left {
   width: 100%;
-  padding-top: 1rem;
   background-color: $kat-white;
   border-bottom: $kat-border-1 solid $kat-primary-200;
   position: static;
@@ -122,9 +122,9 @@
     width: 250px;
     border-bottom: none;
     position: sticky;
-    top: 80px;
-    height: calc(100vh - 80px);
-    overflow-y: scroll;
+    top: 130px;
+    height: fit-content;
+    overflow-y: auto;
     
     /* スクロールバーを非表示にする（装飾目的） */
     &::-webkit-scrollbar {
@@ -194,7 +194,6 @@
 /* 右サイドバー - デスクトップで固定幅、モバイルは全幅 */
 .kat-sidebar-right {
   width: 100%;
-  padding-top: 1rem;
   background-color: $kat-white;
   border-top: $kat-border-1 solid $kat-primary-200;
   position: static;
@@ -206,9 +205,9 @@
     width: 250px;
     border-top: none;
     position: sticky;
-    top: 80px;
-    height: calc(100vh - 80px);
-    overflow-y: scroll;
+    top: 130px;
+    height: fit-content;
+    overflow-y: auto;
     
     /* スクロールバーを非表示にする（装飾目的） */
     &::-webkit-scrollbar {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kat UI - Home</title>
     <link rel="stylesheet" href="../css/kat-ui.css">
-    <script src="../js/kat-ui.js"></script>
+    <script type="module" src="../js/kat-index.js"></script>
   </head>
   <body class="kat-body">
     <!-- エンタープライズヘッダー（ホーム） -->
@@ -172,24 +172,66 @@
       </div>
     </header>
 
+    <!-- トレンドバー（ヘッダー直下、カルーセルの上） -->
+    <section class="kat-trendbar" id="trendbar">
+      <div class="kat-trendbar__inner">
+        <ul class="kat-trendbar__tabs" role="tablist" aria-label="カテゴリタブ">
+          <li><a href="#" class="kat-trendbar__tab kat-trendbar__tab--active" role="tab" aria-selected="true">MEN</a></li>
+          <li><a href="#" class="kat-trendbar__tab" role="tab" aria-selected="false">WOMEN</a></li>
+          <li><a href="#" class="kat-trendbar__tab" role="tab" aria-selected="false">KIDS</a></li>
+          <li><a href="#" class="kat-trendbar__tab kat-trendbar__tab--sale" role="tab" aria-selected="false">SALE</a></li>
+        </ul>
+
+        <div class="kat-trendbar__keywords" aria-label="注目ワード">
+          <span class="kat-trendbar__label">
+            <img class="kat-trendbar__label-icon" src="../icon/ico_keyword.png" alt="注目ワード" />
+            注目ワード
+          </span>
+          <div class="kat-trendbar__chips" role="list">
+            <button class="kat-trendbar__chip" role="listitem">#店舗で人気</button>
+            <button class="kat-trendbar__chip" role="listitem">#セットアップ</button>
+            <button class="kat-trendbar__chip" role="listitem">#すごいラク/涼しい</button>
+            <button class="kat-trendbar__chip" role="listitem">#吸水速乾/紫外線ケア</button>
+            <button class="kat-trendbar__chip" role="listitem">#ショートパンツ</button>
+            <button class="kat-trendbar__chip" role="listitem">#COOL/涼しい</button>
+            <button class="kat-trendbar__chip" role="listitem">#501</button>
+            <button class="kat-trendbar__chip" role="listitem">#WEB限定</button>
+            <button class="kat-trendbar__chip" role="listitem">#XXLサイズ展開アイテム</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ヒーローカルーセル（静的） -->
     <section class="kat-section" id="hero">
-      <div class="kat-container">
-        <div class="kat-carousel kat-carousel--with-controls kat-carousel--hero" data-kat-autoplay data-kat-interval="4000">
+      <div class="kat-container-full">
+        <div class="kat-carousel kat-carousel--with-controls kat-carousel--hero" data-kat-autoplay data-kat-interval="4000" data-kat-show-arrows data-kat-show-dots data-kat-loop>
           <div class="kat-carousel__viewport">
             <div class="kat-carousel__container">
               <div class="kat-carousel__slide">
-                <img src="https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?q=80&w=2065&auto=format&fit=crop" alt="ヒーローバナー1">
+                <img src="https://plus.unsplash.com/premium_photo-1690406381422-e423308ad61b?q=80&w=1170&auto=format&fit=crop" alt="ヒーローバナー1">
                 <div class="kat-carousel__content">
                   <h2 class="kat-carousel__title">新作コレクション</h2>
                   <p class="kat-carousel__description">機能性とデザインを両立した最新ウェア</p>
+                  <a href="#" class="kat-btn kat-btn--primary kat-btn--sm" role="button">WATCH NOW</a>
                 </div>
               </div>
               <div class="kat-carousel__slide">
-                <img src="https://images.unsplash.com/photo-1521577352947-9bb58764b69a?q=80&w=2069&auto=format&fit=crop" alt="ヒーローバナー2">
+                <video autoplay muted loop playsinline>
+                  <source src="https://videos.pexels.com/video-files/31385032/13392266_1920_1080_30fps.mp4" type="video/mp4">
+                </video>
                 <div class="kat-carousel__content">
                   <h2 class="kat-carousel__title">快適な作業をサポート</h2>
                   <p class="kat-carousel__description">高品質な素材で長時間の作業も快適に</p>
+                  <a href="#" class="kat-btn kat-btn--primary kat-btn--sm" role="button">WATCH NOW</a>
+                </div>
+              </div>
+              <div class="kat-carousel__slide">
+                <img src="https://plus.unsplash.com/premium_photo-1718913936342-eaafff98834b?q=80&w=1172&auto=format&fit=crop" alt="ヒーローバナー2">
+                <div class="kat-carousel__content">
+                  <h2 class="kat-carousel__title">快適な作業をサポート</h2>
+                  <p class="kat-carousel__description">高品質な素材で長時間の作業も快適に</p>
+                  <a href="#" class="kat-btn kat-btn--primary kat-btn--sm" role="button">WATCH NOW</a>
                 </div>
               </div>
             </div>
@@ -217,6 +259,62 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- カテゴリ丸型グリッド（ヒーローの下、商品グリッドの上） -->
+    <section class="kat-category-rounds" id="category-rounds">
+      <div class="kat-category-rounds__inner">
+        <ul class="kat-category-rounds__list" role="list">
+          <li class="kat-category-rounds__item" role="listitem">
+            <a href="#" class="kat-category-rounds__link" aria-label="トップス">
+              <div class="kat-category-rounds__circle">
+                <img class="kat-category-rounds__icon" src="https://img.icons8.com/ios/100/t-shirt.png" alt="" />
+              </div>
+              <div class="kat-category-rounds__label">トップス</div>
+            </a>
+          </li>
+          <li class="kat-category-rounds__item" role="listitem">
+            <a href="#" class="kat-category-rounds__link" aria-label="ボトムス">
+              <div class="kat-category-rounds__circle">
+                <img class="kat-category-rounds__icon" src="https://img.icons8.com/ios/100/jeans.png" alt="" />
+              </div>
+              <div class="kat-category-rounds__label">ボトムス</div>
+            </a>
+          </li>
+          <li class="kat-category-rounds__item" role="listitem">
+            <a href="#" class="kat-category-rounds__link" aria-label="ジャケット/アウター">
+              <div class="kat-category-rounds__circle">
+                <img class="kat-category-rounds__icon" src="https://img.icons8.com/ios/100/jacket.png" alt="" />
+              </div>
+              <div class="kat-category-rounds__label">ジャケット/アウター</div>
+            </a>
+          </li>
+          <li class="kat-category-rounds__item" role="listitem">
+            <a href="#" class="kat-category-rounds__link" aria-label="オールインワン/サロペット">
+              <div class="kat-category-rounds__circle">
+                <img class="kat-category-rounds__icon" src="https://img.icons8.com/?size=100&id=3438&format=png&color=000000" alt="" />
+              </div>
+              <div class="kat-category-rounds__label">オールインワン/サロペット</div>
+            </a>
+          </li>
+          <li class="kat-category-rounds__item" role="listitem">
+            <a href="#" class="kat-category-rounds__link" aria-label="靴下/アンダーウエア">
+              <div class="kat-category-rounds__circle">
+                <img class="kat-category-rounds__icon" src="https://img.icons8.com/ios/100/socks.png" alt="" />
+              </div>
+              <div class="kat-category-rounds__label">靴下/アンダーウエア</div>
+            </a>
+          </li>
+          <li class="kat-category-rounds__item" role="listitem">
+            <a href="#" class="kat-category-rounds__link" aria-label="その他">
+              <div class="kat-category-rounds__circle">
+                <img class="kat-category-rounds__icon" src="https://img.icons8.com/ios/100/coffee.png" alt="" />
+              </div>
+              <div class="kat-category-rounds__label">その他</div>
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -287,74 +385,114 @@
             <div class="kat-body-content__inner">
               <h2 class="kat-body-content__title">新着商品</h2>
               <div class="kat-product-grid">
-              <div class="kat-product-card">
-                <a href="#" class="kat-product-card__image">
-                  <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ダンボールカーディガン">
-                  <span class="kat-sticky-new">NEW</span>
-                </a>
-                <div class="kat-product-card__content">
-                  <a href="#" class="kat-product-card__title">ダンボールカーディガン</a>
-                  <div class="kat-product-card__rating">
-                    <span class="kat-stars">★★★★★</span>
-                    <span class="kat-rating-text">4.7 (94件)</span>
+                <!-- 商品カード1 -->
+                <div class="kat-product-card">
+                  <a href="#" class="kat-product-card__image">
+                    <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ダンボールカーディガン">
+                    <span class="kat-sticky-new">NEW</span>
+                  </a>
+                  <div class="kat-product-card__content">
+                    <a href="#" class="kat-product-card__title">ダンボールカーディガン</a>
+                    <div class="kat-product-card__rating">
+                      <span class="kat-stars">★★★★★</span>
+                      <span class="kat-rating-text">4.7 (94件)</span>
+                    </div>
+                    <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                      <span class="kat-badge kat-badge--info">情報</span>
+                    </div>
+                    <div class="kat-product-card__price">¥1,500 &nbsp;<span class="kat-product-card__price-tax">¥2,000</span></div>
                   </div>
-                  <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
-                    <span class="kat-badge kat-badge--info">情報</span>
-                  </div>
-                  <div class="kat-product-card__price">¥1,500 &nbsp;<span class="kat-product-card__price-tax">¥2,000</span></div>
                 </div>
-              </div>
-              <div class="kat-product-card">
-                <a href="#" class="kat-product-card__image">
-                  <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ワークシャツ">
-                  <span class="kat-sticky-new">NEW</span>
-                </a>
-                <div class="kat-product-card__content">
-                  <a href="#" class="kat-product-card__title">ワークシャツ</a>
-                  <div class="kat-product-card__rating">
-                    <span class="kat-stars">★★★★☆</span>
-                    <span class="kat-rating-text">4.3 (51件)</span>
+                <!-- 商品カード2 -->
+                <div class="kat-product-card">
+                  <a href="#" class="kat-product-card__image">
+                    <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ワークシャツ">
+                    <span class="kat-sticky-new">NEW</span>
+                  </a>
+                  <div class="kat-product-card__content">
+                    <a href="#" class="kat-product-card__title">ワークシャツ</a>
+                    <div class="kat-product-card__rating">
+                      <span class="kat-stars">★★★★☆</span>
+                      <span class="kat-rating-text">4.3 (51件)</span>
+                    </div>
+                    <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                      <span class="kat-badge kat-badge--success">人気</span>
+                    </div>
+                    <div class="kat-product-card__price">¥2,300</div>
                   </div>
-                  <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
-                    <span class="kat-badge kat-badge--success">人気</span>
-                  </div>
-                  <div class="kat-product-card__price">¥2,300</div>
                 </div>
-              </div>
-              <div class="kat-product-card">
-                <a href="#" class="kat-product-card__image">
-                  <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="作業パンツ">
-                  <span class="kat-sticky-new">NEW</span>
-                </a>
-                <div class="kat-product-card__content">
-                  <a href="#" class="kat-product-card__title">作業パンツ</a>
-                  <div class="kat-product-card__rating">
-                    <span class="kat-stars">★★★★★</span>
-                    <span class="kat-rating-text">4.9 (18件)</span>
+                <!-- 商品カード3 -->
+                <div class="kat-product-card">
+                  <a href="#" class="kat-product-card__image">
+                    <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="作業パンツ">
+                    <span class="kat-sticky-new">NEW</span>
+                  </a>
+                  <div class="kat-product-card__content">
+                    <a href="#" class="kat-product-card__title">作業パンツ</a>
+                    <div class="kat-product-card__rating">
+                      <span class="kat-stars">★★★★★</span>
+                      <span class="kat-rating-text">4.9 (18件)</span>
+                    </div>
+                    <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                      <span class="kat-badge kat-badge--warning">限定</span>
+                    </div>
+                    <div class="kat-product-card__price">¥2,800</div>
                   </div>
-                  <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
-                    <span class="kat-badge kat-badge--warning">限定</span>
-                  </div>
-                  <div class="kat-product-card__price">¥2,800</div>
                 </div>
-              </div>
-              <div class="kat-product-card">
-                <a href="#" class="kat-product-card__image">
-                  <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="安全靴">
-                  <span class="kat-sticky-new">NEW</span>
-                </a>
-                <div class="kat-product-card__content">
-                  <a href="#" class="kat-product-card__title">安全靴</a>
-                  <div class="kat-product-card__rating">
-                    <span class="kat-stars">★★★★☆</span>
-                    <span class="kat-rating-text">4.2 (36件)</span>
+                <!-- 商品カード4 -->
+                <div class="kat-product-card">
+                  <a href="#" class="kat-product-card__image">
+                    <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="安全靴">
+                    <span class="kat-sticky-new">NEW</span>
+                  </a>
+                  <div class="kat-product-card__content">
+                    <a href="#" class="kat-product-card__title">安全靴</a>
+                    <div class="kat-product-card__rating">
+                      <span class="kat-stars">★★★★☆</span>
+                      <span class="kat-rating-text">4.2 (36件)</span>
+                    </div>
+                    <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                      <span class="kat-badge kat-badge--info">軽量</span>
+                    </div>
+                    <div class="kat-product-card__price">¥3,800</div>
                   </div>
-                  <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
-                    <span class="kat-badge kat-badge--info">軽量</span>
-                  </div>
-                  <div class="kat-product-card__price">¥3,800</div>
                 </div>
-              </div>
+                <!-- 商品カード5 -->
+                <div class="kat-product-card">
+                  <a href="#" class="kat-product-card__image">
+                    <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="安全靴">
+                    <span class="kat-sticky-new">NEW</span>
+                  </a>
+                  <div class="kat-product-card__content">
+                    <a href="#" class="kat-product-card__title">安全靴</a>
+                    <div class="kat-product-card__rating">
+                      <span class="kat-stars">★★★★☆</span>
+                      <span class="kat-rating-text">4.2 (36件)</span>
+                    </div>
+                    <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                      <span class="kat-badge kat-badge--info">軽量</span>
+                    </div>
+                    <div class="kat-product-card__price">¥3,800</div>
+                  </div>
+                </div>
+                <!-- 商品カード6 -->
+                <div class="kat-product-card">
+                  <a href="#" class="kat-product-card__image">
+                    <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="安全靴">
+                    <span class="kat-sticky-new">NEW</span>
+                  </a>
+                  <div class="kat-product-card__content">
+                    <a href="#" class="kat-product-card__title">安全靴</a>
+                    <div class="kat-product-card__rating">
+                      <span class="kat-stars">★★★★☆</span>
+                      <span class="kat-rating-text">4.2 (36件)</span>
+                    </div>
+                    <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                      <span class="kat-badge kat-badge--info">軽量</span>
+                    </div>
+                    <div class="kat-product-card__price">¥3,800</div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

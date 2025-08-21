@@ -13,7 +13,7 @@
 /* セクション領域 - ページ内の論理的区切り */
 .kat-section {
   padding: 0;
-  margin: $kat-space-6 0;
+  margin: $kat-space-4 0;
 }
 
 /* セクション見出し */
@@ -39,6 +39,13 @@
   margin: 0 auto;
   padding: 0;
   max-width: $kat-container-max-width;
+}
+
+.kat-container-full {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
 }
 
 /* フレックスボックスユーティリティ - 柔軟なレイアウト制御 */

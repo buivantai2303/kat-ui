@@ -348,7 +348,13 @@
 
 /* ステータスインジケーター - ユーザーの状態を表示 */
 .kat-status {
-  @extend .kat-badge !optional;
+  padding: $kat-space-1 $kat-space-3;
+  font-size: $kat-font-size-xs;
+  font-weight: $kat-font-weight-medium;
+  line-height: 1;
+  vertical-align: middle;
+  color: $kat-white;
+  border-radius: $kat-radius-full;
   
   &.kat-status--online {
     background-color: $kat-success-500;

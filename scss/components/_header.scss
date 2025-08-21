@@ -38,6 +38,22 @@
   .kat-ecommerce-header__announcement {
     text-align: center;
     flex: 1;
+    /* タイピング効果のカーソル */
+    &.kat-typing::after {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 1em;
+      background-color: $kat-white;
+      margin-left: 3px;
+      animation: kat-caret-blink 1s steps(1) infinite;
+      vertical-align: -0.1em;
+    }
+  }
+
+  @keyframes kat-caret-blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
   }
   
   .kat-ecommerce-header__top-links {

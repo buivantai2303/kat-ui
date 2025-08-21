@@ -631,7 +631,7 @@ sup {
 /* セクション領域 - ページ内の論理的区切り */
 .kat-section {
   padding: 0;
-  margin: 1.5rem 0;
+  margin: 1rem 0;
 }
 
 /* セクション見出し */
@@ -657,6 +657,13 @@ sup {
   margin: 0 auto;
   padding: 0;
   max-width: 1300px;
+}
+
+.kat-container-full {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 100%;
 }
 
 /* フレックスボックスユーティリティ - 柔軟なレイアウト制御 */
@@ -1202,6 +1209,7 @@ sup {
 @media (min-width: 1024px) {
   .kat-layout-3col {
     flex-direction: row;
+    align-items: flex-start; /* サイドバーを上部に揃える */
   }
 }
 @media (min-width: 1024px) {
@@ -1219,7 +1227,6 @@ sup {
 /* 左サイドバー - デスクトップで固定幅、モバイルは全幅 */
 .kat-sidebar-left {
   width: 100%;
-  padding-top: 1rem;
   background-color: #ffffff;
   border-bottom: 1px solid #e5e5e5;
   position: static;
@@ -1232,9 +1239,9 @@ sup {
     width: 250px;
     border-bottom: none;
     position: sticky;
-    top: 80px;
-    height: calc(100vh - 80px);
-    overflow-y: scroll;
+    top: 130px;
+    height: fit-content;
+    overflow-y: auto;
     /* スクロールバーを非表示にする（装飾目的） */
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -1293,7 +1300,6 @@ sup {
 /* 右サイドバー - デスクトップで固定幅、モバイルは全幅 */
 .kat-sidebar-right {
   width: 100%;
-  padding-top: 1rem;
   background-color: #ffffff;
   border-top: 1px solid #e5e5e5;
   position: static;
@@ -1306,9 +1312,9 @@ sup {
     width: 250px;
     border-top: none;
     position: sticky;
-    top: 80px;
-    height: calc(100vh - 80px);
-    overflow-y: scroll;
+    top: 130px;
+    height: fit-content;
+    overflow-y: auto;
     /* スクロールバーを非表示にする（装飾目的） */
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -3360,6 +3366,25 @@ sup {
 .kat-ecommerce-header__top .kat-ecommerce-header__announcement {
   text-align: center;
   flex: 1;
+  /* タイピング効果のカーソル */
+}
+.kat-ecommerce-header__top .kat-ecommerce-header__announcement.kat-typing::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  background-color: #ffffff;
+  margin-left: 3px;
+  animation: kat-caret-blink 1s steps(1) infinite;
+  vertical-align: -0.1em;
+}
+@keyframes kat-caret-blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  50.01%, 100% {
+    opacity: 0;
+  }
 }
 .kat-ecommerce-header__top .kat-ecommerce-header__top-links {
   display: flex;
@@ -4324,7 +4349,7 @@ sup {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0.625rem 1rem;
+  padding: 0.5rem 1rem;
   background: none;
   border: none;
   color: #404040;
@@ -4332,7 +4357,7 @@ sup {
   font-weight: 500;
   text-align: left;
   cursor: pointer;
-  transition: all 500ms cubic-bezier(0, 0, 0.58, 1);
+  transition: all 500ms;
 }
 .kat-category-nav__toggle:hover {
   background-color: #fafafa;
@@ -4942,7 +4967,7 @@ sup {
   margin-bottom: 0.375rem;
 }
 
-.kat-badge, .kat-counter, .kat-status {
+.kat-badge, .kat-counter {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -4964,113 +4989,113 @@ sup {
   /* アイコン付きバッジ - アイコンとテキストを組み合わせたバッジ */
   /* 削除可能バッジ - 閉じるボタン付きのバッジ */
 }
-.kat-badge.kat-badge--primary, .kat-counter, .kat-badge--primary.kat-status {
+.kat-badge.kat-badge--primary, .kat-counter {
   background-color: #f5f5f5;
   color: #262626;
 }
-.kat-badge.kat-badge--success, .kat-badge--success.kat-counter, .kat-badge--success.kat-status {
+.kat-badge.kat-badge--success, .kat-badge--success.kat-counter {
   background-color: #dcfce7;
   color: #166534;
 }
-.kat-badge.kat-badge--warning, .kat-badge--warning.kat-counter, .kat-badge--warning.kat-status {
+.kat-badge.kat-badge--warning, .kat-badge--warning.kat-counter {
   background-color: #fef3c7;
   color: #92400e;
 }
-.kat-badge.kat-badge--error, .kat-badge--error.kat-counter, .kat-badge--error.kat-status {
+.kat-badge.kat-badge--error, .kat-badge--error.kat-counter {
   background-color: #fee2e2;
   color: #991b1b;
 }
-.kat-badge.kat-badge--info, .kat-badge--info.kat-counter, .kat-badge--info.kat-status {
+.kat-badge.kat-badge--info, .kat-badge--info.kat-counter {
   background-color: #dbeafe;
   color: #1e40af;
 }
-.kat-badge.kat-badge--outline, .kat-badge--outline.kat-counter, .kat-badge--outline.kat-status {
+.kat-badge.kat-badge--outline, .kat-badge--outline.kat-counter {
   background-color: transparent;
   border: 1px solid #d4d4d8;
   color: #3f3f46;
 }
-.kat-badge.kat-badge--outline.kat-badge--primary, .kat-badge--outline.kat-counter, .kat-badge--outline.kat-badge--primary.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--primary, .kat-badge--outline.kat-counter {
   border-color: #d4d4d4;
   color: #404040;
 }
-.kat-badge.kat-badge--outline.kat-badge--success, .kat-badge--outline.kat-badge--success.kat-counter, .kat-badge--outline.kat-badge--success.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--success, .kat-badge--outline.kat-badge--success.kat-counter {
   border-color: #86efac;
   color: #15803d;
 }
-.kat-badge.kat-badge--outline.kat-badge--warning, .kat-badge--outline.kat-badge--warning.kat-counter, .kat-badge--outline.kat-badge--warning.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--warning, .kat-badge--outline.kat-badge--warning.kat-counter {
   border-color: #fcd34d;
   color: #b45309;
 }
-.kat-badge.kat-badge--outline.kat-badge--error, .kat-badge--outline.kat-badge--error.kat-counter, .kat-badge--outline.kat-badge--error.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--error, .kat-badge--outline.kat-badge--error.kat-counter {
   border-color: #fca5a5;
   color: #b91c1c;
 }
-.kat-badge.kat-badge--outline.kat-badge--info, .kat-badge--outline.kat-badge--info.kat-counter, .kat-badge--outline.kat-badge--info.kat-status {
+.kat-badge.kat-badge--outline.kat-badge--info, .kat-badge--outline.kat-badge--info.kat-counter {
   border-color: #93c5fd;
   color: #1d4ed8;
 }
-.kat-badge.kat-badge--solid, .kat-counter, .kat-badge--solid.kat-status {
+.kat-badge.kat-badge--solid, .kat-counter {
   color: #ffffff;
 }
-.kat-badge.kat-badge--solid.kat-badge--primary, .kat-counter, .kat-badge--solid.kat-badge--primary.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--primary, .kat-counter {
   background-color: #525252;
 }
-.kat-badge.kat-badge--solid.kat-badge--success, .kat-badge--success.kat-counter, .kat-badge--solid.kat-badge--success.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--success, .kat-badge--success.kat-counter {
   background-color: #16a34a;
 }
-.kat-badge.kat-badge--solid.kat-badge--warning, .kat-badge--warning.kat-counter, .kat-badge--solid.kat-badge--warning.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--warning, .kat-badge--warning.kat-counter {
   background-color: #d97706;
 }
-.kat-badge.kat-badge--solid.kat-badge--error, .kat-badge--error.kat-counter, .kat-badge--solid.kat-badge--error.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--error, .kat-badge--error.kat-counter {
   background-color: #dc2626;
 }
-.kat-badge.kat-badge--solid.kat-badge--info, .kat-badge--info.kat-counter, .kat-badge--solid.kat-badge--info.kat-status {
+.kat-badge.kat-badge--solid.kat-badge--info, .kat-badge--info.kat-counter {
   background-color: #2563eb;
 }
-.kat-badge.kat-badge--sm, .kat-badge--sm.kat-counter, .kat-badge--sm.kat-status {
+.kat-badge.kat-badge--sm, .kat-badge--sm.kat-counter {
   padding: 0.125rem 0.375rem;
   font-size: 0.6875rem; /* 11px */
 }
-.kat-badge.kat-badge--lg, .kat-badge--lg.kat-counter, .kat-badge--lg.kat-status {
+.kat-badge.kat-badge--lg, .kat-badge--lg.kat-counter {
   padding: 0.375rem 0.75rem;
   font-size: 0.8125rem;
 }
-.kat-badge.kat-badge--pill, .kat-badge--pill.kat-counter, .kat-badge--pill.kat-status {
+.kat-badge.kat-badge--pill, .kat-badge--pill.kat-counter {
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
 }
-.kat-badge.kat-badge--square, .kat-badge--square.kat-counter, .kat-badge--square.kat-status {
+.kat-badge.kat-badge--square, .kat-badge--square.kat-counter {
   border-radius: 0.0625rem;
 }
-.kat-badge.kat-badge--with-icon, .kat-badge--with-icon.kat-counter, .kat-badge--with-icon.kat-status {
+.kat-badge.kat-badge--with-icon, .kat-badge--with-icon.kat-counter {
   gap: 0.25rem;
   padding-left: 0.375rem;
 }
-.kat-badge.kat-badge--with-icon svg, .kat-badge--with-icon.kat-counter svg, .kat-badge--with-icon.kat-status svg {
+.kat-badge.kat-badge--with-icon svg, .kat-badge--with-icon.kat-counter svg {
   width: 0.75rem;
   height: 0.75rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--sm, .kat-badge--with-icon.kat-badge--sm.kat-counter, .kat-badge--with-icon.kat-badge--sm.kat-status {
+.kat-badge.kat-badge--with-icon.kat-badge--sm, .kat-badge--with-icon.kat-badge--sm.kat-counter {
   gap: 0.125rem;
   padding-left: 0.25rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--sm svg, .kat-badge--with-icon.kat-badge--sm.kat-counter svg, .kat-badge--with-icon.kat-badge--sm.kat-status svg {
+.kat-badge.kat-badge--with-icon.kat-badge--sm svg, .kat-badge--with-icon.kat-badge--sm.kat-counter svg {
   width: 0.625rem;
   height: 0.625rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--lg, .kat-badge--with-icon.kat-badge--lg.kat-counter, .kat-badge--with-icon.kat-badge--lg.kat-status {
+.kat-badge.kat-badge--with-icon.kat-badge--lg, .kat-badge--with-icon.kat-badge--lg.kat-counter {
   gap: 0.375rem;
   padding-left: 0.5rem;
 }
-.kat-badge.kat-badge--with-icon.kat-badge--lg svg, .kat-badge--with-icon.kat-badge--lg.kat-counter svg, .kat-badge--with-icon.kat-badge--lg.kat-status svg {
+.kat-badge.kat-badge--with-icon.kat-badge--lg svg, .kat-badge--with-icon.kat-badge--lg.kat-counter svg {
   width: 1rem;
   height: 1rem;
 }
-.kat-badge.kat-badge--removable, .kat-badge--removable.kat-counter, .kat-badge--removable.kat-status {
+.kat-badge.kat-badge--removable, .kat-badge--removable.kat-counter {
   padding-right: 0.25rem;
   gap: 0.25rem;
 }
-.kat-badge.kat-badge--removable .kat-badge__remove, .kat-badge--removable.kat-counter .kat-badge__remove, .kat-badge--removable.kat-status .kat-badge__remove {
+.kat-badge.kat-badge--removable .kat-badge__remove, .kat-badge--removable.kat-counter .kat-badge__remove {
   background: none;
   border: none;
   color: inherit;
@@ -5086,28 +5111,28 @@ sup {
   transition: opacity 150ms cubic-bezier(0.42, 0, 0.58, 1);
 }
 @media (hover: hover) {
-  .kat-badge.kat-badge--removable .kat-badge__remove:hover, .kat-badge--removable.kat-counter .kat-badge__remove:hover, .kat-badge--removable.kat-status .kat-badge__remove:hover {
+  .kat-badge.kat-badge--removable .kat-badge__remove:hover, .kat-badge--removable.kat-counter .kat-badge__remove:hover {
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.1);
   }
 }
-.kat-badge.kat-badge--removable .kat-badge__remove svg, .kat-badge--removable.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-status .kat-badge__remove svg {
+.kat-badge.kat-badge--removable .kat-badge__remove svg, .kat-badge--removable.kat-counter .kat-badge__remove svg {
   width: 0.75rem;
   height: 0.75rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove, .kat-badge--removable.kat-badge--sm.kat-status .kat-badge__remove {
+.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove {
   width: 0.875rem;
   height: 0.875rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove svg, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-badge--sm.kat-status .kat-badge__remove svg {
+.kat-badge.kat-badge--removable.kat-badge--sm .kat-badge__remove svg, .kat-badge--removable.kat-badge--sm.kat-counter .kat-badge__remove svg {
   width: 0.625rem;
   height: 0.625rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove, .kat-badge--removable.kat-badge--lg.kat-status .kat-badge__remove {
+.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove {
   width: 1.25rem;
   height: 1.25rem;
 }
-.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove svg, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove svg, .kat-badge--removable.kat-badge--lg.kat-status .kat-badge__remove svg {
+.kat-badge.kat-badge--removable.kat-badge--lg .kat-badge__remove svg, .kat-badge--removable.kat-badge--lg.kat-counter .kat-badge__remove svg {
   width: 1rem;
   height: 1rem;
 }
@@ -5148,25 +5173,25 @@ sup {
   position: relative;
   display: inline-block;
 }
-.kat-position-badge .kat-badge, .kat-position-badge .kat-counter, .kat-position-badge .kat-status {
+.kat-position-badge .kat-badge, .kat-position-badge .kat-counter {
   position: absolute;
   transform: translate(50%, -50%);
 }
-.kat-position-badge .kat-badge.kat-badge--top-right, .kat-position-badge .kat-badge--top-right.kat-counter, .kat-position-badge .kat-badge--top-right.kat-status {
+.kat-position-badge .kat-badge.kat-badge--top-right, .kat-position-badge .kat-badge--top-right.kat-counter {
   top: 0;
   right: 0;
 }
-.kat-position-badge .kat-badge.kat-badge--top-left, .kat-position-badge .kat-badge--top-left.kat-counter, .kat-position-badge .kat-badge--top-left.kat-status {
+.kat-position-badge .kat-badge.kat-badge--top-left, .kat-position-badge .kat-badge--top-left.kat-counter {
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
 }
-.kat-position-badge .kat-badge.kat-badge--bottom-right, .kat-position-badge .kat-badge--bottom-right.kat-counter, .kat-position-badge .kat-badge--bottom-right.kat-status {
+.kat-position-badge .kat-badge.kat-badge--bottom-right, .kat-position-badge .kat-badge--bottom-right.kat-counter {
   bottom: 0;
   right: 0;
   transform: translate(50%, 50%);
 }
-.kat-position-badge .kat-badge.kat-badge--bottom-left, .kat-position-badge .kat-badge--bottom-left.kat-counter, .kat-position-badge .kat-badge--bottom-left.kat-status {
+.kat-position-badge .kat-badge.kat-badge--bottom-left, .kat-position-badge .kat-badge--bottom-left.kat-counter {
   bottom: 0;
   left: 0;
   transform: translate(-50%, 50%);
@@ -5224,6 +5249,15 @@ sup {
 }
 
 /* ステータスインジケーター - ユーザーの状態を表示 */
+.kat-status {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1;
+  vertical-align: middle;
+  color: #ffffff;
+  border-radius: 9999px;
+}
 .kat-status.kat-status--online {
   background-color: #22c55e;
   color: #ffffff;
@@ -6779,7 +6813,7 @@ sup {
 @media (min-width: 1024px) {
   .kat-carousel.kat-carousel--hero .kat-carousel__viewport,
   .kat-carousel.kat-carousel--hero .kat-carousel__slide {
-    height: 480px;
+    height: 530px;
   }
 }
 
@@ -6792,24 +6826,85 @@ sup {
 
 /* カルーセルコンテナ - スライドを格納する移動可能なコンテナ */
 .kat-carousel__container {
-  display: flex;
+  position: relative;
   transition: transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   will-change: transform;
+  width: 100%;
+  height: 100%;
 }
 
 /* 個別カルーセルスライド - 各スライドの表示とスタイル */
 .kat-carousel__slide {
   min-width: 100%;
+  width: 100%;
+  height: 100%;
   flex-shrink: 0;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* 個別スライドのビデオスタイル */
+  /* ビデオ読み込み中のスタイル */
+  /* ビデオ読み込み完了後のスタイル */
+  /* スクリーンサイズに応じたスタイル */
+  /* スライドの位置設定 */
+  /* アクティブスライド */
   /* Multi-slide variants */
   /* Responsive slides */
 }
-.kat-carousel__slide img {
+.kat-carousel__slide img,
+.kat-carousel__slide video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.kat-carousel__slide video {
+  pointer-events: none; /* ビデオコントロールがカルーセルに干渉しないようにする */
+  background-color: #f5f5f5; /* フォールバック背景 */
+  transition: opacity 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-carousel__slide video:not([readyState="4"]) {
+  opacity: 1;
+}
+.kat-carousel__slide video[readyState="4"] {
+  opacity: 1;
+}
+.kat-carousel__slide video + img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+@media (min-width: 640px) {
+  .kat-carousel__slide video {
+    object-position: center center;
+    aspect-ratio: 16/9;
+  }
+}
+@media (min-width: 768px) {
+  .kat-carousel__slide video {
+    object-position: center center;
+    aspect-ratio: 16/9;
+  }
+}
+@media (min-width: 1024px) {
+  .kat-carousel__slide video {
+    object-position: center center;
+    aspect-ratio: 16/9;
+  }
+}
+.kat-carousel__slide:nth-child(1) {
+  transform: translateX(0%);
+}
+.kat-carousel__slide:nth-child(2) {
+  transform: translateX(100%);
+}
+.kat-carousel__slide:nth-child(3) {
+  transform: translateX(200%);
+}
+.kat-carousel__slide.kat-carousel__slide--active {
+  z-index: 1;
 }
 .kat-carousel__slide.kat-carousel__slide--half {
   min-width: 50%;
@@ -6861,9 +6956,10 @@ sup {
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   padding: 0;
+  opacity: 0.8;
   background-color: rgba(255, 255, 255, 0.9);
   color: #171717;
   border: 1px solid #e5e5e5;
@@ -6884,7 +6980,7 @@ sup {
 @media (hover: hover) {
   .kat-carousel__nav-btn:hover {
     background-color: #ffffff;
-    transform: scale(1.05); /* 親で位置決め済み。ホバー時は拡大のみ */
+    transform: scale(1.02);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 }
@@ -6968,17 +7064,25 @@ sup {
   left: 0;
   right: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3), transparent);
-  color: #ffffff;
-  padding: 1.5rem 1.5rem 2rem;
+  padding: 1.5rem 4rem 4rem;
   z-index: 10;
-  pointer-events: none; /* オーバーレイがナビゲーションのクリックを妨げないようにする */
+  pointer-events: auto; /* ボタン操作を可能にする */
+}
+.kat-carousel__content .kat-btn {
+  margin-top: 1rem;
+  background-color: #dc2626;
+  text-decoration: none;
+}
+.kat-carousel__content .kat-btn:hover {
+  background-color: #ef4444;
 }
 
 .kat-carousel__title {
-  font-size: 1.125rem;
+  font-size: 1.875rem;
   font-weight: 700;
   margin: 0 0 0.5rem 0;
   line-height: 1.25;
+  color: #ffffff;
 }
 
 .kat-carousel__description {
@@ -6986,6 +7090,7 @@ sup {
   margin: 0;
   opacity: 0.9;
   line-height: 1.5;
+  color: #ffffff;
 }
 
 /* カルーセルバリアント - フェード、垂直、サムネイルなどの表示方法 */
@@ -7104,12 +7209,12 @@ sup {
 /* レスポンシブ調整 - 画面サイズに応じた表示の最適化 */
 @media (min-width: 640px) {
   .kat-carousel__nav-btn {
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
   }
   .kat-carousel__nav-btn svg {
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 1rem;
+    height: 1rem;
   }
 }
 /* タッチ/スワイプインジケーター - モバイルでの操作感向上 */
@@ -7121,6 +7226,11 @@ sup {
   cursor: grab;
 }
 .kat-carousel--touch .kat-carousel__container:active {
+  cursor: grabbing;
+}
+
+/* ドラッグ中の視覚的フィードバック（カーソル） */
+.kat-carousel--dragging .kat-carousel__container {
   cursor: grabbing;
 }
 
@@ -7624,6 +7734,7 @@ sup {
 .kat-filter-btn.kat-filter-btn--open {
   background-color: #f5f5f5;
   color: #171717;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .kat-filter-btn.kat-filter-btn--open .kat-filter-btn__chevron {
   transform: rotate(180deg);
@@ -7632,13 +7743,14 @@ sup {
 /* フィルターポップオーバー - フィルターオプションを表示するポップアップ */
 .kat-filter-popover {
   position: fixed;
-  /* 初期状態は非表示にする（初期読み込み時にポップオーバーが開かないようにする） */
   display: none;
   min-width: 16rem;
   max-width: 20rem;
   z-index: 1000;
-  transform: translateY(0);
-  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* 初期状態は非表示にする（初期読み込み時にポップオーバーが開かないようにする） */
+  opacity: 0;
+  transform: scale(0.95) translateY(-8px);
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   /* ポップオーバーベース（@extend 不成立時のフォールバック） */
   background-color: #ffffff;
   border: 1px solid #e5e5e5;
@@ -7652,6 +7764,8 @@ sup {
 }
 .kat-filter-popover.kat-popover--open {
   display: block;
+  opacity: 1;
+  transform: scale(1) translateY(0);
 }
 .kat-filter-popover.kat-filter-popover--top::before {
   bottom: -12px;
@@ -7687,7 +7801,11 @@ sup {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid #e5e5e5;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* フィルタータイトル - フィルターの種類を示す見出し */
@@ -7714,6 +7832,8 @@ sup {
   color: #a3a3a3;
   padding: 0.25rem;
   cursor: pointer;
+  border-radius: 0.1875rem;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .kat-filter-close:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
@@ -7729,7 +7849,11 @@ sup {
   .kat-filter-close:hover {
     background-color: #f5f5f5;
     color: #525252;
+    transform: scale(1.1);
   }
+}
+.kat-filter-close:active {
+  transform: scale(0.95);
 }
 .kat-filter-close svg {
   width: 1rem;
@@ -7751,15 +7875,9 @@ sup {
   padding: 0.25rem 0;
   border-radius: 0.1875rem;
   cursor: pointer;
-  transition: background-color 150ms cubic-bezier(0.42, 0, 0.58, 1);
   /* チェックボックス - フィルター条件の選択状態 */
   /* ラベル - フィルター条件の説明テキスト */
   /* カウントバッジ - フィルター条件に該当する商品数 */
-}
-@media (hover: hover) {
-  .kat-filter-option:hover {
-    background-color: #fafafa;
-  }
 }
 .kat-filter-option .kat-checkbox {
   margin: 0;
@@ -7771,9 +7889,18 @@ sup {
   flex: 1;
 }
 .kat-filter-option .kat-filter-option__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.6875rem;
   padding: 0.125rem 0.25rem;
   margin-left: auto;
+  background-color: #f5f5f5;
+  color: #404040;
+  border: 1px solid #e5e5e5;
+  border-radius: 9999px;
+  min-width: 1.5rem;
+  height: 1.5rem;
 }
 
 /* フィルターアクション - フィルターの適用とクリアボタン */
@@ -7785,6 +7912,9 @@ sup {
   margin-top: 1rem;
   padding-top: 0.75rem;
   border-top: 1px solid #e5e5e5;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* フィルタークリアボタン - 選択されたフィルター条件をリセット */
@@ -7841,6 +7971,289 @@ sup {
   }
   .kat-filter-btn {
     font-size: 0.8125rem;
+  }
+}
+/* フィルター検索 - フィルターオプションの検索機能 */
+.kat-filter-search {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.1875rem;
+  font-size: 0.8125rem;
+  color: #404040;
+  background-color: #ffffff;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-filter-search::placeholder {
+  color: #a3a3a3;
+}
+.kat-filter-search:focus {
+  outline: none;
+  border-color: #737373;
+  box-shadow: 0 0 0 3px rgba(115, 115, 115, 0.1);
+  transform: scale(1.01);
+}
+@media (hover: hover) {
+  .kat-filter-search:hover {
+    border-color: #d4d4d4;
+  }
+}
+
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * トレンドバーコンポーネント
+ * ヘッダー直下に表示されるタブと注目ワードチップ
+ * - 注目ワード：スクロール可能なチップ群
+ */
+.kat-trendbar {
+  width: 100%;
+}
+
+.kat-trendbar__inner {
+  margin: 0 auto;
+}
+
+/* タブ行 - カテゴリ切替のタブ */
+.kat-trendbar__tabs {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 0;
+  padding: 0.5rem 0 0;
+  list-style: none;
+}
+
+.kat-trendbar__tab {
+  position: relative;
+  color: #737373;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@media (hover: hover) {
+  .kat-trendbar__tab:hover {
+    color: #171717;
+    text-decoration: none;
+  }
+}
+.kat-trendbar__tab.kat-trendbar__tab--active {
+  color: #171717;
+}
+.kat-trendbar__tab.kat-trendbar__tab--active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.125rem;
+  height: 2px;
+  background-color: #171717;
+}
+.kat-trendbar__tab.kat-trendbar__tab--sale {
+  color: #ffffff;
+  background-color: #dc2626;
+  border-radius: 0.0625rem;
+  padding: 0.125rem 0.5rem;
+}
+
+/* 注目ワード行 - 左にラベル、右にスクロール可能なチップ */
+.kat-trendbar__keywords {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  background-color: #f0f0f0;
+}
+
+.kat-trendbar__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #171717;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.kat-trendbar__label-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  object-fit: contain;
+}
+
+.kat-trendbar__chips {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex: 0 1 auto;
+  overflow-x: auto;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  /* Firefox - スクロールバーのスタイル */
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d8 #f4f4f5;
+}
+.kat-trendbar__chips::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.kat-trendbar__chips::-webkit-scrollbar-track {
+  background: #f4f4f5;
+  border-radius: 0.125rem;
+}
+.kat-trendbar__chips::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 0.125rem;
+}
+.kat-trendbar__chips::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+.kat-trendbar__chip {
+  display: inline-flex;
+  align-items: center;
+  height: 1.75rem;
+  padding: 0 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  color: #262626;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  white-space: nowrap;
+  transition: all 150ms cubic-bezier(0.42, 0, 0.58, 1);
+}
+@media (hover: hover) {
+  .kat-trendbar__chip:hover {
+    border-color: #171717;
+    transform: translateY(-1px);
+  }
+}
+
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * カテゴリ丸型グリッド
+ * ヒーローの下、商品グリッドの上に表示するカテゴリショートカット
+ */
+.kat-category-rounds {
+  padding: 1.5rem 0 1rem;
+  background-color: #ffffff;
+}
+
+.kat-category-rounds__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* 丸型カテゴリ一覧 */
+.kat-category-rounds__list {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.kat-category-rounds__item {
+  width: 8.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.kat-category-rounds__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+@media (hover: hover) {
+  .kat-category-rounds__link:hover {
+    transform: translateY(-2px);
+    filter: brightness(0.95);
+  }
+}
+
+/* アイコンの輪郭（薄い円） */
+.kat-category-rounds__circle {
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #fafafa;
+  display: grid;
+  place-items: center;
+  transition: background-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* アイコン実体 */
+.kat-category-rounds__icon {
+  width: 3rem;
+  height: 3rem;
+  color: #171717;
+}
+
+.kat-category-rounds__label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #171717;
+  line-height: 1.25;
+}
+
+@media (min-width: 640px) {
+  .kat-category-rounds__item {
+    width: 7rem;
+  }
+  .kat-category-rounds__circle {
+    width: 4.75rem;
+    height: 4.75rem;
+  }
+  .kat-category-rounds__icon {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 }
 /** @project: Kat UI Framework */

@@ -1,0 +1,120 @@
+@use '../globals' as *;
+
+/**
+ * トレンドバーコンポーネント
+ * ヘッダー直下に表示されるタブと注目ワードチップ
+ * - 注目ワード：スクロール可能なチップ群
+ */
+
+.kat-trendbar {
+  width: 100%;
+}
+
+.kat-trendbar__inner {
+  margin: 0 auto;
+}
+
+/* タブ行 - カテゴリ切替のタブ */
+.kat-trendbar__tabs {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-6;
+  justify-content: center;
+  margin: 0;
+  padding: $kat-space-2 0 0;
+  list-style: none;
+}
+
+.kat-trendbar__tab {
+  position: relative;
+  color: $kat-primary-500;
+  text-decoration: none;
+  font-size: $kat-font-size-lg;
+  font-weight: $kat-font-weight-bold;
+  transition: color $kat-duration-200 $kat-ease-apple;
+  
+  @include kat-hover {
+    color: $kat-primary-900;
+    text-decoration: none;
+  }
+  
+  &.kat-trendbar__tab--active {
+    color: $kat-primary-900;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -$kat-space-0-5;
+      height: 2px;
+      background-color: $kat-primary-900;
+    }
+  }
+  
+  &.kat-trendbar__tab--sale {
+    color: $kat-white;
+    background-color: $kat-error-600;
+    border-radius: $kat-radius-sm;
+    padding: $kat-space-0-5 $kat-space-2;
+  }
+}
+
+/* 注目ワード行 - 左にラベル、右にスクロール可能なチップ */
+.kat-trendbar__keywords {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $kat-space-3;
+  margin-top: $kat-space-2;
+  background-color: $kat-primary-150;
+}
+
+.kat-trendbar__label {
+  display: inline-flex;
+  align-items: center;
+  gap: $kat-space-2;
+  color: $kat-primary-900;
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-bold;
+  white-space: nowrap;
+}
+
+.kat-trendbar__label-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  object-fit: contain;
+}
+
+.kat-trendbar__chips {
+  display: flex;
+  gap: $kat-space-2;
+  justify-content: center;
+  flex: 0 1 auto;
+  overflow-x: auto;
+  padding-top: $kat-space-2-5;
+  padding-bottom: $kat-space-2-5;
+  
+  @include kat-scrollbar;
+}
+
+.kat-trendbar__chip {
+  display: inline-flex;
+  align-items: center;
+  height: 1.75rem;
+  padding: 0 $kat-space-3;
+  background-color: $kat-white;
+  border: $kat-border-1 solid $kat-primary-200;
+  color: $kat-primary-800;
+  border-radius: $kat-radius-full;
+  font-size: $kat-font-size-xs;
+  white-space: nowrap;
+  transition: all $kat-duration-150 $kat-ease-in-out;
+  
+  @include kat-hover {
+    border-color: $kat-primary-900;
+    transform: translateY(-1px);
+  }
+}
+

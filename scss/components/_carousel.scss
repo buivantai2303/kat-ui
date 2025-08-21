@@ -41,7 +41,7 @@
     @include kat-screen-lg {
       .kat-carousel__viewport,
       .kat-carousel__slide {
-        height: 480px;
+        height: 530px;
       }
     }
   }
@@ -56,22 +56,94 @@
 
 /* カルーセルコンテナ - スライドを格納する移動可能なコンテナ */
 .kat-carousel__container {
-  display: flex;
+  position: relative;
   transition: transform $kat-duration-350 $kat-ease-apple;
   will-change: transform;
+  width: 100%;
+  height: 100%;
 }
 
 /* 個別カルーセルスライド - 各スライドの表示とスタイル */
 .kat-carousel__slide {
   min-width: 100%;
+  width: 100%;
+  height: 100%;
   flex-shrink: 0;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform $kat-duration-350 $kat-ease-apple;
   
-  img {
+  img,
+  video {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+  
+  /* 個別スライドのビデオスタイル */
+  video {
+    pointer-events: none; /* ビデオコントロールがカルーセルに干渉しないようにする */
+    background-color: $kat-primary-100; /* フォールバック背景 */
+    transition: opacity $kat-duration-300 $kat-ease-apple;
+  }
+  
+  /* ビデオ読み込み中のスタイル */
+  video:not([readyState="4"]) {
+    opacity: 1;
+  }
+  
+  video[readyState="4"] {
+    opacity: 1;
+  }
+  
+  /* ビデオ読み込み完了後のスタイル */
+  video + img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  /* スクリーンサイズに応じたスタイル */
+  @include kat-screen-sm {
+    video {
+      object-position: center center;
+      aspect-ratio: 16/9;
+    }
+  }
+  
+  @include kat-screen-md {
+    video {
+      object-position: center center;
+      aspect-ratio: 16/9;
+    }
+  }
+  
+  @include kat-screen-lg {
+    video {
+      object-position: center center;
+      aspect-ratio: 16/9;
+    }
+  }
+  
+  /* スライドの位置設定 */
+  &:nth-child(1) {
+    transform: translateX(0%);
+  }
+  
+  &:nth-child(2) {
+    transform: translateX(100%);
+  }
+  
+  &:nth-child(3) {
+    transform: translateX(200%);
+  }
+  
+  /* アクティブスライド */
+  &.kat-carousel__slide--active {
+    z-index: 1;
   }
   
   /* Multi-slide variants */
@@ -127,9 +199,10 @@
 
 .kat-carousel__nav-btn {
   @include kat-button-base;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   padding: 0;
+  opacity: 0.8;
   background-color: rgba(255, 255, 255, 0.9);
   color: $kat-primary-900;
   border: $kat-border-1 solid $kat-primary-200;
@@ -139,7 +212,7 @@
   
   @include kat-hover {
     background-color: $kat-white;
-    transform: scale(1.05); /* 親で位置決め済み。ホバー時は拡大のみ */
+    transform: scale(1.02);
     box-shadow: $kat-shadow-md;
   }
   
@@ -229,17 +302,27 @@
     rgba(0, 0, 0, 0.3),
     transparent
   );
-  color: $kat-white;
-  padding: $kat-space-6 $kat-space-6 $kat-space-8;
+  padding: $kat-space-6 $kat-space-16 $kat-space-16;
   z-index: $kat-z-10;
-  pointer-events: none; /* オーバーレイがナビゲーションのクリックを妨げないようにする */
+  pointer-events: auto; /* ボタン操作を可能にする */
+
+  .kat-btn {
+    margin-top: $kat-space-4;
+    background-color: $kat-error-600;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $kat-error-500;
+    }
+  }
 }
 
 .kat-carousel__title {
-  font-size: $kat-font-size-xl;
+  font-size: $kat-font-size-4xl;
   font-weight: $kat-font-weight-bold;
   margin: 0 0 $kat-space-2 0;
   line-height: $kat-line-height-tight;
+  color: $kat-white;
 }
 
 .kat-carousel__description {
@@ -247,6 +330,7 @@
   margin: 0;
   opacity: 0.9;
   line-height: $kat-line-height-normal;
+  color: $kat-white;
 }
 
 /* カルーセルバリアント - フェード、垂直、サムネイルなどの表示方法 */
@@ -359,12 +443,12 @@
 /* レスポンシブ調整 - 画面サイズに応じた表示の最適化 */
 @include kat-screen-sm {
   .kat-carousel__nav-btn {
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
     
     svg {
-      width: 1.25rem;
-      height: 1.25rem;
+      width: 1rem;
+      height: 1rem;
     }
   }
 }
@@ -380,5 +464,12 @@
     &:active {
       cursor: grabbing;
     }
+  }
+}
+
+/* ドラッグ中の視覚的フィードバック（カーソル） */
+.kat-carousel--dragging {
+  .kat-carousel__container {
+    cursor: grabbing;
   }
 }
