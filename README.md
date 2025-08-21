@@ -23,7 +23,7 @@
 このリポジトリをクローンまたはダウンロードしてください:
 
 ```bash
-git clone https://github.com/your-username/kat-ui.git
+git clone https://github.com/buivantai2303/kat-ui.git
 cd kat-ui
 ```
 
