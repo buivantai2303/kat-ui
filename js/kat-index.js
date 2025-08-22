@@ -31,6 +31,10 @@ import { filter } from './components/filter.js';
 import { navigationDropdown } from './components/navigationDropdown.js';
 import { headerPopups } from './components/headerPopups.js';
 import { headerAnnouncement } from './components/headerAnnouncement.js';
+import { gallery } from './components/gallery.js';
+import { quantitySelector } from './components/quantitySelector.js';
+import { productVariants } from './components/productVariants.js';
+import { productActions } from './components/productActions.js';
 
 /**
  * Kat UI メインクラス
@@ -71,6 +75,10 @@ class KatUI {
     this.components.set('navigationDropdown', navigationDropdown);
     this.components.set('headerPopups', headerPopups);
     this.components.set('headerAnnouncement', headerAnnouncement);
+    this.components.set('gallery', gallery);
+    this.components.set('quantitySelector', quantitySelector);
+    this.components.set('productVariants', productVariants);
+    this.components.set('productActions', productActions);
   }
 
   

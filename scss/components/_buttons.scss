@@ -14,6 +14,7 @@
 .kat-btn {
   @include kat-button-base-size;
   @include kat-button-base;
+  @include kat-border-radius-lg;
   
   /* ボタンバリアント - 用途に応じた色分けとスタイル */
   &.kat-btn--primary {
@@ -63,30 +64,21 @@
   
   &.kat-btn--outline {
     background-color: transparent;
-    color: $kat-primary-900;
+    color: $kat-primary-600;
+    border: 1px solid $kat-primary-400;
     
     @include kat-hover {
-      background-color: $kat-primary-900;
-      color: $kat-white;
-      transform: translateY(-1px);
+      background-color: $kat-primary-100;
+      color: $kat-primary-600;
     }
-    
-    &:active {
-      background-color: $kat-primary-800;
-      transform: translateY(0);
+
+    &:hover {
+      text-decoration: none !important;
     }
-    
-    &.kat-btn--danger {
-      color: $kat-error-600;
-      
-      @include kat-hover {
-        background-color: $kat-error-50;
-        color: $kat-error-700;
-      }
-      
-      &:active {
-        background-color: $kat-error-100;
-      }
+
+    &.kat-btn--checked {
+      color: $kat-primary-900;
+      border: 2px solid $kat-primary-900;
     }
   }
   
@@ -255,5 +247,49 @@
 @keyframes kat-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* サイズ選択ボタン - 商品のサイズを選択するボタン */
+.kat-size-btn {
+  position: relative;
+  min-width: 3rem;
+  height: 2.5rem;
+  
+  /* 在庫切れサイズ - 選択できないサイズのスタイル */
+  &.kat-size-btn--unavailable {
+    position: relative;
+    color: $kat-gray-400;
+    border-color: $kat-gray-300;
+    background-color: $kat-gray-50;
+    cursor: not-allowed;
+    
+    /* 斜線表示 - 在庫切れを示すクロスライン */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background-color: $kat-gray-400;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transform-origin: center;
+    }
+    
+    &:hover {
+      background-color: $kat-gray-50;
+      border-color: $kat-gray-300;
+      color: $kat-gray-400;
+    }
+  }
+  
+  /* アクティブ状態 - 現在選択されているサイズ */
+  &.kat-btn--active {
+    border-width: 2px;
+    border-color: $kat-primary-900;
+    background-color: $kat-primary-50;
+    color: $kat-primary-900;
+    font-weight: $kat-font-weight-medium;
   }
 }

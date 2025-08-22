@@ -55,11 +55,12 @@
 }
 
 .kat-tabs__tab {
+  width: 100%;
   background: none;
   border: none;
   padding: $kat-space-3 $kat-space-4;
-  font-size: $kat-font-size-sm;
-  font-weight: $kat-font-weight-medium;
+  font-size: $kat-font-size-base;
+  font-weight: $kat-font-weight-bold;
   color: $kat-gray-600;
   cursor: pointer;
   border-bottom: 2px solid transparent;

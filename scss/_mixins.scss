@@ -89,8 +89,7 @@
 }
 
 @mixin kat-button-base-size {
-  height: 2rem;
-  padding: 0 $kat-space-3;
+  padding: $kat-space-2 $kat-space-3;
   font-size: $kat-font-size-sm;
   gap: $kat-space-2;
 }
@@ -299,4 +298,17 @@
 
 @mixin kat-elevation-5 {
   box-shadow: $kat-shadow-xl;
+}
+
+/* ボーダーラウンドミックスイン */
+@mixin kat-border-radius-sm {
+  border-radius: $kat-radius-sm;
+}
+
+@mixin kat-border-radius-md {
+  border-radius: $kat-radius-md;
+}
+
+@mixin kat-border-radius-lg {
+  border-radius: $kat-radius-lg;
 }

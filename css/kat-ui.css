@@ -108,6 +108,7 @@
 }
 /* スクロールバースタイルミックスイン */
 /* シャドウミックスイン */
+/* ボーダーラウンドミックスイン */
 /* 基本スタイル */
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
@@ -1224,6 +1225,68 @@ sup {
   }
 }
 
+/* 2カラムレイアウトコンテナ - 左側（画像）+ 右側（情報）の構成 */
+.kat-layout-2col {
+  display: flex;
+  max-width: 1300px;
+  margin: 0 auto;
+  /* モバイルファースト: 縦並び */
+  flex-direction: column;
+  /* デスクトップ: 2カラム */
+  /* 左カラム - 商品画像エリア */
+  /* 左カラム - 商品画像エリア */
+  /* 右カラム - 商品情報エリア */
+}
+@media (min-width: 1024px) {
+  .kat-layout-2col {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+}
+.kat-layout-2col__left__2 {
+  width: 20%;
+}
+.kat-layout-2col__left__3 {
+  width: 30%;
+}
+.kat-layout-2col__left__4 {
+  width: 40%;
+}
+.kat-layout-2col__left {
+  width: 50%;
+}
+.kat-layout-2col__left__6 {
+  width: 60%;
+}
+.kat-layout-2col__left__7 {
+  width: 70%;
+}
+.kat-layout-2col__right {
+  width: 50%;
+}
+.kat-layout-2col__right__3 {
+  width: 30%;
+}
+.kat-layout-2col__right__4 {
+  width: 40%;
+}
+.kat-layout-2col__right__5 {
+  width: 50%;
+}
+.kat-layout-2col__right__6 {
+  width: 60%;
+}
+.kat-layout-2col__right__7 {
+  width: 70%;
+}
+.kat-layout-2col__right__8 {
+  width: 80%;
+}
+.kat-layout-2col__right__9 {
+  width: 90%;
+}
+
 /* 左サイドバー - デスクトップで固定幅、モバイルは全幅 */
 .kat-sidebar-left {
   width: 100%;
@@ -1458,8 +1521,7 @@ sup {
  */
 /* ベースボタンスタイル - 基本的なボタンの見た目と動作 */
 .kat-btn {
-  height: 2rem;
-  padding: 0 0.75rem;
+  padding: 0.5rem 0.75rem;
   font-size: 0.8125rem;
   gap: 0.5rem;
   display: inline-flex;
@@ -1471,6 +1533,7 @@ sup {
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
+  border-radius: 0.25rem;
   /* ボタンバリアント - 用途に応じた色分けとスタイル */
   /* ボタンサイズ - 用途に応じた大きさのバリエーション */
   /* アイコンのみボタン - テキストなしのアイコンボタン */
@@ -1532,30 +1595,21 @@ sup {
 }
 .kat-btn.kat-btn--outline {
   background-color: transparent;
-  color: #171717;
+  color: #525252;
+  border: 1px solid #a3a3a3;
 }
 @media (hover: hover) {
   .kat-btn.kat-btn--outline:hover {
-    background-color: #171717;
-    color: #ffffff;
-    transform: translateY(-1px);
+    background-color: #f5f5f5;
+    color: #525252;
   }
 }
-.kat-btn.kat-btn--outline:active {
-  background-color: #262626;
-  transform: translateY(0);
+.kat-btn.kat-btn--outline:hover {
+  text-decoration: none !important;
 }
-.kat-btn.kat-btn--outline.kat-btn--danger {
-  color: #dc2626;
-}
-@media (hover: hover) {
-  .kat-btn.kat-btn--outline.kat-btn--danger:hover {
-    background-color: #fef2f2;
-    color: #b91c1c;
-  }
-}
-.kat-btn.kat-btn--outline.kat-btn--danger:active {
-  background-color: #fee2e2;
+.kat-btn.kat-btn--outline.kat-btn--checked {
+  color: #171717;
+  border: 2px solid #171717;
 }
 .kat-btn.kat-btn--ghost {
   background-color: transparent;
@@ -1694,6 +1748,46 @@ sup {
     transform: rotate(360deg);
   }
 }
+/* サイズ選択ボタン - 商品のサイズを選択するボタン */
+.kat-size-btn {
+  position: relative;
+  min-width: 3rem;
+  height: 2.5rem;
+  /* 在庫切れサイズ - 選択できないサイズのスタイル */
+  /* アクティブ状態 - 現在選択されているサイズ */
+}
+.kat-size-btn.kat-size-btn--unavailable {
+  position: relative;
+  color: #a1a1aa;
+  border-color: #d4d4d8;
+  background-color: #fafafa;
+  cursor: not-allowed;
+  /* 斜線表示 - 在庫切れを示すクロスライン */
+}
+.kat-size-btn.kat-size-btn--unavailable::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #a1a1aa;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transform-origin: center;
+}
+.kat-size-btn.kat-size-btn--unavailable:hover {
+  background-color: #fafafa;
+  border-color: #d4d4d8;
+  color: #a1a1aa;
+}
+.kat-size-btn.kat-btn--active {
+  border-width: 2px;
+  border-color: #171717;
+  background-color: #fafafa;
+  color: #171717;
+  font-weight: 500;
+}
+
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
 /*
@@ -5313,13 +5407,16 @@ sup {
 /**
  * Kat UI Framework - テーブルコンポーネント
  * 
- * 表形式データの表示用スタイル。ストライプ、ボーダー、コンパクト/ラージ、
- * 並び替え、レスポンシブ、空/読み込み状態、フッター等をサポート。
+ * 基本的なテーブルから高度なデータテーブルまで、すべてのテーブルスタイルを統合
+ * シンプルテーブル、データテーブル、サイズガイド、レスポンシブ対応などをサポート
  * 
  * @project: Kat UI Framework
  * @author: Bui Van Tai, 2024-12-15
- * @version: 1.0.0
+ * @version: 2.0.0
  */
+/* ========================================
+   1. ベーシックテーブル - 基本的なテーブル表示
+   ======================================== */
 /* テーブルコンテナ */
 .kat-table-container {
   width: 100%;
@@ -5355,6 +5452,7 @@ sup {
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   /* ストライプ行 */
   /* 罫線あり */
+  /* ベーステーブル - 罫線のみ、背景なし */
   /* コンパクト */
   /* ラージ */
 }
@@ -5364,6 +5462,31 @@ sup {
 .kat-table.kat-table--bordered .kat-table__cell,
 .kat-table.kat-table--bordered .kat-table__header {
   border: 1px solid #e4e4e7;
+}
+.kat-table.kat-table--base .kat-table__cell,
+.kat-table.kat-table--base .kat-table__header {
+  border: 1px solid #e4e4e7;
+  background-color: transparent;
+}
+.kat-table.kat-table--base .kat-table__head {
+  background-color: #fafafa;
+  border-bottom: 2px solid #d4d4d8;
+}
+.kat-table.kat-table--base .kat-table__header {
+  font-weight: 600;
+  color: #27272a;
+  text-align: center;
+}
+.kat-table.kat-table--base .kat-table__header:first-child {
+  text-align: left;
+}
+.kat-table.kat-table--base .kat-table__cell {
+  text-align: center;
+  color: #3f3f46;
+}
+.kat-table.kat-table--base .kat-table__cell:first-child {
+  text-align: left;
+  font-weight: 500;
 }
 .kat-table.kat-table--compact .kat-table__cell,
 .kat-table.kat-table--compact .kat-table__header {
@@ -5392,7 +5515,6 @@ sup {
   border-bottom: 1px solid #e4e4e7;
   vertical-align: middle;
   /* ソート可能ヘッダー */
-  /* 文字揃え */
 }
 .kat-table__header:first-child {
   border-left: none;
@@ -5415,33 +5537,6 @@ sup {
   outline: 2px solid #737373;
   outline-offset: -2px;
 }
-.kat-table__header.kat-table__header--sortable .kat-table__sort-icon {
-  margin-left: 0.25rem;
-  opacity: 0.4;
-  transition: opacity 150ms cubic-bezier(0.42, 0, 0.58, 1);
-}
-.kat-table__header.kat-table__header--sortable:hover .kat-table__sort-icon {
-  opacity: 0.7;
-}
-.kat-table__header.kat-table__header--sortable.kat-table__header--sorted-asc {
-  color: #404040;
-}
-.kat-table__header.kat-table__header--sortable.kat-table__header--sorted-asc .kat-table__sort-icon {
-  opacity: 1;
-  transform: rotate(180deg);
-}
-.kat-table__header.kat-table__header--sortable.kat-table__header--sorted-desc {
-  color: #404040;
-}
-.kat-table__header.kat-table__header--sortable.kat-table__header--sorted-desc .kat-table__sort-icon {
-  opacity: 1;
-}
-.kat-table__header.kat-table__header--center {
-  text-align: center;
-}
-.kat-table__header.kat-table__header--right {
-  text-align: right;
-}
 
 /* テーブルボディ */
 .kat-table__body {
@@ -5450,22 +5545,16 @@ sup {
 
 /* テーブル行 */
 .kat-table__row {
-  border-bottom: 1px solid #e4e4e7;
-  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* 行選択可能 */
-  /* 行状態 */
+  transition: background-color 150ms cubic-bezier(0.42, 0, 0.58, 1);
+  /* 選択可能行 */
 }
-.kat-table__row:last-child {
-  border-bottom: none;
+@media (hover: hover) {
+  .kat-table__row:hover {
+    background-color: #fafafa;
+  }
 }
 .kat-table__row.kat-table__row--selectable {
   cursor: pointer;
-}
-@media (hover: hover) {
-  .kat-table__row.kat-table__row--selectable:hover {
-    background-color: #fafafa;
-    transform: scale(1.005);
-  }
 }
 .kat-table__row.kat-table__row--selectable.kat-table__row--selected {
   background-color: #fafafa;
@@ -5475,190 +5564,535 @@ sup {
     background-color: #f5f5f5;
   }
 }
-.kat-table__row.kat-table__row--highlighted {
-  background-color: #fffbeb;
-}
-.kat-table__row.kat-table__row--success {
-  background-color: #f0fdf4;
-}
-.kat-table__row.kat-table__row--error {
-  background-color: #fef2f2;
-}
-.kat-table__row.kat-table__row--disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-.kat-table__row.kat-table__row--disabled .kat-table__cell {
-  color: #a1a1aa;
-}
 
 /* テーブルセル */
 .kat-table__cell {
   padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e4e4e7;
+  font-size: 0.8125rem;
+  color: #3f3f46;
   vertical-align: middle;
-  color: #18181b;
-  border-bottom: inherit;
-  /* 文字揃え */
-  /* 数値セル */
-  /* 固定幅セル */
-  /* 展開可能セル */
+  /* セルタイプ */
 }
-.kat-table__cell:first-child {
-  border-left: none;
-}
-.kat-table__cell:last-child {
-  border-right: none;
+.kat-table__cell.kat-table__cell--numeric {
+  text-align: right;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
 }
 .kat-table__cell.kat-table__cell--center {
   text-align: center;
 }
-.kat-table__cell.kat-table__cell--right {
-  text-align: right;
-}
-.kat-table__cell.kat-table__cell--numeric {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-.kat-table__cell.kat-table__cell--fixed {
-  width: 1%;
+.kat-table__cell.kat-table__cell--no-wrap {
   white-space: nowrap;
 }
-.kat-table__cell.kat-table__cell--expandable {
-  max-width: 0;
+.kat-table__cell.kat-table__cell--truncate {
+  max-width: 12rem;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.kat-table__cell.kat-table__cell--expandable:hover {
-  overflow: visible;
-  white-space: normal;
-  position: relative;
-  z-index: 1;
 }
 
-/* テーブルアクション */
-.kat-table__actions {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  justify-content: flex-end;
-}
-.kat-table__actions .kat-btn {
-  padding: 0.25rem 0.5rem;
-}
-
-/* 選択（全選択等） */
-.kat-table__select-all .kat-checkbox__input:indeterminate {
-  background-color: #525252;
-  border-color: #525252;
-}
-
-/* 空状態 */
-.kat-table__empty {
-  text-align: center;
-  padding: 3rem 1.5rem;
-  color: #71717a;
-}
-.kat-table__empty .kat-table__empty-icon {
-  width: 3rem;
-  height: 3rem;
-  margin: 0 auto 1rem;
-  color: #d4d4d8;
-}
-.kat-table__empty .kat-table__empty-title {
-  font-size: 1rem;
-  font-weight: 500;
-  color: #3f3f46;
-  margin: 0 0 0.5rem 0;
-}
-.kat-table__empty .kat-table__empty-description {
-  font-size: 0.8125rem;
-  color: #71717a;
-  margin: 0 0 1rem 0;
-}
-
-/* 読み込み状態 */
-.kat-table--loading {
-  position: relative;
+/* ========================================
+   2. データテーブル - 高度な機能付きテーブル
+   ======================================== */
+/* データテーブルラッパー */
+.kat-data-table {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.25rem;
   overflow: hidden;
 }
-.kat-table--loading::after {
+.kat-data-table.kat-data-table--borderless {
+  border: none;
+}
+.kat-data-table.kat-data-table--borderless .kat-data-table__container {
+  border: none;
+}
+
+/* データテーブルツールバー */
+.kat-data-table__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  background-color: #fafafa;
+}
+.kat-data-table__toolbar.kat-data-table__toolbar--minimal {
+  padding: 0.75rem;
+  background-color: transparent;
+}
+
+.kat-data-table__toolbar-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.kat-data-table__toolbar-section.kat-data-table__toolbar-section--start {
+  flex: 1;
+}
+.kat-data-table__toolbar-section.kat-data-table__toolbar-section--end {
+  flex-shrink: 0;
+}
+
+.kat-data-table__title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0;
+}
+
+.kat-data-table__subtitle {
+  font-size: 0.8125rem;
+  color: #525252;
+  margin: 0;
+}
+
+/* 検索とフィルター */
+.kat-data-table__search {
+  position: relative;
+  min-width: 16rem;
+}
+.kat-data-table__search .kat-input {
+  padding-left: 2.5rem;
+}
+.kat-data-table__search .kat-data-table__search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #a3a3a3;
+  width: 1rem;
+  height: 1rem;
+  pointer-events: none;
+}
+.kat-data-table__search .kat-data-table__search-clear {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #a3a3a3;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.0625rem;
+}
+@media (hover: hover) {
+  .kat-data-table__search .kat-data-table__search-clear:hover {
+    background-color: #f5f5f5;
+    color: #525252;
+  }
+}
+
+.kat-data-table__filters {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.kat-data-table__filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background-color: #f5f5f5;
+  color: #404040;
+  border-radius: 100px;
+  font-size: 0.6875rem;
+}
+.kat-data-table__filter-chip .kat-data-table__filter-remove {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 9999px;
+}
+@media (hover: hover) {
+  .kat-data-table__filter-chip .kat-data-table__filter-remove:hover {
+    background-color: #e5e5e5;
+  }
+}
+
+/* データテーブルコンテナ */
+.kat-data-table__container {
+  overflow: auto;
+  max-height: 32rem;
+  border: 1px solid #e5e5e5;
+  /* Firefox - スクロールバーのスタイル */
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d8 #f4f4f5;
+}
+.kat-data-table__container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.kat-data-table__container::-webkit-scrollbar-track {
+  background: #f4f4f5;
+  border-radius: 0.125rem;
+}
+.kat-data-table__container::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 0.125rem;
+}
+.kat-data-table__container::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+.kat-data-table__container.kat-data-table__container--fixed-height {
+  height: 32rem;
+}
+.kat-data-table__container.kat-data-table__container--no-max-height {
+  max-height: none;
+}
+
+/* データテーブル本体 */
+.kat-data-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  /* スティッキーヘッダー */
+  /* スティッキー第一列 */
+}
+.kat-data-table__table.kat-data-table__table--sticky-header .kat-data-table__header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #ffffff;
+}
+.kat-data-table__table.kat-data-table__table--sticky-header .kat-data-table__header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #e5e5e5;
+}
+.kat-data-table__table.kat-data-table__table--sticky-first-column .kat-data-table__header:first-child,
+.kat-data-table__table.kat-data-table__table--sticky-first-column .kat-data-table__cell:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  background-color: #ffffff;
+}
+.kat-data-table__table.kat-data-table__table--sticky-first-column .kat-data-table__header:first-child::after,
+.kat-data-table__table.kat-data-table__table--sticky-first-column .kat-data-table__cell:first-child::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #e5e5e5;
+}
+
+/* データテーブルヘッダー */
+.kat-data-table__header {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: #525252;
+  background-color: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  /* ソート可能ヘッダー */
+  /* リサイズ可能ヘッダー */
+  /* 列タイプ */
+}
+.kat-data-table__header.kat-data-table__header--sortable {
+  cursor: pointer;
+  position: relative;
+  padding-right: 2rem;
+}
+@media (hover: hover) {
+  .kat-data-table__header.kat-data-table__header--sortable:hover {
+    background-color: #f5f5f5;
+    color: #404040;
+  }
+}
+.kat-data-table__header.kat-data-table__header--sortable .kat-data-table__sort-icon {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.875rem;
+  height: 0.875rem;
+  opacity: 0.5;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-data-table__header.kat-data-table__header--sortable .kat-data-table__sort-icon.kat-data-table__sort-icon--asc {
+  opacity: 1;
+  transform: translateY(-50%) rotate(180deg);
+}
+.kat-data-table__header.kat-data-table__header--sortable .kat-data-table__sort-icon.kat-data-table__sort-icon--desc {
+  opacity: 1;
+  transform: translateY(-50%) rotate(0deg);
+}
+.kat-data-table__header.kat-data-table__header--resizable {
+  position: relative;
+}
+.kat-data-table__header.kat-data-table__header--resizable::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+  cursor: col-resize;
+  background-color: transparent;
+}
+@media (hover: hover) {
+  .kat-data-table__header.kat-data-table__header--resizable::after:hover {
+    background-color: #d4d4d4;
+  }
+}
+.kat-data-table__header.kat-data-table__header--numeric {
+  text-align: right;
+}
+.kat-data-table__header.kat-data-table__header--center {
+  text-align: center;
+}
+
+/* データテーブルセル */
+.kat-data-table__cell {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 0.8125rem;
+  color: #404040;
+  vertical-align: middle;
+  /* セルタイプ */
+  /* インタラクティブセル */
+}
+.kat-data-table__cell.kat-data-table__cell--numeric {
+  text-align: right;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+.kat-data-table__cell.kat-data-table__cell--center {
+  text-align: center;
+}
+.kat-data-table__cell.kat-data-table__cell--no-wrap {
+  white-space: nowrap;
+}
+.kat-data-table__cell.kat-data-table__cell--truncate {
+  max-width: 12rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.kat-data-table__cell.kat-data-table__cell--wrap {
+  white-space: normal;
+  word-break: break-word;
+}
+.kat-data-table__cell.kat-data-table__cell--clickable {
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .kat-data-table__cell.kat-data-table__cell--clickable:hover {
+    background-color: #fafafa;
+  }
+}
+
+/* データテーブル行 */
+.kat-data-table__row {
+  /* 行の状態 */
+}
+.kat-data-table__row.kat-data-table__row--selectable {
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .kat-data-table__row.kat-data-table__row--selectable:hover {
+    background-color: #fafafa;
+  }
+}
+.kat-data-table__row.kat-data-table__row--selectable.kat-data-table__row--selected {
+  background-color: #f5f5f5;
+}
+@media (hover: hover) {
+  .kat-data-table__row.kat-data-table__row--selectable.kat-data-table__row--selected:hover {
+    background-color: #f0f0f0;
+  }
+}
+.kat-data-table__row.kat-data-table__row--expandable .kat-data-table__expand-icon {
+  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-data-table__row.kat-data-table__row--expandable .kat-data-table__expand-icon.kat-data-table__expand-icon--expanded {
+  transform: rotate(90deg);
+}
+.kat-data-table__row.kat-data-table__row--highlighted {
+  background-color: #fffbeb;
+  border-left: 3px solid #f59e0b;
+}
+.kat-data-table__row.kat-data-table__row--error {
+  background-color: #fef2f2;
+  border-left: 3px solid #ef4444;
+}
+.kat-data-table__row.kat-data-table__row--success {
+  background-color: #f0fdf4;
+  border-left: 3px solid #22c55e;
+}
+
+/* 展開行コンテンツ */
+.kat-data-table__expanded-content {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e5e5e5;
+}
+.kat-data-table__expanded-content .kat-data-table__expanded-inner {
+  padding: 1rem;
+  border-left: 3px solid #d4d4d4;
+}
+
+/* 選択列 */
+.kat-data-table__select-cell {
+  width: 3rem;
+  padding: 0.75rem 1rem;
+}
+.kat-data-table__select-cell .kat-checkbox {
+  margin: 0;
+}
+
+/* アクション列 */
+.kat-data-table__actions {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+.kat-data-table__actions.kat-data-table__actions--start {
+  justify-content: flex-start;
+}
+.kat-data-table__actions.kat-data-table__actions--center {
+  justify-content: center;
+}
+
+/* ========================================
+   3. 共通状態とユーティリティ
+   ======================================== */
+/* ローディング状態 */
+.kat-table--loading,
+.kat-data-table--loading {
+  position: relative;
+}
+.kat-table--loading::after,
+.kat-data-table--loading::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
-  animation: kat-table-loading 1.5s infinite;
-  z-index: 1;
-}
-.kat-table--loading .kat-table__row {
-  pointer-events: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 20;
+  backdrop-filter: blur(1px);
 }
 
-@keyframes kat-table-loading {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+.kat-table__loading,
+.kat-data-table__loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #525252;
+  font-size: 0.8125rem;
 }
-/* テーブルフッター */
-.kat-table__footer {
-  padding: 1rem;
-  border-top: 1px solid #e4e4e7;
-  background-color: #fafafa;
+
+/* 空の状態 */
+.kat-table__empty,
+.kat-data-table__empty {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #737373;
+}
+.kat-table__empty .kat-table__empty-icon,
+.kat-table__empty .kat-data-table__empty-icon,
+.kat-data-table__empty .kat-table__empty-icon,
+.kat-data-table__empty .kat-data-table__empty-icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 0.75rem;
+  opacity: 0.5;
+}
+.kat-table__empty .kat-table__empty-title,
+.kat-table__empty .kat-data-table__empty-title,
+.kat-data-table__empty .kat-table__empty-title,
+.kat-data-table__empty .kat-data-table__empty-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+}
+.kat-table__empty .kat-table__empty-description,
+.kat-table__empty .kat-data-table__empty-description,
+.kat-data-table__empty .kat-table__empty-description,
+.kat-data-table__empty .kat-data-table__empty-description {
+  font-size: 0.8125rem;
+  margin: 0;
+}
+
+/* フッター */
+.kat-data-table__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid #e5e5e5;
+  background-color: #f9f9f9;
 }
-.kat-table__footer .kat-table__info {
+.kat-data-table__footer .kat-data-table__footer-info {
   font-size: 0.8125rem;
-  color: #52525b;
+  color: #525252;
+}
+
+/* 密度バリアント */
+.kat-table--compact .kat-table__header,
+.kat-table--compact .kat-table__cell,
+.kat-table--compact .kat-data-table__header,
+.kat-table--compact .kat-data-table__cell,
+.kat-data-table--compact .kat-table__header,
+.kat-data-table--compact .kat-table__cell,
+.kat-data-table--compact .kat-data-table__header,
+.kat-data-table--compact .kat-data-table__cell {
+  padding: 0.5rem 0.75rem;
+}
+.kat-table--compact .kat-table__cell,
+.kat-table--compact .kat-data-table__cell,
+.kat-data-table--compact .kat-table__cell,
+.kat-data-table--compact .kat-data-table__cell {
+  font-size: 0.6875rem;
+}
+
+.kat-table--comfortable .kat-table__header,
+.kat-table--comfortable .kat-table__cell,
+.kat-table--comfortable .kat-data-table__header,
+.kat-table--comfortable .kat-data-table__cell,
+.kat-data-table--comfortable .kat-table__header,
+.kat-data-table--comfortable .kat-table__cell,
+.kat-data-table--comfortable .kat-data-table__header,
+.kat-data-table--comfortable .kat-data-table__cell {
+  padding: 1rem 1.5rem;
 }
 
 /* レスポンシブテーブル */
 @media (min-width: 640px) {
-  .kat-table--responsive .kat-table__cell:not(.kat-table__cell--always-visible):not(.kat-table__header--always-visible),
-  .kat-table--responsive .kat-table__header:not(.kat-table__cell--always-visible):not(.kat-table__header--always-visible) {
-    display: none;
+  .kat-table--responsive .kat-table-container,
+  .kat-table--responsive .kat-data-table__container,
+  .kat-data-table--responsive .kat-table-container,
+  .kat-data-table--responsive .kat-data-table__container {
+    overflow-x: auto;
+  }
+  .kat-table--responsive .kat-table,
+  .kat-table--responsive .kat-data-table__table,
+  .kat-data-table--responsive .kat-table,
+  .kat-data-table--responsive .kat-data-table__table {
+    min-width: 40rem;
   }
 }
-@media (min-width: 768px) {
-  .kat-table--responsive .kat-table__cell.kat-table__cell--md-visible, .kat-table--responsive .kat-table__cell.kat-table__header--md-visible,
-  .kat-table--responsive .kat-table__header.kat-table__cell--md-visible,
-  .kat-table--responsive .kat-table__header.kat-table__header--md-visible {
-    display: table-cell;
-  }
-}
-@media (min-width: 1024px) {
-  .kat-table--responsive .kat-table__cell,
-  .kat-table--responsive .kat-table__header {
-    display: table-cell;
-  }
-}
-/* テーブルキャプション */
-.kat-table__caption {
-  caption-side: top;
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #18181b;
-  text-align: left;
-}
-
-/* テーブルサマリー */
-.kat-table__summary {
-  padding: 0.75rem 1rem;
-  font-size: 0.8125rem;
-  color: #52525b;
-  background-color: #fcfcfc;
-  border-bottom: 1px solid #e4e4e7;
-}
-
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
 /*
@@ -5742,11 +6176,12 @@ sup {
 }
 
 .kat-tabs__tab {
+  width: 100%;
   background: none;
   border: none;
   padding: 0.75rem 1rem;
-  font-size: 0.8125rem;
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 700;
   color: #52525b;
   cursor: pointer;
   border-bottom: 2px solid transparent;
@@ -8982,495 +9417,6 @@ sup {
 */
 /* モジュールの読み込み（@use/@forward へ移行） */
 /**
- * Kat UI Framework - データテーブルコンポーネント
- * 
- * 大量のデータを表形式で表示するための高度なテーブル
- * ソート、フィルター、ページネーション、選択機能などをサポート
- * 
- * @project: Kat UI Framework
- * @author: Bui Van Tai, 2024-12-15
- * @version: 1.0.0
- */
-/* データテーブルラッパー - テーブルの基本コンテナ */
-.kat-data-table {
-  background-color: #ffffff;
-  border: 1px solid #e5e5e5;
-  border-radius: 0.25rem;
-  overflow: hidden;
-}
-.kat-data-table.kat-data-table--borderless {
-  border: none;
-}
-.kat-data-table.kat-data-table--borderless .kat-data-table__container {
-  border: none;
-}
-
-/* データテーブルツールバー - 検索、フィルター、アクションの配置 */
-.kat-data-table__toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-bottom: 1px solid #e5e5e5;
-  background-color: #fafafa;
-}
-.kat-data-table__toolbar.kat-data-table__toolbar--minimal {
-  padding: 0.75rem;
-  background-color: transparent;
-}
-
-.kat-data-table__toolbar-section {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.kat-data-table__toolbar-section.kat-data-table__toolbar-section--start {
-  flex: 1;
-}
-.kat-data-table__toolbar-section.kat-data-table__toolbar-section--end {
-  flex-shrink: 0;
-}
-
-.kat-data-table__title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #171717;
-  margin: 0;
-}
-
-.kat-data-table__subtitle {
-  font-size: 0.8125rem;
-  color: #525252;
-  margin: 0;
-}
-
-/* 検索とフィルター - データの絞り込み機能 */
-.kat-data-table__search {
-  position: relative;
-  min-width: 16rem;
-}
-.kat-data-table__search .kat-input {
-  padding-left: 2.5rem;
-}
-.kat-data-table__search .kat-data-table__search-icon {
-  position: absolute;
-  left: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #a3a3a3;
-  width: 1rem;
-  height: 1rem;
-  pointer-events: none;
-}
-.kat-data-table__search .kat-data-table__search-clear {
-  position: absolute;
-  right: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: #a3a3a3;
-  cursor: pointer;
-  padding: 0.25rem;
-  border-radius: 0.0625rem;
-}
-@media (hover: hover) {
-  .kat-data-table__search .kat-data-table__search-clear:hover {
-    background-color: #f5f5f5;
-    color: #525252;
-  }
-}
-
-.kat-data-table__filters {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.kat-data-table__filter-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.25rem 0.5rem;
-  background-color: #f5f5f5;
-  color: #404040;
-  border-radius: 100px;
-  font-size: 0.6875rem;
-}
-.kat-data-table__filter-chip .kat-data-table__filter-remove {
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  padding: 0;
-  width: 0.875rem;
-  height: 0.875rem;
-  border-radius: 9999px;
-}
-@media (hover: hover) {
-  .kat-data-table__filter-chip .kat-data-table__filter-remove:hover {
-    background-color: #e5e5e5;
-  }
-}
-
-/* 拡張テーブルコンテナ - スクロールと固定高さの制御 */
-.kat-data-table__container {
-  overflow: auto;
-  max-height: 32rem;
-  border: 1px solid #e5e5e5;
-  /* Firefox - スクロールバーのスタイル */
-  scrollbar-width: thin;
-  scrollbar-color: #d4d4d8 #f4f4f5;
-}
-.kat-data-table__container::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-.kat-data-table__container::-webkit-scrollbar-track {
-  background: #f4f4f5;
-  border-radius: 0.125rem;
-}
-.kat-data-table__container::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
-  border-radius: 0.125rem;
-}
-.kat-data-table__container::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
-}
-.kat-data-table__container.kat-data-table__container--fixed-height {
-  height: 32rem;
-}
-.kat-data-table__container.kat-data-table__container--no-max-height {
-  max-height: none;
-}
-
-/* 拡張テーブル - 高度な機能を持つテーブル本体 */
-.kat-data-table__table {
-  width: 100%;
-  border-collapse: collapse;
-  /* スティッキーヘッダー - スクロール時も固定されるヘッダー */
-  /* スティッキー第一列 - スクロール時も固定される第一列 */
-}
-.kat-data-table__table.kat-data-table__table--sticky-header .kat-data-table__header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background-color: #ffffff;
-}
-.kat-data-table__table.kat-data-table__table--sticky-header .kat-data-table__header::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: #e5e5e5;
-}
-.kat-data-table__table.kat-data-table__table--sticky-first-column .kat-data-table__header:first-child,
-.kat-data-table__table.kat-data-table__table--sticky-first-column .kat-data-table__cell:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 10;
-  background-color: #ffffff;
-}
-.kat-data-table__table.kat-data-table__table--sticky-first-column .kat-data-table__header:first-child::after,
-.kat-data-table__table.kat-data-table__table--sticky-first-column .kat-data-table__cell:first-child::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 1px;
-  background-color: #e5e5e5;
-}
-
-/* 拡張テーブルヘッダー - ソート、リサイズ可能なヘッダー */
-.kat-data-table__header {
-  padding: 0.75rem 1rem;
-  text-align: left;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  color: #525252;
-  background-color: #fafafa;
-  border-bottom: 1px solid #e5e5e5;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-  /* ソート可能ヘッダー - クリックでソート順を変更 */
-  /* リサイズ可能ヘッダー - 列幅を調整可能 */
-  /* 列タイプ - 数値、中央揃えなどの列の種類 */
-}
-.kat-data-table__header.kat-data-table__header--sortable {
-  cursor: pointer;
-  position: relative;
-  padding-right: 2rem;
-}
-@media (hover: hover) {
-  .kat-data-table__header.kat-data-table__header--sortable:hover {
-    background-color: #f5f5f5;
-    color: #404040;
-  }
-}
-.kat-data-table__header.kat-data-table__header--sortable .kat-data-table__sort-icon {
-  position: absolute;
-  right: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 0.875rem;
-  height: 0.875rem;
-  opacity: 0.5;
-  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.kat-data-table__header.kat-data-table__header--sortable .kat-data-table__sort-icon.kat-data-table__sort-icon--asc {
-  opacity: 1;
-  transform: translateY(-50%) rotate(180deg);
-}
-.kat-data-table__header.kat-data-table__header--sortable .kat-data-table__sort-icon.kat-data-table__sort-icon--desc {
-  opacity: 1;
-  transform: translateY(-50%) rotate(0deg);
-}
-.kat-data-table__header.kat-data-table__header--resizable {
-  position: relative;
-}
-.kat-data-table__header.kat-data-table__header--resizable::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 4px;
-  cursor: col-resize;
-  background-color: transparent;
-}
-@media (hover: hover) {
-  .kat-data-table__header.kat-data-table__header--resizable::after:hover {
-    background-color: #d4d4d4;
-  }
-}
-.kat-data-table__header.kat-data-table__header--numeric {
-  text-align: right;
-}
-.kat-data-table__header.kat-data-table__header--center {
-  text-align: center;
-}
-
-/* 拡張テーブルセル - 高度な機能を持つセル */
-.kat-data-table__cell {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #e5e5e5;
-  font-size: 0.8125rem;
-  color: #404040;
-  vertical-align: middle;
-  /* セルタイプ - 数値、中央揃え、折り返しなどのセルの種類 */
-  /* インタラクティブセル - クリック可能なセル */
-}
-.kat-data-table__cell.kat-data-table__cell--numeric {
-  text-align: right;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-}
-.kat-data-table__cell.kat-data-table__cell--center {
-  text-align: center;
-}
-.kat-data-table__cell.kat-data-table__cell--no-wrap {
-  white-space: nowrap;
-}
-.kat-data-table__cell.kat-data-table__cell--truncate {
-  max-width: 12rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.kat-data-table__cell.kat-data-table__cell--wrap {
-  white-space: normal;
-  word-break: break-word;
-}
-.kat-data-table__cell.kat-data-table__cell--clickable {
-  cursor: pointer;
-}
-@media (hover: hover) {
-  .kat-data-table__cell.kat-data-table__cell--clickable:hover {
-    background-color: #fafafa;
-  }
-}
-
-/* 拡張テーブル行 - 高度な機能を持つ行 */
-.kat-data-table__row {
-  /* 行の状態 - ハイライト、エラー、成功などの状態表示 */
-}
-.kat-data-table__row.kat-data-table__row--selectable {
-  cursor: pointer;
-}
-@media (hover: hover) {
-  .kat-data-table__row.kat-data-table__row--selectable:hover {
-    background-color: #fafafa;
-  }
-}
-.kat-data-table__row.kat-data-table__row--selectable.kat-data-table__row--selected {
-  background-color: #f5f5f5;
-}
-@media (hover: hover) {
-  .kat-data-table__row.kat-data-table__row--selectable.kat-data-table__row--selected:hover {
-    background-color: #f0f0f0;
-  }
-}
-.kat-data-table__row.kat-data-table__row--expandable .kat-data-table__expand-icon {
-  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.kat-data-table__row.kat-data-table__row--expandable .kat-data-table__expand-icon.kat-data-table__expand-icon--expanded {
-  transform: rotate(90deg);
-}
-.kat-data-table__row.kat-data-table__row--highlighted {
-  background-color: #fffbeb;
-  border-left: 3px solid #f59e0b;
-}
-.kat-data-table__row.kat-data-table__row--error {
-  background-color: #fef2f2;
-  border-left: 3px solid #ef4444;
-}
-.kat-data-table__row.kat-data-table__row--success {
-  background-color: #f0fdf4;
-  border-left: 3px solid #22c55e;
-}
-
-/* 展開行コンテンツ - 行の詳細情報を表示 */
-.kat-data-table__expanded-content {
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #e5e5e5;
-}
-.kat-data-table__expanded-content .kat-data-table__expanded-inner {
-  padding: 1rem;
-  border-left: 3px solid #d4d4d4;
-}
-
-/* 選択列 - 行の選択チェックボックス */
-.kat-data-table__select-cell {
-  width: 3rem;
-  padding: 0.75rem 1rem;
-}
-.kat-data-table__select-cell .kat-checkbox {
-  margin: 0;
-}
-
-/* アクション列 - 行に対する操作ボタン */
-.kat-data-table__actions {
-  display: flex;
-  gap: 0.25rem;
-  align-items: center;
-  justify-content: flex-end;
-}
-.kat-data-table__actions.kat-data-table__actions--start {
-  justify-content: flex-start;
-}
-.kat-data-table__actions.kat-data-table__actions--center {
-  justify-content: center;
-}
-
-/* ローディング状態 - データ読み込み中の表示 */
-.kat-data-table--loading {
-  position: relative;
-}
-.kat-data-table--loading::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.8);
-  z-index: 20;
-  backdrop-filter: blur(1px);
-}
-
-.kat-data-table__loading {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: #525252;
-  font-size: 0.8125rem;
-}
-
-/* 空の状態 - データが存在しない場合の表示 */
-.kat-data-table__empty {
-  padding: 2rem 1rem;
-  text-align: center;
-  color: #737373;
-}
-.kat-data-table__empty .kat-data-table__empty-icon {
-  width: 3rem;
-  height: 3rem;
-  margin: 0 auto 0.75rem;
-  opacity: 0.5;
-}
-.kat-data-table__empty .kat-data-table__empty-title {
-  font-size: 0.875rem;
-  font-weight: 500;
-  margin: 0 0 0.25rem 0;
-}
-.kat-data-table__empty .kat-data-table__empty-description {
-  font-size: 0.8125rem;
-  margin: 0;
-}
-
-/* フッター - ページネーションと情報の表示 */
-.kat-data-table__footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem;
-  border-top: 1px solid #e5e5e5;
-  background-color: #f9f9f9;
-}
-.kat-data-table__footer .kat-data-table__footer-info {
-  font-size: 0.8125rem;
-  color: #525252;
-}
-
-/* 密度バリアント - コンパクト、快適などの表示密度 */
-.kat-data-table--compact .kat-data-table__header,
-.kat-data-table--compact .kat-data-table__cell {
-  padding: 0.5rem 0.75rem;
-}
-.kat-data-table--compact .kat-data-table__cell {
-  font-size: 0.6875rem;
-}
-
-.kat-data-table--comfortable .kat-data-table__header,
-.kat-data-table--comfortable .kat-data-table__cell {
-  padding: 1rem 1.5rem;
-}
-
-/* レスポンシブテーブル - 画面サイズに応じた表示の最適化 */
-@media (min-width: 640px) {
-  .kat-data-table--responsive .kat-data-table__container {
-    overflow-x: auto;
-  }
-  .kat-data-table--responsive .kat-data-table__table {
-    min-width: 40rem;
-  }
-}
-/** @project: Kat UI Framework */
-/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
-/*
-* Kat UI - 日本風のコンポーネントフレームワーク
-*
-* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
-* SCSSとVanilla JavaScriptで構築されています。
-*
-* 機能:
-* - すっきりとした美観を備えた日本風デザイン
-* - 包括的なコンポーネントセット
-* - 完全なアクセシビリティサポート
-* - モバイルファーストのレスポンシブデザイン
-* - kat- プレフィックス付きのBEM手法
-* - モジュール式で拡張可能なアーキテクチャ
-*/
-/* モジュールの読み込み（@use/@forward へ移行） */
-/**
  * Kat UI Framework - セパレーターコンポーネント
  * 
  * 水平/垂直の仕切り線、点線/破線、余白や濃淡のバリエーション。
@@ -10591,103 +10537,6 @@ sup {
   height: 2rem;
 }
 
-/* 商品ギャラリー - 商品詳細ページ用の画像ギャラリー */
-.kat-product-gallery {
-  /* レイアウトはページ側で制御（position: sticky等） */
-  /* メイン画像は正方形（1:1）でトリミング */
-  /* サムネイルラッパー（ナビゲーション付き） */
-  /* サムネイル一覧 */
-  /* サムネイルボタン */
-  /* サムネイルナビゲーションボタン */
-  /* モバイルでのサイズ調整 */
-}
-.kat-product-gallery .kat-product-gallery__main {
-  display: block;
-  width: 100%;
-  border-radius: 0.1875rem;
-  background-color: #fafafa;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-}
-.kat-product-gallery .kat-product-gallery__main img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.kat-product-gallery .kat-product-gallery__thumbs-wrap {
-  position: relative;
-  margin-top: 0.75rem;
-}
-.kat-product-gallery .kat-product-gallery__thumbs {
-  display: flex;
-  gap: 0.5rem;
-  overflow: hidden; /* ボタンでスクロール制御 */
-  scroll-behavior: smooth;
-}
-.kat-product-gallery .kat-product-gallery__thumb {
-  flex: 0 0 auto;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 0.0625rem;
-  overflow: hidden;
-  border: 2px solid transparent;
-  background: #ffffff;
-  padding: 0;
-  cursor: pointer;
-}
-.kat-product-gallery .kat-product-gallery__thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.kat-product-gallery .kat-product-gallery__thumb.kat-product-gallery__thumb--active {
-  border-color: #171717;
-}
-.kat-product-gallery .kat-product-gallery__thumbs-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2rem;
-  height: 2rem;
-  padding: 0;
-  border-radius: 9999px;
-  border: 1px solid #e5e5e5;
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  color: #171717;
-  opacity: 0.9;
-  backdrop-filter: blur(4px);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-.kat-product-gallery .kat-product-gallery__thumbs-btn.kat-product-gallery__thumbs-btn--prev {
-  left: 0.5rem;
-}
-.kat-product-gallery .kat-product-gallery__thumbs-btn.kat-product-gallery__thumbs-btn--next {
-  right: 0.5rem;
-}
-.kat-product-gallery .kat-product-gallery__thumbs-btn svg {
-  width: 1rem;
-  height: 1rem;
-}
-.kat-product-gallery .kat-product-gallery__thumbs-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-@media (min-width: 640px) {
-  .kat-product-gallery .kat-product-gallery__thumb {
-    width: 4rem;
-    height: 4rem;
-  }
-  .kat-product-gallery .kat-product-gallery__thumbs-btn {
-    width: 1.75rem;
-    height: 1.75rem;
-  }
-}
-
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
 /*
@@ -10834,7 +10683,6 @@ sup {
   /* 決済方法 */
 }
 .kat-ecommerce-footer__main {
-  margin-top: 5rem;
   padding: 2rem 0 2rem;
   border-bottom: 1px solid #404040;
 }
@@ -11056,6 +10904,472 @@ sup {
     height: 2.75rem;
   }
 }
+/* ページ固有のスタイル */
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
+/*
+* Kat UI - 日本風のコンポーネントフレームワーク
+*
+* モダンでアクセシビリティに優れたレスポンシブなコンポーネントライブラリ
+* SCSSとVanilla JavaScriptで構築されています。
+*
+* 機能:
+* - すっきりとした美観を備えた日本風デザイン
+* - 包括的なコンポーネントセット
+* - 完全なアクセシビリティサポート
+* - モバイルファーストのレスポンシブデザイン
+* - kat- プレフィックス付きのBEM手法
+* - モジュール式で拡張可能なアーキテクチャ
+*/
+/* モジュールの読み込み（@use/@forward へ移行） */
+/**
+ * Kat UI Framework - 商品詳細ページ専用スタイル
+ * 
+ * ページ構造順にセクションを並べる:
+ * 1) 商品ギャラリー 2) 商品情報 3) バリアント
+ */
+/* 1) 商品ギャラリー - 左カラム */
+.kat-product-gallery {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  /* メイン画像は正方形（1:1） */
+  /* ナビ付きサムネイル */
+  /* サムネイルのデフォルト状態 */
+}
+.kat-product-gallery .kat-product-gallery__main {
+  display: block;
+  flex: 1;
+  width: 100%;
+  background-color: #fafafa;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+}
+.kat-product-gallery .kat-product-gallery__main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-wrap {
+  position: relative;
+  margin-top: 0.75rem;
+}
+.kat-product-gallery .kat-product-gallery__thumbs {
+  display: flex;
+  gap: 0.5rem;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+.kat-product-gallery .kat-product-gallery__thumb {
+  flex: 0 0 auto;
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0.4;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-product-gallery .kat-product-gallery__thumb:hover {
+  opacity: 1;
+}
+.kat-product-gallery .kat-product-gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.kat-product-gallery .kat-product-gallery__thumb.kat-product-gallery__thumb--active {
+  opacity: 1;
+  border: solid 2px #a3a3a3;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-btn {
+  position: static;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: 9999px;
+  border: 1px solid #e5e5e5;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  color: #171717;
+  opacity: 0.9;
+  backdrop-filter: blur(4px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+@media (min-width: 640px) {
+  .kat-product-gallery .kat-product-gallery__thumb {
+    width: 4rem;
+    height: 4rem;
+  }
+  .kat-product-gallery .kat-product-gallery__thumbs-btn {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+@media (min-width: 768px) {
+  .kat-product-gallery .kat-product-gallery__thumbs-vertical {
+    max-height: 28rem;
+  }
+  .kat-product-gallery .kat-product-gallery__thumbs-list {
+    max-height: 24rem;
+  }
+}
+@media (min-width: 1024px) {
+  .kat-product-gallery .kat-product-gallery__thumbs-vertical {
+    max-height: 32rem;
+  }
+  .kat-product-gallery .kat-product-gallery__thumbs-list {
+    max-height: 28rem;
+  }
+}
+.kat-product-gallery .kat-product-gallery__thumbs-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+  order: -1;
+  position: relative;
+  height: 26.5rem;
+  overflow: hidden;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: auto;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  /* スムーズなスクロールアニメーション */
+  transition: scroll-top 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  scroll-snap-type: y mandatory;
+  /* カスタムスクロールバー */
+  scrollbar-width: thin;
+  scrollbar-color: #d4d4d4 transparent;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-list::-webkit-scrollbar {
+  width: 4px;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-list::-webkit-scrollbar-thumb {
+  background-color: #d4d4d4;
+  border-radius: 9999px;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-list::-webkit-scrollbar-thumb:hover {
+  background-color: #a3a3a3;
+}
+.kat-product-gallery .kat-product-gallery__thumb {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-vertical .kat-product-gallery__thumb {
+  width: 4rem;
+  height: 4rem;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* ホバー効果でよりスムーズに */
+}
+.kat-product-gallery .kat-product-gallery__thumbs-vertical .kat-product-gallery__thumb:hover {
+  transform: scale(1.05);
+}
+@media (min-width: 1024px) {
+  .kat-product-gallery .kat-product-gallery__thumbs-vertical .kat-product-gallery__thumb {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+.kat-product-gallery .kat-product-gallery__thumbs-nav {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  justify-content: center;
+}
+
+/* 2) 商品情報 - 右カラムの上部 */
+.kat-product-info .kat-product-info__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #18181b;
+  margin-bottom: 0.5rem;
+}
+.kat-product-info .kat-product-info__subtitle {
+  font-size: 1rem;
+  color: #52525b;
+  margin-bottom: 0.5rem;
+}
+.kat-product-info .kat-product-info__code {
+  font-size: 0.8125rem;
+  color: #27272a;
+  margin-bottom: 1rem;
+}
+.kat-product-info .kat-product-info__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.kat-product-info .kat-product-info__rating .kat-stars {
+  color: #fbbf24;
+  font-size: 1rem;
+}
+.kat-product-info .kat-product-info__rating .kat-rating-text {
+  font-size: 0.8125rem;
+  color: #52525b;
+}
+.kat-product-info .kat-product-info__favorite {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid #e4e4e7;
+  background-color: #ffffff;
+  color: #fbbf24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-product-info .kat-product-info__favorite:hover {
+  background-color: #fffbeb;
+  border-color: #fde68a;
+}
+.kat-product-info .kat-product-info__price {
+  margin-bottom: 1rem;
+}
+.kat-product-info .kat-product-info__price .kat-product-info__price-main {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #18181b;
+}
+.kat-product-info .kat-product-info__shipping {
+  font-size: 0.8125rem;
+  color: #52525b;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  background-color: #fafafa;
+  border-radius: 0.1875rem;
+}
+
+/* 3) 商品バリアント - 右カラムの下部（サイズ/カラーなど） */
+.kat-product-variants {
+  margin-bottom: 1.5rem;
+}
+
+.kat-product-variants__group {
+  margin-bottom: 1rem;
+}
+
+.kat-product-variants__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #18181b;
+}
+
+.kat-product-variants__options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* カラースウォッチとサイズ表リンク */
+.kat-product-variants__color-swatch {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-product-variants__color-swatch:hover {
+  transform: scale(1.1);
+}
+.kat-product-variants__color-swatch.kat-product-variants__color-swatch--active {
+  border-color: #171717;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.kat-product-variants__size-chart {
+  font-size: 0.8125rem;
+  color: #525252;
+  text-decoration: underline;
+  margin-left: 0.75rem;
+}
+.kat-product-variants__size-chart:hover {
+  color: #262626;
+}
+
+/* 4) 数量とアクション - 右カラムの購入操作領域 */
+.kat-product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.kat-quantity-selector .kat-quantity-selector__label {
+  display: block;
+  font-weight: 600;
+  color: #18181b;
+  margin-bottom: 0.5rem;
+}
+.kat-quantity-selector .kat-quantity-selector__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.kat-quantity-selector .kat-quantity-selector__input {
+  width: 100%;
+  border: 1px solid #d4d4d8;
+  border-radius: 0.1875rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  background-color: #ffffff;
+  color: #18181b;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  width: 4.5rem;
+  text-align: center;
+}
+.kat-quantity-selector .kat-quantity-selector__input:focus-visible {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
+}
+.kat-quantity-selector .kat-quantity-selector__input::placeholder {
+  color: #a1a1aa;
+}
+.kat-quantity-selector .kat-quantity-selector__input:hover {
+  border-color: #a1a1aa;
+}
+.kat-quantity-selector .kat-quantity-selector__input:focus {
+  border-color: #525252;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #e5e5e5;
+  background-color: #f9f9f9;
+  transform: scale(1.005);
+  outline: none;
+}
+.kat-quantity-selector .kat-quantity-selector__input:disabled {
+  background-color: #f4f4f5;
+  color: #71717a;
+  cursor: not-allowed;
+}
+
+.kat-product-actions__buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+@media (min-width: 640px) {
+  .kat-product-actions__buttons {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* 5) 情報補足 - 在庫/配送/返品などの情報 */
+.kat-product-meta {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e4e4e7;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.kat-product-meta__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kat-product-meta__label {
+  font-weight: 600;
+  color: #27272a;
+}
+
+.kat-product-meta__value {
+  color: #3f3f46;
+}
+
+/* 6) タブコンテンツ - 商品説明、仕様、配送情報 */
+.kat-product-description h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #18181b;
+  margin-bottom: 1rem;
+}
+.kat-product-description h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #27272a;
+  margin: 1.5rem 0 0.75rem 0;
+}
+.kat-product-description p {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: #3f3f46;
+  margin-bottom: 1rem;
+}
+.kat-product-description ul {
+  margin: 0.75rem 0 1rem 0;
+  padding-left: 1.5rem;
+}
+.kat-product-description ul li {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: #3f3f46;
+  margin-bottom: 0.5rem;
+}
+.kat-product-description ul li strong {
+  font-weight: 600;
+  color: #18181b;
+}
+
+.kat-product-specs h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #18181b;
+  margin-bottom: 1rem;
+}
+.kat-product-specs h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #27272a;
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+.kat-product-shipping h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #18181b;
+  margin-bottom: 1rem;
+}
+.kat-product-shipping p {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: #3f3f46;
+  margin-bottom: 1rem;
+}
+
 /* ユーティリティ（最後に） */
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */

@@ -50,7 +50,7 @@
 @use 'components/category-round';
 @use 'components/input-otp';
 @use 'components/toggle-group';
-@use 'components/data-table';
+
 @use 'components/separator';
 @use 'components/pagination';
 @use 'components/toast';
@@ -58,6 +58,9 @@
 @use 'components/page-title';
 @use 'components/breadcrumbs';
 @use 'components/footer';
+
+/* ページ固有のスタイル */
+@use 'pages/products/product-details';
 
 /* ユーティリティ（最後に） */
 @use 'utilities/spacing';

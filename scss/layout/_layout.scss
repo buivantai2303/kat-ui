@@ -108,6 +108,82 @@
   }
 }
 
+/* 2カラムレイアウトコンテナ - 左側（画像）+ 右側（情報）の構成 */
+.kat-layout-2col {
+  display: flex;
+  max-width: 1300px;
+  margin: 0 auto;
+  
+  /* モバイルファースト: 縦並び */
+  flex-direction: column;
+  
+  /* デスクトップ: 2カラム */
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: $kat-space-16;
+  }
+
+  &__left__2 {
+    width: 20%;
+  }
+
+  &__left__3 {
+    width: 30%;
+  }
+  
+  /* 左カラム - 商品画像エリア */
+  &__left__4 {
+    width: 40%;
+  }
+
+  &__left {
+    width: 50%;
+  }
+
+  /* 左カラム - 商品画像エリア */
+  &__left__6 {
+    width: 60%;
+  }
+
+  &__left__7 {
+    width: 70%;
+  }
+
+  /* 右カラム - 商品情報エリア */
+  &__right {
+    width: 50%;
+  }
+
+  &__right__3 {
+    width: 30%;
+  }
+
+  &__right__4 {
+    width: 40%;
+  }
+
+  &__right__5 {
+    width: 50%;
+  }
+
+  &__right__6 {
+    width: 60%;
+  }
+
+  &__right__7 {
+    width: 70%;
+  }
+
+  &__right__8 {
+    width: 80%;
+  }
+
+  &__right__9 {
+    width: 90%;
+  }
+}
+
 /* 左サイドバー - デスクトップで固定幅、モバイルは全幅 */
 .kat-sidebar-left {
   width: 100%;
