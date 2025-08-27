@@ -1244,6 +1244,9 @@ sup {
     gap: 4rem;
   }
 }
+.kat-layout-2col__left {
+  width: auto;
+}
 .kat-layout-2col__left__2 {
   width: 20%;
 }
@@ -1253,7 +1256,7 @@ sup {
 .kat-layout-2col__left__4 {
   width: 40%;
 }
-.kat-layout-2col__left {
+.kat-layout-2col__left__5 {
   width: 50%;
 }
 .kat-layout-2col__left__6 {
@@ -1262,8 +1265,17 @@ sup {
 .kat-layout-2col__left__7 {
   width: 70%;
 }
+.kat-layout-2col__left__8 {
+  width: 80%;
+}
+.kat-layout-2col__left__9 {
+  width: 90%;
+}
 .kat-layout-2col__right {
-  width: 50%;
+  width: auto;
+}
+.kat-layout-2col__right__2 {
+  width: 20%;
 }
 .kat-layout-2col__right__3 {
   width: 30%;
@@ -1533,7 +1545,7 @@ sup {
   white-space: nowrap;
   outline: 2px solid transparent;
   outline-offset: 2px;
-  border-radius: 0.25rem;
+  border-radius: 0.1875rem;
   /* ボタンバリアント - 用途に応じた色分けとスタイル */
   /* ボタンサイズ - 用途に応じた大きさのバリエーション */
   /* アイコンのみボタン - テキストなしのアイコンボタン */
@@ -1555,6 +1567,7 @@ sup {
 .kat-btn.kat-btn--primary {
   background-color: #171717;
   color: #ffffff;
+  transition: transform 0.1s ease-in-out;
 }
 @media (hover: hover) {
   .kat-btn.kat-btn--primary:hover {
@@ -1563,7 +1576,7 @@ sup {
 }
 .kat-btn.kat-btn--primary:active {
   background-color: #171717;
-  transform: translateY(0);
+  transform: translateY(-1px);
 }
 .kat-btn.kat-btn--primary:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
@@ -1582,21 +1595,22 @@ sup {
 .kat-btn.kat-btn--secondary {
   background-color: #f5f5f5;
   color: #171717;
+  transition: transform 0.1s ease-in-out;
 }
 @media (hover: hover) {
   .kat-btn.kat-btn--secondary:hover {
     background-color: #e5e5e5;
-    transform: translateY(-1px);
   }
 }
 .kat-btn.kat-btn--secondary:active {
   background-color: #f5f5f5;
-  transform: translateY(0);
+  transform: translateY(-1px);
 }
 .kat-btn.kat-btn--outline {
   background-color: transparent;
   color: #525252;
   border: 1px solid #a3a3a3;
+  transition: transform 0.1s ease-in-out;
 }
 @media (hover: hover) {
   .kat-btn.kat-btn--outline:hover {
@@ -1606,6 +1620,9 @@ sup {
 }
 .kat-btn.kat-btn--outline:hover {
   text-decoration: none !important;
+}
+.kat-btn.kat-btn--outline:active {
+  transform: translateY(-1px);
 }
 .kat-btn.kat-btn--outline.kat-btn--checked {
   color: #171717;
@@ -1624,7 +1641,7 @@ sup {
 }
 .kat-btn.kat-btn--ghost:active {
   background-color: #e5e5e5;
-  transform: translateY(0);
+  transform: translateY(-1px);
 }
 .kat-btn.kat-btn--sm {
   height: 2rem;
@@ -2395,18 +2412,57 @@ sup {
 .kat-product-grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: 1fr;
-  /* タブレット: 2列 */
-  /* デスクトップ: 4列 */
+  grid-template-columns: repeat(2, 1fr);
 }
 @media (min-width: 768px) {
   .kat-product-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 @media (min-width: 1024px) {
   .kat-product-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1440px) {
+  .kat-product-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+.kat-product-grid .kat-product-card {
+  min-width: 0;
+  justify-self: stretch;
+}
+
+/* 小容量コンテナ用 - 800px幅で4列 */
+@media (min-width: 1024px) {
+  .kat-product-grid--small {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1440px) {
+  .kat-product-grid--small {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+/* 大容量コンテナ用 - 1200-1300px幅で6列 */
+@media (min-width: 1024px) {
+  .kat-product-grid--large {
+    grid-template-columns: repeat(6, 1fr);
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1440px) {
+  .kat-product-grid--large {
+    grid-template-columns: repeat(6, 1fr);
+    max-width: 1400px;
+    margin: 0 auto;
   }
 }
 
@@ -3505,6 +3561,91 @@ sup {
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
+}
+
+/* ヘッダー調整：中央にタブ、右側に検索ボタンを配置 */
+.kat-ecommerce-header__main-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.kat-ecommerce-header__tabs {
+  flex: 1;
+  display: none;
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .kat-ecommerce-header__tabs {
+    display: flex;
+  }
+}
+.kat-ecommerce-header__tabs .kat-trendbar__tabs {
+  display: flex;
+  gap: 1rem;
+}
+
+/* 検索ポップアップ（ヘッダー側から削除：_popover.scss に統合） */
+/* 追加セクション：ハッシュタグと最近の検索 */
+.kat-search-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.kat-search-section {
+  flex: 1 1 16rem;
+}
+
+.kat-search-section__title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0 0 0.5rem 0;
+}
+
+/* ハッシュタグ一覧 */
+.kat-search-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kat-search-hashtag {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 最近の検索 */
+.kat-search-recent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.kat-search-recent__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e4e4e7;
+  border-radius: 0.1875rem;
+  background: #ffffff;
+  transition: background-color 150ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  text-decoration: none;
+  color: #404040;
+  font-size: 0.8125rem;
+}
+.kat-search-recent__item:hover {
+  background-color: #fafafa;
+}
+
+/* 検索ポップアップ表示中はスクロールをロック */
+.kat-body.kat-search-open {
+  overflow: hidden;
 }
 
 /* ロゴ - サイトブランドの表示 */
@@ -8044,6 +8185,206 @@ sup {
   transform: none;
 }
 
+/* 検索ポップアップヘッダー（検索用ポップオーバーのヘッダー） */
+.kat-search-popup__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e4e4e7;
+}
+
+.kat-search-popup__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #171717;
+}
+
+.kat-search-popup__subtitle {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #525252;
+}
+
+/* 検索ポップアップ（コンテナとアニメーション） */
+.kat-search-popup {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1100;
+  display: block;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-search-popup.kat-search-popup--open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.kat-search-popup__inner {
+  max-width: 1300px;
+  width: 100%;
+  margin: 50px auto 0;
+  padding: 1.5rem 1rem;
+  background-color: #ffffff;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-radius: 0.25rem;
+}
+
+/* 検索パネル（ポップオーバーベース拡張 + アニメーション） */
+.kat-search-popup__panel {
+  position: static;
+  max-width: none;
+  width: 100%;
+  padding: 1rem;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.99);
+  transition: opacity 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94), visibility 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  visibility: hidden;
+}
+
+.kat-search-popup--open .kat-search-popup__panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+}
+
+/* 入力行：フレックス整列 */
+.kat-search-popup__form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  margin-bottom: 1rem;
+}
+
+.kat-search-popup__input {
+  width: 100%;
+  border: 1px solid #d4d4d8;
+  border-radius: 0.1875rem;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  background-color: #ffffff;
+  color: #18181b;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  height: 2.75rem;
+  flex: 1;
+}
+.kat-search-popup__input:focus-visible {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
+}
+.kat-search-popup__input::placeholder {
+  color: #a1a1aa;
+}
+.kat-search-popup__input:hover {
+  border-color: #a1a1aa;
+}
+.kat-search-popup__input:focus {
+  border-color: #525252;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #e5e5e5;
+  background-color: #f9f9f9;
+  transform: scale(1.005);
+  outline: none;
+}
+.kat-search-popup__input:disabled {
+  background-color: #f4f4f5;
+  color: #71717a;
+  cursor: not-allowed;
+}
+
+.kat-search-popup__submit {
+  width: 5rem;
+  height: 2.75rem;
+}
+
+.kat-search-popup__close {
+  height: 2.75rem;
+  padding: 0 0.5rem;
+  border-radius: 0.1875rem;
+  border: 1px solid #e4e4e7;
+  background: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 追加セクション：ハッシュタグと最近の検索 */
+.kat-search-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.kat-search-section {
+  flex: 1 1 16rem;
+}
+
+.kat-search-section__title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #171717;
+  margin: 0 0 0.5rem 0;
+}
+
+/* ハッシュタグ一覧 */
+.kat-search-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.kat-search-hashtag {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 最近の検索 */
+.kat-search-recent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.kat-search-recent__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #e4e4e7;
+  border-radius: 0.1875rem;
+  background: #ffffff;
+  transition: background-color 150ms cubic-bezier(0.42, 0, 0.58, 1);
+  cursor: pointer;
+  text-decoration: none;
+  color: #404040;
+  font-size: 0.8125rem;
+}
+.kat-search-recent__item:hover {
+  background-color: #fafafa;
+}
+
+/* 検索ポップアップ表示中スクロール制御 */
+.kat-body.kat-search-open {
+  overflow: hidden;
+}
+
 /** @project: Kat UI Framework */
 /** @author: Bui Van Tai、2024-12-15、すべてのコンポーネントをインポートするメインのSCSSファイル */
 /*
@@ -8514,7 +8855,6 @@ sup {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: 0.5rem;
   background-color: #f0f0f0;
 }
 
@@ -10607,8 +10947,9 @@ sup {
  */
 /* パンくずリストセクション - ページ上部に表示されるナビゲーション */
 .kat-breadcrumbs-section {
+  margin-bottom: 1rem 0;
   width: 100%;
-  background-color: #eff6ff;
+  background-color: #f0f0f0;
 }
 .kat-breadcrumbs-section .kat-breadcrumbs-section__inner {
   max-width: 1300px;
@@ -10637,10 +10978,10 @@ sup {
   display: inline-block;
 }
 .kat-breadcrumbs-section .kat-breadcrumbs-section__inner .kat-breadcrumbs__list .kat-breadcrumbs__item-link {
-  color: #60a5fa;
+  color: #737373;
 }
 .kat-breadcrumbs-section .kat-breadcrumbs-section__inner .kat-breadcrumbs__list .kat-breadcrumbs__item-link:hover {
-  color: #2563eb;
+  color: #525252;
 }
 
 /** @project: Kat UI Framework */
@@ -10938,12 +11279,14 @@ sup {
   /* サムネイルのデフォルト状態 */
 }
 .kat-product-gallery .kat-product-gallery__main {
+  max-width: 675px;
   display: block;
   flex: 1;
   width: 100%;
   background-color: #fafafa;
   overflow: hidden;
   aspect-ratio: 1/1;
+  border-radius: 0.1875rem;
 }
 .kat-product-gallery .kat-product-gallery__main img {
   width: 100%;
@@ -10969,7 +11312,6 @@ sup {
   background: #ffffff;
   padding: 0;
   cursor: pointer;
-  opacity: 0.4;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .kat-product-gallery .kat-product-gallery__thumb:hover {
@@ -10991,6 +11333,8 @@ sup {
   height: 2rem;
   padding: 0;
   border-radius: 9999px;
+  transition: all 0.2s ease;
+  cursor: pointer;
   border: 1px solid #e5e5e5;
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -11001,6 +11345,30 @@ sup {
   align-items: center;
   justify-content: center;
   z-index: 10;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-btn:hover {
+  background-color: #f4f4f5;
+  transform: scale(1.05);
+}
+.kat-product-gallery .kat-product-gallery__thumbs-btn:active {
+  transform: scale(0.95);
+}
+.kat-product-gallery .kat-product-gallery__thumbs-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-btn:disabled:hover {
+  background-color: transparent;
+  transform: none;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-btn svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 0.2s ease;
+}
+.kat-product-gallery .kat-product-gallery__thumbs-btn:hover svg {
+  transform: scale(1.1);
 }
 .kat-product-gallery .kat-product-gallery__thumbs-btn svg {
   width: 1rem;
@@ -11044,7 +11412,7 @@ sup {
   margin-right: 1rem;
   order: -1;
   position: relative;
-  height: 26.5rem;
+  height: 30rem;
   overflow: hidden;
 }
 .kat-product-gallery .kat-product-gallery__thumbs-list {
@@ -11053,42 +11421,48 @@ sup {
   gap: 0.5rem;
   height: auto;
   overflow-y: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
-  /* スムーズなスクロールアニメーション */
-  transition: scroll-top 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  scroll-snap-type: y mandatory;
-  /* カスタムスクロールバー */
-  scrollbar-width: thin;
-  scrollbar-color: #d4d4d4 transparent;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  scroll-snap-type: y proximity;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  will-change: transform, scroll-position;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  perspective: 1000px;
+  -webkit-overflow-scrolling: touch;
 }
 .kat-product-gallery .kat-product-gallery__thumbs-list::-webkit-scrollbar {
-  width: 4px;
-}
-.kat-product-gallery .kat-product-gallery__thumbs-list::-webkit-scrollbar-track {
+  width: 0px;
   background: transparent;
+  display: none;
 }
-.kat-product-gallery .kat-product-gallery__thumbs-list::-webkit-scrollbar-thumb {
-  background-color: #d4d4d4;
-  border-radius: 9999px;
+.kat-product-gallery .kat-product-gallery__thumbs-list.kat-gallery-scrolling {
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.kat-product-gallery .kat-product-gallery__thumbs-list::-webkit-scrollbar-thumb:hover {
-  background-color: #a3a3a3;
+@keyframes smoothGalleryScroll {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 .kat-product-gallery .kat-product-gallery__thumb {
   opacity: 1;
   pointer-events: auto;
   transition: opacity 0.3s ease;
+  scroll-snap-align: start;
+  scroll-margin: 0.25rem;
 }
 .kat-product-gallery .kat-product-gallery__thumbs-vertical .kat-product-gallery__thumb {
   width: 4rem;
   height: 4rem;
   flex-shrink: 0;
-  scroll-snap-align: start;
-  transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* ホバー効果でよりスムーズに */
-}
-.kat-product-gallery .kat-product-gallery__thumbs-vertical .kat-product-gallery__thumb:hover {
-  transform: scale(1.05);
 }
 @media (min-width: 1024px) {
   .kat-product-gallery .kat-product-gallery__thumbs-vertical .kat-product-gallery__thumb {
@@ -11137,6 +11511,7 @@ sup {
 .kat-product-info .kat-product-info__favorite {
   width: 2.5rem;
   height: 2.5rem;
+  margin-left: auto;
   border-radius: 9999px;
   border: 1px solid #e4e4e7;
   background-color: #ffffff;
@@ -11154,7 +11529,7 @@ sup {
   margin-bottom: 1rem;
 }
 .kat-product-info .kat-product-info__price .kat-product-info__price-main {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #18181b;
 }
@@ -11197,16 +11572,32 @@ sup {
   width: 2rem;
   height: 2rem;
   border-radius: 9999px;
-  border: 2px solid transparent;
+  border: 1px solid #d4d4d8;
+  position: relative;
   cursor: pointer;
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.kat-product-variants__color-swatch::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  transition: border-color 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
 }
 .kat-product-variants__color-swatch:hover {
   transform: scale(1.1);
 }
 .kat-product-variants__color-swatch.kat-product-variants__color-swatch--active {
+  border-color: #d4d4d8;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.kat-product-variants__color-swatch.kat-product-variants__color-swatch--active::before {
   border-color: #171717;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .kat-product-variants__size-chart {
@@ -11238,6 +11629,25 @@ sup {
   align-items: center;
   gap: 0.5rem;
 }
+.kat-quantity-selector .kat-quantity-selector__controls .kat-btn {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  border-radius: 0.1875rem !important;
+  flex-shrink: 0;
+}
+.kat-quantity-selector .kat-quantity-selector__controls .kat-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 .kat-quantity-selector .kat-quantity-selector__input {
   width: 100%;
   border: 1px solid #d4d4d8;
@@ -11250,8 +11660,13 @@ sup {
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   outline: 2px solid transparent;
   outline-offset: 2px;
-  width: 4.5rem;
+  width: 3.5rem !important;
+  height: 2.5rem !important;
   text-align: center;
+  border-radius: 0.1875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  flex-shrink: 0;
 }
 .kat-quantity-selector .kat-quantity-selector__input:focus-visible {
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 2px #737373;
@@ -11274,16 +11689,15 @@ sup {
   color: #71717a;
   cursor: not-allowed;
 }
+.kat-quantity-selector .kat-quantity-selector__input:focus {
+  border-color: #737373;
+  box-shadow: 0 0 0 3px rgba(115, 115, 115, 0.1);
+}
 
 .kat-product-actions__buttons {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.75rem;
-}
-@media (min-width: 640px) {
-  .kat-product-actions__buttons {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 /* 5) 情報補足 - 在庫/配送/返品などの情報 */

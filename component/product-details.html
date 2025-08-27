@@ -170,6 +170,24 @@
           </div>
         </div>
       </div>
+
+      <div class="kat-trendbar__keywords" aria-label="注目ワード">
+        <span class="kat-trendbar__label">
+          <img class="kat-trendbar__label-icon" src="../icon/ico_keyword.png" alt="注目ワード" />
+          注目ワード
+        </span>
+        <div class="kat-trendbar__chips" role="list">
+          <button class="kat-trendbar__chip" role="listitem">#店舗で人気</button>
+          <button class="kat-trendbar__chip" role="listitem">#セットアップ</button>
+          <button class="kat-trendbar__chip" role="listitem">#すごいラク/涼しい</button>
+          <button class="kat-trendbar__chip" role="listitem">#吸水速乾/紫外線ケア</button>
+          <button class="kat-trendbar__chip" role="listitem">#ショートパンツ</button>
+          <button class="kat-trendbar__chip" role="listitem">#COOL/涼しい</button>
+          <button class="kat-trendbar__chip" role="listitem">#501</button>
+          <button class="kat-trendbar__chip" role="listitem">#WEB限定</button>
+          <button class="kat-trendbar__chip" role="listitem">#XXLサイズ展開アイテム</button>
+        </div>
+      </div>
     </header>
 
     <!-- パンくずリスト（商品詳細） -->
@@ -189,7 +207,7 @@
       <div class="kat-container">
         <div class="kat-layout-2col">
           <!-- 左カラム：商品ギャラリー -->
-          <div class="kat-layout-2col__left__6">
+          <div class="kat-layout-2col__left">
             <div class="kat-product-gallery">
               <!-- サムネイル一覧（左側、縦並び） -->
               <div class="kat-product-gallery__thumbs-vertical">
@@ -242,7 +260,7 @@
           </div>
 
           <!-- 右カラム：商品情報 -->
-          <div class="kat-layout-2col__right__4">
+          <div class="kat-layout-2col__right">
             <div class="kat-product-info">
               <h1 class="kat-product-info__title">婦人 天竺編みフレンチスリーブTシャツ</h1>
               <div class="kat-product-info__subtitle">婦人M・白</div>
@@ -259,7 +277,8 @@
               </div>
               
               <div class="kat-product-info__price">
-                <span class="kat-product-info__price-main">消費税込みで 990円</span>
+                <span class="kat-product-info__price-main">¥990</span>
+                <span class="kat-product-info__price-tax">消費税込みで</span>
               </div>
               
               <div class="kat-product-info__shipping">
@@ -271,7 +290,7 @@
                 <div class="kat-product-variants__group">
                   <div class="kat-product-variants__label">カラー: 白</div>
                   <div class="kat-product-variants__options kat-flex kat-gap--sm">
-                    <a class="kat-product-variants__color-swatch kat-product-variants__color-swatch--active" style="background-color: #ffffff; border: 2px solid #000;" aria-label="白"></a>
+                    <a class="kat-product-variants__color-swatch kat-product-variants__color-swatch--active" style="background-color: #ffffff;" aria-label="白"></a>
                     <a class="kat-product-variants__color-swatch" style="background-color: #d1d5db;" aria-label="ライトグレー"></a>
                     <a class="kat-product-variants__color-swatch" style="background-color: #6b7280;" aria-label="チャコールグレー"></a>
                     <a class="kat-product-variants__color-swatch" style="background-color: #000000;" aria-label="黒"></a>
@@ -298,9 +317,18 @@
                 <div class="kat-quantity-selector">
                   <label class="kat-quantity-selector__label">数量</label>
                   <div class="kat-quantity-selector__controls">
-                    <button class="kat-btn kat-btn--outline kat-btn--sm" aria-label="減らす">-</button>
-                    <input type="number" class="kat-quantity-selector__input" value="1" min="1" aria-label="数量">
-                    <button class="kat-btn kat-btn--outline kat-btn--sm" aria-label="増やす">+</button>
+                    <button class="kat-btn kat-btn--outline kat-btn--sm" aria-label="減らす">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </button>
+                    <input type="text" class="kat-quantity-selector__input" value="1" min="1" aria-label="数量">
+                    <button class="kat-btn kat-btn--outline kat-btn--sm" aria-label="増やす">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                      </svg>
+                    </button>
                   </div>
                 </div>
                 <div class="kat-product-actions__buttons">
@@ -309,12 +337,6 @@
                       <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m6-5v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m6 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01"></path>
                     </svg>
                     カートに入れる
-                  </button>
-                  <button class="kat-btn kat-btn--secondary kat-btn--lg">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-                    </svg>
-                    店舗在庫を確認する
                   </button>
                   <button class="kat-btn kat-btn--outline kat-btn--lg">今すぐ購入</button>
                 </div>
@@ -419,8 +441,9 @@
     <section class="kat-section" id="related-products">
       <div class="kat-container">
         <h2 class="kat-section__title">その他掲載商品</h2>
-        <div class="kat-product-grid">
-          <!-- 商品カード -->
+        <!-- 商品グリッド - レスポンシブ対応 -->
+        <div class="kat-product-grid kat-product-grid--large">
+          <!-- 商品カード 1 -->
           <div class="kat-product-card">
             <a href="#" class="kat-product-card__image">
               <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="ワークシャツ">
@@ -438,8 +461,7 @@
               <div class="kat-product-card__price">¥2,300</div>
             </div>
           </div>
-
-          <!-- 商品カード -->
+          <!-- 商品カード 2 -->
           <div class="kat-product-card">
             <a href="#" class="kat-product-card__image">
               <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="作業パンツ">
@@ -457,8 +479,7 @@
               <div class="kat-product-card__price">¥2,800</div>
             </div>
           </div>
-
-          <!-- 商品カード -->
+          <!-- 商品カード 3 -->
           <div class="kat-product-card">
             <a href="#" class="kat-product-card__image">
               <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="安全靴">
@@ -476,8 +497,43 @@
               <div class="kat-product-card__price">¥3,800</div>
             </div>
           </div>
-
-          <!-- 商品カード -->
+          <!-- 商品カード 4 -->
+          <div class="kat-product-card">
+            <a href="#" class="kat-product-card__image">
+              <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="安全靴">
+              <span class="kat-sticky-new">NEW</span>
+            </a>
+            <div class="kat-product-card__content">
+              <a href="#" class="kat-product-card__title">安全靴</a>
+              <div class="kat-product-card__rating">
+                <span class="kat-stars">★★★★☆</span>
+                <span class="kat-rating-text">4.2 (36件)</span>
+              </div>
+              <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                <span class="kat-badge kat-badge--info">軽量</span>
+              </div>
+              <div class="kat-product-card__price">¥3,800</div>
+            </div>
+          </div>
+          <!-- 商品カード 5 -->
+          <div class="kat-product-card">
+            <a href="#" class="kat-product-card__image">
+              <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="安全靴">
+              <span class="kat-sticky-new">NEW</span>
+            </a>
+            <div class="kat-product-card__content">
+              <a href="#" class="kat-product-card__title">安全靴</a>
+              <div class="kat-product-card__rating">
+                <span class="kat-stars">★★★★☆</span>
+                <span class="kat-rating-text">4.2 (36件)</span>
+              </div>
+              <div class="kat-flex kat-gap--sm kat-flex--wrap kat-badge-group">
+                <span class="kat-badge kat-badge--info">軽量</span>
+              </div>
+              <div class="kat-product-card__price">¥3,800</div>
+            </div>
+          </div>
+          <!-- 商品カード 6 -->
           <div class="kat-product-card">
             <a href="#" class="kat-product-card__image">
               <img src="https://workman.jp/img/goods/S/21576_t1.jpg" alt="安全靴">

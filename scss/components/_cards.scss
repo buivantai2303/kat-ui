@@ -14,16 +14,59 @@
 .kat-product-grid {
   display: grid;
   gap: $kat-space-6;
-  grid-template-columns: 1fr;
   
-  /* タブレット: 2列 */
+  // モバイル: 2列（固定）
+  grid-template-columns: repeat(2, 1fr);
+  
+  // タブレット: 3列（固定）
   @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   
-  /* デスクトップ: 4列 */
+  // デスクトップ: 4列（固定）
   @media (min-width: 1024px) {
     grid-template-columns: repeat(4, 1fr);
+  }
+  
+  // 大画面: 6列（固定）
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  // カードの最小幅を保証し、グリッドアイテムの縮小を許可
+  .kat-product-card {
+    min-width: 0;
+    justify-self: stretch;
+  }
+}
+
+/* 小容量コンテナ用 - 800px幅で4列 */
+.kat-product-grid--small {
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+/* 大容量コンテナ用 - 1200-1300px幅で6列 */
+.kat-product-grid--large {
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(6, 1fr);
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(6, 1fr);
+    max-width: 1400px;
+    margin: 0 auto;
   }
 }
 

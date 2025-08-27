@@ -413,3 +413,175 @@
     transform: none;
   }
 }
+
+/* 検索ポップアップヘッダー（検索用ポップオーバーのヘッダー） */
+.kat-search-popup__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $kat-space-3;
+  margin-bottom: $kat-space-3;
+  padding-bottom: $kat-space-3;
+  border-bottom: $kat-border-1 solid $kat-gray-200;
+}
+
+.kat-search-popup__title {
+  margin: 0;
+  font-size: $kat-font-size-lg;
+  font-weight: $kat-font-weight-bold;
+  color: $kat-primary-900;
+}
+
+.kat-search-popup__subtitle {
+  margin: 0;
+  font-size: $kat-font-size-sm;
+  color: $kat-primary-600;
+}
+
+/* 検索ポップアップ（コンテナとアニメーション） */
+.kat-search-popup {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1100;
+  display: block;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity $kat-duration-100 $kat-ease-apple, visibility $kat-duration-100 $kat-ease-apple;
+  &.kat-search-popup--open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.kat-search-popup__inner {
+  max-width: 1300px;
+  width: 100%;
+  margin: 50px auto 0;
+  padding: $kat-space-6 $kat-space-4;
+  background-color: $kat-white;
+  box-shadow: $kat-shadow-lg;
+  border-radius: $kat-radius-lg;
+}
+
+/* 検索パネル（ポップオーバーベース拡張 + アニメーション） */
+.kat-search-popup__panel {
+  position: static;
+  max-width: none;
+  width: 100%;
+  padding: $kat-space-4;
+  opacity: 0;
+  transform: translateY(-6px) scale(0.99);
+  transition: opacity $kat-duration-100 $kat-ease-apple, transform $kat-duration-100 $kat-ease-apple, visibility $kat-duration-100 $kat-ease-apple;
+  visibility: hidden;
+}
+
+.kat-search-popup--open .kat-search-popup__panel {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  visibility: visible;
+}
+
+/* 入力行：フレックス整列 */
+.kat-search-popup__form {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-2;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  margin-bottom: $kat-space-4;
+}
+
+.kat-search-popup__input {
+  @include kat-input-base;
+  height: 2.75rem;
+  flex: 1;
+}
+
+.kat-search-popup__submit {
+  width: 5rem;
+  height: 2.75rem;
+}
+
+.kat-search-popup__close {
+  height: 2.75rem;
+  padding: 0 $kat-space-2;
+  border-radius: $kat-radius-md;
+  border: $kat-border-1 solid $kat-gray-200;
+  background: $kat-white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 追加セクション：ハッシュタグと最近の検索 */
+.kat-search-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $kat-space-6;
+}
+
+.kat-search-section {
+  flex: 1 1 16rem;
+}
+
+.kat-search-section__title {
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-semibold;
+  color: $kat-primary-900;
+  margin: 0 0 $kat-space-2 0;
+}
+
+/* ハッシュタグ一覧 */
+.kat-search-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $kat-space-2;
+}
+
+.kat-search-hashtag {
+  @extend .kat-badge !optional;
+  @extend .kat-badge--outline !optional;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 最近の検索 */
+.kat-search-recent {
+  display: flex;
+  flex-direction: column;
+  gap: $kat-space-2;
+}
+
+.kat-search-recent__item {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-2;
+  padding: $kat-space-2 $kat-space-3;
+  border: $kat-border-1 solid $kat-gray-200;
+  border-radius: $kat-radius-md;
+  background: $kat-white;
+  transition: background-color $kat-duration-150 $kat-ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+  color: $kat-primary-700;
+  font-size: $kat-font-size-sm;
+  
+  &:hover {
+    background-color: $kat-primary-50;
+  }
+}
+
+/* 検索ポップアップ表示中スクロール制御 */
+.kat-body.kat-search-open {
+  overflow: hidden;
+}

@@ -67,29 +67,63 @@ export const gallery = {
   setupGallery(galleryId) {
     const state = this.galleries.get(galleryId);
     if (!state) return;
-    
+
     const { mainImg, thumbs, thumbsList, btnPrev, btnNext } = state;
-    
+
     // サムネイルクリックイベントの設定
     thumbs.forEach((thumb, index) => {
       thumb.addEventListener('click', () => {
         this.switchMainImage(galleryId, index);
       });
     });
-    
+
     // ナビゲーションボタンの設定
     if (btnPrev && thumbsList) {
       btnPrev.addEventListener('click', () => {
         this.scrollThumbs(galleryId, 'prev');
       });
     }
-    
+
     if (btnNext && thumbsList) {
       btnNext.addEventListener('click', () => {
         this.scrollThumbs(galleryId, 'next');
       });
     }
-    
+
+    // thumbsListの高度なスクロール設定とパフォーマンス最適化
+    if (thumbsList) {
+      // スムーズスクロールの初期設定
+      thumbsList.style.scrollBehavior = 'smooth';
+      thumbsList.style.overflowY = 'auto';
+      thumbsList.style.overflowX = 'hidden';
+
+      // 高度なイージングカーブで超自然な動きを実現
+      thumbsList.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+
+      // スクロールバーを完全に非表示
+      thumbsList.style.scrollbarWidth = 'none';
+      thumbsList.style.msOverflowStyle = 'none';
+      thumbsList.style.setProperty('-webkit-scrollbar', 'display: none');
+
+      // 超高度なGPUアクセラレーション
+      thumbsList.style.willChange = 'transform, scroll-position';
+      thumbsList.style.backfaceVisibility = 'hidden';
+      thumbsList.style.perspective = '1000px';
+      thumbsList.style.transform = 'translateZ(0)';
+
+      // モーメンタムスクロールの最適化
+      thumbsList.style.webkitOverflowScrolling = 'touch';
+
+      // スクロールイベントでボタン状態をリアルタイム更新（パッシブリスナーでパフォーマンス向上）
+      thumbsList.addEventListener('scroll', () => {
+        // デバウンス処理でパフォーマンスを最適化
+        clearTimeout(state.scrollTimeout);
+        state.scrollTimeout = setTimeout(() => {
+          this.updateNavigationButtons(galleryId);
+        }, 100);
+      }, { passive: true }); // パッシブイベントでスクロールパフォーマンスを向上
+    }
+
     // 初期状態の設定
     this.updateGalleryState(galleryId);
   },
@@ -131,76 +165,108 @@ export const gallery = {
   },
 
   /**
-   * サムネイルのスクロール
+   * 超スムーズなサムネイルスクロール処理
+   * 高度なイージングとGPUアクセラレーションを使用した滑らかなスクロールを実現
    * @param {string} galleryId - ギャラリーID
    * @param {string} direction - スクロール方向（prev/next）
    */
   scrollThumbs(galleryId, direction) {
     const state = this.galleries.get(galleryId);
     if (!state || !state.thumbs || !state.thumbsList) return;
-    
-    const { thumbs } = state;
+
+    const { thumbs, thumbsList } = state;
     const totalThumbs = thumbs.length;
     const itemsPerView = 6;
-    
+
     // 6枚以下の場合はスクロール不要
     if (totalThumbs <= itemsPerView) return;
-    
-    const thumbHeight = 64; // 4rem
-    const gap = 8; // 0.5rem
+
+    // 動的にサムネイルの高さとギャップを計算
+    const firstThumb = thumbs[0];
+    if (!firstThumb) return;
+
+    const thumbHeight = firstThumb.offsetHeight;
+    const computedStyle = window.getComputedStyle(thumbsList);
+    const gap = parseFloat(computedStyle.gap) || 8; // デフォルト8px
+
     const scrollStep = thumbHeight + gap;
-    const currentScrollTop = state.thumbsList.scrollTop;
-    
+    const currentScrollTop = thumbsList.scrollTop;
+    const maxScrollTop = thumbsList.scrollHeight - thumbsList.clientHeight;
+
+    // スクロール方向の決定
     let newScrollTop = currentScrollTop;
-    
+
     if (direction === 'prev') {
       // 前へボタン：最初の位置の場合は移動しない
       if (currentScrollTop <= 0) return;
-      newScrollTop = Math.max(0, currentScrollTop - scrollStep);
+
+      // 1つ前のサムネイル位置までスクロール
+      const targetScrollTop = Math.max(0, currentScrollTop - scrollStep);
+
+      // より自然なスクロールのために、スクロール位置を調整
+      const adjustedScrollTop = Math.floor(targetScrollTop / scrollStep) * scrollStep;
+      newScrollTop = Math.max(0, adjustedScrollTop);
     } else {
       // 次へボタン：最後の位置の場合は移動しない
-      const maxScrollTop = state.thumbsList.scrollHeight - state.thumbsList.clientHeight;
       if (currentScrollTop >= maxScrollTop) return;
-      newScrollTop = Math.min(maxScrollTop, currentScrollTop + scrollStep);
+
+      // 1つ次のサムネイル位置までスクロール
+      const targetScrollTop = currentScrollTop + scrollStep;
+
+      // より自然なスクロールのために、スクロール位置を調整
+      const adjustedScrollTop = Math.ceil(targetScrollTop / scrollStep) * scrollStep;
+      newScrollTop = Math.min(maxScrollTop, adjustedScrollTop);
     }
-    
-    // カスタムスムーズスクロール効果を適用
-    this.smoothScrollTo(state.thumbsList, newScrollTop, 400);
-    
-    // ボタンの状態更新
+
+    // スクロール中のクラスを追加して高度なアニメーションを適用
+    thumbsList.classList.add('kat-gallery-scrolling');
+
+    // 最適化されたスクロール設定
+    thumbsList.style.scrollBehavior = 'smooth';
+
+    // 高度なイージングカーブで超スムーズな動きを実現
+    thumbsList.style.transition = 'transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+
+    // GPUアクセラレーションの最適化
+    thumbsList.style.willChange = 'transform, scroll-position';
+    thumbsList.style.backfaceVisibility = 'hidden';
+    thumbsList.style.perspective = '1000px';
+
+    // モーメンタム効果を追加
+    const momentumFactor = 0.8;
+    const momentumScrollTop = newScrollTop + (newScrollTop - currentScrollTop) * momentumFactor;
+
+    // ダブルrequestAnimationFrameでよりスムーズなアニメーション
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        thumbsList.scrollTo({
+          top: momentumScrollTop,
+          behavior: 'smooth'
+        });
+
+        // 軽微なtransformアニメーションで追加の滑らかさを確保
+        thumbsList.style.transform = 'translateY(-1px)';
+        setTimeout(() => {
+          thumbsList.style.transform = 'translateY(0)';
+        }, 50);
+      });
+    });
+
+    // ボタンの状態更新（アニメーション完了後に）
     setTimeout(() => {
       this.updateNavigationButtons(galleryId);
-    }, 450);
+
+      // スクロール中のクラスを削除
+      thumbsList.classList.remove('kat-gallery-scrolling');
+
+      // トランジションとスタイルをリセット
+      thumbsList.style.transition = '';
+      thumbsList.style.willChange = 'transform, scroll-position';
+      thumbsList.style.transform = 'translateZ(0)';
+    }, 900); // 超スムーズなアニメーション時間を考慮
   },
 
-  /**
-   * カスタムスムーズスクロール関数
-   * @param {Element} element - スクロール対象の要素
-   * @param {number} target - ターゲット位置
-   * @param {number} duration - アニメーション時間（ms）
-   */
-  smoothScrollTo(element, target, duration) {
-    const start = element.scrollTop;
-    const change = target - start;
-    const startTime = performance.now();
-    
-    // Ease out cubic easing function
-    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
-    
-    const animateScroll = currentTime => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easedProgress = easeOutCubic(progress);
-      
-      element.scrollTop = start + change * easedProgress;
-      
-      if (progress < 1) {
-        requestAnimationFrame(animateScroll);
-      }
-    };
-    
-    requestAnimationFrame(animateScroll);
-  },
+
 
   /**
    * ナビゲーションボタンの状態更新
@@ -258,6 +324,8 @@ export const gallery = {
       detail: { galleryId, index }
     }));
   },
+
+
 
   /**
    * コンポーネントの破棄

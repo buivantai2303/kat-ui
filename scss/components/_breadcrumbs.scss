@@ -12,8 +12,9 @@
 
 /* パンくずリストセクション - ページ上部に表示されるナビゲーション */
 .kat-breadcrumbs-section {
+    margin-bottom: $kat-space-4 0;
     width: 100%;
-    background-color: $kat-info-50;
+    background-color: $kat-primary-150;
 
     .kat-breadcrumbs-section__inner {
         max-width: 1300px;
@@ -45,10 +46,10 @@
 
             /* パンくずリンク - クリック可能なナビゲーションリンク */
             .kat-breadcrumbs__item-link {
-                color: $kat-info-400;
+                color: $kat-primary-500;
 
                 &:hover {
-                    color: $kat-info-600;
+                    color: $kat-primary-600;
                 }
             }
         }

@@ -14,12 +14,14 @@
 
   /* メイン画像は正方形（1:1） */
   .kat-product-gallery__main {
+    max-width: 675px;
     display: block;
     flex: 1;
     width: 100%;
     background-color: $kat-primary-50;
     overflow: hidden;
     aspect-ratio: 1 / 1;
+    border-radius: $kat-radius-md;
 
     img {
       width: 100%;
@@ -48,7 +50,6 @@
     background: $kat-white;
     padding: 0;
     cursor: pointer;
-    opacity: 0.4;
     transition: all $kat-duration-200 $kat-ease-apple;
 
     &:hover {
@@ -74,6 +75,38 @@
     height: 2rem;
     padding: 0;
     border-radius: $kat-radius-full;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $kat-gray-100;
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+
+      &:hover {
+        background-color: transparent;
+        transform: none;
+      }
+    }
+
+    svg {
+      width: 1rem;
+      height: 1rem;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover svg {
+      transform: scale(1.1);
+    }
     border: $kat-border-1 solid $kat-primary-200;
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: $kat-shadow-sm;
@@ -134,7 +167,7 @@
     margin-right: $kat-space-4;
     order: -1;
     position: relative;
-    height: 26.5rem;
+    height: 30rem;
     overflow: hidden;
   }
 
@@ -144,31 +177,44 @@
     gap: $kat-space-2;
     height: auto;
     overflow-y: auto;
+    overflow-x: hidden;
     scroll-behavior: smooth;
-    
-    /* スムーズなスクロールアニメーション */
-    transition: scroll-top $kat-duration-500 $kat-ease-apple;
-    scroll-snap-type: y mandatory;
-    
-    /* カスタムスクロールバー */
-    scrollbar-width: thin;
-    scrollbar-color: $kat-primary-300 transparent;
-    
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    scroll-snap-type: y proximity;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
     &::-webkit-scrollbar {
-      width: 4px;
-    }
-    
-    &::-webkit-scrollbar-track {
+      width: 0px;
       background: transparent;
+      display: none;
     }
-    
-    &::-webkit-scrollbar-thumb {
-      background-color: $kat-primary-300;
-      border-radius: $kat-radius-full;
+
+    // 高度なGPUアクセラレーション
+    will-change: transform, scroll-position;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    perspective: 1000px;
+
+    // タッチデバイス向けの最適化
+    -webkit-overflow-scrolling: touch;
+
+    // スクロール中のスムーズな動き
+    &.kat-gallery-scrolling {
+      transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     }
-    
-    &::-webkit-scrollbar-thumb:hover {
-      background-color: $kat-primary-400;
+  }
+
+  // スムーズスクロール用のキーフレームアニメーション
+  @keyframes smoothGalleryScroll {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-2px);
+    }
+    100% {
+      transform: translateY(0);
     }
   }
   
@@ -177,19 +223,16 @@
     opacity: 1;
     pointer-events: auto;
     transition: opacity 0.3s ease;
+
+    // スクロールスナップで自然な停止位置を確保
+    scroll-snap-align: start;
+    scroll-margin: $kat-space-1;
   }
 
   .kat-product-gallery__thumbs-vertical .kat-product-gallery__thumb {
     width: 4rem;
     height: 4rem;
     flex-shrink: 0;
-    scroll-snap-align: start;
-    transition: transform $kat-duration-200 $kat-ease-apple;
-    
-    /* ホバー効果でよりスムーズに */
-    &:hover {
-      transform: scale(1.05);
-    }
     
     @media (min-width: 1024px) {
       width: 4rem;
@@ -241,6 +284,7 @@
   .kat-product-info__favorite {
     width: 2.5rem;
     height: 2.5rem;
+    margin-left: auto;
     border-radius: $kat-radius-full;
     border: $kat-border-1 solid $kat-gray-200;
     background-color: $kat-white;
@@ -257,7 +301,7 @@
   .kat-product-info__price {
     margin-bottom: $kat-space-4;
     .kat-product-info__price-main {
-      font-size: $kat-font-size-2xl;
+      font-size: $kat-font-size-3xl;
       font-weight: $kat-font-weight-bold;
       color: $kat-gray-900;
     }
@@ -299,15 +343,44 @@
   width: 2rem;
   height: 2rem;
   border-radius: $kat-radius-full;
-  border: $kat-border-2 solid transparent;
+
+  // デフォルトの薄いボーダー
+  border: $kat-border-1 solid $kat-gray-300;
+
+  // アクティブ状態の二重ボーダー効果
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: $kat-radius-full;
+    border: $kat-border-2 solid transparent;
+    transition: border-color $kat-duration-200 $kat-ease-apple;
+    z-index: -1;
+  }
+
   cursor: pointer;
   transition: all $kat-duration-200 $kat-ease-apple;
+
   &:hover {
     transform: scale(1.1);
   }
+
   &.kat-product-variants__color-swatch--active {
-    border-color: $kat-primary-900;
-    box-shadow: $kat-shadow-sm;
+    // 内側のボーダーを維持
+    border-color: $kat-gray-300;
+
+    // 外側のアクティブボーダー
+    &::before {
+      border-color: $kat-primary-900;
+    }
+
+    // 軽い影効果
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
   }
 }
 .kat-product-variants__size-chart {
@@ -335,15 +408,51 @@
     color: $kat-gray-900;
     margin-bottom: $kat-space-2;
   }
+  
   .kat-quantity-selector__controls {
     display: flex;
     align-items: center;
     gap: $kat-space-2;
+    
+    // ボタンとインプットの幅を統一してバランスを改善
+    .kat-btn {
+      width: 2.5rem !important;
+      height: 2.5rem !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: $kat-font-size-lg !important;
+      font-weight: $kat-font-weight-bold !important;
+      border-radius: $kat-radius-md !important;
+      flex-shrink: 0;
+      
+      // SVGアイコンのスタイリング
+      svg {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+        stroke-width: 2;
+        transition: all $kat-duration-200 $kat-ease-apple;
+      }
+    }
   }
+  
   .kat-quantity-selector__input {
     @include kat-input-base;
-    width: 4.5rem;
+    width: 3.5rem !important;
+    height: 2.5rem !important;
     text-align: center;
+    border-radius: $kat-radius-md;
+    font-size: $kat-font-size-base;
+    font-weight: $kat-font-weight-semibold;
+    flex-shrink: 0;
+    
+    // インプットのフォーカス効果
+    &:focus {
+      border-color: $kat-primary-500;
+      box-shadow: 0 0 0 3px rgba($kat-primary-500, 0.1);
+    }
   }
 }
 
@@ -351,10 +460,6 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: $kat-space-3;
-
-  @media (min-width: 640px) {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 /* 5) 情報補足 - 在庫/配送/返品などの情報 */

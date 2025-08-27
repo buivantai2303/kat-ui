@@ -14,12 +14,13 @@
 .kat-btn {
   @include kat-button-base-size;
   @include kat-button-base;
-  @include kat-border-radius-lg;
+  @include kat-border-radius-md;
   
   /* ボタンバリアント - 用途に応じた色分けとスタイル */
   &.kat-btn--primary {
     background-color: $kat-primary-900;
     color: $kat-white;
+    transition: transform 0.1s ease-in-out;
     
     @include kat-hover {
       background-color: $kat-primary-800;
@@ -27,7 +28,7 @@
     
     &:active {
       background-color: $kat-primary-900;
-      transform: translateY(0);
+      transform: translateY(-1px);
     }
     
     &:focus-visible {
@@ -50,15 +51,15 @@
   &.kat-btn--secondary {
     background-color: $kat-primary-100;
     color: $kat-primary-900;
+    transition: transform 0.1s ease-in-out;
     
     @include kat-hover {
       background-color: $kat-primary-200;
-      transform: translateY(-1px);
     }
     
     &:active {
       background-color: $kat-primary-100;
-      transform: translateY(0);
+      transform: translateY(-1px);
     }
   }
   
@@ -66,6 +67,7 @@
     background-color: transparent;
     color: $kat-primary-600;
     border: 1px solid $kat-primary-400;
+    transition: transform 0.1s ease-in-out;
     
     @include kat-hover {
       background-color: $kat-primary-100;
@@ -74,6 +76,10 @@
 
     &:hover {
       text-decoration: none !important;
+    }
+
+    &:active {
+      transform: translateY(-1px);
     }
 
     &.kat-btn--checked {
@@ -94,7 +100,7 @@
     
     &:active {
       background-color: $kat-primary-200;
-      transform: translateY(0);
+      transform: translateY(-1px);
     }
   }
   

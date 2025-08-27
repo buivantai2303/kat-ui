@@ -87,6 +87,93 @@
   }
 }
 
+/* ヘッダー調整：中央にタブ、右側に検索ボタンを配置 */
+.kat-ecommerce-header__main-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $kat-space-4;
+}
+
+.kat-ecommerce-header__tabs {
+  flex: 1;
+  display: none;
+  justify-content: center;
+  @media (min-width: 1024px) {
+    display: flex;
+  }
+  .kat-trendbar__tabs {
+    display: flex;
+    gap: $kat-space-4;
+  }
+}
+
+/* 検索ポップアップ（ヘッダー側から削除：_popover.scss に統合） */
+
+/* 追加セクション：ハッシュタグと最近の検索 */
+.kat-search-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $kat-space-6;
+}
+
+.kat-search-section {
+  flex: 1 1 16rem;
+}
+
+.kat-search-section__title {
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-semibold;
+  color: $kat-primary-900;
+  margin: 0 0 $kat-space-2 0;
+}
+
+/* ハッシュタグ一覧 */
+.kat-search-hashtags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $kat-space-2;
+}
+
+.kat-search-hashtag {
+  @extend .kat-badge !optional;
+  @extend .kat-badge--outline !optional;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 最近の検索 */
+.kat-search-recent {
+  display: flex;
+  flex-direction: column;
+  gap: $kat-space-2;
+}
+
+.kat-search-recent__item {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-2;
+  padding: $kat-space-2 $kat-space-3;
+  border: $kat-border-1 solid $kat-gray-200;
+  border-radius: $kat-radius-md;
+  background: $kat-white;
+  transition: background-color $kat-duration-150 $kat-ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+  color: $kat-primary-700;
+  font-size: $kat-font-size-sm;
+  
+  &:hover {
+    background-color: $kat-primary-50;
+  }
+}
+
+/* 検索ポップアップ表示中はスクロールをロック */
+.kat-body.kat-search-open {
+  overflow: hidden;
+}
+
 /* ロゴ - サイトブランドの表示 */
 .kat-ecommerce-header__logo {
   flex-shrink: 0;

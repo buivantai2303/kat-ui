@@ -20,6 +20,7 @@ export const headerPopups = {
     this.initNotificationPopup();
     this.initCartPopup();
     this.initWishlistPopup();
+    this.initSearchPopup();
     this.initExternalClickHandlers();
   },
 
@@ -157,34 +158,111 @@ export const headerPopups = {
   },
 
   /**
+   * 検索ポップアップ（クリックで開閉）
+   */
+  initSearchPopup() {
+    const trigger = document.getElementById('search-trigger');
+    const popup = document.getElementById('search-popup');
+    if (!trigger || !popup) return;
+
+    const closeBtn = popup.querySelector('.kat-search-popup__close');
+    const form = popup.querySelector('.kat-search-popup__form');
+    const input = popup.querySelector('.kat-search-popup__input');
+
+    // ポップアップを開く
+    const open = () => {
+      this.closeAllPopups();
+      popup.classList.add('kat-search-popup--open');
+      popup.setAttribute('aria-hidden', 'false');
+      trigger.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('kat-search-open');
+      if (input) input.focus();
+    };
+
+    // ポップアップを閉じる
+    const close = () => {
+      popup.classList.remove('kat-search-popup--open');
+      popup.setAttribute('aria-hidden', 'true');
+      trigger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('kat-search-open');
+    };
+
+    // トリガークリックで開閉
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (popup.classList.contains('kat-search-popup--open')) {
+        close();
+      } else {
+        open();
+      }
+    });
+
+    // 閉じるボタン
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        close();
+      });
+    }
+
+    // 背景クリックで閉じる（フォーム領域外）
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) close();
+    });
+
+    // ESCキーで閉じる
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+
+    // ハッシュタグクリック：入力に反映して送信
+    const tags = popup.querySelectorAll('.kat-search-hashtag');
+    tags.forEach(tag => {
+      tag.addEventListener('click', (e) => {
+        e.preventDefault();
+        const value = tag.getAttribute('data-tag') || tag.textContent || '';
+        if (input) input.value = value.trim();
+        if (form) form.requestSubmit ? form.requestSubmit() : form.submit();
+      });
+    });
+
+    // 最近の検索クリック：入力に反映して送信
+    const recents = popup.querySelectorAll('.kat-search-recent__item');
+    recents.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const value = item.getAttribute('data-query') || item.textContent || '';
+        if (input) input.value = value.trim();
+        if (form) form.requestSubmit ? form.requestSubmit() : form.submit();
+      });
+    });
+  },
+
+  /**
    * すべてのポップアップを閉じる
    */
   closeAllPopups() {
-    // すべてのヘッダーポップアップを閉じる
+    // 既存のヘッダーポップアップを閉じる
     const headerPopups = document.querySelectorAll('.kat-header-popup');
-    headerPopups.forEach(popup => {
-      popup.classList.remove('kat-header-popup--open');
-    });
-    
-    // 通知ポップアップを閉じる
+    headerPopups.forEach(p => p.classList.remove('kat-header-popup--open'));
+
+    // 通知・カート・ウィッシュリストを閉じる
     const notificationPopup = document.querySelector('.kat-notification-popup');
-    if (notificationPopup) {
-      notificationPopup.classList.remove('kat-header-popup--open');
-    }
-    
-    // カートポップアップを閉じる
+    if (notificationPopup) notificationPopup.classList.remove('kat-header-popup--open');
     const cartPopup = document.querySelector('.kat-cart-popup');
-    if (cartPopup) {
-      cartPopup.classList.remove('kat-header-popup--open');
-    }
-    
-    // ウィッシュリストポップアップを閉じる
+    if (cartPopup) cartPopup.classList.remove('kat-header-popup--open');
     const wishlistPopup = document.querySelector('.kat-wishlist-popup');
-    if (wishlistPopup) {
-      wishlistPopup.classList.remove('kat-header-popup--open');
+    if (wishlistPopup) wishlistPopup.classList.remove('kat-header-popup--open');
+
+    // 検索ポップアップも閉じる
+    const searchPopup = document.getElementById('search-popup');
+    if (searchPopup) {
+      searchPopup.classList.remove('kat-search-popup--open');
+      searchPopup.setAttribute('aria-hidden', 'true');
     }
-    
-    // すべてのトリガーのaria-expandedをfalseに設定
+
+    // aria-expandedを初期化
     const triggers = document.querySelectorAll('[aria-expanded]');
     triggers.forEach(trigger => {
       trigger.setAttribute('aria-expanded', 'false');
@@ -264,8 +342,9 @@ document.addEventListener('click', function(e) {
   const notificationPopup = e.target.closest('.kat-notification-popup');
   const cartPopup = e.target.closest('.kat-cart-popup');
   const wishlistPopup = e.target.closest('.kat-wishlist-popup');
+  const searchPopup = e.target.closest('#search-popup');
   
-  if (!headerAction && !headerPopup && !notificationPopup && !cartPopup && !wishlistPopup) {
+  if (!headerAction && !headerPopup && !notificationPopup && !cartPopup && !wishlistPopup && !searchPopup) {
     headerPopups.closeAllPopups();
   }
 });

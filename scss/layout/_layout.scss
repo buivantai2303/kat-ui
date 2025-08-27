@@ -124,6 +124,10 @@
     gap: $kat-space-16;
   }
 
+  &__left {
+    width: auto;
+  }
+
   &__left__2 {
     width: 20%;
   }
@@ -137,7 +141,7 @@
     width: 40%;
   }
 
-  &__left {
+  &__left__5 {
     width: 50%;
   }
 
@@ -150,9 +154,21 @@
     width: 70%;
   }
 
+  &__left__8 {
+    width: 80%;
+  }
+
+  &__left__9 {
+    width: 90%;
+  }
+
   /* 右カラム - 商品情報エリア */
   &__right {
-    width: 50%;
+    width: auto;
+  }
+
+  &__right__2 {
+    width: 20%;
   }
 
   &__right__3 {
