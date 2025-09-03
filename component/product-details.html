@@ -8,14 +8,15 @@
     <script type="module" src="../js/kat-index.js"></script>
   </head>
   <body class="kat-body">
+    <!-- トップヘッダーバー（ヘッダーの外側に配置） -->
+    <div class="kat-ecommerce-header__top">
+      <div class="kat-ecommerce-header__top-inner">
+        <div class="kat-ecommerce-header__announcement">🎉 春の新作コレクションが入荷しました！</div>
+      </div>
+    </div>
+
     <!-- エンタープライズヘッダー（商品詳細） -->
     <header class="kat-ecommerce-header" id="header">
-      <!-- トップヘッダーバー -->
-      <div class="kat-ecommerce-header__top">
-        <div class="kat-ecommerce-header__top-inner">
-          <div class="kat-ecommerce-header__announcement">🎉 春の新作コレクションが入荷しました！</div>
-        </div>
-      </div>
 
       <!-- メインヘッダー -->
       <div class="kat-ecommerce-header__main">
@@ -29,19 +30,27 @@
             </a>
           </div>
 
-          <!-- 検索バー -->
-          <div class="kat-ecommerce-header__search">
-            <input type="text" class="kat-ecommerce-header__search-input" placeholder="商品名、ブランド、カテゴリで検索...">
-            <button class="kat-ecommerce-header__search-button" aria-label="検索">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.35-4.35"></path>
-              </svg>
-            </button>
+          <!-- タブ（ロゴとアクションの間に配置） -->
+          <div class="kat-ecommerce-header__tabs">
+            <ul class="kat-trendbar__tabs" role="tablist" aria-label="カテゴリタブ">
+              <li><a href="#" class="kat-trendbar__tab kat-trendbar__tab--active" role="tab" aria-selected="true">MEN</a></li>
+              <li><a href="#" class="kat-trendbar__tab" role="tab" aria-selected="false">WOMEN</a></li>
+              <li><a href="#" class="kat-trendbar__tab" role="tab" aria-selected="false">KIDS</a></li>
+              <li><a href="#" class="kat-trendbar__tab kat-trendbar__tab--sale" role="tab" aria-selected="false">SALE</a></li>
+            </ul>
           </div>
 
           <!-- ヘッダーアクション -->
           <div class="kat-ecommerce-header__actions">
+            <!-- Search Button -->
+            <div class="kat-ecommerce-header__action" data-action="search" aria-label="検索" id="search-trigger">
+              <svg class="kat-ecommerce-header__action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+              <span class="kat-ecommerce-header__action-text">検索</span>
+            </div>
+
             <!-- Notification -->
             <div class="kat-ecommerce-header__action" data-action="notification" aria-label="通知" id="notification-trigger">
               <svg class="kat-ecommerce-header__action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -67,7 +76,7 @@
                     </div>
                     <div class="kat-notification-popup__text">
                       <h4 class="kat-notification-popup__title">ようこそ</h4>
-                      <p class="kat-notification-popup__message">商品詳細ページへようこそ。</p>
+                      <p class="kat-notification-popup__message">ホームページへようこそ。</p>
                       <p class="kat-notification-popup__time">今</p>
                     </div>
                   </div>
@@ -168,24 +177,6 @@
               <span class="kat-ecommerce-header__action-text">アカウント</span>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="kat-trendbar__keywords" aria-label="注目ワード">
-        <span class="kat-trendbar__label">
-          <img class="kat-trendbar__label-icon" src="../icon/ico_keyword.png" alt="注目ワード" />
-          注目ワード
-        </span>
-        <div class="kat-trendbar__chips" role="list">
-          <button class="kat-trendbar__chip" role="listitem">#店舗で人気</button>
-          <button class="kat-trendbar__chip" role="listitem">#セットアップ</button>
-          <button class="kat-trendbar__chip" role="listitem">#すごいラク/涼しい</button>
-          <button class="kat-trendbar__chip" role="listitem">#吸水速乾/紫外線ケア</button>
-          <button class="kat-trendbar__chip" role="listitem">#ショートパンツ</button>
-          <button class="kat-trendbar__chip" role="listitem">#COOL/涼しい</button>
-          <button class="kat-trendbar__chip" role="listitem">#501</button>
-          <button class="kat-trendbar__chip" role="listitem">#WEB限定</button>
-          <button class="kat-trendbar__chip" role="listitem">#XXLサイズ展開アイテム</button>
         </div>
       </div>
     </header>
@@ -317,13 +308,13 @@
                 <div class="kat-quantity-selector">
                   <label class="kat-quantity-selector__label">数量</label>
                   <div class="kat-quantity-selector__controls">
-                    <button class="kat-btn kat-btn--outline kat-btn--sm" aria-label="減らす">
+                    <button class="kat-btn kat-btn--primary kat-btn--sm" aria-label="減らす">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                       </svg>
                     </button>
                     <input type="text" class="kat-quantity-selector__input" value="1" min="1" aria-label="数量">
-                    <button class="kat-btn kat-btn--outline kat-btn--sm" aria-label="増やす">
+                    <button class="kat-btn kat-btn--primary kat-btn--sm" aria-label="増やす">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="12" y1="5" x2="12" y2="19"></line>
                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -349,11 +340,11 @@
                   <span class="kat-product-meta__value kat-badge kat-badge--success">在庫あり</span>
                 </div>
                 <div class="kat-product-meta__item">
-                  <span class="kat-product-variants__label">配送:</span>
+                  <span class="kat-product-meta__label">配送:</span>
                   <span class="kat-product-meta__value">通常2-3営業日</span>
                 </div>
                 <div class="kat-product-meta__item">
-                  <span class="kat-product-variants__label">返品:</span>
+                  <span class="kat-product-meta__label">返品:</span>
                   <span class="kat-product-meta__value">30日以内返品可能</span>
                 </div>
               </div>

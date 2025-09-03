@@ -119,84 +119,85 @@
   
   /* デスクトップ: 2カラム */
   @media (min-width: 1024px) {
+    justify-content: space-between;
     flex-direction: row;
     align-items: flex-start;
     gap: $kat-space-16;
   }
 
   &__left {
-    width: auto;
+    flex: 0.6;
   }
 
   &__left__2 {
-    width: 20%;
+    flex: 0.2;
   }
 
   &__left__3 {
-    width: 30%;
+    flex: 0.3;
   }
   
   /* 左カラム - 商品画像エリア */
   &__left__4 {
-    width: 40%;
+    flex: 0.4;
   }
 
   &__left__5 {
-    width: 50%;
+    flex: 0.5;
   }
 
   /* 左カラム - 商品画像エリア */
   &__left__6 {
-    width: 60%;
+    flex: 0.6;
   }
 
   &__left__7 {
-    width: 70%;
+    flex: 0.7;
   }
 
   &__left__8 {
-    width: 80%;
+    flex: 0.8;
   }
 
   &__left__9 {
-    width: 90%;
+    flex: 0.9;
   }
 
   /* 右カラム - 商品情報エリア */
   &__right {
-    width: auto;
+    flex: 0.4;
   }
 
   &__right__2 {
-    width: 20%;
+    flex: 0.2;
   }
 
   &__right__3 {
-    width: 30%;
+    flex: 0.3;
   }
 
   &__right__4 {
-    width: 40%;
+    flex: 0.4;
   }
 
   &__right__5 {
-    width: 50%;
+    flex: 0.5;
   }
 
   &__right__6 {
-    width: 60%;
+    flex: 0.6;
   }
 
   &__right__7 {
-    width: 70%;
+    flex: 0.7;
   }
 
   &__right__8 {
-    width: 80%;
+    flex: 0.8;
   }
 
   &__right__9 {
-    width: 90%;
+    flex: 0.9;
   }
 }
 
