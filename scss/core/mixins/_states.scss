@@ -1,0 +1,118 @@
+@use '../variables' as *;
+
+/**
+ * Kat UI Framework - 状態ミックスイン
+ * 
+ * コンポーネントの状態（無効、ローディング、ホバーなど）用ミックスイン
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* 無効状態ミックスイン */
+@mixin kat-disabled {
+  opacity: $kat-opacity-disabled;
+  cursor: $kat-cursor-not-allowed;
+  pointer-events: $kat-pointer-events-none;
+}
+
+/* ローディング状態ミックスイン */
+@mixin kat-loading {
+  opacity: $kat-opacity-loading;
+  cursor: $kat-cursor-loading;
+  pointer-events: $kat-pointer-events-none;
+}
+
+/* ホバー状態ミックスイン */
+@mixin kat-hover-state {
+  @media (hover: hover) {
+    &:hover {
+      opacity: $kat-opacity-hover;
+      background-color: $kat-hover-bg-primary;
+      color: $kat-hover-text-primary;
+    }
+  }
+}
+
+/* アクティブ状態ミックスイン */
+@mixin kat-active-state {
+  &:active {
+    opacity: $kat-opacity-pressed;
+    background-color: $kat-active-bg-primary;
+    color: $kat-active-text-primary;
+  }
+}
+
+/* フォーカス状態ミックスイン */
+@mixin kat-focus-state {
+  &:focus {
+    background-color: $kat-focus-bg-primary;
+    border-color: $kat-focus-border-primary;
+    box-shadow: $kat-focus-ring-primary;
+  }
+}
+
+/* 選択状態ミックスイン */
+@mixin kat-selected-state {
+  &.is-selected,
+  &:checked {
+    background-color: $kat-selected-bg-primary;
+    color: $kat-selected-text-primary;
+    border-color: $kat-selected-border-primary;
+  }
+}
+
+/* ホバーエフェクトミックスイン */
+@mixin kat-hover-effect {
+  transition: $kat-component-transition;
+  
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: $kat-component-shadow-md;
+    }
+  }
+}
+
+/* クリックエフェクトミックスイン */
+@mixin kat-click-effect {
+  transition: $kat-component-transition-fast;
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+/* フォーカスエフェクトミックスイン */
+@mixin kat-focus-effect {
+  transition: $kat-component-transition;
+  
+  &:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: $kat-focus-ring-primary;
+  }
+}
+
+/* スケールエフェクトミックスイン */
+@mixin kat-scale-effect($scale: 1.05) {
+  transition: $kat-component-transition;
+  
+  @media (hover: hover) {
+    &:hover {
+      transform: scale($scale);
+    }
+  }
+}
+
+/* ローテーションエフェクトミックスイン */
+@mixin kat-rotate-effect($degrees: 180deg) {
+  transition: $kat-component-transition;
+  
+  @media (hover: hover) {
+    &:hover {
+      transform: rotate($degrees);
+    }
+  }
+}

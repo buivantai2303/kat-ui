@@ -1,0 +1,194 @@
+@use '../variables' as *;
+
+/**
+ * Kat UI Framework - アニメーションミックスイン
+ * 
+ * アニメーションとキーフレーム用ミックスイン
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* アニメーションキーフレーム */
+@keyframes kat-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes kat-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes kat-bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes kat-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes kat-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes kat-slide-in-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes kat-slide-in-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes kat-slide-in-left {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes kat-slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes kat-scale-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes kat-scale-out {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+/* アニメーションミックスイン */
+@mixin kat-animate-spin {
+  animation: kat-spin 1s linear infinite;
+}
+
+@mixin kat-animate-pulse {
+  animation: kat-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@mixin kat-animate-bounce {
+  animation: kat-bounce 1s infinite;
+}
+
+@mixin kat-animate-fade-in($duration: $kat-duration-300) {
+  animation: kat-fade-in $duration ease-out;
+}
+
+@mixin kat-animate-fade-out($duration: $kat-duration-300) {
+  animation: kat-fade-out $duration ease-out;
+}
+
+@mixin kat-animate-slide-in-up($duration: $kat-duration-300) {
+  animation: kat-slide-in-up $duration ease-out;
+}
+
+@mixin kat-animate-slide-in-down($duration: $kat-duration-300) {
+  animation: kat-slide-in-down $duration ease-out;
+}
+
+@mixin kat-animate-slide-in-left($duration: $kat-duration-300) {
+  animation: kat-slide-in-left $duration ease-out;
+}
+
+@mixin kat-animate-slide-in-right($duration: $kat-duration-300) {
+  animation: kat-slide-in-right $duration ease-out;
+}
+
+@mixin kat-animate-scale-in($duration: $kat-duration-300) {
+  animation: kat-scale-in $duration ease-out;
+}
+
+@mixin kat-animate-scale-out($duration: $kat-duration-300) {
+  animation: kat-scale-out $duration ease-out;
+}
+
+/* トランジションミックスイン */
+@mixin kat-transition($property: all, $duration: $kat-duration-200, $timing: $kat-ease-out) {
+  transition: $property $duration $timing;
+}
+
+@mixin kat-transition-fast($property: all) {
+  transition: $property $kat-duration-150 $kat-ease-out;
+}
+
+@mixin kat-transition-slow($property: all) {
+  transition: $property $kat-duration-300 $kat-ease-out;
+}
+
+/* ホバーアニメーションミックスイン */
+@mixin kat-hover-animation($property: transform, $value: translateY(-2px)) {
+  transition: $property $kat-duration-200 $kat-ease-out;
+  
+  @media (hover: hover) {
+    &:hover {
+      #{$property}: $value;
+    }
+  }
+}

@@ -1,0 +1,495 @@
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+/**
+ * Kat UI Framework - フォームコンポーネント
+ * 
+ * ユーザー入力を受け付けるためのフォーム要素
+ * テキスト入力、セレクト、チェックボックス、ラジオボタンなどをサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* フォームコンテナ - フォーム要素の基本レイアウト */
+.kat-form {
+  width: 100%;
+}
+
+/* フォームグループ - 関連するフォーム要素をまとめる */
+.kat-form__group {
+  margin-bottom: $kat-space-4;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* フォームアクション - 送信、キャンセルなどのボタン配置 */
+.kat-form__actions {
+  display: flex;
+  gap: $kat-space-3;
+  justify-content: flex-end;
+  margin-top: $kat-space-6;
+  
+  @include kat-screen-sm {
+    justify-content: flex-start;
+  }
+}
+
+/* ラベル - フォーム要素の説明テキスト */
+.kat-label {
+  display: block;
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-gray-700;
+  margin-bottom: $kat-space-2;
+  
+  &.kat-label--required::after {
+    content: " *";
+    color: $kat-error-500;
+  }
+}
+
+/* 必須ラベル - 必須項目を示す赤いアスタリスク */
+.kat-label__required {
+  color: $kat-error-500;
+}
+
+/* ベース入力スタイル - テキスト入力の基本デザイン */
+.kat-input {
+  @include kat-input-base;
+  
+  &.kat-input--error {
+    border-color: $kat-error-500;
+    
+    &:focus {
+      border-color: $kat-error-500;
+      box-shadow: $kat-focus-ring-offset-shadow, 0 0 0 $kat-focus-ring-width $kat-error-500;
+    }
+  }
+  
+  &.kat-input--success {
+    border-color: $kat-success-500;
+    
+    &:focus {
+      border-color: $kat-success-500;
+      box-shadow: $kat-focus-ring-offset-shadow, 0 0 0 $kat-focus-ring-width $kat-success-500;
+    }
+  }
+  
+  /* 入力サイズ - 小、中、大のサイズバリエーション */
+  &.kat-input--sm {
+    padding: $kat-space-2 $kat-space-2-5;
+    font-size: $kat-font-size-xs;
+  }
+  
+  &.kat-input--lg {
+    padding: $kat-space-3 $kat-space-4;
+    font-size: $kat-font-size-base;
+  }
+  
+  /* ファイル入力スタイル - ファイルアップロード用の入力 */
+  &.kat-input--file {
+    padding: $kat-space-2;
+    cursor: pointer;
+    
+    &::-webkit-file-upload-button {
+      background-color: $kat-gray-100;
+      border: 1px solid $kat-gray-300;
+      border-radius: $kat-radius-sm;
+      padding: $kat-space-1 $kat-space-2;
+      font-size: $kat-font-size-xs;
+  margin-right: $kat-space-2;
+      cursor: pointer;
+      transition: background-color $kat-duration-150 $kat-ease-in-out;
+      
+      &:hover {
+        background-color: $kat-gray-200;
+      }
+    }
+  }
+}
+
+/* テキストエリア - 複数行のテキスト入力 */
+.kat-textarea {
+  @include kat-input-base;
+  resize: vertical;
+  min-height: 2.5rem;
+  
+  &.kat-textarea--error {
+    border-color: $kat-error-500;
+    
+    &:focus {
+      border-color: $kat-error-500;
+      box-shadow: $kat-focus-ring-offset-shadow, 0 0 0 $kat-focus-ring-width $kat-error-500;
+    }
+  }
+  
+  &.kat-textarea--success {
+    border-color: $kat-success-500;
+    
+    &:focus {
+      border-color: $kat-success-500;
+      box-shadow: $kat-focus-ring-offset-shadow, 0 0 0 $kat-focus-ring-width $kat-success-500;
+    }
+  }
+  
+  &.kat-textarea--no-resize {
+    resize: none;
+  }
+}
+
+/* セレクト - ドロップダウン形式の選択肢 */
+.kat-select {
+  @include kat-input-base;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right $kat-space-2 center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: $kat-space-10;
+  cursor: pointer;
+  
+  /* ドロップダウン矢印非表示バリアント - カスタム矢印を使用 */
+  &.kat-select--no-arrow {
+    background-image: none;
+    padding-right: $kat-space-3;
+  }
+  
+  &.kat-select--error {
+    border-color: $kat-error-500;
+    
+    &:focus {
+      border-color: $kat-error-500;
+      box-shadow: $kat-focus-ring-offset-shadow, 0 0 0 $kat-focus-ring-width $kat-error-500;
+    }
+  }
+  
+  &.kat-select--success {
+    border-color: $kat-success-500;
+    
+    &:focus {
+      border-color: $kat-success-500;
+      box-shadow: $kat-focus-ring-offset-shadow, 0 0 0 $kat-focus-ring-width $kat-success-500;
+    }
+  }
+}
+
+/* チェックボックス - 真偽値の選択 */
+.kat-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: $kat-space-2;
+}
+
+.kat-checkbox__input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid $kat-primary-300;
+  border-radius: $kat-radius-md;
+  background-color: $kat-white;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  
+  @include kat-focus-ring;
+  
+  &:checked {
+    background-color: $kat-primary-900;
+    border-color: $kat-primary-900;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.05);
+  }
+  
+  &:indeterminate {
+    background-color: $kat-primary-600;
+    border-color: $kat-primary-600;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  &:hover:not(:disabled) {
+    border-color: $kat-primary-500;
+    transform: scale(1.02);
+  }
+  
+  &:disabled {
+    background-color: $kat-primary-100;
+    border-color: $kat-primary-300;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.kat-checkbox__label {
+  font-size: $kat-font-size-sm;
+  color: $kat-gray-700;
+  cursor: pointer;
+  line-height: $kat-line-height-normal;
+  
+  &.kat-sr-only {
+    @include kat-sr-only;
+  }
+}
+
+/* ラジオボタン - 単一選択の選択肢 */
+.kat-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: $kat-space-2;
+  
+  &.kat-radio-group--horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: $kat-space-4;
+  }
+}
+
+.kat-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: $kat-space-2;
+}
+
+.kat-radio__input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid $kat-primary-300;
+  border-radius: $kat-radius-full;
+  background-color: $kat-white;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  position: relative;
+  
+  @include kat-focus-ring;
+  
+  &:checked {
+    background-color: $kat-primary-900;
+    border-color: $kat-primary-900;
+    transform: scale(1.05);
+    
+    &::after {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 8px;
+      height: 8px;
+      background-color: $kat-white;
+      border-radius: $kat-radius-full;
+    }
+  }
+  
+  &:hover:not(:disabled) {
+    border-color: $kat-primary-500;
+    transform: scale(1.02);
+  }
+  
+  &:disabled {
+    background-color: $kat-gray-100;
+    border-color: $kat-gray-300;
+    cursor: not-allowed;
+  }
+}
+
+.kat-radio__label {
+  font-size: $kat-font-size-sm;
+  color: $kat-gray-700;
+  cursor: pointer;
+  line-height: $kat-line-height-normal;
+}
+
+/* トグルスイッチ - ON/OFFの切り替え */
+.kat-toggle {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-3;
+}
+
+.kat-toggle__input {
+  position: relative;
+  width: 2.75rem;
+  height: 1.5rem;
+  border: $kat-border-1 solid $kat-gray-300;
+  border-radius: $kat-radius-full;
+  background-color: $kat-gray-200;
+  cursor: pointer;
+  transition: all $kat-duration-200 $kat-ease-in-out;
+  appearance: none;
+  
+  @include kat-focus-ring;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-color: $kat-white;
+    border-radius: $kat-radius-full;
+    transition: transform $kat-duration-200 $kat-ease-in-out;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  &:checked {
+    background-color: $kat-primary-600;
+    border-color: $kat-primary-600;
+    
+    &::before {
+      transform: translateX(1.25rem);
+    }
+  }
+  
+  &:disabled {
+    background-color: $kat-gray-100;
+    border-color: $kat-gray-300;
+    cursor: not-allowed;
+    
+    &::before {
+      background-color: $kat-gray-300;
+    }
+  }
+}
+
+.kat-toggle__label {
+  font-size: $kat-font-size-sm;
+  color: $kat-gray-700;
+  cursor: pointer;
+}
+
+/* レンジスライダー - 数値範囲の選択 */
+.kat-range {
+  width: 100%;
+  height: 1.5rem;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  
+  @include kat-focus-ring;
+  
+  &::-webkit-slider-track {
+    width: 100%;
+    height: 0.125rem;
+    background: $kat-primary-200;
+    border-radius: $kat-radius-full;
+  }
+  
+  /* カスタム背景 - 塗りつぶし部分のグラデーション表示 */
+  background: linear-gradient(to right, $kat-primary-600 0%, $kat-primary-600 50%, $kat-primary-200 50%, $kat-primary-200 100%);
+  background-size: 100% 0.125rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  &::-webkit-slider-thumb {
+    appearance: none;
+    height: 1rem;
+    width: 1rem;
+    border-radius: $kat-radius-full;
+    background: $kat-primary-900;
+    border: 2px solid $kat-white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    margin-top: -0.375rem;
+    cursor: pointer;
+    transition: all $kat-duration-200 $kat-ease-apple;
+    
+    &:hover {
+      transform: scale(1.15);
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+    }
+  }
+  
+  &::-moz-range-track {
+    width: 100%;
+    height: 0.125rem;
+    background: $kat-primary-200;
+    border-radius: $kat-radius-full;
+    border: none;
+  }
+  
+  &::-moz-range-thumb {
+    height: 1.25rem;
+    width: 1.25rem;
+    border-radius: $kat-radius-full;
+    background: $kat-primary-600;
+    border: 2px solid $kat-white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all $kat-duration-150 $kat-ease-in-out;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  &:disabled {
+    cursor: not-allowed;
+    
+    &::-webkit-slider-thumb {
+      background: $kat-gray-400;
+      cursor: not-allowed;
+      
+      &:hover {
+        transform: none;
+      }
+    }
+    
+    &::-moz-range-thumb {
+      background: $kat-gray-400;
+      cursor: not-allowed;
+      
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
+
+.kat-range__value {
+  margin-top: $kat-space-2;
+  font-size: $kat-font-size-sm;
+  color: $kat-gray-600;
+  text-align: center;
+}
+
+/* フォームバリデーションメッセージ - エラー、成功、ヘルプの表示 */
+.kat-form__error {
+  margin-top: $kat-space-1;
+  font-size: $kat-font-size-sm;
+  color: $kat-error-600;
+  display: flex;
+  align-items: center;
+  gap: $kat-space-1;
+}
+
+.kat-form__success {
+  margin-top: $kat-space-1;
+  font-size: $kat-font-size-sm;
+  color: $kat-success-600;
+  display: flex;
+  align-items: center;
+  gap: $kat-space-1;
+}
+
+.kat-form__help {
+  margin-top: $kat-space-1;
+  font-size: $kat-font-size-sm;
+  color: $kat-gray-500;
+}

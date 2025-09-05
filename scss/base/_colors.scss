@@ -1,0 +1,66 @@
+/** @project: Microbook */
+/** @author: Bui Van Tai, 2024-12-15, カラーユーティリティクラス */
+
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+
+
+/* 背景色ユーティリティ */
+$kat-bg-color-map: (
+  'transparent': transparent,
+  'white': $kat-white,
+  'black': $kat-black,
+  'primary': $kat-color-primary,
+  'success': $kat-color-success,
+  'warning': $kat-color-warning,
+  'error': $kat-color-error,
+  'info': $kat-color-info
+);
+
+@each $key, $value in $kat-bg-color-map {
+  .kat-bg--#{$key} { background-color: $value; }
+}
+
+/* テキスト色ユーティリティ */
+$kat-text-color-map: (
+  'white': $kat-white,
+  'black': $kat-black,
+  'primary': $kat-color-primary,
+  'success': $kat-color-success,
+  'warning': $kat-color-warning,
+  'error': $kat-color-error,
+  'info': $kat-color-info
+);
+
+@each $key, $value in $kat-text-color-map {
+  .kat-text--#{$key} { color: $value; }
+}
+
+/* ボーダー色ユーティリティ */
+$kat-border-color-map: (
+  'transparent': transparent,
+  'white': $kat-white,
+  'black': $kat-black,
+  'primary': $kat-color-primary,
+  'success': $kat-color-success,
+  'warning': $kat-color-warning,
+  'error': $kat-color-error,
+  'info': $kat-color-info
+);
+
+@each $key, $value in $kat-border-color-map {
+  .kat-border--#{$key} { border-color: $value; }
+}
+
+/* オパシティユーティリティ */
+$kat-opacity-map: (
+  '0': 0,
+  '25': 0.25,
+  '50': 0.5,
+  '75': 0.75,
+  '100': 1
+);
+
+@each $key, $value in $kat-opacity-map {
+  .kat-opacity--#{$key} { opacity: $value; }
+}

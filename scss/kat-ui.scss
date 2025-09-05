@@ -1,0 +1,53 @@
+/** @project: Microbook */
+/** @author: Bui Van Tai, 2024-12-15, メインのSCSSファイル */
+
+/* Core system - 基本システム */
+@use 'core/variables' as *;
+@use 'core/mixins' as *;
+@use 'core/functions' as *;
+
+/* Base styles - ベーススタイル */
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/globals';
+@use 'base/spacing';
+@use 'base/colors';
+@use 'base/misc';
+
+/* Layout system - レイアウトシステム */
+@use 'layout/grid';
+@use 'layout/layout';
+
+/* Components - コンポーネント */
+@use 'components/buttons';
+@use 'components/forms';
+@use 'components/cards';
+@use 'components/modals';
+@use 'components/navigation';
+@use 'components/header';
+@use 'components/header-popups';
+@use 'components/category-nav';
+@use 'components/category-image';
+@use 'components/alerts';
+@use 'components/badges';
+@use 'components/tables';
+@use 'components/interactive';
+@use 'components/skeleton';
+@use 'components/calendar';
+@use 'components/carousel';
+@use 'components/popover';
+@use 'components/filters';
+@use 'components/trendbar';
+@use 'components/category-round';
+@use 'components/input-otp';
+@use 'components/toggle-group';
+@use 'components/separator';
+@use 'components/pagination';
+@use 'components/toast';
+@use 'components/images';
+@use 'components/page-title';
+@use 'components/breadcrumbs';
+@use 'components/footer';
+
+/* Page-specific styles - ページ固有のスタイル */
+@use 'pages/products/product-details';

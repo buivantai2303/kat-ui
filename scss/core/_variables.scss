@@ -1,0 +1,711 @@
+/** @project: Microbook */
+/** @author: Bui Van Tai, 2024-12-15, デザイントークンとベース変数 */
+
+@use 'sass:map';
+
+/* ========================================
+   CORE DESIGN TOKENS - コアデザイントークン
+   ======================================== */
+
+/* カラーパレット - 基本色 (SCSS Map) */
+$kat-primary-colors: (
+  25: #fcfcfc,
+  50: #fafafa,
+  100: #f5f5f5,
+  150: #e5e5e5,
+  200: #e5e5e5,
+  300: #d4d4d4,
+  400: #a3a3a3,
+  500: #737373,
+  600: #525252,
+  700: #404040,
+  800: #262626,
+  900: #171717
+);
+
+/* セマンティックカラー (SCSS Maps) */
+$kat-semantic-colors: (
+  success: (
+    25: #f7fee7,
+    50: #f0fdf4,
+    100: #dcfce7,
+    200: #bbf7d0,
+    300: #86efac,
+    400: #4ade80,
+    500: #22c55e,
+    600: #16a34a,
+    700: #15803d,
+    800: #166534,
+    900: #14532d
+  ),
+  warning: (
+    25: #fffbeb,
+    50: #fffbeb,
+    100: #fef3c7,
+    200: #fef3c7,
+    300: #fde68a,
+    400: #fbbf24,
+    500: #f59e0b,
+    600: #d97706,
+    700: #b45309,
+    800: #92400e,
+    900: #78350f
+  ),
+  error: (
+    25: #fefefe,
+    50: #fef2f2,
+    100: #fee2e2,
+    200: #fecaca,
+    300: #fca5a5,
+    400: #f87171,
+    500: #ef4444,
+    600: #dc2626,
+    700: #b91c1c,
+    800: #991b1b,
+    900: #991b1b
+  ),
+  info: (
+    25: #f8faff,
+    50: #f8faff,
+    100: #dbeafe,
+    200: #bfdbfe,
+    300: #93c5fd,
+    400: #60a5fa,
+    500: #3b82f6,
+    600: #2563eb,
+    700: #1d4ed8,
+    800: #1e40af,
+    900: #1e3a8a
+  )
+);
+
+/* ベースカラー */
+$kat-white: #ffffff;
+$kat-black: #000000;
+
+/* 個別変数 - 後方互換性のため */
+$kat-primary-25: map.get($kat-primary-colors, 25);
+$kat-primary-50: map.get($kat-primary-colors, 50);
+$kat-primary-100: map.get($kat-primary-colors, 100);
+$kat-primary-150: map.get($kat-primary-colors, 150);
+$kat-primary-200: map.get($kat-primary-colors, 200);
+$kat-primary-300: map.get($kat-primary-colors, 300);
+$kat-primary-400: map.get($kat-primary-colors, 400);
+$kat-primary-500: map.get($kat-primary-colors, 500);
+$kat-primary-600: map.get($kat-primary-colors, 600);
+$kat-primary-700: map.get($kat-primary-colors, 700);
+$kat-primary-800: map.get($kat-primary-colors, 800);
+$kat-primary-900: map.get($kat-primary-colors, 900);
+
+$kat-success-25: map.get(map.get($kat-semantic-colors, success), 25);
+$kat-success-50: map.get(map.get($kat-semantic-colors, success), 50);
+$kat-success-100: map.get(map.get($kat-semantic-colors, success), 100);
+$kat-success-200: map.get(map.get($kat-semantic-colors, success), 200);
+$kat-success-300: map.get(map.get($kat-semantic-colors, success), 300);
+$kat-success-400: map.get(map.get($kat-semantic-colors, success), 400);
+$kat-success-500: map.get(map.get($kat-semantic-colors, success), 500);
+$kat-success-600: map.get(map.get($kat-semantic-colors, success), 600);
+$kat-success-700: map.get(map.get($kat-semantic-colors, success), 700);
+$kat-success-800: map.get(map.get($kat-semantic-colors, success), 800);
+$kat-success-900: map.get(map.get($kat-semantic-colors, success), 900);
+
+$kat-warning-25: map.get(map.get($kat-semantic-colors, warning), 25);
+$kat-warning-50: map.get(map.get($kat-semantic-colors, warning), 50);
+$kat-warning-100: map.get(map.get($kat-semantic-colors, warning), 100);
+$kat-warning-200: map.get(map.get($kat-semantic-colors, warning), 200);
+$kat-warning-300: map.get(map.get($kat-semantic-colors, warning), 300);
+$kat-warning-400: map.get(map.get($kat-semantic-colors, warning), 400);
+$kat-warning-500: map.get(map.get($kat-semantic-colors, warning), 500);
+$kat-warning-600: map.get(map.get($kat-semantic-colors, warning), 600);
+$kat-warning-700: map.get(map.get($kat-semantic-colors, warning), 700);
+$kat-warning-800: map.get(map.get($kat-semantic-colors, warning), 800);
+$kat-warning-900: map.get(map.get($kat-semantic-colors, warning), 900);
+
+$kat-error-25: map.get(map.get($kat-semantic-colors, error), 25);
+$kat-error-50: map.get(map.get($kat-semantic-colors, error), 50);
+$kat-error-100: map.get(map.get($kat-semantic-colors, error), 100);
+$kat-error-200: map.get(map.get($kat-semantic-colors, error), 200);
+$kat-error-300: map.get(map.get($kat-semantic-colors, error), 300);
+$kat-error-400: map.get(map.get($kat-semantic-colors, error), 400);
+$kat-error-500: map.get(map.get($kat-semantic-colors, error), 500);
+$kat-error-600: map.get(map.get($kat-semantic-colors, error), 600);
+$kat-error-700: map.get(map.get($kat-semantic-colors, error), 700);
+$kat-error-800: map.get(map.get($kat-semantic-colors, error), 800);
+
+$kat-info-25: map.get(map.get($kat-semantic-colors, info), 25);
+$kat-info-50: map.get(map.get($kat-semantic-colors, info), 50);
+$kat-info-100: map.get(map.get($kat-semantic-colors, info), 100);
+$kat-info-200: map.get(map.get($kat-semantic-colors, info), 200);
+$kat-info-300: map.get(map.get($kat-semantic-colors, info), 300);
+$kat-info-400: map.get(map.get($kat-semantic-colors, info), 400);
+$kat-info-500: map.get(map.get($kat-semantic-colors, info), 500);
+$kat-info-600: map.get(map.get($kat-semantic-colors, info), 600);
+$kat-info-700: map.get(map.get($kat-semantic-colors, info), 700);
+$kat-info-800: map.get(map.get($kat-semantic-colors, info), 800);
+$kat-info-900: map.get(map.get($kat-semantic-colors, info), 900);
+
+/* ========================================
+   SPACING SYSTEM - スペーシングシステム
+   ======================================== */
+
+/* スペーシング (SCSS Map) */
+$kat-spacing-map: (
+  0: 0,
+  px: 1px,
+  '0-5': 0.125rem,  // 2px
+  1: 0.25rem,       // 4px
+  '1-5': 0.375rem,  // 6px
+  2: 0.5rem,        // 8px
+  '2-5': 0.625rem,  // 10px
+  3: 0.75rem,       // 12px
+  4: 1rem,          // 16px
+  5: 1.25rem,       // 20px
+  6: 1.5rem,        // 24px
+  7: 1.75rem,       // 28px
+  8: 2rem,          // 32px
+  10: 2.5rem,       // 40px
+  11: 2.75rem,      // 44px
+  12: 3rem,         // 48px
+  16: 4rem,         // 64px
+  20: 5rem,         // 80px
+  24: 6rem          // 96px
+);
+
+/* 個別変数 - 後方互換性のため (必要に応じて使用) */
+$kat-space-0: map.get($kat-spacing-map, 0);
+$kat-space-px: map.get($kat-spacing-map, px);
+$kat-space-0-5: map.get($kat-spacing-map, '0-5');
+$kat-space-1: map.get($kat-spacing-map, 1);
+$kat-space-1-5: map.get($kat-spacing-map, '1-5');
+$kat-space-2: map.get($kat-spacing-map, 2);
+$kat-space-2-5: map.get($kat-spacing-map, '2-5');
+$kat-space-3: map.get($kat-spacing-map, 3);
+$kat-space-4: map.get($kat-spacing-map, 4);
+$kat-space-5: map.get($kat-spacing-map, 5);
+$kat-space-6: map.get($kat-spacing-map, 6);
+$kat-space-7: map.get($kat-spacing-map, 7);
+$kat-space-8: map.get($kat-spacing-map, 8);
+$kat-space-10: map.get($kat-spacing-map, 10);
+$kat-space-11: map.get($kat-spacing-map, 11);
+$kat-space-12: map.get($kat-spacing-map, 12);
+$kat-space-16: map.get($kat-spacing-map, 16);
+$kat-space-20: map.get($kat-spacing-map, 20);
+$kat-space-24: map.get($kat-spacing-map, 24);
+
+/* コンポーネント共通スペーシング - 統一されたスペーシング (直接使用推奨) */
+$kat-component-padding-xs: 0.25rem;      // 4px - 小さなコンポーネント
+$kat-component-padding-sm: 0.5rem;       // 8px - 小さいコンポーネント
+$kat-component-padding-md: 0.75rem;      // 12px - 中サイズコンポーネント
+$kat-component-padding-lg: 1rem;         // 16px - 大きいコンポーネント
+$kat-component-padding-xl: 1.5rem;       // 24px - 特大コンポーネント
+
+$kat-component-margin-xs: 0.25rem;       // 4px - 小さなマージン
+$kat-component-margin-sm: 0.5rem;        // 8px - 小さいマージン
+$kat-component-margin-md: 1rem;          // 16px - 中サイズマージン
+$kat-component-margin-lg: 1.5rem;        // 24px - 大きいマージン
+$kat-component-margin-xl: 2rem;          // 32px - 特大マージン
+
+$kat-component-gap-xs: 0.25rem;          // 4px - 小さなギャップ
+$kat-component-gap-sm: 0.5rem;           // 8px - 小さいギャップ
+$kat-component-gap-md: 0.75rem;          // 12px - 中サイズギャップ
+$kat-component-gap-lg: 1rem;             // 16px - 大きいギャップ
+$kat-component-gap-xl: 1.5rem;           // 24px - 特大ギャップ
+
+/* ========================================
+   TYPOGRAPHY SYSTEM - タイポグラフィシステム
+   ======================================== */
+
+/* フォントファミリー */
+$kat-font-family-base: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$kat-font-family-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+/* フォントサイズ */
+$kat-font-size-xs: 0.75rem;    // 12px
+$kat-font-size-sm: 0.875rem;   // 14px
+$kat-font-size-base: 1rem;     // 16px
+$kat-font-size-lg: 1.125rem;   // 18px
+$kat-font-size-xl: 1.25rem;    // 20px
+$kat-font-size-2xl: 1.5rem;    // 24px
+$kat-font-size-3xl: 1.875rem;  // 30px
+$kat-font-size-4xl: 2.25rem;   // 36px
+
+/* フォントウェイト */
+$kat-font-weight-light: 300;
+$kat-font-weight-normal: 400;
+$kat-font-weight-medium: 500;
+$kat-font-weight-semibold: 600;
+$kat-font-weight-bold: 700;
+
+/* ラインハイト */
+$kat-line-height-tight: 1.25;
+$kat-line-height-normal: 1.5;
+$kat-line-height-relaxed: 1.625;
+$kat-line-height-loose: 2;
+
+/* ========================================
+   BORDER SYSTEM - ボーダーシステム
+   ======================================== */
+
+/* ボーダー幅 */
+$kat-border-0: 0;
+$kat-border-1: 1px;
+$kat-border-2: 2px;
+$kat-border-4: 4px;
+$kat-border-8: 8px;
+
+/* ボーダーラディウス */
+$kat-radius-none: 0;
+$kat-radius-sm: 0.125rem;  // 2px
+$kat-radius-base: 0.25rem; // 4px
+$kat-radius-md: 0.375rem;  // 6px
+$kat-radius-lg: 0.5rem;    // 8px
+$kat-radius-xl: 0.75rem;   // 12px
+$kat-radius-2xl: 1rem;     // 16px
+$kat-radius-full: 9999px;
+$kat-radius-pill: 9999px;
+
+/* ボーダー色 */
+$kat-border-color: map.get($kat-primary-colors, 200);
+$kat-border-color-hover: map.get($kat-primary-colors, 300);
+$kat-border-color-focus: map.get($kat-primary-colors, 500);
+$kat-border-color-error: map.get(map.get($kat-semantic-colors, error), 500);
+$kat-border-color-success: map.get(map.get($kat-semantic-colors, success), 500);
+$kat-border-color-warning: map.get(map.get($kat-semantic-colors, warning), 500);
+
+/* ボーダースタイル - 完全なボーダー定義 */
+$kat-border-default: 1px solid $kat-border-color;
+$kat-border-hover: 1px solid $kat-border-color-hover;
+$kat-border-focus: 1px solid $kat-border-color-focus;
+$kat-border-error: 1px solid $kat-border-color-error;
+$kat-border-success: 1px solid $kat-border-color-success;
+$kat-border-warning: 1px solid $kat-border-color-warning;
+
+/* ボーダーなし */
+$kat-border-none: none;
+$kat-border-0: 0 solid transparent;
+
+/* 太いボーダー */
+$kat-border-thick: 2px solid $kat-border-color;
+$kat-border-thick-hover: 2px solid $kat-border-color-hover;
+$kat-border-thick-focus: 2px solid $kat-border-color-focus;
+
+/* 点線ボーダー */
+$kat-border-dashed: 1px dashed $kat-border-color;
+$kat-border-dashed-hover: 1px dashed $kat-border-color-hover;
+
+/* 二重線ボーダー */
+$kat-border-double: 2px double $kat-border-color;
+
+/* コンポーネント共通ボーダー - 統一されたボーダー (直接使用推奨) */
+$kat-component-border: 1px solid map.get($kat-primary-colors, 300);
+$kat-component-border-hover: 1px solid map.get($kat-primary-colors, 300);
+$kat-component-border-focus: 1px solid map.get($kat-primary-colors, 500);
+$kat-component-border-error: 1px solid map.get(map.get($kat-semantic-colors, error), 500);
+$kat-component-border-success: 1px solid map.get(map.get($kat-semantic-colors, success), 500);
+$kat-component-border-warning: 1px solid map.get(map.get($kat-semantic-colors, warning), 500);
+
+$kat-component-border-radius: 0.375rem;  // 6px
+$kat-component-border-radius-sm: 0.125rem;  // 2px
+$kat-component-border-radius-lg: 0.5rem;    // 8px
+
+/* ========================================
+   SHADOW SYSTEM - シャドウシステム
+   ======================================== */
+
+/* シャドウ */
+$kat-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$kat-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$kat-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$kat-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$kat-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$kat-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+/* コンポーネント共通シャドウ - 統一されたシャドウ (直接使用推奨) */
+$kat-component-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$kat-component-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$kat-component-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$kat-component-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$kat-component-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+/* ========================================
+   ANIMATION SYSTEM - アニメーションシステム
+   ======================================== */
+
+/* アニメーション時間 */
+$kat-duration-100: 100ms;
+$kat-duration-150: 150ms;
+$kat-duration-200: 200ms;
+$kat-duration-250: 250ms;
+$kat-duration-300: 300ms;
+$kat-duration-350: 350ms;
+$kat-duration-400: 400ms;
+$kat-duration-500: 500ms;
+$kat-duration-600: 600ms;
+$kat-duration-1000: 1000ms;
+$kat-duration-fast: 150ms;
+$kat-duration-normal: 250ms;
+$kat-duration-slow: 350ms;
+
+/* イージング関数 */
+$kat-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$kat-ease-out: cubic-bezier(0, 0, 0.2, 1);
+$kat-ease-in: cubic-bezier(0.4, 0, 1, 1);
+$kat-ease-apple: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+/* コンポーネント共通アニメーション - 統一されたアニメーション (直接使用推奨) */
+$kat-component-transition: all 200ms cubic-bezier(0, 0, 0.2, 1);
+$kat-component-transition-fast: all 150ms cubic-bezier(0, 0, 0.2, 1);
+$kat-component-transition-slow: all 300ms cubic-bezier(0, 0, 0.2, 1);
+
+/* ========================================
+   FOCUS SYSTEM - フォーカスシステム
+   ======================================== */
+
+/* フォーカスリング */
+$kat-focus-ring-width: 2px;
+$kat-focus-ring-offset: 2px;
+$kat-focus-ring-offset-shadow: 0 0 0 2px #ffffff;
+$kat-focus-ring: 0 0 0 2px map.get($kat-primary-colors, 500);
+
+/* ========================================
+   BREAKPOINT SYSTEM - ブレークポイントシステム
+   ======================================== */
+
+/* ブレークポイント */
+$kat-breakpoint-sm: 640px;
+$kat-breakpoint-md: 768px;
+$kat-breakpoint-lg: 1024px;
+$kat-breakpoint-xl: 1300px;
+/* ========================================
+   LAYOUT SYSTEM - レイアウトシステム
+   ======================================== */
+
+/* コンテナ - レガシーサポート */
+$kat-container-max-width: 1300px;
+$kat-container-padding: map.get($kat-spacing-map, 4);
+
+/* ナビゲーション - レガシーサポート */
+$kat-navbar-height: 4rem;
+$kat-sidebar-width: 16rem;
+$kat-sidebar-width-collapsed: 4rem;
+
+/* レイアウトコンポーネント - レガシーサポート (非推奨) */
+$kat-header-height: 5rem;                    // 80px - ヘッダー高さ (非推奨: $kat-header-height-lg を使用)
+$kat-header-height-mobile: 4rem;             // 64px - モバイルヘッダー高さ (非推奨: $kat-header-height-sm を使用)
+$kat-sidebar-width-desktop: 15.625rem;       // 250px - デスクトップサイドバー幅 (非推奨: $kat-sidebar-width-lg を使用)
+$kat-sidebar-width-mobile: 100%;             // 100% - モバイルサイドバー幅 (非推奨: $kat-sidebar-width-xs を使用)
+$kat-content-max-width: 56.25rem;            // 900px - メインコンテンツ最大幅 (非推奨: $kat-content-width-lg を使用)
+$kat-content-padding: map.get($kat-spacing-map, 4);  // 16px - コンテンツパディング
+
+/* レイアウトギャップ - 統一された間隔 */
+$kat-layout-gap-sm: map.get($kat-spacing-map, 2);    // 8px - 小さいレイアウトギャップ
+$kat-layout-gap-md: map.get($kat-spacing-map, 4);    // 16px - 中サイズレイアウトギャップ
+$kat-layout-gap-lg: map.get($kat-spacing-map, 6);    // 24px - 大きいレイアウトギャップ
+$kat-layout-gap-xl: map.get($kat-spacing-map, 8);    // 32px - 特大レイアウトギャップ
+
+/* ========================================
+   RESPONSIVE COMPONENT DIMENSIONS - レスポンシブコンポーネント寸法
+   ======================================== */
+
+/* コンテナ最大幅 - 画面サイズ別 */
+$kat-container-max-width-xs: 100%;                   // 100% - 極小画面
+$kat-container-max-width-sm: 640px;                  // 640px - 小さい画面
+$kat-container-max-width-md: 768px;                  // 768px - 中サイズ画面
+$kat-container-max-width-lg: 1024px;                 // 1024px - 大きい画面
+$kat-container-max-width-xl: 1280px;                 // 1280px - 特大画面
+$kat-container-max-width-2xl: 1536px;                // 1536px - 超大画面
+
+/* ヘッダー高さ - 画面サイズ別 */
+$kat-header-height-xs: 3.5rem;                      // 56px - 極小画面ヘッダー
+$kat-header-height-sm: 4rem;                        // 64px - 小さい画面ヘッダー
+$kat-header-height-md: 4.5rem;                      // 72px - 中サイズ画面ヘッダー
+$kat-header-height-lg: 5rem;                        // 80px - 大きい画面ヘッダー
+$kat-header-height-xl: 5.5rem;                      // 88px - 特大画面ヘッダー
+
+/* サイドバー幅 - 画面サイズ別 */
+$kat-sidebar-width-xs: 100%;                        // 100% - 極小画面サイドバー
+$kat-sidebar-width-sm: 100%;                        // 100% - 小さい画面サイドバー
+$kat-sidebar-width-md: 12rem;                       // 192px - 中サイズ画面サイドバー
+$kat-sidebar-width-lg: 15.625rem;                   // 250px - 大きい画面サイドバー
+$kat-sidebar-width-xl: 18.75rem;                    // 300px - 特大画面サイドバー
+
+/* メインコンテンツ幅 - 画面サイズ別 */
+$kat-content-width-xs: 100%;                        // 100% - 極小画面コンテンツ
+$kat-content-width-sm: 100%;                        // 100% - 小さい画面コンテンツ
+$kat-content-width-md: 100%;                        // 100% - 中サイズ画面コンテンツ
+$kat-content-width-lg: 56.25rem;                    // 900px - 大きい画面コンテンツ
+$kat-content-width-xl: 75rem;                       // 1200px - 特大画面コンテンツ
+
+/* カードグリッド列数 - 画面サイズ別 */
+$kat-grid-cols-xs: 1;                               // 1列 - 極小画面グリッド
+$kat-grid-cols-sm: 2;                               // 2列 - 小さい画面グリッド
+$kat-grid-cols-md: 3;                               // 3列 - 中サイズ画面グリッド
+$kat-grid-cols-lg: 4;                               // 4列 - 大きい画面グリッド
+$kat-grid-cols-xl: 5;                               // 5列 - 特大画面グリッド
+$kat-grid-cols-2xl: 6;                              // 6列 - 超大画面グリッド
+
+/* カードサイズ - 画面サイズ別 */
+$kat-card-min-width-xs: 280px;                      // 280px - 極小画面カード最小幅
+$kat-card-min-width-sm: 300px;                      // 300px - 小さい画面カード最小幅
+$kat-card-min-width-md: 320px;                      // 320px - 中サイズ画面カード最小幅
+$kat-card-min-width-lg: 280px;                      // 280px - 大きい画面カード最小幅
+$kat-card-min-width-xl: 300px;                      // 300px - 特大画面カード最小幅
+
+/* フォーム要素幅 - 画面サイズ別 */
+$kat-form-width-xs: 100%;                           // 100% - 極小画面フォーム
+$kat-form-width-sm: 100%;                           // 100% - 小さい画面フォーム
+$kat-form-width-md: 100%;                           // 100% - 中サイズ画面フォーム
+$kat-form-width-lg: 50%;                            // 50% - 大きい画面フォーム
+$kat-form-width-xl: 40%;                            // 40% - 特大画面フォーム
+
+/* ボタンサイズ - 画面サイズ別 */
+$kat-button-width-xs: 100%;                         // 100% - 極小画面ボタン幅
+$kat-button-width-sm: auto;                         // auto - 小さい画面ボタン幅
+$kat-button-width-md: auto;                         // auto - 中サイズ画面ボタン幅
+$kat-button-width-lg: auto;                         // auto - 大きい画面ボタン幅
+$kat-button-width-xl: auto;                         // auto - 特大画面ボタン幅
+
+/* レスポンシブパディング - 画面サイズ別 (推奨) */
+$kat-padding-xs: map.get($kat-spacing-map, 2);      // 8px - 極小画面パディング
+$kat-padding-sm: map.get($kat-spacing-map, 3);      // 12px - 小さい画面パディング
+$kat-padding-md: map.get($kat-spacing-map, 4);      // 16px - 中サイズ画面パディング
+$kat-padding-lg: map.get($kat-spacing-map, 6);      // 24px - 大きい画面パディング
+$kat-padding-xl: map.get($kat-spacing-map, 8);      // 32px - 特大画面パディング
+
+/* レスポンシブマージン - 画面サイズ別 (推奨) */
+$kat-margin-xs: map.get($kat-spacing-map, 2);       // 8px - 極小画面マージン
+$kat-margin-sm: map.get($kat-spacing-map, 3);       // 12px - 小さい画面マージン
+$kat-margin-md: map.get($kat-spacing-map, 4);       // 16px - 中サイズ画面マージン
+$kat-margin-lg: map.get($kat-spacing-map, 6);       // 24px - 大きい画面マージン
+$kat-margin-xl: map.get($kat-spacing-map, 8);       // 32px - 特大画面マージン
+
+/* ========================================
+   Z-INDEX SYSTEM - Z-インデックスシステム
+   ======================================== */
+
+/* Z-インデックス (SCSS Map) */
+$kat-z-index-map: (
+  auto: auto,
+  0: 0,
+  10: 10,
+  20: 20,
+  30: 30,
+  40: 40,
+  50: 50,
+  60: 60,
+  70: 70,
+  80: 80,
+  90: 90,
+  100: 100,
+  dropdown: 1000,
+  sticky: 1020,
+  fixed: 1030,
+  modal: 1050,
+  'modal-backdrop': 1040,
+  popover: 1060,
+  tooltip: 1070,
+  toast: 1080
+);
+
+/* 個別変数 - 後方互換性のため */
+$kat-z-10: map.get($kat-z-index-map, 10);
+$kat-z-20: map.get($kat-z-index-map, 20);
+$kat-z-30: map.get($kat-z-index-map, 30);
+$kat-z-40: map.get($kat-z-index-map, 40);
+$kat-z-50: map.get($kat-z-index-map, 50);
+$kat-z-60: map.get($kat-z-index-map, 60);
+$kat-z-70: map.get($kat-z-index-map, 70);
+$kat-z-80: map.get($kat-z-index-map, 80);
+$kat-z-90: map.get($kat-z-index-map, 90);
+$kat-z-100: map.get($kat-z-index-map, 100);
+$kat-z-dropdown: map.get($kat-z-index-map, dropdown);
+$kat-z-sticky: map.get($kat-z-index-map, sticky);
+$kat-z-fixed: map.get($kat-z-index-map, fixed);
+$kat-z-modal: map.get($kat-z-index-map, modal);
+$kat-z-modal-backdrop: map.get($kat-z-index-map, 'modal-backdrop');
+$kat-z-tooltip: map.get($kat-z-index-map, tooltip);
+$kat-z-popover: map.get($kat-z-index-map, popover);
+$kat-z-toast: map.get($kat-z-index-map, toast);
+
+/* ========================================
+   ICON SYSTEM - アイコンシステム
+   ======================================== */
+
+/* アイコン */
+$kat-icon-arrow: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 5l7 7-7 7'/%3e%3c/svg%3e");
+$kat-arrow-width: 1rem;
+$kat-arrow-height: 1rem;
+
+/* ========================================
+   SEMANTIC TOKENS - セマンティックトークン
+   ======================================== */
+
+/* セマンティックカラートークン */
+$kat-color-primary: map.get($kat-primary-colors, 600);
+$kat-color-primary-hover: map.get($kat-primary-colors, 700);
+$kat-color-primary-active: map.get($kat-primary-colors, 800);
+
+$kat-color-success: map.get(map.get($kat-semantic-colors, success), 600);
+$kat-color-warning: map.get(map.get($kat-semantic-colors, warning), 600);
+$kat-color-error: map.get(map.get($kat-semantic-colors, error), 600);
+$kat-color-info: map.get(map.get($kat-semantic-colors, info), 600);
+
+/* 背景色トークン */
+$kat-bg-primary: #ffffff;
+$kat-bg-secondary: map.get($kat-primary-colors, 50);
+$kat-bg-elevated: #ffffff;
+
+/* テキスト色トークン */
+$kat-text-primary: map.get($kat-primary-colors, 900);
+$kat-text-secondary: map.get($kat-primary-colors, 600);
+$kat-text-muted: map.get($kat-primary-colors, 500);
+
+/* ========================================
+   COMPONENT STATES - コンポーネント状態
+   ======================================== */
+
+/* 状態別の透明度 */
+$kat-opacity-disabled: 0.5;                  // 無効状態の透明度
+$kat-opacity-loading: 0.7;                   // ローディング状態の透明度
+$kat-opacity-hover: 0.8;                     // ホバー状態の透明度
+$kat-opacity-pressed: 0.9;                   // 押下状態の透明度
+
+/* 状態別のカーソル */
+$kat-cursor-default: default;
+$kat-cursor-pointer: pointer;
+$kat-cursor-not-allowed: not-allowed;
+$kat-cursor-loading: wait;
+
+/* 状態別のポインターイベント */
+$kat-pointer-events-auto: auto;
+$kat-pointer-events-none: none;
+
+/* ========================================
+   INTERACTION STATES - インタラクション状態
+   ======================================== */
+
+/* ホバー状態の色 */
+$kat-hover-bg-primary: map.get($kat-primary-colors, 100);
+$kat-hover-bg-secondary: map.get($kat-primary-colors, 200);
+$kat-hover-text-primary: map.get($kat-primary-colors, 900);
+$kat-hover-text-secondary: map.get($kat-primary-colors, 700);
+
+/* アクティブ状態の色 */
+$kat-active-bg-primary: map.get($kat-primary-colors, 200);
+$kat-active-bg-secondary: map.get($kat-primary-colors, 300);
+$kat-active-text-primary: map.get($kat-primary-colors, 800);
+$kat-active-text-secondary: map.get($kat-primary-colors, 600);
+
+/* フォーカス状態の色 */
+$kat-focus-bg-primary: map.get($kat-primary-colors, 25);
+$kat-focus-border-primary: map.get($kat-primary-colors, 500);
+$kat-focus-ring-primary: 0 0 0 3px map.get($kat-primary-colors, 200);
+
+/* 選択状態の色 */
+$kat-selected-bg-primary: map.get($kat-primary-colors, 100);
+$kat-selected-text-primary: map.get($kat-primary-colors, 900);
+$kat-selected-border-primary: map.get($kat-primary-colors, 500);
+
+/* ========================================
+   FORM COMPONENTS - フォームコンポーネント
+   ======================================== */
+
+/* フォーム要素のサイズ */
+$kat-input-height-sm: 2rem;                  // 32px - 小さいインプット高さ
+$kat-input-height-md: 2.5rem;                // 40px - 中サイズインプット高さ
+$kat-input-height-lg: 3rem;                  // 48px - 大きいインプット高さ
+
+/* フォーム要素のパディング */
+$kat-input-padding-sm: 0.5rem 0.75rem;       // 8px 12px - 小さいインプットパディング
+$kat-input-padding-md: 0.625rem 0.75rem;     // 10px 12px - 中サイズインプットパディング
+$kat-input-padding-lg: 0.75rem 1rem;         // 12px 16px - 大きいインプットパディング
+
+/* フォーム要素のボーダー */
+$kat-input-border: 1px solid map.get($kat-primary-colors, 300);
+$kat-input-border-hover: 1px solid map.get($kat-primary-colors, 400);
+$kat-input-border-focus: 1px solid map.get($kat-primary-colors, 500);
+$kat-input-border-error: 1px solid map.get(map.get($kat-semantic-colors, error), 500);
+
+/* フォーム要素の背景色 */
+$kat-input-bg: #ffffff;
+$kat-input-bg-disabled: map.get($kat-primary-colors, 100);
+$kat-input-bg-focus: map.get($kat-primary-colors, 25);
+
+/* ========================================
+   BUTTON COMPONENTS - ボタンコンポーネント
+   ======================================== */
+
+/* ボタンのサイズ */
+$kat-button-height-xs: 1.5rem;               // 24px - 極小ボタン高さ
+$kat-button-height-sm: 2rem;                 // 32px - 小さいボタン高さ
+$kat-button-height-md: 2.5rem;               // 40px - 中サイズボタン高さ
+$kat-button-height-lg: 3rem;                 // 48px - 大きいボタン高さ
+$kat-button-height-xl: 3.5rem;               // 56px - 特大ボタン高さ
+
+/* ボタンのパディング */
+$kat-button-padding-xs: 0.25rem 0.5rem;      // 4px 8px - 極小ボタンパディング
+$kat-button-padding-sm: 0.5rem 0.75rem;      // 8px 12px - 小さいボタンパディング
+$kat-button-padding-md: 0.625rem 1rem;       // 10px 16px - 中サイズボタンパディング
+$kat-button-padding-lg: 0.75rem 1.5rem;      // 12px 24px - 大きいボタンパディング
+$kat-button-padding-xl: 1rem 2rem;           // 16px 32px - 特大ボタンパディング
+
+/* ボタンのギャップ */
+$kat-button-gap-xs: 0.25rem;                 // 4px - 極小ボタンギャップ
+$kat-button-gap-sm: 0.375rem;                // 6px - 小さいボタンギャップ
+$kat-button-gap-md: 0.5rem;                  // 8px - 中サイズボタンギャップ
+$kat-button-gap-lg: 0.75rem;                 // 12px - 大きいボタンギャップ
+$kat-button-gap-xl: 1rem;                    // 16px - 特大ボタンギャップ
+
+/* スピナー */
+$kat-spinner-size: 1rem;                     // 16px
+$kat-spinner-sm: 0.875rem;                   // 14px
+$kat-spinner-lg: 1.25rem;                    // 20px
+$kat-spinner-border: 2px;                    // 2px
+$kat-spinner-border-sm: 1.5px;               // 1.5px
+$kat-spinner-border-lg: 2.5px;               // 2.5px
+
+/* サイズボタン */
+$kat-size-min: 3rem;                         // 48px
+$kat-size-cross: 2px;                        // 2px
+$kat-size-border: 2px;                       // 2px
+
+/* アイコンボタン */
+$kat-icon-size: 2.5rem;                      // 40px
+$kat-icon-sm: 2rem;                          // 32px
+$kat-icon-lg: 3rem;                          // 48px
+
+/* ========================================
+   CARD COMPONENTS - カードコンポーネント
+   ======================================== */
+
+/* カードのパディング */
+$kat-card-padding-sm: map.get($kat-spacing-map, 3);    // 12px - 小さいカードパディング
+$kat-card-padding-md: map.get($kat-spacing-map, 4);    // 16px - 中サイズカードパディング
+$kat-card-padding-lg: map.get($kat-spacing-map, 6);    // 24px - 大きいカードパディング
+
+/* カードのマージン */
+$kat-card-margin-sm: map.get($kat-spacing-map, 2);     // 8px - 小さいカードマージン
+$kat-card-margin-md: map.get($kat-spacing-map, 4);     // 16px - 中サイズカードマージン
+$kat-card-margin-lg: map.get($kat-spacing-map, 6);     // 24px - 大きいカードマージン
+
+/* カードのシャドウ */
+$kat-card-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$kat-card-shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$kat-card-shadow-lg: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+/* ========================================
+   LEGACY SUPPORT - レガシーサポート
+   ======================================== */
+
+/* レガシーカラーサポート - 後方互換性のため */
+$kat-gray-25: map.get($kat-primary-colors, 25);
+$kat-gray-50: map.get($kat-primary-colors, 50);
+$kat-gray-100: map.get($kat-primary-colors, 100);
+$kat-gray-200: map.get($kat-primary-colors, 200);
+$kat-gray-300: map.get($kat-primary-colors, 300);
+$kat-gray-400: map.get($kat-primary-colors, 400);
+$kat-gray-500: map.get($kat-primary-colors, 500);
+$kat-gray-600: map.get($kat-primary-colors, 600);
+$kat-gray-700: map.get($kat-primary-colors, 700);
+$kat-gray-800: map.get($kat-primary-colors, 800);
+$kat-gray-900: map.get($kat-primary-colors, 900);

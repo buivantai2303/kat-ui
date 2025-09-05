@@ -1,0 +1,390 @@
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+/**
+ * Kat UI Framework - モーダル/ダイアログコンポーネント
+ * 
+ * モーダル、ドロワー、ボトムシート、アラートダイアログ等の
+ * オーバーレイUIのスタイルとアニメーションを定義。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* モーダル全体（バックドロップを含む） */
+.kat-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: $kat-z-modal;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: $kat-space-4;
+  
+  &.kat-modal--open {
+    display: flex;
+  }
+}
+
+.kat-modal__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: $kat-z-modal-backdrop;
+  cursor: pointer;
+  animation: kat-modal-backdrop-in $kat-duration-200 $kat-ease-out;
+}
+
+/* モーダル内容領域 */
+.kat-modal__content {
+  position: relative;
+  z-index: $kat-z-modal;
+  background-color: $kat-white;
+  border-radius: $kat-radius-lg;
+  box-shadow: $kat-shadow-2xl;
+  width: 100%;
+  max-width: 32rem;
+  max-height: calc(100vh - 2rem);
+  overflow: hidden;
+  animation: kat-modal-content-in $kat-duration-200 $kat-ease-out;
+  
+  &.kat-modal__content--sm {
+    max-width: 24rem;
+  }
+  
+  &.kat-modal__content--lg {
+    max-width: 48rem;
+  }
+  
+  &.kat-modal__content--xl {
+    max-width: 64rem;
+  }
+  
+  &.kat-modal__content--full {
+    max-width: none;
+    width: calc(100vw - 2rem);
+    height: calc(100vh - 2rem);
+  }
+  
+  @include kat-screen-sm {
+    width: auto;
+    min-width: 24rem;
+  }
+}
+
+/* モーダルヘッダー */
+.kat-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $kat-space-6;
+  border-bottom: $kat-border-1 solid $kat-gray-200;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.kat-modal__title {
+  font-size: $kat-font-size-lg;
+  font-weight: $kat-font-weight-bold;
+  color: $kat-gray-900;
+  margin: 0;
+  line-height: $kat-line-height-tight;
+}
+
+.kat-modal__subtitle {
+  font-size: $kat-font-size-sm;
+  color: $kat-gray-600;
+  margin: $kat-space-1 0 0 0;
+  line-height: $kat-line-height-normal;
+}
+
+.kat-modal__close {
+  @include kat-btn-base;
+  @include kat-btn-sm;
+  background-color: transparent;
+  color: $kat-gray-400;
+  border: none;
+  padding: $kat-space-1;
+  width: 2rem;
+  height: 2rem;
+  border-radius: $kat-radius-md;
+  
+  @include kat-hover {
+    background-color: $kat-gray-100;
+    color: $kat-gray-600;
+  }
+  
+  &:active {
+    background-color: $kat-gray-200;
+  }
+}
+
+/* モーダルボディ */
+.kat-modal__body {
+  padding: $kat-space-6;
+  overflow-y: auto;
+  max-height: calc(100vh - 12rem);
+  
+  > *:first-child {
+    margin-top: 0;
+  }
+  
+  > *:last-child {
+    margin-bottom: 0;
+  }
+  
+  p {
+    margin-bottom: $kat-space-4;
+    line-height: $kat-line-height-relaxed;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* モーダルフッター */
+.kat-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: $kat-space-3;
+  padding: $kat-space-6;
+  border-top: $kat-border-1 solid $kat-gray-200;
+  background-color: $kat-gray-50;
+  
+  &:first-child {
+    border-top: none;
+    background-color: transparent;
+  }
+  
+  &.kat-modal__footer--center {
+    justify-content: center;
+  }
+  
+  &.kat-modal__footer--start {
+    justify-content: flex-start;
+  }
+  
+  &.kat-modal__footer--between {
+    justify-content: space-between;
+  }
+  
+  @include kat-screen-sm {
+    flex-direction: row;
+  }
+  
+  .kat-btn {
+    @include kat-screen-sm {
+      min-width: 6rem;
+    }
+  }
+}
+
+/* モーダルアニメーション */
+@keyframes kat-modal-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes kat-modal-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes kat-modal-backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes kat-modal-content-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-1rem) scale(0.95);
+  }
+}
+
+/* Modal closing animations */
+.kat-modal--closing {
+  .kat-modal__backdrop {
+    animation: kat-modal-backdrop-out $kat-duration-250 $kat-ease-apple;
+  }
+  
+  .kat-modal__content {
+    animation: kat-modal-content-out $kat-duration-250 $kat-ease-apple;
+  }
+}
+
+/* ドロワーバリアント */
+.kat-modal--drawer {
+  align-items: stretch;
+  justify-content: flex-end;
+  
+  .kat-modal__content {
+    width: 100%;
+    max-width: 24rem;
+    height: 100%;
+    max-height: none;
+    border-radius: 0;
+    animation: kat-drawer-in $kat-duration-300 $kat-ease-out;
+    
+    @include kat-screen-sm {
+      width: 24rem;
+    }
+  }
+  
+  &.kat-modal--closing .kat-modal__content {
+    animation: kat-drawer-out $kat-duration-200 $kat-ease-in;
+  }
+}
+
+@keyframes kat-drawer-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes kat-drawer-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* ボトムシートバリアント */
+.kat-modal--bottom-sheet {
+  align-items: flex-end;
+  justify-content: center;
+  
+  .kat-modal__content {
+    width: 100%;
+    max-width: none;
+    max-height: 80vh;
+    border-radius: $kat-radius-lg $kat-radius-lg 0 0;
+    animation: kat-bottom-sheet-in $kat-duration-300 $kat-ease-out;
+  }
+  
+  &.kat-modal--closing .kat-modal__content {
+    animation: kat-bottom-sheet-out $kat-duration-200 $kat-ease-in;
+  }
+}
+
+@keyframes kat-bottom-sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes kat-bottom-sheet-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+/* アラートダイアログバリアント */
+.kat-modal--alert {
+  .kat-modal__content {
+    max-width: 28rem;
+    text-align: center;
+  }
+  
+  .kat-modal__body {
+    padding: $kat-space-8 $kat-space-6 $kat-space-6;
+    
+    .kat-modal__icon {
+      width: 3rem;
+      height: 3rem;
+      margin: 0 auto $kat-space-4;
+      border-radius: $kat-radius-full;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      &.kat-modal__icon--success {
+        background-color: $kat-success-100;
+        color: $kat-success-600;
+      }
+      
+      &.kat-modal__icon--warning {
+        background-color: $kat-warning-100;
+        color: $kat-warning-600;
+      }
+      
+      &.kat-modal__icon--error {
+        background-color: $kat-error-100;
+        color: $kat-error-600;
+      }
+      
+      &.kat-modal__icon--info {
+        background-color: $kat-info-100;
+        color: $kat-info-600;
+      }
+    }
+  }
+}
+
+/* ページ側のオーバーレイ状態（レイアウトシフト抑制） */
+.kat-modal-open {
+  overflow: hidden;
+  padding-right: var(--scrollbar-width, 0);
+  
+  .kat-main,
+  .kat-sidebar,
+  .kat-navbar {
+    filter: blur(1px);
+    transition: filter $kat-duration-250 $kat-ease-apple;
+  }
+}
+
+/* レスポンシブ調整 */
+@media (max-height: 640px) {
+  .kat-modal {
+    align-items: flex-start;
+    padding: $kat-space-2;
+  }
+  
+  .kat-modal__content {
+    margin-top: $kat-space-2;
+  }
+  
+  .kat-modal__body {
+    max-height: calc(100vh - 8rem);
+  }
+}

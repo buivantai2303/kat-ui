@@ -1,0 +1,88 @@
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+
+/**
+ * カテゴリ丸型グリッド
+ * ヒーローの下、商品グリッドの上に表示するカテゴリショートカット
+ */
+
+.kat-category-rounds {
+  padding: $kat-space-6 0 $kat-space-4;
+  background-color: $kat-white;
+}
+
+.kat-category-rounds__inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 $kat-space-4;
+}
+
+/* 丸型カテゴリ一覧 */
+.kat-category-rounds__list {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: $kat-space-8;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.kat-category-rounds__item {
+  width: 8.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $kat-space-3;
+  text-align: center;
+}
+
+.kat-category-rounds__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $kat-space-3;
+  text-decoration: none;
+  color: inherit;
+  transition: transform $kat-duration-200 $kat-ease-apple, filter $kat-duration-200 $kat-ease-apple;
+  
+  @include kat-hover {
+    transform: translateY(-2px);
+    filter: brightness(0.95);
+  }
+}
+
+/* アイコンの輪郭（薄い円） */
+.kat-category-rounds__circle {
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: $kat-primary-50;
+  display: grid;
+  place-items: center;
+  transition: background-color $kat-duration-200 $kat-ease-apple;
+}
+
+/* アイコン実体 */
+.kat-category-rounds__icon {
+  width: 3rem;
+  height: 3rem;
+  color: $kat-primary-900;
+}
+
+.kat-category-rounds__label {
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-bold;
+  color: $kat-primary-900;
+  line-height: $kat-line-height-tight;
+}
+
+@include kat-screen-sm {
+  .kat-category-rounds__item { width: 7rem; }
+  .kat-category-rounds__circle { width: 4.75rem; height: 4.75rem; }
+  .kat-category-rounds__icon { width: 2.5rem; height: 2.5rem; }
+}
+
+

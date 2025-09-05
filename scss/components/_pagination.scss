@@ -1,0 +1,279 @@
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+/**
+ * Kat UI Framework - ページネーションコンポーネント
+ * 
+ * ページ切り替えUIのスタイル。サイズ、配置、ラウンド/ピル等の
+ * バリアントと、シンプル/ミニマル/モバイル向け最適化を含む。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* ベースページネーション */
+.kat-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $kat-space-1;
+  margin: $kat-space-6 0;
+  
+  /* デフォルトは中央寄せ */
+  &.kat-pagination--left {
+    justify-content: flex-start;
+  }
+  
+  &.kat-pagination--right {
+    justify-content: flex-end;
+  }
+  
+  /* サイズバリアント */
+  &.kat-pagination--sm {
+    gap: $kat-space-0-5;
+    margin: $kat-space-4 0;
+    
+    .kat-pagination__item {
+      min-width: 2rem;
+      height: 2rem;
+      font-size: $kat-font-size-xs;
+    }
+  }
+  
+  &.kat-pagination--lg {
+    gap: $kat-space-2;
+    margin: $kat-space-8 0;
+    
+    .kat-pagination__item {
+      min-width: 3rem;
+      height: 3rem;
+      font-size: $kat-font-size-lg;
+    }
+  }
+}
+
+/* ページ要素 */
+.kat-pagination__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 $kat-space-1;
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-primary-700;
+  background-color: $kat-white;
+  border: $kat-border-1 solid $kat-primary-200;
+  border-radius: $kat-radius-md;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $kat-duration-200 $kat-ease-apple;
+  
+  @include kat-focus-ring;
+  
+  &:hover:not(:disabled) {
+    background-color: $kat-primary-100;
+    border-color: $kat-primary-300;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 現在ページ */
+  &.kat-pagination__item--current {
+    background-color: $kat-primary-900;
+    color: $kat-white;
+    border-color: $kat-primary-900;
+    cursor: default;
+    
+    &:hover {
+      background-color: $kat-primary-900;
+      transform: none;
+    }
+  }
+  
+  /* 無効状態 */
+  &:disabled,
+  &.kat-pagination__item--disabled {
+    color: $kat-primary-400;
+    background-color: $kat-primary-50;
+    border-color: $kat-primary-200;
+    cursor: not-allowed;
+    
+    &:hover {
+      background-color: $kat-primary-50;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+  
+  /* ナビゲーション矢印 */
+  &.kat-pagination__item--prev,
+  &.kat-pagination__item--next {
+    svg {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+  
+  /* 省略記号 */
+  &.kat-pagination__item--ellipsis {
+    background: none;
+    border: none;
+    cursor: default;
+    
+    &:hover {
+      background: none;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}
+
+/* ページ情報 */
+.kat-pagination__info {
+  margin: 0 $kat-space-4;
+  font-size: $kat-font-size-sm;
+  color: $kat-primary-600;
+  white-space: nowrap;
+  
+  .kat-pagination__info--highlight {
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-primary-900;
+  }
+}
+
+/* シンプルページネーション（前/次のみ） */
+.kat-pagination--simple {
+  justify-content: space-between;
+  
+  .kat-pagination__item {
+    padding: $kat-space-2 $kat-space-4;
+    min-width: auto;
+    
+    &.kat-pagination__item--prev {
+      margin-right: auto;
+    }
+    
+    &.kat-pagination__item--next {
+      margin-left: auto;
+    }
+  }
+}
+
+/* ミニマルページネーション */
+.kat-pagination--minimal {
+  .kat-pagination__item {
+    background: none;
+    border: none;
+    
+    &:hover:not(.kat-pagination__item--current):not(:disabled) {
+      background-color: $kat-primary-100;
+    }
+    
+    &.kat-pagination__item--current {
+      background-color: $kat-primary-900;
+      border-radius: $kat-radius-full;
+    }
+  }
+}
+
+/* 角丸ページネーション */
+.kat-pagination--rounded {
+  .kat-pagination__item {
+    border-radius: $kat-radius-full;
+  }
+}
+
+/* ピル型ページネーション */
+.kat-pagination--pills {
+  gap: $kat-space-2;
+  
+  .kat-pagination__item {
+    border-radius: $kat-radius-pill;
+    border: none;
+    background-color: $kat-primary-100;
+    
+    &:hover:not(.kat-pagination__item--current):not(:disabled) {
+      background-color: $kat-primary-200;
+    }
+    
+    &.kat-pagination__item--current {
+      background-color: $kat-primary-900;
+    }
+  }
+}
+
+/* モバイル向けコンパクト表示 */
+@include kat-screen-sm {
+  .kat-pagination {
+    &:not(.kat-pagination--simple) {
+      .kat-pagination__item:not(.kat-pagination__item--current):not(.kat-pagination__item--prev):not(.kat-pagination__item--next) {
+        display: none;
+        
+        /* Show only first, last, and adjacent pages */
+        &.kat-pagination__item--first,
+        &.kat-pagination__item--last,
+        &.kat-pagination__item--adjacent {
+          display: inline-flex;
+        }
+      }
+      
+      .kat-pagination__info {
+        display: none;
+      }
+    }
+  }
+}
+
+/* Jump to page input */
+.kat-pagination-jump {
+  display: flex;
+  align-items: center;
+  gap: $kat-space-2;
+  margin: $kat-space-4 0;
+  font-size: $kat-font-size-sm;
+  color: $kat-primary-600;
+  
+  .kat-pagination-jump__input {
+    width: 4rem;
+    text-align: center;
+  }
+  
+  .kat-pagination-jump__button {
+    @include kat-btn-base;
+    @include kat-btn-sm;
+    background-color: $kat-primary-900;
+    color: $kat-white;
+    border-color: $kat-primary-900;
+    
+    &:hover {
+      background-color: $kat-primary-800;
+      border-color: $kat-primary-800;
+    }
+  }
+}
+
+/* Loading state */
+.kat-pagination--loading {
+  .kat-pagination__item:not(.kat-pagination__item--current) {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .kat-pagination__item {
+    border-width: 2px;
+    
+    &.kat-pagination__item--current {
+      border-color: $kat-white;
+    }
+  }
+}

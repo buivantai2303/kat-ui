@@ -1,0 +1,233 @@
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+/**
+ * Kat UI Framework - カテゴリナビゲーションコンポーネント
+ * 
+ * ECサイトでカテゴリを階層的に表示するための
+ * アコーディオン形式のナビゲーション要素
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* カテゴリナビゲーションコンテナ - カテゴリ表示の基本レイアウト */
+.kat-category-nav {
+  width: 100%;
+}
+
+.kat-category-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* カテゴリアイテム - 個別のカテゴリナビゲーション要素 */
+.kat-category-nav__item {
+  border-bottom: 1px solid $kat-primary-200;
+
+  /* アクティブ状態 - 現在選択されているカテゴリの表示 */
+  &.kat-category-nav__item--active {
+    background-color: $kat-primary-50;
+    
+    .kat-category-nav__toggle {
+      background-color: $kat-primary-100;
+      color: $kat-primary-900;
+    }
+  }
+}
+
+/* カテゴリトグルボタン - カテゴリの開閉を制御するボタン */
+.kat-category-nav__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: $kat-space-2 $kat-space-4;
+  background: none;
+  border: none;
+  color: $kat-primary-700;
+  font-size: $kat-font-size-sm;
+  font-weight: $kat-font-weight-medium;
+  text-align: left;
+  cursor: pointer;
+  transition: all $kat-duration-500;
+  
+  &:hover {
+    background-color: $kat-primary-50;
+    color: $kat-primary-900;
+  }
+  
+  &:focus-visible {
+    outline: none;
+    box-shadow: $kat-focus-ring;
+  }
+}
+
+/* カテゴリラベル - カテゴリ名の表示テキスト */
+.kat-category-nav__label {
+  flex: 1;
+  margin-right: $kat-space-2;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* カテゴリアイコン - カテゴリを表す視覚的要素 */
+.kat-category-nav__icon {
+  padding-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: $kat-font-size-2xl;
+  font-weight: $kat-font-weight-bold;
+  color: $kat-primary-600;
+  transition: all $kat-duration-500 $kat-ease-out;
+  
+  &--plus {
+    color: $kat-primary-500;
+  }
+  
+  &--minus {
+    color: $kat-primary-500;
+  }
+}
+
+/* サブメニュー - カテゴリの下位項目を表示する展開可能なメニュー */
+.kat-category-nav__submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: $kat-primary-25;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height $kat-duration-500 $kat-ease-out;
+  
+  /* 開いた状態 - サブメニューが展開されている状態 */
+  &.kat-category-nav__submenu--open {
+    max-height: 20rem;
+  }
+}
+
+/* サブメニューアイテム - サブメニュー内の個別項目 */
+.kat-category-nav__subitem {
+  border-bottom: 1px solid $kat-primary-100;
+}
+
+/* サブメニューリンク - サブメニュー内のクリック可能なリンク */
+.kat-category-nav__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $kat-space-2 $kat-space-6;
+  color: $kat-primary-600;
+  text-decoration: none;
+  font-size: $kat-font-size-sm;
+  transition: all $kat-duration-500 $kat-ease-out;
+  
+  &:hover {
+    background-color: $kat-primary-100;
+    color: $kat-primary-900;
+    padding-left: $kat-space-7;
+  }
+  
+  &:focus-visible {
+    outline: none;
+    box-shadow: $kat-focus-ring;
+  }
+  
+  /* 直接リンクの矢印を追加 - ナビゲーションを示す視覚的要素 */
+  &::after {
+    content: "";
+    background-image: $kat-icon-arrow;
+    background-size: $kat-arrow-width $kat-arrow-height;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: $kat-arrow-width;
+    height: $kat-arrow-height;
+    display: inline-block;
+    margin-left: auto;
+  }
+}
+
+/* レスポンシブデザイン - 画面サイズに応じた表示の最適化 */
+@media (min-width: 1024px) {
+  .kat-category-nav__toggle {
+    padding: $kat-space-2-5 $kat-space-4;
+  }
+  
+  .kat-category-nav__link {
+    padding: $kat-space-2 $kat-space-6;
+    
+    &:hover {
+      padding-left: $kat-space-7;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .kat-category-nav__toggle {
+    padding: $kat-space-2 $kat-space-3;
+  }
+  
+  .kat-category-nav__link {
+    padding: $kat-space-2 $kat-space-4;
+    
+    &:hover {
+      padding-left: $kat-space-5;
+    }
+  }
+}
+
+/* アニメーション - サブメニューの開閉動作 */
+.kat-category-nav__submenu {
+  transition: max-height $kat-duration-600 $kat-ease-out, opacity $kat-duration-350 $kat-ease-out;
+  
+  &:not(.kat-category-nav__submenu--open) {
+    opacity: 0;
+  }
+  
+  &.kat-category-nav__submenu--open {
+    opacity: 1;
+  }
+}
+
+/* アクセシビリティのためのフォーカス管理 - キーボードナビゲーション対応 */
+.kat-category-nav__toggle:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+.kat-category-nav__link:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+/* ハイコントラストモードサポート - 視認性向上のための調整 */
+@media (prefers-contrast: high) {
+  .kat-category-nav__item {
+    border-bottom-color: $kat-primary-300;
+  }
+  
+  .kat-category-nav__submenu {
+    background-color: $kat-primary-100;
+  }
+  
+  .kat-category-nav__subitem {
+    border-bottom-color: $kat-primary-200;
+  }
+}
+
+/* リダクションモーションサポート - アニメーション軽減設定への対応 */
+@media (prefers-reduced-motion: reduce) {
+  .kat-category-nav__submenu {
+    transition: none;
+  }
+  
+  .kat-category-nav__toggle,
+  .kat-category-nav__link {
+    transition: none;
+  }
+}

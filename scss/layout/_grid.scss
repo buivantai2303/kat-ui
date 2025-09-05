@@ -1,0 +1,569 @@
+@use 'sass:map';
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+/**
+ * Kat UI Framework - グリッドシステム & レイアウトユーティリティ
+ * 
+ * フレックスボックスとCSSグリッドを用いたレスポンシブレイアウトの基盤となるユーティリティ群。
+ * コンテナ、フレックス方向、整列、ギャップ、列/行のスパン指定など幅広い補助クラスを提供。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* セクション領域 - ページ内の論理的区切り */
+.kat-section {
+  padding: 0 map.get($kat-spacing-map, 4);
+  margin: map.get($kat-spacing-map, 4) 0;
+}
+
+/* セクション見出し */
+.kat-section__title {
+  font-size: $kat-font-size-2xl;
+  font-weight: $kat-font-weight-bold;
+  color: $kat-text-primary;
+  margin: 0 0 map.get($kat-spacing-map, 6) 0;
+  line-height: $kat-line-height-tight;
+}
+
+.kat-section__subtitle {
+  font-size: $kat-font-size-lg;
+  font-weight: $kat-font-weight-medium;
+  color: $kat-text-secondary;
+  margin: 0 0 map.get($kat-spacing-map, 4) 0;
+  line-height: $kat-line-height-tight;
+}
+
+/* コンテナ - 幅と左右パディングの基本レイアウト */
+.kat-container {
+  @include kat-container-responsive;
+}
+
+.kat-container-full { width: 100%; margin: 0 auto; padding: 0; max-width: 100%; }
+
+/* フレックスボックスユーティリティ - 柔軟なレイアウト制御 */
+.kat-flex { display: flex; }
+.kat-inline-flex { display: inline-flex; }
+
+/* フレックス方向 - 行/列の切り替え */
+.kat-flex--row { flex-direction: row; }
+.kat-flex--row-reverse { flex-direction: row-reverse; }
+
+.kat-flex--col { flex-direction: column; }
+.kat-flex--col-reverse { flex-direction: column-reverse; }
+
+/* 折り返し - 改行の制御 */
+.kat-flex--wrap { flex-wrap: wrap; }
+.kat-flex--wrap-reverse { flex-wrap: wrap-reverse; }
+.kat-flex--nowrap { flex-wrap: nowrap; }
+
+/* 主軸方向の整列（justify-content） */
+.kat-justify--start { justify-content: flex-start; }
+.kat-justify--end { justify-content: flex-end; }
+
+.kat-justify--center { justify-content: center; }
+.kat-justify--between { justify-content: space-between; }
+.kat-justify--around { justify-content: space-around; }
+.kat-justify--evenly { justify-content: space-evenly; }
+
+/* 交差軸方向の整列（align-items） */
+.kat-items--start { align-items: flex-start; }
+.kat-items--end { align-items: flex-end; }
+.kat-items--center { align-items: center; }
+.kat-items--baseline { align-items: baseline; }
+.kat-items--stretch { align-items: stretch; }
+
+/* 複数行の整列（align-content） */
+.kat-content--start { align-content: flex-start; }
+.kat-content--end { align-content: flex-end; }
+.kat-content--center { align-content: center; }
+.kat-content--between { align-content: space-between; }
+.kat-content--around { align-content: space-around; }
+.kat-content--evenly { align-content: space-evenly; }
+
+/* 個別要素の整列（align-self） */
+.kat-self--auto { align-self: auto; }
+.kat-self--start { align-self: flex-start; }
+.kat-self--end { align-self: flex-end; }
+.kat-self--center { align-self: center; }
+.kat-self--stretch { align-self: stretch; }
+.kat-self--baseline { align-self: baseline; }
+
+/* フレックス伸縮 - grow/shrink の制御 */
+.kat-flex--1 { flex: 1 1 0%; }
+.kat-flex--auto { flex: 1 1 auto; }
+.kat-flex--initial { flex: 0 1 auto; }
+.kat-flex--none { flex: none; }
+.kat-grow { flex-grow: 1; }
+.kat-grow--0 { flex-grow: 0; }
+.kat-shrink { flex-shrink: 1; }
+.kat-shrink--0 { flex-shrink: 0; }
+
+/* ギャップユーティリティ - 子要素間の間隔 */
+.kat-gap--0 {
+  gap: map.get($kat-spacing-map, 0);
+}
+
+.kat-gap--px {
+  gap: map.get($kat-spacing-map, px);
+}
+
+.kat-gap--0-5 {
+  gap: map.get($kat-spacing-map, 0-5);
+}
+
+.kat-gap--1 {
+  gap: map.get($kat-spacing-map, 1);
+}
+
+.kat-gap--1-5 {
+  gap: map.get($kat-spacing-map, 1-5);
+}
+
+.kat-gap--2 {
+  gap: map.get($kat-spacing-map, 2);
+}
+
+.kat-gap--3 {
+  gap: map.get($kat-spacing-map, 3);
+}
+
+.kat-gap--4 {
+  gap: map.get($kat-spacing-map, 4);
+}
+
+.kat-gap--5 {
+  gap: map.get($kat-spacing-map, 5);
+}
+
+.kat-gap--6 {
+  gap: map.get($kat-spacing-map, 6);
+}
+
+.kat-gap--8 {
+  gap: map.get($kat-spacing-map, 8);
+}
+
+.kat-gap--10 {
+  gap: map.get($kat-spacing-map, 10);
+}
+
+.kat-gap--12 {
+  gap: map.get($kat-spacing-map, 12);
+}
+
+.kat-gap--16 {
+  gap: map.get($kat-spacing-map, 16);
+}
+
+.kat-gap--20 {
+  gap: map.get($kat-spacing-map, 20);
+}
+
+.kat-gap--24 {
+  gap: map.get($kat-spacing-map, 24);
+}
+
+/* 行方向のギャップ（row-gap） */
+.kat-gap-y--0 {
+  row-gap: map.get($kat-spacing-map, 0);
+}
+
+.kat-gap-y--1 {
+  row-gap: map.get($kat-spacing-map, 1);
+}
+
+.kat-gap-y--2 {
+  row-gap: map.get($kat-spacing-map, 2);
+}
+
+.kat-gap-y--3 {
+  row-gap: map.get($kat-spacing-map, 3);
+}
+
+.kat-gap-y--4 {
+  row-gap: map.get($kat-spacing-map, 4);
+}
+
+.kat-gap-y--6 {
+  row-gap: map.get($kat-spacing-map, 6);
+}
+
+.kat-gap-y--8 {
+  row-gap: map.get($kat-spacing-map, 8);
+}
+
+/* 列方向のギャップ（column-gap） */
+.kat-gap-x--0 {
+  column-gap: map.get($kat-spacing-map, 0);
+}
+
+.kat-gap-x--1 {
+  column-gap: map.get($kat-spacing-map, 1);
+}
+
+.kat-gap-x--2 {
+  column-gap: map.get($kat-spacing-map, 2);
+}
+
+.kat-gap-x--3 {
+  column-gap: map.get($kat-spacing-map, 3);
+}
+
+.kat-gap-x--4 {
+  column-gap: map.get($kat-spacing-map, 4);
+}
+
+.kat-gap-x--6 {
+  column-gap: map.get($kat-spacing-map, 6);
+}
+
+.kat-gap-x--8 {
+  column-gap: map.get($kat-spacing-map, 8);
+}
+
+/* グリッドシステム - CSS Grid の基本構成 */
+.kat-grid {
+  display: grid;
+}
+
+.kat-grid--cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.kat-grid--cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.kat-grid--cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.kat-grid--cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.kat-grid--cols-5 {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.kat-grid--cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.kat-grid--cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+/* レスポンシブグリッド - 画面幅に応じた列数 */
+@include kat-screen-sm {
+  .kat-grid--sm-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .kat-grid--sm-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .kat-grid--sm-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .kat-grid--sm-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@include kat-screen-md {
+  .kat-grid--md-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .kat-grid--md-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .kat-grid--md-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .kat-grid--md-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .kat-grid--md-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@include kat-screen-lg {
+  .kat-grid--lg-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  
+  .kat-grid--lg-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  
+  .kat-grid--lg-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .kat-grid--lg-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .kat-grid--lg-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  
+  .kat-grid--lg-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+}
+
+/* レスポンシブグリッドミックスインを使用したクラス */
+.kat-grid--responsive {
+  @include kat-grid-responsive;
+}
+
+/* レスポンシブギャップクラス */
+.kat-gap--responsive {
+  @include kat-padding-responsive;
+}
+
+/* レスポンシブコンテナクラス */
+.kat-container--responsive {
+  @include kat-container-responsive;
+}
+
+/* ========================================
+   GRID GAP SYSTEM - グリッドギャップシステム
+   ======================================== */
+
+/* グリッドギャップ - グリッドアイテム間の間隔 */
+.kat-grid-gap--0 { gap: map.get($kat-spacing-map, 0); }
+.kat-grid-gap--1 { gap: map.get($kat-spacing-map, 1); }
+.kat-grid-gap--2 { gap: map.get($kat-spacing-map, 2); }
+.kat-grid-gap--3 { gap: map.get($kat-spacing-map, 3); }
+.kat-grid-gap--4 { gap: map.get($kat-spacing-map, 4); }
+.kat-grid-gap--6 { gap: map.get($kat-spacing-map, 6); }
+.kat-grid-gap--8 { gap: map.get($kat-spacing-map, 8); }
+
+/* グリッド行ギャップ */
+.kat-grid-gap-y--0 { row-gap: map.get($kat-spacing-map, 0); }
+.kat-grid-gap-y--1 { row-gap: map.get($kat-spacing-map, 1); }
+.kat-grid-gap-y--2 { row-gap: map.get($kat-spacing-map, 2); }
+.kat-grid-gap-y--3 { row-gap: map.get($kat-spacing-map, 3); }
+.kat-grid-gap-y--4 { row-gap: map.get($kat-spacing-map, 4); }
+.kat-grid-gap-y--6 { row-gap: map.get($kat-spacing-map, 6); }
+.kat-grid-gap-y--8 { row-gap: map.get($kat-spacing-map, 8); }
+
+/* グリッド列ギャップ */
+.kat-grid-gap-x--0 { column-gap: map.get($kat-spacing-map, 0); }
+.kat-grid-gap-x--1 { column-gap: map.get($kat-spacing-map, 1); }
+.kat-grid-gap-x--2 { column-gap: map.get($kat-spacing-map, 2); }
+.kat-grid-gap-x--3 { column-gap: map.get($kat-spacing-map, 3); }
+.kat-grid-gap-x--4 { column-gap: map.get($kat-spacing-map, 4); }
+.kat-grid-gap-x--6 { column-gap: map.get($kat-spacing-map, 6); }
+.kat-grid-gap-x--8 { column-gap: map.get($kat-spacing-map, 8); }
+
+/* ========================================
+   GRID TEMPLATE ROWS - グリッド行テンプレート
+   ======================================== */
+
+.kat-grid-rows--1 { grid-template-rows: repeat(1, minmax(0, 1fr)); }
+.kat-grid-rows--2 { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.kat-grid-rows--3 { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+.kat-grid-rows--4 { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+.kat-grid-rows--5 { grid-template-rows: repeat(5, minmax(0, 1fr)); }
+.kat-grid-rows--6 { grid-template-rows: repeat(6, minmax(0, 1fr)); }
+.kat-grid-rows--none { grid-template-rows: none; }
+.kat-grid-rows--auto { grid-template-rows: auto; }
+
+/* ========================================
+   GRID AUTO FLOW - グリッド自動フロー
+   ======================================== */
+
+.kat-grid-flow--row { grid-auto-flow: row; }
+.kat-grid-flow--col { grid-auto-flow: column; }
+.kat-grid-flow--dense { grid-auto-flow: dense; }
+.kat-grid-flow--row-dense { grid-auto-flow: row dense; }
+.kat-grid-flow--col-dense { grid-auto-flow: column dense; }
+
+/* ========================================
+   GRID JUSTIFY/ALIGN - グリッド整列
+   ======================================== */
+
+/* グリッド整列 - 主軸方向 */
+.kat-grid-justify--start { justify-items: start; }
+.kat-grid-justify--end { justify-items: end; }
+.kat-grid-justify--center { justify-items: center; }
+.kat-grid-justify--stretch { justify-items: stretch; }
+
+/* グリッド整列 - 交差軸方向 */
+.kat-grid-align--start { align-items: start; }
+.kat-grid-align--end { align-items: end; }
+.kat-grid-align--center { align-items: center; }
+.kat-grid-align--stretch { align-items: stretch; }
+
+/* グリッド整列 - コンテンツ */
+.kat-grid-justify-content--start { justify-content: start; }
+.kat-grid-justify-content--end { justify-content: end; }
+.kat-grid-justify-content--center { justify-content: center; }
+.kat-grid-justify-content--stretch { justify-content: stretch; }
+.kat-grid-justify-content--space-between { justify-content: space-between; }
+.kat-grid-justify-content--space-around { justify-content: space-around; }
+.kat-grid-justify-content--space-evenly { justify-content: space-evenly; }
+
+.kat-grid-align-content--start { align-content: start; }
+.kat-grid-align-content--end { align-content: end; }
+.kat-grid-align-content--center { align-content: center; }
+.kat-grid-align-content--stretch { align-content: stretch; }
+.kat-grid-align-content--space-between { align-content: space-between; }
+.kat-grid-align-content--space-around { align-content: space-around; }
+.kat-grid-align-content--space-evenly { align-content: space-evenly; }
+
+/* グリッド整列 - 個別アイテム */
+.kat-grid-self--start { justify-self: start; }
+.kat-grid-self--end { justify-self: end; }
+.kat-grid-self--center { justify-self: center; }
+.kat-grid-self--stretch { justify-self: stretch; }
+
+.kat-grid-self-align--start { align-self: start; }
+.kat-grid-self-align--end { align-self: end; }
+.kat-grid-self-align--center { align-self: center; }
+.kat-grid-self-align--stretch { align-self: stretch; }
+
+/* グリッド整列 - プレース */
+.kat-grid-place--start { place-items: start; }
+.kat-grid-place--end { place-items: end; }
+.kat-grid-place--center { place-items: center; }
+.kat-grid-place--stretch { place-items: stretch; }
+
+/* ========================================
+   GRID AREAS - グリッドエリア
+   ======================================== */
+
+.kat-grid-area--header { grid-area: header; }
+.kat-grid-area--main { grid-area: main; }
+.kat-grid-area--sidebar { grid-area: sidebar; }
+.kat-grid-area--footer { grid-area: footer; }
+.kat-grid-area--nav { grid-area: nav; }
+.kat-grid-area--aside { grid-area: aside; }
+
+/* ========================================
+   RESPONSIVE GRID GAPS - レスポンシブグリッドギャップ
+   ======================================== */
+
+.kat-grid-gap--responsive {
+  gap: map.get($kat-spacing-map, 2);
+  
+  @include kat-screen-sm {
+    gap: map.get($kat-spacing-map, 3);
+  }
+  
+  @include kat-screen-md {
+    gap: map.get($kat-spacing-map, 4);
+  }
+  
+  @include kat-screen-lg {
+    gap: map.get($kat-spacing-map, 6);
+  }
+  
+  @include kat-screen-xl {
+    gap: map.get($kat-spacing-map, 8);
+  }
+}
+
+/* 列スパン指定 - 指定数の列幅にまたがる */
+.kat-col-span-1 { grid-column: span 1 / span 1; }
+.kat-col-span-2 { grid-column: span 2 / span 2; }
+.kat-col-span-3 { grid-column: span 3 / span 3; }
+.kat-col-span-4 { grid-column: span 4 / span 4; }
+.kat-col-span-5 { grid-column: span 5 / span 5; }
+.kat-col-span-6 { grid-column: span 6 / span 6; }
+.kat-col-span-full { grid-column: 1 / -1; }
+
+/* 行スパン指定 - 指定数の行高にまたがる */
+.kat-row-span-1 { grid-row: span 1 / span 1; }
+.kat-row-span-2 { grid-row: span 2 / span 2; }
+.kat-row-span-3 { grid-row: span 3 / span 3; }
+.kat-row-span-4 { grid-row: span 4 / span 4; }
+.kat-row-span-5 { grid-row: span 5 / span 5; }
+.kat-row-span-6 { grid-row: span 6 / span 6; }
+.kat-row-span-full { grid-row: 1 / -1; }
+
+/* 自動調整 - auto-fit/auto-fill による可変列 */
+.kat-grid--auto-fit { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); }
+.kat-grid--auto-fill { grid-template-columns: repeat(auto-fill, minmax(0, 1fr)); }
+
+/* ========================================
+   GRID UTILITIES - グリッドユーティリティ
+   ======================================== */
+
+/* グリッド最小幅指定 */
+.kat-grid-min--0 { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); }
+.kat-grid-min--xs { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.kat-grid-min--sm { grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.kat-grid-min--md { grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); }
+.kat-grid-min--lg { grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr)); }
+.kat-grid-min--xl { grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr)); }
+
+/* グリッド最大幅指定 */
+.kat-grid-max--xs { grid-template-columns: repeat(auto-fit, minmax(0, 12rem)); }
+.kat-grid-max--sm { grid-template-columns: repeat(auto-fit, minmax(0, 16rem)); }
+.kat-grid-max--md { grid-template-columns: repeat(auto-fit, minmax(0, 20rem)); }
+.kat-grid-max--lg { grid-template-columns: repeat(auto-fit, minmax(0, 24rem)); }
+.kat-grid-max--xl { grid-template-columns: repeat(auto-fit, minmax(0, 28rem)); }
+
+/* グリッド高さ指定 */
+.kat-grid-h--auto { height: auto; }
+.kat-grid-h--screen { height: 100vh; }
+.kat-grid-h--min { height: min-content; }
+.kat-grid-h--max { height: max-content; }
+.kat-grid-h--fit { height: fit-content; }
+
+/* グリッドオーバーフロー */
+.kat-grid-overflow--auto { overflow: auto; }
+.kat-grid-overflow--hidden { overflow: hidden; }
+.kat-grid-overflow--scroll { overflow: scroll; }
+.kat-grid-overflow--visible { overflow: visible; }
+
+/* ========================================
+   COMMON GRID LAYOUTS - よく使われるグリッドレイアウト
+   ======================================== */
+
+/* カードグリッド */
+.kat-grid--cards {
+  @extend .kat-grid, .kat-grid--cols-1, .kat-grid-gap--4;
+  @include kat-screen-sm { @extend .kat-grid--sm-cols-2; }
+  @include kat-screen-md { @extend .kat-grid--md-cols-3; }
+  @include kat-screen-lg { @extend .kat-grid--lg-cols-4; }
+}
+
+/* フォームグリッド */
+.kat-grid--form {
+  @extend .kat-grid, .kat-grid--cols-1, .kat-grid-gap--4;
+  @include kat-screen-sm { @extend .kat-grid--sm-cols-2; }
+}
+
+/* サイドバーレイアウト */
+.kat-grid--sidebar {
+  @extend .kat-grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "main";
+  @include kat-screen-md {
+    grid-template-columns: 15rem 1fr;
+    grid-template-areas: "sidebar main";
+  }
+}
+
+/* ヘッダーメインフッターレイアウト */
+.kat-grid--app {
+  @extend .kat-grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header" "main" "footer";
+  min-height: 100vh;
+}

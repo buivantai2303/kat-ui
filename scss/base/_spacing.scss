@@ -1,0 +1,65 @@
+/** @project: Microbook */
+/** @author: Bui Van Tai, 2024-12-15, スペーシングユーティリティクラス */
+
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+@use '../core/functions' as *;
+
+/* スペーシングマップ - 効率的な生成 */
+$kat-spacing-map: (
+  '0': $kat-space-0,
+  '1': $kat-space-1,
+  '2': $kat-space-2,
+  '3': $kat-space-3,
+  '4': $kat-space-4,
+  '5': $kat-space-5,
+  '6': $kat-space-6,
+  '8': $kat-space-8,
+  '10': $kat-space-10,
+  '12': $kat-space-12,
+  '16': $kat-space-16,
+  '20': $kat-space-20,
+  '24': $kat-space-24,
+  'auto': auto
+);
+
+/* マージンユーティリティ - 自動生成 */
+@each $key, $value in $kat-spacing-map {
+  .kat-m--#{$key} { margin: $value; }
+  .kat-mt--#{$key} { margin-top: $value; }
+  .kat-mr--#{$key} { margin-right: $value; }
+  .kat-mb--#{$key} { margin-bottom: $value; }
+  .kat-ml--#{$key} { margin-left: $value; }
+  .kat-mx--#{$key} { 
+    margin-left: $value; 
+    margin-right: $value; 
+  }
+  .kat-my--#{$key} { 
+    margin-top: $value; 
+    margin-bottom: $value; 
+  }
+}
+
+/* パディングユーティリティ - 自動生成 */
+@each $key, $value in $kat-spacing-map {
+  .kat-p--#{$key} { padding: $value; }
+  .kat-pt--#{$key} { padding-top: $value; }
+  .kat-pr--#{$key} { padding-right: $value; }
+  .kat-pb--#{$key} { padding-bottom: $value; }
+  .kat-pl--#{$key} { padding-left: $value; }
+  .kat-px--#{$key} { 
+    padding-left: $value; 
+    padding-right: $value; 
+  }
+  .kat-py--#{$key} { 
+    padding-top: $value; 
+    padding-bottom: $value; 
+  }
+}
+
+/* ギャップユーティリティ - 自動生成 */
+@each $key, $value in $kat-spacing-map {
+  .kat-gap--#{$key} { gap: $value; }
+  .kat-gap-x--#{$key} { column-gap: $value; }
+  .kat-gap-y--#{$key} { row-gap: $value; }
+}

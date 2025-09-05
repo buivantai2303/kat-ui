@@ -1,0 +1,49 @@
+/** @project: Microbook */
+/** @author: Bui Van Tai, 2024-12-15, SCSS関数とユーティリティ */
+
+@use 'variables' as *;
+
+/* カラー関数 */
+@function kat-color($color, $opacity: 1) {
+  @return rgba($color, $opacity);
+}
+
+/* スペーシング関数 */
+@function kat-space($multiplier: 1) {
+  @return $kat-space-4 * $multiplier;
+}
+
+/* フォントサイズ関数 */
+@function kat-font-size($size: 'base') {
+  @if $size == 'xs' { @return $kat-font-size-xs; }
+  @if $size == 'sm' { @return $kat-font-size-sm; }
+  @if $size == 'base' { @return $kat-font-size-base; }
+  @if $size == 'lg' { @return $kat-font-size-lg; }
+  @if $size == 'xl' { @return $kat-font-size-xl; }
+  @if $size == '2xl' { @return $kat-font-size-2xl; }
+  @if $size == '3xl' { @return $kat-font-size-3xl; }
+  @if $size == '4xl' { @return $kat-font-size-4xl; }
+  @return $kat-font-size-base;
+}
+
+/* ボーダーラディウス関数 */
+@function kat-radius($size: 'base') {
+  @if $size == 'none' { @return $kat-radius-none; }
+  @if $size == 'sm' { @return $kat-radius-sm; }
+  @if $size == 'base' { @return $kat-radius-base; }
+  @if $size == 'md' { @return $kat-radius-md; }
+  @if $size == 'lg' { @return $kat-radius-lg; }
+  @if $size == 'xl' { @return $kat-radius-xl; }
+  @if $size == '2xl' { @return $kat-radius-2xl; }
+  @if $size == 'full' { @return $kat-radius-full; }
+  @return $kat-radius-base;
+}
+
+/* シャドウ関数 */
+@function kat-shadow($size: 'base') {
+  @if $size == 'sm' { @return $kat-shadow-sm; }
+  @if $size == 'base' { @return $kat-shadow; }
+  @if $size == 'md' { @return $kat-shadow-md; }
+  @if $size == 'lg' { @return $kat-shadow-lg; }
+  @return $kat-shadow;
+}

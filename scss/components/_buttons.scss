@@ -1,0 +1,257 @@
+@use 'sass:map';
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+/**
+ * Kat UI Framework - ボタンコンポーネント
+ * 
+ * ユーザーインタラクションの中心となるボタンのスタイル
+ * プライマリ、セカンダリ、アウトラインなど複数のバリアントをサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* ベースボタンスタイル - 基本的なボタンの見た目と動作 */
+.kat-btn {
+  @include kat-btn-base;
+  @include kat-btn-md;
+  
+  /* ボタンバリアント - 用途に応じた色分けとスタイル */
+  &.kat-btn--primary {
+    @include kat-btn-primary;
+    
+    &.kat-btn--danger {
+      background-color: $kat-error-600;
+      color: $kat-white;
+      
+      @include kat-hover {
+        background-color: $kat-error-700;
+      }
+      
+      &:active {
+        background-color: $kat-error-800;
+      }
+    }
+  }
+  
+  &.kat-btn--secondary {
+    @include kat-btn-secondary;
+  }
+  
+  &.kat-btn--outline {
+    @include kat-btn-outline;
+    
+    &:hover {
+      text-decoration: none !important;
+    }
+  }
+  
+  /* ゴーストボタン - 透明背景のボタン */
+  &.kat-btn--ghost {
+    @include kat-btn-ghost;
+  }
+
+  /* コントロールボタン - アイコン中心の小型ユーティリティボタン */
+  &.kat-btn--control {
+    background-color: $kat-white;
+    color: $kat-gray-700;
+    border: $kat-component-border;
+    box-shadow: $kat-component-shadow-sm;
+    padding: 0;
+
+    @include kat-hover {
+      background-color: $kat-gray-100;
+    }
+
+    &:active {
+      @include kat-scale-effect;
+    }
+
+    &:disabled {
+      @include kat-disabled;
+    }
+  }
+  
+  /* ボタンサイズ - 用途に応じた大きさのバリエーション */
+  &.kat-btn--sm {
+    @include kat-btn-sm;
+  }
+  
+  &.kat-btn--lg {
+    @include kat-btn-lg;
+  }
+  
+  /* アイコンのみボタン - テキストなしのアイコンボタン */
+  &.kat-btn--icon {
+    @include kat-btn-icon;
+  }
+  
+  /* フル幅ボタン - 親要素の幅いっぱいに広がるボタン */
+  &.kat-btn--full {
+    width: 100%;
+  }
+  
+  /* ボタン形状 - 角丸、四角、丸などのバリエーション */
+  &.kat-btn--pill {
+    border-radius: $kat-radius-pill;
+  }
+  
+  &.kat-btn--square {
+    border-radius: $kat-radius-none;
+  }
+  
+  &.kat-btn--rounded {
+    border-radius: $kat-radius-lg;
+  }
+  
+  /* ローディング状態 - 処理中のボタンの表示 */
+  &.kat-btn--loading {
+    position: relative;
+    pointer-events: none;
+    
+    .kat-spinner {
+      margin-right: map.get($kat-spacing-map, 2);
+    }
+  }
+  
+  /* 無効状態 - クリックできないボタンの表示 */
+  &:disabled {
+    @include kat-disabled;
+  }
+}
+
+/* ボタングループ - 複数のボタンをまとめて表示 */
+.kat-btn-group {
+  display: inline-flex;
+  align-items: center;
+  gap: map.get($kat-spacing-map, 2);
+  flex-wrap: wrap;
+  
+  &.kat-btn-group--attached {
+    gap: 0;
+    
+    .kat-btn {
+      border-radius: 0;
+      
+      &:first-child {
+        border-top-left-radius: $kat-component-border-radius;
+        border-bottom-left-radius: $kat-component-border-radius;
+      }
+      
+      &:last-child {
+        border-top-right-radius: $kat-component-border-radius;
+        border-bottom-right-radius: $kat-component-border-radius;
+      }
+      
+      &:not(:first-child) {
+        margin-left: -1px;
+      }
+      
+      &:hover,
+      &:focus {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+  
+  &.kat-btn-group--vertical {
+    flex-direction: column;
+    align-items: stretch;
+    
+    &.kat-btn-group--attached {
+      .kat-btn {
+        &:first-child {
+          border-radius: $kat-component-border-radius $kat-component-border-radius 0 0;
+        }
+        
+        &:last-child {
+          border-radius: 0 0 $kat-component-border-radius $kat-component-border-radius;
+        }
+        
+        &:not(:first-child) {
+          margin-left: 0;
+          margin-top: -1px;
+        }
+      }
+    }
+  }
+}
+
+/* スピナーコンポーネント - ローディング状態の回転アニメーション */
+.kat-spinner {
+  display: inline-block;
+  width: $kat-spinner-size;
+  height: $kat-spinner-size;
+  border: $kat-spinner-border solid transparent;
+  border-top: $kat-spinner-border solid currentColor;
+  border-radius: 50%;
+  animation: kat-spin $kat-duration-1000 linear infinite;
+  
+  &.kat-spinner--sm {
+    width: $kat-spinner-sm;
+    height: $kat-spinner-sm;
+    border-width: $kat-spinner-border-sm;
+    border-top-width: $kat-spinner-border-sm;
+  }
+  
+  &.kat-spinner--lg {
+    width: $kat-spinner-lg;
+    height: $kat-spinner-lg;
+    border-width: $kat-spinner-border-lg;
+    border-top-width: $kat-spinner-border-lg;
+  }
+}
+
+/* スピンアニメーション - スピナーの回転動作 */
+@keyframes kat-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* サイズ選択ボタン - 商品のサイズを選択するボタン */
+.kat-size-btn {
+  position: relative;
+  min-width: $kat-size-min;
+  height: $kat-button-height-md;
+  
+  /* 在庫切れサイズ - 選択できないサイズのスタイル */
+  &.kat-size-btn--unavailable {
+    position: relative;
+    color: $kat-gray-400;
+    border-color: $kat-gray-300;
+    background-color: $kat-gray-50;
+    cursor: not-allowed;
+    @include kat-disabled;
+    
+    /* 斜線表示 - 在庫切れを示すクロスライン */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: $kat-size-cross;
+      background-color: $kat-gray-400;
+      transform: translate(-50%, -50%) rotate(45deg);
+      transform-origin: center;
+    }
+    
+    &:hover {
+      background-color: $kat-gray-50;
+      border-color: $kat-gray-300;
+      color: $kat-gray-400;
+    }
+  }
+  
+  /* アクティブ状態 - 現在選択されているサイズ */
+  &.kat-btn--active {
+    border-width: $kat-size-border;
+    border-color: $kat-primary-900;
+    background-color: $kat-primary-50;
+    color: $kat-primary-900;
+    font-weight: $kat-font-weight-medium;
+  }
+}

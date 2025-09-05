@@ -1,0 +1,265 @@
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+@use '../core/functions' as *;
+
+/** @project: Kat UI Framework */
+/** @author: Bui Van Tai, 2024-12-15, Typography styles and text utilities */
+
+/* Base typography */
+body {
+  font-family: $kat-font-family-base;
+  font-size: $kat-font-size-base;
+  line-height: $kat-line-height-normal;
+  color: $kat-text-primary;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: $kat-font-weight-bold;
+  line-height: $kat-line-height-tight;
+  color: $kat-text-primary;
+}
+
+h1 {
+  font-size: $kat-font-size-4xl;
+  
+  @include kat-screen-sm {
+    font-size: 2.5rem;
+  }
+}
+
+h2 {
+  font-size: $kat-font-size-3xl;
+  
+  @include kat-screen-sm {
+    font-size: 2rem;
+  }
+}
+
+h3 {
+  font-size: $kat-font-size-2xl;
+}
+
+h4 {
+  font-size: $kat-font-size-xl;
+}
+
+h5 {
+  font-size: $kat-font-size-lg;
+}
+
+h6 {
+  font-size: $kat-font-size-base;
+}
+
+/* Paragraphs */
+p {
+  margin: 0;
+  line-height: $kat-line-height-normal;
+}
+
+/* Links */
+a {
+  color: $kat-primary-600;
+  text-decoration: none;
+  transition: color $kat-duration-150 $kat-ease-in-out;
+  
+  @include kat-hover {
+    color: $kat-primary-700;
+    text-decoration: underline;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $kat-primary-500;
+    outline-offset: 2px;
+    border-radius: $kat-radius-sm;
+  }
+}
+
+/* Text emphasis */
+strong, b {
+  font-weight: $kat-font-weight-bold;
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* Code */
+code {
+  font-family: $kat-font-family-mono;
+  font-size: 0.875em;
+  color: $kat-text-secondary;
+  background-color: $kat-bg-secondary;
+  padding: $kat-space-1 $kat-space-1-5;
+  border-radius: $kat-radius-sm;
+}
+
+pre {
+  font-family: $kat-font-family-mono;
+  font-size: $kat-font-size-sm;
+  line-height: $kat-line-height-normal;
+  color: $kat-text-secondary;
+  background-color: $kat-bg-secondary;
+  padding: $kat-space-4;
+  border-radius: $kat-radius-md;
+  overflow-x: auto;
+  
+  code {
+    background: none;
+    padding: 0;
+    font-size: inherit;
+  }
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 0;
+  padding: $kat-space-4 $kat-space-6;
+  border-left: 4px solid $kat-border-color;
+  background-color: $kat-bg-secondary;
+  font-style: italic;
+  color: $kat-text-muted;
+}
+
+/* Horizontal rule */
+hr {
+  border: 0;
+  height: 1px;
+  background-color: $kat-border-color;
+  margin: $kat-space-6 0;
+}
+
+/* Mark */
+mark {
+  background-color: $kat-warning-200;
+  color: $kat-warning-900;
+  padding: $kat-space-0-5 $kat-space-1;
+  border-radius: $kat-radius-sm;
+}
+
+/* Small text */
+small {
+  font-size: $kat-font-size-sm;
+  color: $kat-text-muted;
+}
+
+/* Subscript and superscript */
+sub, sup {
+  font-size: $kat-font-size-xs;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+
+/* ========================================
+   TYPOGRAPHY UTILITIES - ユーティリティクラス
+   ======================================== */
+
+/* フォントサイズユーティリティ - 自動生成 */
+$kat-font-size-map: (
+  'xs': $kat-font-size-xs,
+  'sm': $kat-font-size-sm,
+  'base': $kat-font-size-base,
+  'lg': $kat-font-size-lg,
+  'xl': $kat-font-size-xl,
+  '2xl': $kat-font-size-2xl,
+  '3xl': $kat-font-size-3xl,
+  '4xl': $kat-font-size-4xl
+);
+
+@each $key, $value in $kat-font-size-map {
+  .kat-text--#{$key} { font-size: $value; }
+}
+
+/* フォントウェイトユーティリティ - 自動生成 */
+$kat-font-weight-map: (
+  'light': $kat-font-weight-light,
+  'normal': $kat-font-weight-normal,
+  'medium': $kat-font-weight-medium,
+  'bold': $kat-font-weight-bold
+);
+
+@each $key, $value in $kat-font-weight-map {
+  .kat-font--#{$key} { font-weight: $value; }
+}
+
+/* テキストアライメントユーティリティ - 自動生成 */
+$kat-text-align-map: (
+  'left': left,
+  'center': center,
+  'right': right,
+  'justify': justify
+);
+
+@each $key, $value in $kat-text-align-map {
+  .kat-text--#{$key} { text-align: $value; }
+}
+
+/* テキスト色ユーティリティ - 自動生成 */
+$kat-text-color-map: (
+  'muted': $kat-text-muted,
+  'primary': $kat-text-primary,
+  'success': $kat-color-success,
+  'warning': $kat-color-warning,
+  'error': $kat-color-error,
+  'info': $kat-color-info
+);
+
+@each $key, $value in $kat-text-color-map {
+  .kat-text--#{$key} { color: $value; }
+}
+
+/* テキストデコレーションユーティリティ */
+.kat-text--underline { text-decoration: underline; }
+.kat-text--no-underline { text-decoration: none; }
+.kat-text--line-through { text-decoration: line-through; }
+
+/* テキストトランスフォームユーティリティ - 自動生成 */
+$kat-text-transform-map: (
+  'uppercase': uppercase,
+  'lowercase': lowercase,
+  'capitalize': capitalize,
+  'normal-case': none
+);
+
+@each $key, $value in $kat-text-transform-map {
+  .kat-text--#{$key} { text-transform: $value; }
+}
+
+/* テキストオーバーフローユーティリティ */
+.kat-text--truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kat-text--ellipsis {
+  text-overflow: ellipsis;
+}
+
+.kat-text--clip {
+  text-overflow: clip;
+}
+
+/* ラインハイトユーティリティ - 自動生成 */
+$kat-line-height-map: (
+  'tight': $kat-line-height-tight,
+  'normal': $kat-line-height-normal,
+  'relaxed': $kat-line-height-relaxed,
+  'loose': $kat-line-height-loose
+);
+
+@each $key, $value in $kat-line-height-map {
+  .kat-leading--#{$key} { line-height: $value; }
+}

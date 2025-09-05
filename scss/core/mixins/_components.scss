@@ -1,0 +1,351 @@
+@use 'sass:map';
+@use '../variables' as *;
+@use 'utilities' as *;
+@use 'states' as *;
+
+/**
+ * Kat UI Framework - コンポーネントミックスイン
+ * 
+ * ボタン、カード、インプットなどのコンポーネント用ミックスイン
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* ========================================
+   BUTTON MIXINS - ボタンミックスイン
+   ======================================== */
+
+/* ボタンベース - 共通スタイル */
+@mixin kat-btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: map.get($kat-spacing-map, 2);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  font-weight: $kat-font-weight-medium;
+  line-height: 1;
+  transition: $kat-component-transition-slow;
+  border-radius: $kat-radius-base;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  @include kat-focus-ring;
+  
+  &:disabled {
+    @include kat-disabled;
+  }
+}
+
+/* ボタンサイズ - 統一された命名 */
+@mixin kat-btn-xs {
+  height: $kat-button-height-xs;
+  padding: $kat-button-padding-xs;
+  font-size: $kat-font-size-xs;
+  gap: $kat-button-gap-xs;
+}
+
+@mixin kat-btn-sm {
+  height: $kat-button-height-sm;
+  padding: $kat-button-padding-sm;
+  font-size: $kat-font-size-sm;
+  gap: $kat-button-gap-sm;
+}
+
+@mixin kat-btn-md {
+  height: $kat-button-height-md;
+  padding: $kat-button-padding-md;
+  font-size: $kat-font-size-sm;
+  gap: $kat-button-gap-md;
+
+  &:active {
+    @include kat-scale-effect(1.02);
+  }
+}
+
+@mixin kat-btn-lg {
+  height: $kat-button-height-lg;
+  padding: $kat-button-padding-lg;
+  font-size: $kat-font-size-base;
+  gap: $kat-button-gap-lg;
+
+  &:active {
+    @include kat-scale-effect(1.01);
+  }
+}
+
+@mixin kat-btn-xl {
+  height: $kat-button-height-xl;
+  padding: $kat-button-padding-xl;
+  font-size: $kat-font-size-lg;
+  gap: $kat-button-gap-xl;
+
+  &:active {
+    @include kat-scale-effect(1.01);
+  }
+}
+
+/* ボタンバリアント - 色とスタイル */
+@mixin kat-btn-primary {
+  background-color: $kat-primary-900;
+  color: $kat-white;
+  
+  @include kat-hover {
+    background-color: $kat-primary-600;
+  }
+  
+  &:active {
+    background-color: $kat-primary-900;
+    @include kat-scale-effect(1.01);
+  }
+}
+
+@mixin kat-btn-secondary {
+  background-color: $kat-primary-100;
+  color: $kat-primary-900;
+  
+  @include kat-hover {
+    background-color: $kat-primary-200;
+  }
+  
+  &:active {
+    background-color: $kat-primary-100;
+    @include kat-scale-effect(1.005);
+  }
+}
+
+@mixin kat-btn-outline {
+  background-color: transparent;
+  color: $kat-primary-600;
+  border: $kat-component-border;
+  
+  @include kat-hover {
+    background-color: $kat-primary-150;
+    color: $kat-primary-900;
+    border: $kat-component-border-focus;
+  }
+  
+  &:active {
+    @include kat-scale-effect;
+  }
+  
+  &.kat-btn--checked {
+    color: $kat-primary-900;
+    border: $kat-size-border solid $kat-primary-900;
+    background-color: $kat-primary-50;
+  }
+
+  /* 無効アウトラインボタン - 斜線のオーバーレイ (button, anchor) */
+  &:disabled,
+  &[aria-disabled='true'],
+  &.is-disabled {
+    position: relative;
+    overflow: hidden;
+    pointer-events: none;
+    @include kat-disabled;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 140%;
+      height: 1px;
+      background-color: $kat-gray-400;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      transform-origin: center;
+      pointer-events: none;
+    }
+  }
+}
+
+@mixin kat-btn-ghost {
+  background-color: transparent;
+  color: $kat-primary-700;
+  
+  @include kat-hover {
+    background-color: $kat-primary-100;
+    color: $kat-primary-900;
+    @include kat-scale-effect;
+  }
+  
+  &:active {
+    background-color: $kat-primary-200;
+    @include kat-scale-effect;
+  }
+}
+
+@mixin kat-btn-icon {
+  width: $kat-icon-size;
+  height: $kat-icon-size;
+  padding: 0;
+  
+  &.kat-btn--sm {
+    width: $kat-icon-sm;
+    height: $kat-icon-sm;
+  }
+  
+  &.kat-btn--lg {
+    width: $kat-icon-lg;
+    height: $kat-icon-lg;
+  }
+}
+
+/* ========================================
+   QUANTITY CONTROLS - 数量コントロール
+   ======================================== */
+@mixin kat-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: map.get($kat-spacing-map, 2);
+
+  .kat-btn {
+    @include kat-btn-base;
+    @include kat-btn-md;
+    width: $kat-icon-size;
+    height: $kat-icon-size;
+    padding: 0;
+  }
+}
+
+@mixin kat-quantity-input {
+  @include kat-input-base;
+  width: 3.5rem;
+  height: $kat-button-height-md;
+  text-align: center;
+  border-radius: $kat-radius-sm;
+  font-size: $kat-font-size-base;
+  font-weight: $kat-font-weight-semibold;
+  flex-shrink: 0;
+}
+
+/* ========================================
+   COLOR SWATCH - カラースウォッチ
+   ======================================== */
+@mixin kat-swatch($size: $kat-icon-size, $ring-color: map.get($kat-primary-colors, 900)) {
+  width: $size;
+  height: $size;
+  border-radius: $kat-radius-full;
+  border: $kat-component-border;
+  cursor: pointer;
+  transition: $kat-component-transition;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border-radius: $kat-radius-full;
+    border: $kat-border-2 solid transparent;
+    transition: border-color $kat-duration-200 $kat-ease-apple;
+    z-index: -1;
+  }
+
+  &:hover { transform: scale(1.1); }
+
+  &.is-active,
+  &.kat-product-variants__color-swatch--active {
+    border-color: $kat-gray-300;
+    &::before { border-color: $ring-color; }
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ========================================
+   CARD MIXINS - カードミックスイン
+   ======================================== */
+
+/* カードベース - 共通スタイル */
+@mixin kat-card-base {
+  background-color: $kat-bg-primary;
+  border: $kat-component-border;
+  border-radius: $kat-component-border-radius;
+  box-shadow: $kat-component-shadow-sm;
+  padding: $kat-card-padding-md;
+  margin: $kat-card-margin-md;
+}
+
+/* カードサイズ */
+@mixin kat-card-sm {
+  padding: $kat-card-padding-sm;
+  margin: $kat-card-margin-sm;
+  box-shadow: $kat-card-shadow-sm;
+}
+
+@mixin kat-card-md {
+  padding: $kat-card-padding-md;
+  margin: $kat-card-margin-md;
+  box-shadow: $kat-card-shadow-md;
+}
+
+@mixin kat-card-lg {
+  padding: $kat-card-padding-lg;
+  margin: $kat-card-margin-lg;
+  box-shadow: $kat-card-shadow-lg;
+}
+
+/* ========================================
+   INPUT MIXINS - インプットミックスイン
+   ======================================== */
+
+/* インプットベース - 共通スタイル */
+@mixin kat-input-base {
+  width: 100%;
+  border: $kat-input-border;
+  border-radius: $kat-component-border-radius;
+  padding: $kat-input-padding-md;
+  font-size: $kat-font-size-sm;
+  line-height: $kat-line-height-normal;
+  background-color: $kat-input-bg;
+  color: $kat-text-primary;
+  transition: $kat-component-transition-slow;
+  
+  @include kat-focus-ring;
+  
+  &::placeholder {
+    color: $kat-text-muted;
+  }
+  
+  &:hover {
+    border-color: $kat-input-border-hover;
+  }
+  
+  &:focus {
+    border-color: $kat-input-border-focus;
+    box-shadow: $kat-focus-ring-primary;
+    background-color: $kat-input-bg-focus;
+    transform: scale(1.005);
+    outline: none;
+  }
+  
+  &:disabled {
+    background-color: $kat-input-bg-disabled;
+    color: $kat-text-muted;
+    cursor: $kat-cursor-not-allowed;
+    opacity: $kat-opacity-disabled;
+  }
+}
+
+/* インプットサイズ */
+@mixin kat-input-sm {
+  height: $kat-input-height-sm;
+  padding: $kat-input-padding-sm;
+  font-size: $kat-font-size-xs;
+}
+
+@mixin kat-input-md {
+  height: $kat-input-height-md;
+  padding: $kat-input-padding-md;
+  font-size: $kat-font-size-sm;
+}
+
+@mixin kat-input-lg {
+  height: $kat-input-height-lg;
+  padding: $kat-input-padding-lg;
+  font-size: $kat-font-size-base;
+}

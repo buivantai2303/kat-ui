@@ -1,0 +1,319 @@
+@use '../variables' as *;
+
+/**
+ * Kat UI Framework - レスポンシブミックスイン
+ * 
+ * レスポンシブデザインのためのミックスイン群
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* レスポンシブブレークポイントミックスイン */
+@mixin kat-screen-sm {
+  @media (min-width: #{$kat-breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin kat-screen-md {
+  @media (min-width: #{$kat-breakpoint-md}) {
+    @content;
+  }
+}
+
+@mixin kat-screen-lg {
+  @media (min-width: #{$kat-breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin kat-screen-xl {
+  @media (min-width: #{$kat-breakpoint-xl}) {
+    @content;
+  }
+}
+
+/* レスポンシブコンテナミックスイン */
+@mixin kat-container-responsive {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $kat-padding-md;
+  
+  @include kat-screen-sm {
+    max-width: $kat-container-max-width-sm;
+    padding: 0 $kat-padding-md;
+  }
+  
+  @include kat-screen-md {
+    max-width: $kat-container-max-width-md;
+    padding: 0 $kat-padding-md;
+  }
+  
+  @include kat-screen-lg {
+    max-width: $kat-container-max-width-lg;
+    padding: 0 $kat-padding-md;
+  }
+  
+  @include kat-screen-xl {
+    max-width: $kat-container-max-width-xl;
+    padding: 0 $kat-padding-md;
+  }
+}
+
+/* レスポンシブヘッダーミックスイン */
+@mixin kat-header-responsive {
+  height: $kat-header-height-xs;
+  
+  @include kat-screen-sm {
+    height: $kat-header-height-sm;
+  }
+  
+  @include kat-screen-md {
+    height: $kat-header-height-md;
+  }
+  
+  @include kat-screen-lg {
+    height: $kat-header-height-lg;
+  }
+  
+  @include kat-screen-xl {
+    height: $kat-header-height-xl;
+  }
+}
+
+/* レスポンシブサイドバーミックスイン */
+@mixin kat-sidebar-responsive {
+  width: $kat-sidebar-width-xs;
+  
+  @include kat-screen-sm {
+    width: $kat-sidebar-width-sm;
+  }
+  
+  @include kat-screen-md {
+    width: $kat-sidebar-width-md;
+  }
+  
+  @include kat-screen-lg {
+    width: $kat-sidebar-width-lg;
+  }
+  
+  @include kat-screen-xl {
+    width: $kat-sidebar-width-xl;
+  }
+}
+
+/* レスポンシブコンテンツミックスイン */
+@mixin kat-content-responsive {
+  width: $kat-content-width-xs;
+  
+  @include kat-screen-sm {
+    width: $kat-content-width-sm;
+  }
+  
+  @include kat-screen-md {
+    width: $kat-content-width-md;
+  }
+  
+  @include kat-screen-lg {
+    width: $kat-content-width-lg;
+  }
+  
+  @include kat-screen-xl {
+    width: $kat-content-width-xl;
+  }
+}
+
+/* レスポンシブグリッドミックスイン */
+@mixin kat-grid-responsive {
+  display: grid;
+  gap: $kat-layout-gap-sm;
+  grid-template-columns: repeat($kat-grid-cols-xs, 1fr);
+  
+  @include kat-screen-sm {
+    grid-template-columns: repeat($kat-grid-cols-sm, 1fr);
+    gap: $kat-layout-gap-md;
+  }
+  
+  @include kat-screen-md {
+    grid-template-columns: repeat($kat-grid-cols-md, 1fr);
+  }
+  
+  @include kat-screen-lg {
+    grid-template-columns: repeat($kat-grid-cols-lg, 1fr);
+    gap: $kat-layout-gap-lg;
+  }
+  
+  @include kat-screen-xl {
+    grid-template-columns: repeat($kat-grid-cols-xl, 1fr);
+  }
+}
+
+/* レスポンシブカードミックスイン */
+@mixin kat-card-responsive {
+  min-width: $kat-card-min-width-xs;
+  
+  @include kat-screen-sm {
+    min-width: $kat-card-min-width-sm;
+  }
+  
+  @include kat-screen-md {
+    min-width: $kat-card-min-width-md;
+  }
+  
+  @include kat-screen-lg {
+    min-width: $kat-card-min-width-lg;
+  }
+  
+  @include kat-screen-xl {
+    min-width: $kat-card-min-width-xl;
+  }
+}
+
+/* レスポンシブフォームミックスイン */
+@mixin kat-form-responsive {
+  width: $kat-form-width-xs;
+  
+  @include kat-screen-sm {
+    width: $kat-form-width-sm;
+  }
+  
+  @include kat-screen-md {
+    width: $kat-form-width-md;
+  }
+  
+  @include kat-screen-lg {
+    width: $kat-form-width-lg;
+  }
+  
+  @include kat-screen-xl {
+    width: $kat-form-width-xl;
+  }
+}
+
+/* レスポンシブボタンミックスイン */
+@mixin kat-button-responsive {
+  width: $kat-button-width-xs;
+  
+  @include kat-screen-sm {
+    width: $kat-button-width-sm;
+  }
+  
+  @include kat-screen-md {
+    width: $kat-button-width-md;
+  }
+  
+  @include kat-screen-lg {
+    width: $kat-button-width-lg;
+  }
+  
+  @include kat-screen-xl {
+    width: $kat-button-width-xl;
+  }
+}
+
+/* レスポンシブパディングミックスイン */
+@mixin kat-padding-responsive {
+  padding: $kat-padding-xs;
+  
+  @include kat-screen-sm {
+    padding: $kat-padding-sm;
+  }
+  
+  @include kat-screen-md {
+    padding: $kat-padding-md;
+  }
+  
+  @include kat-screen-lg {
+    padding: $kat-padding-lg;
+  }
+  
+  @include kat-screen-xl {
+    padding: $kat-padding-xl;
+  }
+}
+
+/* レスポンシブマージンミックスイン */
+@mixin kat-margin-responsive {
+  margin: $kat-margin-xs;
+  
+  @include kat-screen-sm {
+    margin: $kat-margin-sm;
+  }
+  
+  @include kat-screen-md {
+    margin: $kat-margin-md;
+  }
+  
+  @include kat-screen-lg {
+    margin: $kat-margin-lg;
+  }
+  
+  @include kat-screen-xl {
+    margin: $kat-margin-xl;
+  }
+}
+
+/* レスポンシブフォントサイズミックスイン */
+@mixin kat-responsive-font-size($xs, $sm, $md, $lg, $xl) {
+  font-size: $xs;
+  
+  @include kat-screen-sm {
+    font-size: $sm;
+  }
+  
+  @include kat-screen-md {
+    font-size: $md;
+  }
+  
+  @include kat-screen-lg {
+    font-size: $lg;
+  }
+  
+  @include kat-screen-xl {
+    font-size: $xl;
+  }
+}
+
+/* レスポンシブスペーシングミックスイン */
+@mixin kat-responsive-spacing($property, $xs, $sm, $md, $lg, $xl) {
+  #{$property}: $xs;
+  
+  @include kat-screen-sm {
+    #{$property}: $sm;
+  }
+  
+  @include kat-screen-md {
+    #{$property}: $md;
+  }
+  
+  @include kat-screen-lg {
+    #{$property}: $lg;
+  }
+  
+  @include kat-screen-xl {
+    #{$property}: $xl;
+  }
+}
+
+/* アスペクト比レスポンシブミックスイン */
+@mixin kat-responsive-aspect-ratio($xs, $sm, $md, $lg, $xl) {
+  @include kat-aspect-ratio($xs);
+  
+  @include kat-screen-sm {
+    @include kat-aspect-ratio($sm);
+  }
+  
+  @include kat-screen-md {
+    @include kat-aspect-ratio($md);
+  }
+  
+  @include kat-screen-lg {
+    @include kat-aspect-ratio($lg);
+  }
+  
+  @include kat-screen-xl {
+    @include kat-aspect-ratio($xl);
+  }
+}

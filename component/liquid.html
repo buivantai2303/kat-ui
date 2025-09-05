@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Liquid Glass Selector</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #fff;
+      font-family: sans-serif;
+    }
+
+    .selector {
+      position: relative;
+      display: flex;
+      gap: 12px;
+      padding: 10px 15px;
+      background: #f9f9f9;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .option {
+      position: relative;
+      padding: 10px 18px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 500;
+      z-index: 1;
+      user-select: none;
+      transition: color 0.3s;
+    }
+
+    .liquid {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      width: 70px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1) inset, 
+                  0 5px 10px rgba(0,0,0,0.15);
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 0;
+    }
+
+    .option.active {
+      color: #e91e63;
+    }
+  </style>
+</head>
+<body>
+  <div class="selector" id="selector">
+    <div class="liquid"></div>
+    <div class="option active">XS</div>
+    <div class="option">S</div>
+    <div class="option">M</div>
+    <div class="option">L</div>
+    <div class="option">XL</div>
+    <div class="option">XXL</div>
+  </div>
+
+  <script>
+    const selector = document.getElementById("selector");
+    const options = document.querySelectorAll(".option");
+    const liquid = document.querySelector(".liquid");
+
+    let isDragging = false;
+
+    // đặt liquid ban đầu
+    function moveToElement(el) {
+      const rect = el.getBoundingClientRect();
+      const parentRect = selector.getBoundingClientRect();
+      const x = rect.left - parentRect.left;
+      liquid.style.transform = `translateX(${x}px)`;
+      liquid.style.width = rect.width + "px";
+    }
+
+    options.forEach((opt, i) => {
+      if (opt.classList.contains("active")) moveToElement(opt);
+
+      opt.addEventListener("click", () => {
+        document.querySelector(".option.active").classList.remove("active");
+        opt.classList.add("active");
+        moveToElement(opt);
+      });
+    });
+
+    // Kéo (drag) hiệu ứng
+    selector.addEventListener("mousedown", (e) => {
+      isDragging = true;
+    });
+
+    window.addEventListener("mouseup", () => {
+      isDragging = false;
+      // thả thì chọn option gần nhất
+      let closest = null;
+      let minDist = Infinity;
+      options.forEach(opt => {
+        const rect = opt.getBoundingClientRect();
+        const liquidRect = liquid.getBoundingClientRect();
+        const dist = Math.abs(rect.left - liquidRect.left);
+        if (dist < minDist) {
+          minDist = dist;
+          closest = opt;
+        }
+      });
+      if (closest) {
+        document.querySelector(".option.active").classList.remove("active");
+        closest.classList.add("active");
+        moveToElement(closest);
+      }
+    });
+
+    window.addEventListener("mousemove", (e) => {
+      if (isDragging) {
+        const parentRect = selector.getBoundingClientRect();
+        let x = e.clientX - parentRect.left - liquid.offsetWidth / 2;
+        x = Math.max(0, Math.min(x, parentRect.width - liquid.offsetWidth));
+        liquid.style.transform = `translateX(${x}px)`;
+      }
+    });
+  </script>
+</body>
+</html>

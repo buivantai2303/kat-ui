@@ -1,0 +1,341 @@
+@use 'sass:map';
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+/**
+ * Kat UI Framework - レイアウトコンポーネント
+ * 
+ * 一般的なページ骨格（ヘッダー、3カラム、サイドバー、本文エリア）の
+ * レイアウトと挙動を定義。スティッキー、スクロール、レスポンシブ対応を含む。
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* レイアウトパターンミックスイン - 共通レイアウトパターン */
+@mixin kat-layout-pattern {
+  display: flex;
+  max-width: $kat-container-max-width;
+  margin: 0 auto;
+}
+
+@mixin kat-layout-responsive {
+  flex-direction: column;
+  
+  @include kat-screen-lg {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* サイドバーベースミックスイン - 共通スタイル */
+@mixin kat-sidebar-base {
+  width: 100%;
+  background-color: $kat-bg-primary;
+  position: static;
+  height: auto;
+  overflow-y: visible;
+  
+  @include kat-screen-lg {
+    @include kat-sidebar-responsive;
+    position: sticky;
+    top: calc(#{$kat-header-height} + #{map.get($kat-spacing-map, 4)});
+    height: fit-content;
+    overflow-y: auto;
+    @include kat-scrollbar;
+  }
+  
+  &__content {
+    padding: 0 map.get($kat-spacing-map, 4);
+  }
+  
+  &__title {
+    font-size: $kat-font-size-lg;
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-text-primary;
+    padding-bottom: map.get($kat-spacing-map, 3);
+  }
+  
+  &__nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  &__nav-link {
+    display: block;
+    color: $kat-text-secondary;
+    text-decoration: none;
+    padding: map.get($kat-spacing-map, 2) map.get($kat-spacing-map, 3);
+    border-radius: $kat-component-border-radius;
+    transition: $kat-component-transition;
+    @include kat-focus-ring;
+    
+    &:hover {
+      color: $kat-text-primary;
+      background-color: $kat-hover-bg-primary;
+    }
+  }
+  
+  &__widget {
+    padding-top: map.get($kat-spacing-map, 4);
+    border-top: $kat-component-border;
+    
+    h4 {
+      font-size: $kat-font-size-base;
+      font-weight: $kat-font-weight-medium;
+      color: $kat-text-secondary;
+      margin: 0 0 map.get($kat-spacing-map, 3) 0;
+    }
+  }
+}
+
+/* ボディの基本スタイル - ベースとなる文字/背景/行間 */
+.kat-body {
+  margin: 0;
+  padding: 0;
+  font-family: $kat-font-family-base;
+  background-color: $kat-bg-primary;
+  color: $kat-text-primary;
+  line-height: $kat-line-height-normal;
+}
+
+/* ヘッダー - レスポンシブヘッダー、上部固定（sticky） */
+.kat-header {
+  position: sticky;
+  top: 0;
+  z-index: $kat-z-sticky;
+  @include kat-header-responsive;
+  background-color: $kat-bg-primary;
+  border-bottom: $kat-component-border;
+  
+  .kat-header__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 map.get($kat-spacing-map, 6);
+    max-width: $kat-container-max-width;
+    margin: 0 auto;
+  }
+  
+  .kat-header__title {
+    font-size: $kat-font-size-2xl;
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-text-primary;
+    margin: 0;
+  }
+  
+  .kat-header__nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: map.get($kat-spacing-map, 6);
+  }
+  
+  .kat-header__nav-link {
+    color: $kat-text-secondary;
+    text-decoration: none;
+    font-weight: $kat-font-weight-medium;
+    padding: map.get($kat-spacing-map, 2) map.get($kat-spacing-map, 3);
+    border-radius: $kat-component-border-radius;
+    transition: $kat-component-transition;
+    @include kat-focus-ring;
+    
+    &:hover {
+      color: $kat-text-primary;
+      background-color: $kat-hover-bg-primary;
+    }
+  }
+}
+
+/* 3カラムレイアウトコンテナ - 左右サイドバー+本文の構成 */
+.kat-layout-3col {
+  @include kat-layout-pattern;
+  flex-direction: column;
+  min-height: calc(100vh - #{$kat-header-height});
+  @include kat-layout-responsive;
+  
+  /* 非スティッキーモード - サイドバー/本文とも通常フロー */
+  &.kat-layout-3col--no-sticky {
+    @include kat-screen-lg {
+      .kat-sidebar-left,
+      .kat-sidebar-right {
+        position: static;
+        height: auto;
+        overflow-y: visible;
+      }
+      
+      .kat-body-content {
+        overflow-y: visible;
+      }
+    }
+  }
+}
+
+/* 2カラムレイアウトコンテナ - 左側（画像）+ 右側（情報）の構成 */
+.kat-layout-2col {
+  @include kat-layout-pattern;
+  flex-direction: column;
+  
+  @include kat-screen-lg {
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: map.get($kat-spacing-map, 16);
+  }
+
+  /* 左カラム - 商品画像エリア */
+  &__left { flex: 0.6; }
+  &__left__2 { flex: 0.2; }
+  &__left__3 { flex: 0.3; }
+  &__left__4 { flex: 0.4; }
+  &__left__5 { flex: 0.5; }
+  &__left__6 { flex: 0.6; }
+  &__left__7 { flex: 0.7; }
+  &__left__8 { flex: 0.8; }
+  &__left__9 { flex: 0.9; }
+
+  /* 右カラム - 商品情報エリア */
+  &__right { flex: 0.4; }
+  &__right__2 { flex: 0.2; }
+  &__right__3 { flex: 0.3; }
+  &__right__4 { flex: 0.4; }
+  &__right__5 { flex: 0.5; }
+  &__right__6 { flex: 0.6; }
+  &__right__7 { flex: 0.7; }
+  &__right__8 { flex: 0.8; }
+  &__right__9 { flex: 0.9; }
+}
+
+/* 左サイドバー - レスポンシブサイドバー */
+.kat-sidebar-left {
+  @include kat-sidebar-base;
+  border-bottom: $kat-component-border;
+  
+  @include kat-screen-lg {
+    border-bottom: none;
+    
+    &.kat-sidebar-left--no-sticky {
+      position: static;
+      height: auto;
+      overflow-y: visible;
+    }
+  }
+  
+  .kat-sidebar-left__content {
+    padding-right: map.get($kat-spacing-map, 4);
+  }
+}
+
+/* 右サイドバー - レスポンシブサイドバー */
+.kat-sidebar-right {
+  @include kat-sidebar-base;
+  border-top: $kat-component-border;
+  
+  @include kat-screen-lg {
+    border-top: none;
+    
+    &.kat-sidebar-right--no-sticky {
+      position: static;
+      height: auto;
+      overflow-y: visible;
+    }
+  }
+  
+  .kat-sidebar-right__content {
+    padding-left: map.get($kat-spacing-map, 4);
+  }
+  
+  .kat-activity-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      padding: map.get($kat-spacing-map, 2) 0;
+      color: $kat-text-muted;
+      font-size: $kat-font-size-sm;
+      border-bottom: $kat-component-border;
+      
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .kat-post-image {
+    margin-top: map.get($kat-spacing-map, 4);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+/* ボディコンテンツエリア - レスポンシブ本文領域 */
+.kat-body-content {
+  flex: 1;
+  width: 100%;
+  background-color: $kat-bg-primary;
+  overflow-y: visible;
+  height: auto;
+  
+  @include kat-screen-lg {
+    @include kat-content-responsive;
+    overflow-y: visible;
+    height: auto;
+  }
+  
+  &__inner {
+    padding: 0 map.get($kat-spacing-map, 4);
+  }
+  
+  &__title {
+    font-size: $kat-font-size-3xl;
+    font-weight: $kat-font-weight-semibold;
+    color: $kat-text-primary;
+    margin: 0 0 map.get($kat-spacing-map, 4) 0;
+  }
+  
+  &__text {
+    font-size: $kat-font-size-base;
+    color: $kat-text-secondary;
+    margin: 0 0 map.get($kat-spacing-map, 6) 0;
+    line-height: $kat-line-height-relaxed;
+  }
+}
+
+/* レスポンシブデザイン - 画面幅に応じた微調整 */
+@include kat-screen-lg {
+  .kat-layout-3col {
+    margin: 0 auto;
+  }
+  
+  .kat-header .kat-header__content {
+    max-width: 100%;
+  }
+}
+
+@include kat-screen-sm {
+  .kat-header {
+    min-height: $kat-header-height;
+    
+    .kat-header__content {
+      flex-direction: column;
+      padding: map.get($kat-spacing-map, 4);
+      gap: map.get($kat-spacing-map, 3);
+    }
+    
+    .kat-header__nav-list {
+      gap: map.get($kat-spacing-map, 3);
+    }
+  }
+  
+  .kat-layout-3col {
+    min-height: auto;
+  }
+}

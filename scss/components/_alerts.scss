@@ -1,0 +1,249 @@
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+/**
+ * Kat UI Framework - アラート・通知コンポーネント
+ * 
+ * システム全体で使用されるアラート、通知、トーストメッセージのスタイル
+ * 成功、警告、エラー、情報の4つの状態をサポート
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2024-12-15
+ * @version: 1.0.0
+ */
+
+/* ベースアラートスタイル - 基本的なアラートの見た目と動作 */
+.kat-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: $kat-space-3;
+  padding: $kat-space-4;
+  border: $kat-border-1 solid;
+  border-radius: $kat-radius-md;
+  font-size: $kat-font-size-sm;
+  line-height: $kat-line-height-normal;
+  position: relative;
+  
+  /* デフォルト/ニュートラルアラート - 基本的な情報表示用 */
+  background-color: $kat-gray-50;
+  border-color: $kat-gray-200;
+  color: $kat-gray-800;
+  
+  /* アラートバリアント - 状態に応じた色分け */
+  &.kat-alert--success {
+    background-color: $kat-success-50;
+    border-color: $kat-success-200;
+    color: $kat-success-800;
+    
+    .kat-alert__icon {
+      color: $kat-success-600;
+    }
+  }
+  
+  &.kat-alert--warning {
+    background-color: $kat-warning-50;
+    border-color: $kat-warning-200;
+    color: $kat-warning-800;
+    
+    .kat-alert__icon {
+      color: $kat-warning-600;
+    }
+  }
+  
+  &.kat-alert--error {
+    background-color: $kat-error-50;
+    border-color: $kat-error-200;
+    color: $kat-error-800;
+    
+    .kat-alert__icon {
+      color: $kat-error-600;
+    }
+  }
+  
+  &.kat-alert--info {
+    background-color: $kat-info-50;
+    border-color: $kat-info-200;
+    color: $kat-info-800;
+    
+    .kat-alert__icon {
+      color: $kat-info-600;
+    }
+  }
+  
+  /* ソリッドバリアント - 背景色が濃いバージョン */
+  &.kat-alert--solid {
+    border: none;
+    color: $kat-white;
+    
+    &.kat-alert--success {
+      background-color: $kat-success-600;
+    }
+    
+    &.kat-alert--warning {
+      background-color: $kat-warning-600;
+    }
+    
+    &.kat-alert--error {
+      background-color: $kat-error-600;
+    }
+    
+    &.kat-alert--info {
+      background-color: $kat-info-600;
+    }
+    
+    .kat-alert__icon {
+      color: $kat-white;
+    }
+  }
+  
+  /* 閉じることができるアラート - 閉じるボタン付き */
+  &.kat-alert--dismissible {
+    padding-right: $kat-space-12;
+  }
+}
+
+.kat-alert__icon {
+  flex-shrink: 0;
+  margin-top: 0.125rem; /* テキストの最初の行に合わせる */
+}
+
+.kat-alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.kat-alert__title {
+  font-weight: $kat-font-weight-medium;
+  margin: 0 0 $kat-space-1 0;
+  
+  &:only-child {
+    margin-bottom: 0;
+  }
+}
+
+.kat-alert__description {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.kat-alert__close {
+  position: absolute;
+  top: $kat-space-3;
+  right: $kat-space-3;
+  background: none;
+  border: none;
+  padding: $kat-space-1;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.7;
+  border-radius: $kat-radius-sm;
+  transition: opacity $kat-duration-150 $kat-ease-in-out;
+  
+  @include kat-focus-ring;
+  
+  @include kat-hover {
+    opacity: 1;
+  }
+  
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+/* アラートグループ - 複数のアラートを積み重ねて表示 */
+.kat-alert-group {
+  position: fixed;
+  top: $kat-space-4;
+  right: $kat-space-4;
+  z-index: $kat-z-tooltip;
+  display: flex;
+  flex-direction: column;
+  gap: $kat-space-3;
+  max-width: 24rem;
+  width: 100%;
+  pointer-events: none;
+  
+  @include kat-screen-sm {
+    width: auto;
+  }
+  
+  .kat-alert {
+    pointer-events: auto;
+    box-shadow: $kat-shadow-lg;
+    animation: kat-alert-in $kat-duration-300 $kat-ease-out;
+    
+    &.kat-alert--removing {
+      animation: kat-alert-out $kat-duration-200 $kat-ease-in;
+    }
+  }
+}
+
+/* バナーアラート - ページ上部に表示される幅広い通知 */
+.kat-banner {
+  @extend .kat-alert !optional;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  padding: $kat-space-3 $kat-container-padding;
+  justify-content: center;
+  text-align: center;
+  
+  @include kat-screen-sm {
+    text-align: left;
+    justify-content: flex-start;
+  }
+  
+  .kat-alert__content {
+    @include kat-screen-sm {
+      display: flex;
+      align-items: center;
+      gap: $kat-space-4;
+    }
+  }
+  
+  .kat-alert__title {
+    @include kat-screen-sm {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* インラインアラート - フォーム内で使用される小さな通知 */
+.kat-inline-alert {
+  @extend .kat-alert !optional;
+  padding: $kat-space-2 $kat-space-3;
+  font-size: $kat-font-size-xs;
+  border-radius: $kat-radius-sm;
+  
+  .kat-alert__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .kat-alert__title {
+    margin-bottom: 0;
+  }
+}
+
+/* アラートアニメーション - 表示・非表示の滑らかな動き */
+@keyframes kat-alert-in {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes kat-alert-out {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-1rem) scale(0.95);
+  }
+}
+

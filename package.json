@@ -1,0 +1,42 @@
+{
+  "name": "kat-ui",
+  "version": "1.0.0",
+  "description": "A Japanese-inspired component framework with comprehensive accessibility support",
+  "main": "css/kat-ui.css",
+  "scripts": {
+    "build": "sass scss/kat-ui.scss css/kat-ui.css --style=expanded",
+    "build:min": "sass scss/kat-ui.scss css/kat-ui.min.css --style=compressed",
+    "watch": "sass --watch scss/kat-ui.scss css/kat-ui.css --style=expanded",
+    "serve": "npx http-server . -p 3000"
+  },
+  "keywords": [
+    "ui",
+    "framework",
+    "components",
+    "japanese",
+    "accessibility",
+    "responsive",
+    "css",
+    "scss",
+    "vanilla-js"
+  ],
+  "author": "Bui Van Tai",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.0"
+  },
+  "files": [
+    "css/",
+    "js/",
+    "scss/",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/kat-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/kat-ui/issues"
+  },
+  "homepage": "https://github.com/your-username/kat-ui#readme"
+}

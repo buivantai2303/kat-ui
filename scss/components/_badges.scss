@@ -1,0 +1,402 @@
+@use '../core/variables' as *;
+@use '../core/mixins' as *;
+/**
+ * Kat UI Framework - バッジ・タグコンポーネント
+ * 
+ * ステータス表示、カウント表示、カテゴリ分類に使用される
+ * 小さくて目立つラベルコンポーネントのスタイル
+ * 
+ * @project: Kat UI Framework
+ * @author: Bui Van Tai, 2025-08-12
+ * @version: 1.0.0
+ */
+
+/* ベースバッジスタイル - 基本的なバッジの見た目と動作 */
+.kat-badge-group {
+  margin-bottom: $kat-space-1-5;
+}
+
+.kat-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $kat-space-1 $kat-space-2;
+  font-size: $kat-font-size-xs;
+  font-weight: $kat-font-weight-medium;
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: baseline;
+  
+  /* デフォルトバッジ - 基本的なグレーバッジ */
+  background-color: $kat-gray-100;
+  color: $kat-gray-800;
+  
+  /* バッジバリアント - 用途に応じた色分け */
+  &.kat-badge--primary {
+    background-color: $kat-primary-100;
+    color: $kat-primary-800;
+  }
+  
+  &.kat-badge--success {
+    background-color: $kat-success-100;
+    color: $kat-success-800;
+  }
+  
+  &.kat-badge--warning {
+    background-color: $kat-warning-100;
+    color: $kat-warning-800;
+  }
+  
+  &.kat-badge--error {
+    background-color: $kat-error-100;
+    color: $kat-error-800;
+  }
+  
+  &.kat-badge--info {
+    background-color: $kat-info-100;
+    color: $kat-info-800;
+  }
+  
+  /* アウトラインバリアント - 枠線のみの透明背景 */
+  &.kat-badge--outline {
+    background-color: transparent;
+    border: $kat-border-1 solid $kat-gray-300;
+    color: $kat-gray-700;
+    
+    &.kat-badge--primary {
+      border-color: $kat-primary-300;
+      color: $kat-primary-700;
+    }
+    
+    &.kat-badge--success {
+      border-color: $kat-success-300;
+      color: $kat-success-700;
+    }
+    
+    &.kat-badge--warning {
+      border-color: $kat-warning-300;
+      color: $kat-warning-700;
+    }
+    
+    &.kat-badge--error {
+      border-color: $kat-error-300;
+      color: $kat-error-700;
+    }
+    
+    &.kat-badge--info {
+      border-color: $kat-info-300;
+      color: $kat-info-700;
+    }
+  }
+  
+  /* ソリッドバリアント - 背景色が濃いバージョン */
+  &.kat-badge--solid {
+    color: $kat-white;
+    
+    &.kat-badge--primary {
+      background-color: $kat-primary-600;
+    }
+    
+    &.kat-badge--success {
+      background-color: $kat-success-600;
+    }
+    
+    &.kat-badge--warning {
+      background-color: $kat-warning-600;
+    }
+    
+    &.kat-badge--error {
+      background-color: $kat-error-600;
+    }
+    
+    &.kat-badge--info {
+      background-color: $kat-info-600;
+    }
+  }
+  
+  /* バッジサイズ - 用途に応じた大きさのバリエーション */
+  &.kat-badge--sm {
+    padding: $kat-space-0-5 $kat-space-1-5;
+    font-size: 0.6875rem; /* 11px */
+  }
+  
+  &.kat-badge--lg {
+    padding: $kat-space-1-5 $kat-space-3;
+    font-size: $kat-font-size-sm;
+  }
+  
+  /* ピルバリアント - より丸みを帯びたデザイン */
+  &.kat-badge--pill {
+    border-radius: $kat-radius-full;
+    padding: $kat-space-1 $kat-space-3;
+  }
+  
+  /* スクエアバリアント - 角張ったデザイン */
+  &.kat-badge--square {
+    border-radius: $kat-radius-sm;
+  }
+  
+  /* アイコン付きバッジ - アイコンとテキストを組み合わせたバッジ */
+  &.kat-badge--with-icon {
+    gap: $kat-space-1;
+    padding-left: $kat-space-1-5;
+    
+    svg {
+      width: 0.75rem;
+      height: 0.75rem;
+    }
+    
+    &.kat-badge--sm {
+      gap: $kat-space-0-5;
+      padding-left: $kat-space-1;
+      
+      svg {
+        width: 0.625rem;
+        height: 0.625rem;
+      }
+    }
+    
+    &.kat-badge--lg {
+      gap: $kat-space-1-5;
+      padding-left: $kat-space-2;
+      
+      svg {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+  }
+  
+  /* 削除可能バッジ - 閉じるボタン付きのバッジ */
+  &.kat-badge--removable {
+    padding-right: $kat-space-1;
+    gap: $kat-space-1;
+    
+    .kat-badge__remove {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      padding: 0;
+      width: 1rem;
+      height: 1rem;
+      border-radius: $kat-radius-full;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: opacity $kat-duration-150 $kat-ease-in-out;
+      
+      @include kat-hover {
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+      
+      svg {
+        width: 0.75rem;
+        height: 0.75rem;
+      }
+    }
+    
+    &.kat-badge--sm {
+      .kat-badge__remove {
+        width: 0.875rem;
+        height: 0.875rem;
+        
+        svg {
+          width: 0.625rem;
+          height: 0.625rem;
+        }
+      }
+    }
+    
+    &.kat-badge--lg {
+      .kat-badge__remove {
+        width: 1.25rem;
+        height: 1.25rem;
+        
+        svg {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+  }
+}
+
+/* 通知バッジ - 小さな丸い通知インジケーター */
+.kat-badge--dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border-radius: $kat-radius-full;
+  background-color: $kat-error-500;
+  
+  &.kat-badge--sm {
+    width: 0.375rem;
+    height: 0.375rem;
+  }
+  
+  &.kat-badge--lg {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}
+
+/* バッジグループ - 複数のバッジをまとめて表示 */
+.kat-badge-group {
+  display: inline-flex;
+  align-items: center;
+  gap: $kat-space-1;
+  flex-wrap: wrap;
+  
+  &.kat-badge-group--sm {
+    gap: $kat-space-0-5;
+  }
+  
+  &.kat-badge-group--lg {
+    gap: $kat-space-2;
+  }
+}
+
+/* 位置指定バッジ - 他の要素の上に重ねて表示 */
+.kat-position-badge {
+  position: relative;
+  display: inline-block;
+  
+  .kat-badge {
+    position: absolute;
+    transform: translate(50%, -50%);
+    
+    &.kat-badge--top-right {
+      top: 0;
+      right: 0;
+    }
+    
+    &.kat-badge--top-left {
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+    }
+    
+    &.kat-badge--bottom-right {
+      bottom: 0;
+      right: 0;
+      transform: translate(50%, 50%);
+    }
+    
+    &.kat-badge--bottom-left {
+      bottom: 0;
+      left: 0;
+      transform: translate(-50%, 50%);
+    }
+  }
+}
+
+/* インタラクティブバッジ - クリック可能なバッジ */
+.kat-badge--interactive {
+  cursor: pointer;
+  transition: all $kat-duration-150 $kat-ease-in-out;
+  
+  @include kat-focus-ring;
+  
+  @include kat-hover {
+    transform: translateY(-1px);
+    box-shadow: $kat-shadow-sm;
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  
+  &.kat-badge--outline {
+    @include kat-hover {
+      background-color: $kat-gray-50;
+    }
+    
+    &.kat-badge--primary {
+      @include kat-hover {
+        background-color: $kat-primary-50;
+      }
+    }
+    
+    &.kat-badge--success {
+      @include kat-hover {
+        background-color: $kat-success-50;
+      }
+    }
+    
+    &.kat-badge--warning {
+      @include kat-hover {
+        background-color: $kat-warning-50;
+      }
+    }
+    
+    &.kat-badge--error {
+      @include kat-hover {
+        background-color: $kat-error-50;
+      }
+    }
+    
+    &.kat-badge--info {
+      @include kat-hover {
+        background-color: $kat-info-50;
+      }
+    }
+  }
+}
+
+/* ステータスインジケーター - ユーザーの状態を表示 */
+.kat-status {
+  padding: $kat-space-1 $kat-space-3;
+  font-size: $kat-font-size-xs;
+  font-weight: $kat-font-weight-medium;
+  line-height: 1;
+  vertical-align: middle;
+  color: $kat-white;
+  border-radius: $kat-radius-full;
+  
+  &.kat-status--online {
+    background-color: $kat-success-500;
+    color: $kat-white;
+  }
+  
+  &.kat-status--away {
+    background-color: $kat-warning-500;
+    color: $kat-white;
+  }
+  
+  &.kat-status--busy {
+    background-color: $kat-error-500;
+    color: $kat-white;
+  }
+  
+  &.kat-status--offline {
+    background-color: $kat-gray-400;
+    color: $kat-white;
+  }
+}
+
+/* カウンターバッジ - 数値を表示する専用バッジ */
+.kat-counter {
+  @extend .kat-badge !optional;
+  @extend .kat-badge--solid !optional;
+  @extend .kat-badge--primary !optional;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  font-size: 0.6875rem;
+  font-weight: $kat-font-weight-bold;
+  
+  &.kat-counter--sm {
+    min-width: 1rem;
+    height: 1rem;
+    font-size: 0.625rem;
+  }
+  
+  &.kat-counter--lg {
+    min-width: 1.5rem;
+    height: 1.5rem;
+    font-size: $kat-font-size-xs;
+  }
+}
